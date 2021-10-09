@@ -1,24 +1,32 @@
-import React, { Fragment } from "react";
+import React from "react";
 
+import styled from "styled-components";
 
-
-import NavBar from "./components/NavBar";
-import Index from "./components/Index";
-import Contact from "./components/Contact";
-import Resume from "./components/Resume";
-import NotFound from "./components/NotFound";
 
 
 
 function App() {
   
     return (
-      <Fragment>
-       
-          <NavBar />
-          <Index />
-          
-      </Fragment>
+      <>
+      <Header>
+        <NavBar>
+          <Logo/>
+          <NavLinks>
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#tech">Tech</a>
+            <a href="#about">About</a>
+            <a href="contact">Contact</a>
+          </NavLinks>
+          <ImageLinks>
+            <a src="github" href="github.com"></a>
+            <a src="linkedin" href="linkedin.com"></a>
+            <a src="email" href="#email"></a>
+          </ImageLinks>
+        </NavBar>
+        </Header>
+      </>
     );
   }
 
