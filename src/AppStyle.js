@@ -1,8 +1,19 @@
 import styled from "styled-components";
 
+Header, NavBar,Logo, NavLinks, ImageLinks
 
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+const Header = styled.h1`
+
+`;
+const NavBar = styled.h1`
+
+`;
+const Logo = styled.h1`
+
+`;
+const NavLinks = styled.h1`
+
+`;
+const ImageLinks = styled.h1`
+
 `;
