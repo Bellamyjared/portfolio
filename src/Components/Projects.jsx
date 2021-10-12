@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Projects,
-  HighlightedProject,
-  LeftSection,
-  Title,
-  Paragraph,
-  RightSection,
-  ProjectImage,
-  ProjectTech,
-  TechImage,
-  TechLable,
-} from "ProjectsStyles.js";
+import styled from "styled-components";
 
 const Projects = () => {
   return (
