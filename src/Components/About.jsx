@@ -1,12 +1,18 @@
 import React from "react";
+import styled from "styled-components";
+
+const Title = styled.div``;
+const Content = styled.div``;
+const Image = styled.div``;
+const Paragraph = styled.div``;
 
 const About = () => {
   return (
-    <div>
-      <AboutTitle>About</AboutTitle>
-      <AboutContent>
-        <AboutImage />
-        <AboutParagraph>
+    <>
+      <Title>About</Title>
+      <Content>
+        <Image />
+        <Paragraph>
           Lorem ipsum is placeholder text commonly used in the graphic, print,
           and publishing industries for previewing layouts and visual
           mockupsLorem ipsum is placeholder text commonly used in the graphic,
@@ -14,9 +20,9 @@ const About = () => {
           mockupsLorem ipsum is placeholder text commonly used in the graphic,
           print, and publishing industries for previewing layouts and visual
           mockups
-        </AboutParagraph>
-      </AboutContent>
-    </div>
+        </Paragraph>
+      </Content>
+    </>
   );
 };
 

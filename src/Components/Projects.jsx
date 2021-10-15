@@ -1,9 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
+const HighlightedProject = styled.div``;
+const LeftSection = styled.div``;
+const Title = styled.div``;
+const Paragraph = styled.div``;
+const RightSection = styled.div``;
+const ProjectImage = styled.div``;
+const ProjectTech = styled.div``;
+const TechImage = styled.div``;
+const TechLable = styled.div``;
+
 const Projects = () => {
   return (
-    <Projects>
+    <>
       <HighlightedProject>
         <LeftSection>
           <Title>Name of project</Title>
@@ -17,14 +27,10 @@ const Projects = () => {
           <ProjectTech>
             <TechImage />
             <TechLable>React</TechLable>
-            <TechImage />
-            <TechLable>NodeJs</TechLable>
-            <TechImage />
-            <TechLable>MongoDb</TechLable>
           </ProjectTech>
         </RightSection>
       </HighlightedProject>
-    </Projects>
+    </>
   );
 };
 
