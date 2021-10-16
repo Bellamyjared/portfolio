@@ -1,17 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 
-const HeroTitle = styled.div``;
+const HeroContainer = styled.div`
+  height: 75vh;
+`;
+const HeroTitle = styled.h1`
+  margin-bottom: 2px;
+`;
 const HeroSubTitle = styled.div``;
-const CallToAction = styled.div``;
+
+const CallToAction = styled.button`
+  margin-top: 10vh;
+  margin-left: 30%;
+`;
 
 const Hero = () => {
   return (
-    <div>
-      <HeroTitle>Making Technologies Work For You</HeroTitle>
+    <HeroContainer>
+      <HeroTitle>
+        Making Technologies <br /> Work For You
+      </HeroTitle>
       <HeroSubTitle>Full Stack Development</HeroSubTitle>
       <CallToAction href="project">See More</CallToAction>
-    </div>
+    </HeroContainer>
   );
 };
 

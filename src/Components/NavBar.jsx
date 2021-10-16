@@ -7,22 +7,29 @@ import Email from "../Images/EmailLogo.svg";
 import LinkedIn from "../Images/LinkedInLogo.svg";
 import Logo from "../Images/Logo.svg";
 
+const NavDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 const NavLogo = styled.div``;
 const MobileNav = styled.div``;
 const NavLinks = styled.a`
-  @media screen and (max-width: 768px) {
-    display: none;
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
   }
 `;
 const ImageLinks = styled.div`
-  @media screen and (max-width: 768px) {
-    display: none;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
   }
 `;
 
 const NavBar = () => {
   return (
-    <>
+    <NavDiv>
       <NavLogo>
         <img alt="JaredBellamy" src={Logo} />
       </NavLogo>
@@ -47,7 +54,7 @@ const NavBar = () => {
           <img alt="Email" src={Email} />
         </a>
       </ImageLinks>
-    </>
+    </NavDiv>
   );
 };
 
