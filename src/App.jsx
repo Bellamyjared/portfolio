@@ -8,16 +8,17 @@ import Technology from "./Components/Technology.jsx";
 import About from "./Components/About.jsx";
 import Contact from "./Components/Contact.jsx";
 import Footer from "./Components/Footer.jsx";
-import test from "./Images/Group_4.svg";
+import test from "./Images/TEST_2.svg";
 
 const GlobalStyle = createGlobalStyle`
   body {
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
-    background-image: url("./Images/Group_4.png");
+
     
-    /* background-color: #EBF8FF; */
-    margin: 2em 2em 0em 2em;
+    background-color: #EBF8FF;
+    margin: 0%;
+    /* margin-left: 0%; */
   }
   button {
     font-size : 20px;
@@ -27,17 +28,27 @@ const GlobalStyle = createGlobalStyle`
   border-radius: 20px;
   border : none;
   }
+img.test {
+  height: 100vh;
+  width : 150vh;
+  border : 2px solid;
+  /* object-fit : cover 100%; */
+  overflow: clip;
 
+  background-repeat: no-repeat;
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+}
 
 `;
 function App() {
   return (
     <>
-      <img alt="test" src={test}></img>
       <GlobalStyle />
       <NavBar />
       <Hero />
-      <Projects />
+      <div style={{ border: `2px solid` }}>
+        <Projects />
+      </div>
       <Technology />
       <About />
       <Contact />
