@@ -1,16 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-import mySvg from "../Images/Group_4.png";
+import mySvg from "../Images/Background_1.png";
 
 const HighlightedProject = styled.div`
   background-repeat: no-repeat;
   height: 100vh;
-  border: 2px solid;
+  width: 100%;
   background-size: cover;
   background-image: url(${mySvg});
-  background-position: -100px;
-  overflow: visible;
+  overflow: hidden;
 `;
 const LeftSection = styled.div``;
 const Title = styled.div``;
@@ -26,8 +25,6 @@ const TechLable = styled.div``;
 const Projects = () => {
   return (
     <HighlightedProject>
-      {/* <img alt="test" className="test" src={mySvg}></img> */}
-
       <LeftSection>
         <Title>Name of project</Title>
         <Paragraph>
