@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const HeroContainer = styled.div`
-  padding: 2em 2em 12em 2em;
+  padding: 1em 2.5em 17em 2.5em;
 `;
 const HeroTitle = styled.h1`
   margin-bottom: 0.3em;
@@ -11,10 +11,8 @@ const HeroTitle = styled.h1`
 const HeroSubTitle = styled.div``;
 
 const CallToAction = styled.button`
-  display: flex;
-  margin: 0 auto;
-
-  margin-top: 4em;
+  margin-top: 3.5em;
+  margin-left: 3em;
 `;
 
 const Hero = () => {

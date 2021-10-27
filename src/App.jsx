@@ -11,7 +11,6 @@ import Footer from "./Components/Footer.jsx";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    font-size: 18px;
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     background-color: #EBF8FF;
@@ -19,20 +18,27 @@ const GlobalStyle = createGlobalStyle`
   
   }
   button {
-    font-size : 20px;
-    padding : 9px 30px 9px 30px;
+    font-size : 16px;
+    width: 8em;
+    height: 2.5em;
     color: white;
     background-color: #031f4b;
     border-radius: 20px;
     border : none;
   }
+  .TechImage{
+    width: 2em;
+    text-align: center;
 
-  /* .project{
-    float:right;
-    margin: 0;
-    padding: 0;
-    width : 100%;
-  } */
+  }
+
+  .ProjectImage{
+    width: 250px;
+    height: auto;
+    object-fit: cover
+
+  }
+
 
 `;
 function App() {

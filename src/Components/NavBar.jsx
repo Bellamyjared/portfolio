@@ -8,7 +8,7 @@ import LinkedIn from "../Images/LinkedInLogo.svg";
 import Logo from "../Images/Logo.svg";
 
 const NavDiv = styled.div`
-  padding: 2em;
+  padding: 2.5em;
   display: flex;
   justify-content: space-between;
 `;
