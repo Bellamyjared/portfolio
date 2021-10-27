@@ -2,23 +2,26 @@ import React from "react";
 import styled from "styled-components";
 
 const HeroContainer = styled.div`
-  height: 75vh;
+  padding: 2em 2em 12em 2em;
 `;
 const HeroTitle = styled.h1`
-  margin-bottom: 2px;
+  margin-bottom: 0.3em;
+  line-height: 1.3em;
 `;
 const HeroSubTitle = styled.div``;
 
 const CallToAction = styled.button`
-  margin-top: 10vh;
-  margin-left: 30%;
+  display: flex;
+  margin: 0 auto;
+
+  margin-top: 4em;
 `;
 
 const Hero = () => {
   return (
     <HeroContainer>
       <HeroTitle>
-        Making Technologies <br /> Work For You
+        Making Technology <br /> Work For You
       </HeroTitle>
       <HeroSubTitle>Full Stack Development</HeroSubTitle>
       <CallToAction href="project">See More</CallToAction>

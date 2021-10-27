@@ -8,13 +8,18 @@ import LinkedIn from "../Images/LinkedInLogo.svg";
 import Logo from "../Images/Logo.svg";
 
 const NavDiv = styled.div`
+  padding: 2em;
   display: flex;
   justify-content: space-between;
 `;
-const NavLogo = styled.div``;
+
+const NavLogo = styled.div`
+  padding-top: 0.3em;
+`;
 const MobileNav = styled.div``;
 const NavLinks = styled.a`
   display: none;
+
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -22,9 +27,9 @@ const NavLinks = styled.a`
 const ImageLinks = styled.div`
   display: none;
 
-  @media screen and (min-width: 768px) {
+  /* @media screen and (min-width: 768px) {
     display: flex;
-  }
+  } */
 `;
 
 const NavBar = () => {

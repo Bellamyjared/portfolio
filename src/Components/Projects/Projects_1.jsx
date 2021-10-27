@@ -1,21 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import mySvg from "../Images/Background_1.png";
-
-const HighlightedProject = styled.div`
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-image: url(${mySvg});
-  overflow: hidden;
-`;
+const HighlightedProject = styled.div``;
 const LeftSection = styled.div``;
 const Title = styled.div``;
-const Paragraph = styled.div`
-  /* display: float; */
-`;
+const Paragraph = styled.div``;
 const RightSection = styled.div``;
 const ProjectImage = styled.div``;
 const ProjectTech = styled.div``;
