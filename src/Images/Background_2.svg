@@ -1,9 +1,19 @@
-<svg width="695" height="1932" viewBox="0 0 695 1932" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="-355" width="1469" height="1932" fill="url(#paint0_radial_42:172)"/>
-<defs>
-<radialGradient id="paint0_radial_42:172" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(947.5 80.0002) rotate(151.45) scale(1444.41 3870.14)">
-<stop stop-color="#EBF8FF"/>
-<stop offset="1" stop-color="#6497B1"/>
-</radialGradient>
-</defs>
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <filter id="drop-shadow-filter-0" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="drop-shadow 1 0 0 6 0.47 rgba(0,0,0,0.3)">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="0"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="spread-ctrl" type="linear" slope="0.94"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,0,0,0.3)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path style="filter: url(#drop-shadow-filter-0); paint-order: fill markers; fill: rgb(255, 255, 255);" d="M -17.872 93.312 L 514.121 31.251 L 516 477.706 L -13.855 414.792 L -17.872 93.312 Z" transform="matrix(-1, 0, 0, -1, 498.128021, 508.95697)"/>
 </svg>

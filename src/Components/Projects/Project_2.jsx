@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import ProjectImage from "../../Images/ProjectImageTemp.png";
-import React_icon from "../../Images/React_icon.svg";
-import NodeJS_Icon from "../../Images/NodeJS_Icon.svg";
-import MongoDB_Icon from "../../Images/MongoDB_Icon.svg";
+import React_icon from "../../Images/ProjectImages/React_icon.svg";
+import NodeJS_Icon from "../../Images/ProjectImages/NodeJS_Icon.svg";
+import MongoDB_Icon from "../../Images/ProjectImages/MongoDB_Icon.svg";
 
 const Project = styled.div`
-  padding-bottom: 10em;
+  padding: 0em 2.5em 10em 2.5em;
 `;
 
 const LeftSection = styled.div`
@@ -73,15 +73,19 @@ const Projects_2 = () => {
       <RightSection>
         <ProjectTech>
           <ReactIcon>
-            <img className="TechImage" src={React_icon} alt="React_Icon" />
+            <img className="ProjectIcon" src={React_icon} alt="React_Icon" />
             <TechLable>React</TechLable>
           </ReactIcon>
           <NodeJSIcon>
-            <img className="TechImage" src={NodeJS_Icon} alt="NodeJS_Icon" />
+            <img className="ProjectIcon" src={NodeJS_Icon} alt="NodeJS_Icon" />
             <TechLable>NodeJS</TechLable>
           </NodeJSIcon>
           <MongoDBIcon>
-            <img className="TechImage" src={MongoDB_Icon} alt="MongoDB_Icon" />
+            <img
+              className="ProjectIcon"
+              src={MongoDB_Icon}
+              alt="MongoDB_Icon"
+            />
             <TechLable>MongoDB</TechLable>
           </MongoDBIcon>
         </ProjectTech>

@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import MobileNavBar from "../Images/MobileNavBar.svg";
-import Github from "../Images/GithubLogo.svg";
-import Email from "../Images/EmailLogo.svg";
-import LinkedIn from "../Images/LinkedInLogo.svg";
+import Github from "../Images/NavImages/GithubLogo.svg";
+import Email from "../Images/NavImages/EmailLogo.svg";
+import LinkedIn from "../Images/NavImages/LinkedInLogo.svg";
 import Logo from "../Images/Logo.svg";
 
 const NavDiv = styled.div`

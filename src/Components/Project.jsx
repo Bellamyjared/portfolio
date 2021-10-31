@@ -5,6 +5,8 @@ import Project1 from "./Projects/Project_1.jsx";
 import Project2 from "./Projects/Project_2.jsx";
 import Project3 from "./Projects/Project_3.jsx";
 
+import Technology from "./Technology.jsx";
+
 import mySvg from "../Images/Background_1.svg";
 
 const ProjectContainer = styled.div`
@@ -15,8 +17,7 @@ const ProjectContainer = styled.div`
 
   /* overflow: hidden; */
 
-  padding: 9em 2.5em 0px 2.5em;
-  height: 270vh;
+  height: 150em;
 `;
 
 const Project = () => {
@@ -25,6 +26,8 @@ const Project = () => {
       <Project1 />
       <Project2 />
       <Project3 />
+      <Technology />
+      {/* I moved the rest into Technology for the same reason as before */}
     </ProjectContainer>
   );
 };
