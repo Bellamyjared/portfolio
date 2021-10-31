@@ -28,12 +28,12 @@ const BackgroundForTheRest = styled.div`
 
   overflow: hidden;
 
-  height: 200em;
+  height: 160em;
 `;
 
 const TechnologyContent = styled.div`
   padding-top: 8em;
-  padding-bottom: 6em;
+  height: 45em;
 `;
 const BackgroundText = styled.div`
   background-repeat: no-repeat;
