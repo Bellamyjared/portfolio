@@ -12,6 +12,17 @@ const FrontEndIconsContainer = styled.div`
     width: 65px;
     padding-bottom: 10px;
   }
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 85%;
+    height: auto;
+    padding-top: 2em;
+    .FrontEndIcon {
+      width: 100px;
+    }
+  }
 `;
 const CssIconContainer = styled.div`
   display: flex;
@@ -41,6 +52,9 @@ const ReactIconContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 1em;
+  @media screen and (min-width: 1024px) {
+    padding-bottom: 2em;
+  }
 `;
 const ReduxIconContainer = styled.div`
   display: flex;
@@ -58,21 +72,6 @@ const TechLable = styled.div`
 const FrontEnd = () => {
   return (
     <FrontEndIconsContainer>
-      <CssIconContainer>
-        <img className="FrontEndIcon" src={Cssicon} alt="CssImage" />
-        <TechLable>CSS</TechLable>
-      </CssIconContainer>
-
-      <HtmlIconContainer>
-        <img className="FrontEndIcon" src={htmlicon} alt="HtmlImage" />
-        <TechLable>HTML5</TechLable>
-      </HtmlIconContainer>
-
-      <JSIconContainer>
-        <img className="FrontEndIcon" src={JSicon} alt="JSImage" />
-        <TechLable>JavaScript</TechLable>
-      </JSIconContainer>
-
       <ReactIconContainer>
         <img className="FrontEndIcon" src={reacticon} alt="ReactImage" />
         <TechLable>React</TechLable>
@@ -82,6 +81,19 @@ const FrontEnd = () => {
         <img className="FrontEndIcon" src={reduxicon} alt="ReduxImage" />
         <TechLable>Redux</TechLable>
       </ReduxIconContainer>
+      <JSIconContainer>
+        <img className="FrontEndIcon" src={JSicon} alt="JSImage" />
+        <TechLable>JavaScript</TechLable>
+      </JSIconContainer>
+      <HtmlIconContainer>
+        <img className="FrontEndIcon" src={htmlicon} alt="HtmlImage" />
+        <TechLable>HTML5</TechLable>
+      </HtmlIconContainer>
+
+      <CssIconContainer>
+        <img className="FrontEndIcon" src={Cssicon} alt="CssImage" />
+        <TechLable>CSS</TechLable>
+      </CssIconContainer>
     </FrontEndIconsContainer>
   );
 };

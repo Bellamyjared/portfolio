@@ -1,18 +1,33 @@
 import React from "react";
 import styled from "styled-components";
 
-import NodeJSicon from "../../Images/TechnologyImages/MySQL_icon.svg";
-import RestAPIicon from "../../Images/TechnologyImages/MongoDB_icon.svg";
+import MySQL from "../../Images/TechnologyImages/MySQL_icon.svg";
+import MongoDB from "../../Images/TechnologyImages/MongoDB_icon.svg";
 
 const DataBaseIconsContainer = styled.div`
   padding-top: 2em;
+  padding-left: 2em;
   .DataBaseIcon {
     width: 125px;
     padding-bottom: 3em;
   }
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-evenly;
+
+    .DataBaseIcon {
+      width: 250px;
+    }
+    #MongoDB {
+      width: 350px;
+    }
+  }
 `;
 
-const NodeJSIconContainer = styled.div`
+const MySQLContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -22,9 +37,12 @@ const NodeJSIconContainer = styled.div`
   img {
     width: 10em;
   }
+  @media screen and (min-width: 1024px) {
+    padding: 0em;
+  }
 `;
 
-const RestAPIIconContainer = styled.div`
+const MongoDBContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -33,18 +51,27 @@ const RestAPIIconContainer = styled.div`
   img {
     width: 13em;
   }
+  @media screen and (min-width: 1024px) {
+    padding: 0em;
+    margin: 0em;
+  }
 `;
 
 const DataBaseIcons = () => {
   return (
     <DataBaseIconsContainer>
-      <NodeJSIconContainer>
-        <img className="DataBaseIcon" src={NodeJSicon} alt="NodeJSImage" />
-      </NodeJSIconContainer>
+      <MySQLContainer>
+        <img className="DataBaseIcon" src={MySQL} alt="NodeJSImage" />
+      </MySQLContainer>
 
-      <RestAPIIconContainer>
-        <img className="DataBaseIcon" src={RestAPIicon} alt="RestAPIImage" />
-      </RestAPIIconContainer>
+      <MongoDBContainer>
+        <img
+          className="DataBaseIcon"
+          id="MongoDB"
+          src={MongoDB}
+          alt="RestAPIImage"
+        />
+      </MongoDBContainer>
     </DataBaseIconsContainer>
   );
 };

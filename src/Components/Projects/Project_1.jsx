@@ -7,7 +7,13 @@ import NodeJS_Icon from "../../Images/ProjectImages/NodeJS_Icon.svg";
 import MongoDB_Icon from "../../Images/ProjectImages/MongoDB_Icon.svg";
 
 const Project = styled.div`
-  padding: 15em 2.5em 10em 2.5em;
+  padding: 18em 2.5em 10em 2.5em;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: right;
+    padding: 15em 2.5em 10em 2.5em;
+  }
 `;
 
 const RightSection = styled.div`
@@ -17,6 +23,17 @@ const RightSection = styled.div`
     margin-right: auto;
     width: 80%;
     max-width: 400px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 55%;
+    max-width: 600px;
+
+    img {
+      margin-left: 0px;
+      margin-right: 0px;
+      width: 100%;
+      max-width: none;
+    }
   }
 `;
 
@@ -60,6 +77,15 @@ const TechLable = styled.div`
 const LeftSection = styled.div`
   padding-top: 1em;
   padding-bottom: 2em;
+  @media screen and (min-width: 1024px) {
+    max-width: 600px;
+
+    padding-top: 3em;
+    padding-left: 3em;
+    padding-right: 5em;
+
+    width: 45%;
+  }
 `;
 const Title = styled.h1`
   margin-bottom: 5px;
@@ -68,6 +94,7 @@ const Paragraph = styled.div``;
 const ProjectLinks = styled.div`
   display: flex;
   justify-content: center;
+  padding-top: 2em;
 `;
 
 const Project_1 = () => {
@@ -100,10 +127,10 @@ const Project_1 = () => {
           Lorem ipsum is placeholder text commonly used in the graphic, print,
           and publishing industries for previewing layouts and visual mockups
         </Paragraph>
+        <ProjectLinks>
+          <button>Live</button>
+        </ProjectLinks>
       </LeftSection>
-      <ProjectLinks>
-        <button>Live</button>
-      </ProjectLinks>
     </Project>
   );
 };

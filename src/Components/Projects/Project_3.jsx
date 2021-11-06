@@ -8,11 +8,25 @@ import MongoDB_Icon from "../../Images/ProjectImages/MongoDB_Icon.svg";
 
 const Project = styled.div`
   padding: 0em 2.5em 10em 2.5em;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: right;
+    padding: 10em 2.5em 20em 2.5em;
+  }
 `;
 
 const LeftSection = styled.div`
   padding-top: 1em;
   padding-bottom: 2em;
+  @media screen and (min-width: 1024px) {
+    max-width: 600px;
+
+    padding-top: 3em;
+    padding-left: 3em;
+    padding-right: 5em;
+
+    width: 45%;
+  }
 `;
 const Title = styled.h1`
   margin-bottom: 5px;
@@ -20,6 +34,7 @@ const Title = styled.h1`
 const Paragraph = styled.div``;
 
 const RightSection = styled.div`
+  padding-bottom: 2em;
   img {
     display: block;
     margin-left: auto;
@@ -27,7 +42,17 @@ const RightSection = styled.div`
     width: 80%;
     max-width: 400px;
   }
-  padding-bottom: 2em;
+  @media screen and (min-width: 1024px) {
+    width: 55%;
+    max-width: 600px;
+
+    img {
+      margin-left: 0px;
+      margin-right: 0px;
+      width: 100%;
+      max-width: none;
+    }
+  }
 `;
 
 const ProjectTech = styled.div`
@@ -69,11 +94,22 @@ const TechLable = styled.div`
 
 const ProjectLinks = styled.div`
   display: flex;
+  padding-top: 2em;
   justify-content: space-around;
   @media screen and (max-width: 350px) {
     button {
       width: 7em;
     }
+  }
+  @media screen and (min-width: 1024px) {
+    button {
+      margin-left: 2em;
+      margin-right: 3em;
+    }
+    justify-content: left;
+    width: 90%;
+    position: absolute;
+    padding-top: 17em;
   }
 `;
 
@@ -109,7 +145,6 @@ const Projects_2 = () => {
           </MongoDBIcon>
         </ProjectTech>
       </RightSection>
-
       <ProjectLinks>
         <button>Live</button>
         <button>Code</button>

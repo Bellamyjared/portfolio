@@ -11,11 +11,13 @@ import mySvg from "../Images/Background_1.svg";
 
 const ProjectContainer = styled.div`
   background: url(${mySvg}) no-repeat,
-    radial-gradient(farthest-side at 30% 30%, #ebf8ff, #6497b1) no-repeat;
-  background-size: 300vw 1100px, 500vw auto;
-  background-position: 0px 0px, 0px 400px;
+    radial-gradient(farthest-side at 60% 30%, #ebf8ff, #6497b1) no-repeat;
+  background-size: 300vw 1100px, 150vw auto;
+  background-position: 0px 0px, 0px 200px;
 
-  /* overflow: hidden; */
+  @media screen and (min-width: 1024px) {
+    background-size: 100vw 900px, 150vw auto;
+  }
 
   height: 175em;
 

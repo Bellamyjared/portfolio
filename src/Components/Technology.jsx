@@ -30,6 +30,10 @@ const BackgroundForTheRest = styled.div`
 
   height: 160em;
 
+  @media screen and (min-width: 1024px) {
+    height: 200em;
+  }
+
   @media screen and (min-width: 600px) {
     background-size: auto 1000px, 100vw auto;
     margin-top: -100px;
@@ -43,6 +47,7 @@ const BackgroundForTheRest = styled.div`
 const TechnologyContent = styled.div`
   padding-top: 8em;
   height: 45em;
+
   .TechImage {
     width: 100px;
     height: auto;
@@ -51,7 +56,15 @@ const TechnologyContent = styled.div`
   @media screen and (min-width: 600px) {
     padding-top: 15em;
   }
+
+  @media screen and (min-width: 1024px) {
+    .TechImage {
+      width: 100%;
+      height: auto;
+    }
+  }
 `;
+
 const BackgroundText = styled.div`
   background-repeat: no-repeat;
   background-size: 100vw auto;
@@ -60,7 +73,12 @@ const BackgroundText = styled.div`
 
   margin-top: -300px;
   margin-bottom: -275px;
+
+  @media screen and (min-width: 1024px) {
+    margin-bottom: -415px;
+  }
 `;
+
 const TechContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -69,24 +87,54 @@ const TechContainer = styled.div`
   @media screen and (min-width: 600px) {
     justify-content: space-around;
   }
+  @media screen and (min-width: 1024px) {
+    display: flex;
+
+    flex-wrap: wrap-reverse;
+    padding: 0em 0em 0em 0em;
+  }
 `;
-const RightSection = styled.div``;
-const FrontEnd = styled.div`
-  padding-bottom: 1em;
+
+const RightSection = styled.div`
+  margin-top: -50px;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    height: 400px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0px;
+  }
 `;
-const BackEnd = styled.div`
-  padding-top: 1.5em;
-  padding-bottom: 1em;
-`;
-const DataBase = styled.div`
-  padding-top: 1.5em;
-  padding-bottom: 1em;
-`;
-const TechLables = styled.div``;
 
 const LeftSection = styled.div`
   font-weight: bold;
   margin-top: -100px;
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    width: 100%;
+    height: auto;
+  }
+`;
+const FrontEnd = styled.div`
+  padding-bottom: 1em;
+  @media screen and (min-width: 1024px) {
+    padding: 1em 8em 0em 0em;
+  }
+`;
+const BackEnd = styled.div`
+  padding-top: 1.5em;
+  padding-bottom: 1em;
+  @media screen and (min-width: 1024px) {
+    padding: 1em 8em 0em 0em;
+  }
+`;
+const DataBase = styled.div`
+  padding-top: 1.5em;
+  padding-bottom: 1em;
+  @media screen and (min-width: 1024px) {
+    padding: 0em 0em 0em 0em;
+  }
 `;
 
 const Technology = () => {
@@ -143,8 +191,8 @@ const Technology = () => {
             </DataBase>
           </RightSection>
         </TechContainer>
-        <TechLables></TechLables>
       </TechnologyContent>
+
       <About />
       <Contact />
       <Footer />

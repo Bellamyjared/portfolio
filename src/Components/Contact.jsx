@@ -2,21 +2,36 @@ import React from "react";
 import styled from "styled-components";
 
 const ContactContainer = styled.div`
-  padding: 10em 2.5em 0em 2.5em;
+  padding: 15em 2.5em 0em 2.5em;
   color: white;
 
   input {
     width: 70%;
     padding-top: 1.5em;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
+  }
+  @media screen and (min-width: 1024px) {
+    margin-right: 13%;
+    margin-left: 13%;
+    padding-bottom: 13em;
   }
 `;
 const ContactTitle = styled.h1`
   display: flex;
   justify-content: center;
 `;
-const ContactInformation = styled.div``;
+const ContactInformation = styled.div`
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: space-evenly;
+  }
+`;
+const RightSection = styled.div`
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+  }
+`;
 const NameLable = styled.div`
   padding-bottom: 0.5em;
   font-size: 18px;
@@ -24,6 +39,13 @@ const NameLable = styled.div`
 const NameInput = styled.div`
   padding-bottom: 1.5em;
 `;
+
+const LeftSection = styled.div`
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+  }
+`;
+
 const EmailLable = styled.div`
   padding-bottom: 0.5em;
   font-size: 18px;
@@ -53,15 +75,18 @@ const Contact = () => {
     <ContactContainer>
       <ContactTitle>Get in Touch</ContactTitle>
       <ContactInformation>
-        <NameLable>Name</NameLable>
-        <NameInput>
-          <input></input>
-        </NameInput>
-
-        <EmailLable>Email</EmailLable>
-        <EmailInput>
-          <input></input>
-        </EmailInput>
+        <RightSection>
+          <NameLable>Name</NameLable>
+          <NameInput>
+            <input></input>
+          </NameInput>
+        </RightSection>
+        <LeftSection>
+          <EmailLable>Email</EmailLable>
+          <EmailInput>
+            <input></input>
+          </EmailInput>
+        </LeftSection>
       </ContactInformation>
       <MessageLable>Message</MessageLable>
       <MessageInput>
