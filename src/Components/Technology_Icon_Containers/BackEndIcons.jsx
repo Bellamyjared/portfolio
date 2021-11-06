@@ -7,6 +7,12 @@ import Plusicon from "../../Images/TechnologyImages/Plus_icon.svg";
 import RestAPIicon from "../../Images/TechnologyImages/RestAPI_icon.svg";
 import Pythonicon from "../../Images/TechnologyImages/Python_icon.svg";
 
+const BackEndIconsContainer = styled.div`
+  .BackEndIcon {
+    width: 90px;
+    padding-bottom: 10px;
+  }
+`;
 const NodeJSIconContainer = styled.div`
   display: flex;
   width: 3em;
@@ -14,7 +20,6 @@ const NodeJSIconContainer = styled.div`
   flex-wrap: wrap;
   padding-bottom: 1em;
   padding-top: 3em;
-  padding-left: 1em;
 `;
 
 const PlusIconContainer = styled.div`
@@ -23,10 +28,10 @@ const PlusIconContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 1em;
-  padding-left: 1em;
 
   img {
-    width: 2em;
+    width: auto;
+    height: 2em;
   }
 `;
 
@@ -36,7 +41,6 @@ const ExpressIconContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 2em;
-  padding-left: 1em;
   text-align: center;
 `;
 
@@ -46,7 +50,6 @@ const PythonIconContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 2em;
-  padding-left: 1em;
 
   img {
     width: 5em;
@@ -59,7 +62,6 @@ const RestAPIIconContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 1em;
-  padding-left: 1em;
 `;
 
 const TechLable = styled.div`
@@ -69,7 +71,7 @@ const TechLable = styled.div`
 
 const BackEndIcons = () => {
   return (
-    <div>
+    <BackEndIconsContainer>
       <NodeJSIconContainer>
         <img className="BackEndIcon" src={NodeJSicon} alt="NodeJSImage" />
       </NodeJSIconContainer>
@@ -90,7 +92,7 @@ const BackEndIcons = () => {
       <RestAPIIconContainer>
         <img className="BackEndIcon" src={RestAPIicon} alt="RestAPIImage" />
       </RestAPIIconContainer>
-    </div>
+    </BackEndIconsContainer>
   );
 };
 

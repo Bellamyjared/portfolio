@@ -5,6 +5,9 @@ import About_Image from "../Images/About_Image.svg";
 
 const AboutBackground = styled.div`
   padding-top: 2em;
+  @media screen and (min-width: 768px) {
+    padding-top: 3em;
+  }
 `;
 const Title = styled.h1`
   margin-bottom: -275px;

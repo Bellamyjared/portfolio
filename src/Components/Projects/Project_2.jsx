@@ -20,13 +20,27 @@ const Title = styled.h1`
 const Paragraph = styled.div``;
 
 const RightSection = styled.div`
-  display: flex;
-  padding-bottom: 3em;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    max-width: 400px;
+  }
+  padding-bottom: 2em;
 `;
 
 const ProjectTech = styled.div`
-  padding-left: 1em;
-  padding-right: 3em;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em 1em 0em 1em;
+  @media screen and (min-width: 500px) {
+    justify-content: space-evenly;
+    padding: 1.5em 1em 0em 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
 `;
 const ReactIcon = styled.div`
   display: flex;
@@ -55,9 +69,13 @@ const TechLable = styled.div`
 
 const ProjectLinks = styled.div`
   display: flex;
-  justify-content: space-between;
-  padding-left: 1em;
-  padding-right: 1em;
+  justify-content: space-around;
+
+  @media screen and (max-width: 350px) {
+    button {
+      width: 7em;
+    }
+  }
 `;
 
 const Projects_2 = () => {
@@ -71,6 +89,7 @@ const Projects_2 = () => {
         </Paragraph>
       </LeftSection>
       <RightSection>
+        <img className="ProjectImage" src={ProjectImage} alt="Project1Image" />
         <ProjectTech>
           <ReactIcon>
             <img className="ProjectIcon" src={React_icon} alt="React_Icon" />
@@ -89,7 +108,6 @@ const Projects_2 = () => {
             <TechLable>MongoDB</TechLable>
           </MongoDBIcon>
         </ProjectTech>
-        <img className="ProjectImage" src={ProjectImage} alt="Project1Image" />
       </RightSection>
 
       <ProjectLinks>

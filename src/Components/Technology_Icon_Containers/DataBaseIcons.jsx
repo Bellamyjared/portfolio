@@ -4,6 +4,14 @@ import styled from "styled-components";
 import NodeJSicon from "../../Images/TechnologyImages/MySQL_icon.svg";
 import RestAPIicon from "../../Images/TechnologyImages/MongoDB_icon.svg";
 
+const DataBaseIconsContainer = styled.div`
+  padding-top: 2em;
+  .DataBaseIcon {
+    width: 125px;
+    padding-bottom: 3em;
+  }
+`;
+
 const NodeJSIconContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -29,15 +37,15 @@ const RestAPIIconContainer = styled.div`
 
 const DataBaseIcons = () => {
   return (
-    <div>
+    <DataBaseIconsContainer>
       <NodeJSIconContainer>
-        <img className="BackEndIcon" src={NodeJSicon} alt="NodeJSImage" />
+        <img className="DataBaseIcon" src={NodeJSicon} alt="NodeJSImage" />
       </NodeJSIconContainer>
 
       <RestAPIIconContainer>
-        <img className="BackEndIcon" src={RestAPIicon} alt="RestAPIImage" />
+        <img className="DataBaseIcon" src={RestAPIicon} alt="RestAPIImage" />
       </RestAPIIconContainer>
-    </div>
+    </DataBaseIconsContainer>
   );
 };
 

@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     background-color: #EBF8FF;
     margin : 0;
+
+    @media screen and (min-width: 768px){
+      font-size: 18px;
+    }
   
   }
   button {
@@ -20,37 +24,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: #031f4b;
     border-radius: 20px;
     border : none;
-  }
-
-  .TechImage{
-    width: 100px;
-    height: auto;
-
-  }
-
-  .FrontEndIcon{
-    width: 65px;
-    padding-bottom: 10px
-
-  }
-  .BackEndIcon{
-    width: 125px;
-    padding-bottom: 10px
-
-  }
-  
-
-  .ProjectIcon{
-    width: 2em;
-    text-align: center;
-
-  }
-
-  .ProjectImage{
-    width: 250px;
-    height: auto;
-    object-fit: cover
-
   }
 
 

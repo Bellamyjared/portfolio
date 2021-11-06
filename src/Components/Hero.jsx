@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const HeroContainer = styled.div`
-  padding: 1em 2.5em 15em 2.5em;
+  padding: 1em 2.5em 40vh 2.5em;
 `;
 const HeroTitle = styled.h1`
   margin-bottom: 0.3em;

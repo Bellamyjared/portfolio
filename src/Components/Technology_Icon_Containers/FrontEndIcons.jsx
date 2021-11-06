@@ -7,6 +7,12 @@ import JSicon from "../../Images/TechnologyImages/JS_icon.svg";
 import reacticon from "../../Images/TechnologyImages/react_icon.svg";
 import reduxicon from "../../Images/TechnologyImages/redux_icon.svg";
 
+const FrontEndIconsContainer = styled.div`
+  .FrontEndIcon {
+    width: 65px;
+    padding-bottom: 10px;
+  }
+`;
 const CssIconContainer = styled.div`
   display: flex;
   width: 3em;
@@ -51,7 +57,7 @@ const TechLable = styled.div`
 
 const FrontEnd = () => {
   return (
-    <div>
+    <FrontEndIconsContainer>
       <CssIconContainer>
         <img className="FrontEndIcon" src={Cssicon} alt="CssImage" />
         <TechLable>CSS</TechLable>
@@ -76,7 +82,7 @@ const FrontEnd = () => {
         <img className="FrontEndIcon" src={reduxicon} alt="ReduxImage" />
         <TechLable>Redux</TechLable>
       </ReduxIconContainer>
-    </div>
+    </FrontEndIconsContainer>
   );
 };
 

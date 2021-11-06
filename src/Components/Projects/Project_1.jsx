@@ -7,16 +7,30 @@ import NodeJS_Icon from "../../Images/ProjectImages/NodeJS_Icon.svg";
 import MongoDB_Icon from "../../Images/ProjectImages/MongoDB_Icon.svg";
 
 const Project = styled.div`
-  padding: 9em 2.5em 10em 2.5em;
+  padding: 15em 2.5em 10em 2.5em;
 `;
 
 const RightSection = styled.div`
-  display: flex;
-  padding-top: 6em;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    max-width: 400px;
+  }
 `;
 
 const ProjectTech = styled.div`
-  padding-left: 2em;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em 1em 0em 1em;
+  @media screen and (min-width: 500px) {
+    justify-content: space-evenly;
+    padding: 1.5em 1em 0em 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
 `;
 const ReactIcon = styled.div`
   display: flex;

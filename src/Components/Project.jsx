@@ -12,12 +12,21 @@ import mySvg from "../Images/Background_1.svg";
 const ProjectContainer = styled.div`
   background: url(${mySvg}) no-repeat,
     radial-gradient(farthest-side at 30% 30%, #ebf8ff, #6497b1) no-repeat;
-  background-size: auto 900px, 500vw auto;
+  background-size: 300vw 1100px, 500vw auto;
   background-position: 0px 0px, 0px 400px;
 
   /* overflow: hidden; */
 
-  height: 150em;
+  height: 175em;
+
+  .ProjectIcon {
+    width: 2em;
+    text-align: center;
+  }
+
+  .ProjectImage {
+    object-fit: cover;
+  }
 `;
 
 const Project = () => {

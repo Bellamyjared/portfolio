@@ -29,11 +29,28 @@ const BackgroundForTheRest = styled.div`
   overflow: hidden;
 
   height: 160em;
+
+  @media screen and (min-width: 600px) {
+    background-size: auto 1000px, 100vw auto;
+    margin-top: -100px;
+  }
+  @media screen and (min-width: 768px) {
+    background-size: auto 1200px, 100vw auto;
+    margin-top: -100px;
+  }
 `;
 
 const TechnologyContent = styled.div`
   padding-top: 8em;
   height: 45em;
+  .TechImage {
+    width: 100px;
+    height: auto;
+  }
+
+  @media screen and (min-width: 600px) {
+    padding-top: 15em;
+  }
 `;
 const BackgroundText = styled.div`
   background-repeat: no-repeat;
@@ -44,10 +61,14 @@ const BackgroundText = styled.div`
   margin-top: -300px;
   margin-bottom: -275px;
 `;
-const TechImages = styled.div`
+const TechContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 2em 3em 0em 4em;
+
+  @media screen and (min-width: 600px) {
+    justify-content: space-around;
+  }
 `;
 const RightSection = styled.div``;
 const FrontEnd = styled.div`
@@ -87,7 +108,7 @@ const Technology = () => {
           }}
         ></BackgroundText>
 
-        <TechImages>
+        <TechContainer>
           <LeftSection>{ShowIcons()}</LeftSection>
           <RightSection>
             <FrontEnd
@@ -121,7 +142,7 @@ const Technology = () => {
               />
             </DataBase>
           </RightSection>
-        </TechImages>
+        </TechContainer>
         <TechLables></TechLables>
       </TechnologyContent>
       <About />

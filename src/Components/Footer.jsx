@@ -5,12 +5,12 @@ import NavBar from "./NavBar";
 import Logo from "../Images/Logo.svg";
 
 const FooterContainer = styled.div`
-  padding-top: 25em;
+  padding-top: 15em;
 `;
 const MobileLogo = styled.div`
   display: flex;
   justify-content: center;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     display: none;
   }
 `;
