@@ -20,10 +20,14 @@ const BackEndIconsContainer = styled.div`
     width: 100%;
     height: auto;
     padding-top: 3em;
+    max-width: 1200px;
 
     .BackEndIcon {
       width: 150px;
     }
+  }
+  @media screen and (min-width: 2560px) {
+    max-width: 1500px;
   }
 `;
 

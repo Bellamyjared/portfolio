@@ -8,8 +8,9 @@ import reacticon from "../../Images/TechnologyImages/react_icon.svg";
 import reduxicon from "../../Images/TechnologyImages/redux_icon.svg";
 
 const FrontEndIconsContainer = styled.div`
+  margin-top: -1.5em;
   .FrontEndIcon {
-    width: 65px;
+    width: 55px;
     padding-bottom: 10px;
   }
   @media screen and (min-width: 1024px) {
@@ -19,6 +20,7 @@ const FrontEndIconsContainer = styled.div`
     width: 85%;
     height: auto;
     padding-top: 2em;
+    max-width: 1200px;
     .FrontEndIcon {
       width: 100px;
     }
@@ -52,6 +54,9 @@ const ReactIconContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 1em;
+  img {
+    margin-bottom: -0.5em;
+  }
   @media screen and (min-width: 1024px) {
     padding-bottom: 2em;
   }

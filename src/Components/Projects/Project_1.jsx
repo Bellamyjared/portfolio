@@ -8,11 +8,23 @@ import MongoDB_Icon from "../../Images/ProjectImages/MongoDB_Icon.svg";
 
 const Project = styled.div`
   padding: 18em 2.5em 10em 2.5em;
+  @media screen and (min-width: 768px) {
+    padding: 15em 2.5em 10em 2.5em;
+  }
   @media screen and (min-width: 1024px) {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: right;
     padding: 15em 2.5em 10em 2.5em;
+  }
+  @media screen and (min-width: 1440px) {
+    justify-content: center;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and (min-width: 2560px) {
+    padding: 15em 2.5em 10em 2.5em;
+    max-width: 1800px;
   }
 `;
 
@@ -34,6 +46,9 @@ const RightSection = styled.div`
       width: 100%;
       max-width: none;
     }
+  }
+  @media screen and (min-width: 2560px) {
+    max-width: 700px;
   }
 `;
 
@@ -85,6 +100,10 @@ const LeftSection = styled.div`
     padding-right: 5em;
 
     width: 45%;
+  }
+  @media screen and (min-width: 2560px) {
+    max-width: 1000px;
+    padding-right: 3em;
   }
 `;
 const Title = styled.h1`

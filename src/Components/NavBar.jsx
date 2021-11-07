@@ -11,6 +11,12 @@ const NavDiv = styled.div`
   padding: 2.5em;
   display: flex;
   justify-content: space-between;
+  @media screen and (min-width: 1024px) {
+    padding: 2.5em 5em 2.5em 5em;
+  }
+  @media screen and (min-width: 2560px) {
+    padding: 4em 6.5em 2.5em 6.5em;
+  }
 `;
 
 const NavLogo = styled.div`

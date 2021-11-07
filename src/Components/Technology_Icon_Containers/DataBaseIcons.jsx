@@ -6,17 +6,21 @@ import MongoDB from "../../Images/TechnologyImages/MongoDB_icon.svg";
 
 const DataBaseIconsContainer = styled.div`
   padding-top: 2em;
-  padding-left: 2em;
+  padding-left: 0em;
+  padding-right: 1em;
   .DataBaseIcon {
-    width: 125px;
+    width: 115px;
     padding-bottom: 3em;
   }
 
   @media screen and (min-width: 1024px) {
     display: flex;
+    justify-content: space-evenly;
+    margin: auto;
     width: 100%;
     height: auto;
-    justify-content: space-evenly;
+    padding-top: 3em;
+    max-width: 1200px;
 
     .DataBaseIcon {
       width: 250px;

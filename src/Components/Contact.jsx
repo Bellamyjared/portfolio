@@ -6,20 +6,29 @@ const ContactContainer = styled.div`
   color: white;
 
   input {
-    width: 70%;
-    padding-top: 1.5em;
+    padding: 0.3em 0.3em 0.3em 0.3em;
+    font-size: 18px;
     border: none;
     border-radius: 10px;
   }
   @media screen and (min-width: 1024px) {
     margin-right: 13%;
     margin-left: 13%;
-    padding-bottom: 13em;
+    padding-bottom: 15em;
+  }
+  @media screen and (min-width: 1440px) {
+    justify-content: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 const ContactTitle = styled.h1`
   display: flex;
   justify-content: center;
+  @media screen and (min-width: 1024px) {
+    font-size: 55px;
+  }
 `;
 const ContactInformation = styled.div`
   @media screen and (min-width: 1024px) {
@@ -38,6 +47,13 @@ const NameLable = styled.div`
 `;
 const NameInput = styled.div`
   padding-bottom: 1.5em;
+  input {
+    width: 100%;
+    max-width: 500px;
+  }
+  @media screen and (min-width: 1024px) {
+    padding-right: 50px;
+  }
 `;
 
 const LeftSection = styled.div`
@@ -52,6 +68,10 @@ const EmailLable = styled.div`
 `;
 const EmailInput = styled.div`
   padding-bottom: 1.5em;
+  input {
+    width: 100%;
+    max-width: 500px;
+  }
 `;
 const MessageLable = styled.div`
   padding-bottom: 0.5em;

@@ -8,10 +8,22 @@ import MongoDB_Icon from "../../Images/ProjectImages/MongoDB_Icon.svg";
 
 const Project = styled.div`
   padding: 0em 2.5em 10em 2.5em;
+  @media screen and (min-width: 768px) {
+    padding: 0em 2.5em 17em 2.5em;
+  }
   @media screen and (min-width: 1024px) {
     display: flex;
     justify-content: right;
     padding: 10em 2.5em 20em 2.5em;
+  }
+  @media screen and (min-width: 1440px) {
+    justify-content: center;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and (min-width: 2560px) {
+    max-width: 1800px;
   }
 `;
 
@@ -26,6 +38,11 @@ const LeftSection = styled.div`
     padding-right: 5em;
 
     width: 45%;
+  }
+
+  @media screen and (min-width: 2560px) {
+    max-width: 1000px;
+    padding-right: 3em;
   }
 `;
 const Title = styled.h1`
@@ -52,6 +69,9 @@ const RightSection = styled.div`
       width: 100%;
       max-width: none;
     }
+  }
+  @media screen and (min-width: 2560px) {
+    max-width: 700px;
   }
 `;
 
@@ -93,15 +113,21 @@ const TechLable = styled.div`
 `;
 
 const ProjectLinks = styled.div`
-  display: flex;
-  padding-top: 2em;
-  justify-content: space-around;
+  div {
+    display: flex;
+    padding-top: 2em;
+    justify-content: space-around;
+  }
   @media screen and (max-width: 350px) {
     button {
       width: 7em;
     }
   }
   @media screen and (min-width: 1024px) {
+    div {
+      padding-top: 0em;
+      justify-content: left;
+    }
     button {
       margin-left: 2em;
       margin-right: 3em;
@@ -110,6 +136,26 @@ const ProjectLinks = styled.div`
     width: 90%;
     position: absolute;
     padding-top: 17em;
+  }
+
+  @media screen and (min-width: 1440px) {
+    position: absolute;
+    width: 1300px;
+
+    padding-top: 15em;
+
+    justify-content: right;
+    div {
+      display: flex;
+      justify-content: left;
+      button {
+        margin-left: 2em;
+        margin-right: 3em;
+      }
+    }
+  }
+  @media screen and (min-width: 2560px) {
+    width: 1620px;
   }
 `;
 
@@ -146,8 +192,10 @@ const Projects_2 = () => {
         </ProjectTech>
       </RightSection>
       <ProjectLinks>
-        <button>Live</button>
-        <button>Code</button>
+        <div>
+          <button>Live</button>
+          <button>Code</button>
+        </div>
       </ProjectLinks>
     </Project>
   );

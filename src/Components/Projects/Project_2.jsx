@@ -14,6 +14,16 @@ const Project = styled.div`
     justify-content: right;
     padding: 15em 2.5em 10em 2.5em;
   }
+  @media screen and (min-width: 1440px) {
+    justify-content: center;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and (min-width: 2560px) {
+    padding: 15em 2.5em 10em 2.5em;
+    max-width: 1800px;
+  }
 `;
 
 const LeftSection = styled.div`
@@ -27,6 +37,9 @@ const LeftSection = styled.div`
     padding-right: 0em;
 
     width: 50%;
+  }
+  @media screen and (min-width: 2560px) {
+    max-width: 1000px;
   }
 `;
 const Title = styled.h1`
@@ -53,6 +66,9 @@ const RightSection = styled.div`
       width: 100%;
       max-width: none;
     }
+  }
+  @media screen and (min-width: 2560px) {
+    max-width: 700px;
   }
 `;
 
@@ -94,22 +110,52 @@ const TechLable = styled.div`
 `;
 
 const ProjectLinks = styled.div`
-  display: flex;
-  justify-content: space-around;
-  padding-top: 2em;
-
+  div {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 2em;
+  }
   @media screen and (max-width: 350px) {
     button {
       width: 7em;
     }
   }
   @media screen and (min-width: 1024px) {
-    button {
-      margin-left: 2em;
-      margin-right: 3em;
-    }
     position: absolute;
-    padding-top: 17em;
+    width: 45%;
+    padding-top: 15em;
+
+    justify-content: left;
+    div {
+      display: flex;
+      justify-content: left;
+      button {
+        margin-left: 2em;
+        margin-right: 3em;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    position: absolute;
+    width: 400px;
+
+    padding-top: 15em;
+    padding-left: 400px;
+
+    justify-content: right;
+    div {
+      display: flex;
+      justify-content: left;
+      button {
+        margin-left: 2em;
+        margin-right: 3em;
+      }
+    }
+  }
+  @media screen and (min-width: 2560px) {
+    width: 1000px;
+    padding-left: 780px;
   }
 `;
 
@@ -145,8 +191,10 @@ const Projects_2 = () => {
         </ProjectTech>
       </RightSection>
       <ProjectLinks>
-        <button>Live</button>
-        <button>Code</button>
+        <div className="DivOfUnprecedentedGloryOfTheHighest">
+          <button>Live</button>
+          <button>Code</button>
+        </div>
       </ProjectLinks>
     </Project>
   );

@@ -13,6 +13,9 @@ const GlobalStyle = createGlobalStyle`
 
     @media screen and (min-width: 768px){
       font-size: 18px;
+    }    
+    @media screen and (min-width: 2560px){
+      font-size: 25px;
     }
   
   }
@@ -24,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: #031f4b;
     border-radius: 20px;
     border : none;
+    @media screen and (min-width: 2560px){
+      font-size: 25px;
+      border-radius: 50px;
+    }
   }
 
 

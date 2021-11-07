@@ -6,6 +6,14 @@ const HeroContainer = styled.div`
   @media screen and (min-width: 768px) {
     padding-top: 4em;
   }
+  @media screen and (min-width: 1024px) {
+    padding: 3em 5em 40vh 3.5em;
+    font-size: 25px;
+  }
+  @media screen and (min-width: 2560px) {
+    padding: 3em 5em 40vh 3.5em;
+    font-size: 45px;
+  }
 `;
 const HeroTitle = styled.h1`
   margin-bottom: 0.3em;
@@ -14,8 +22,16 @@ const HeroTitle = styled.h1`
 const HeroSubTitle = styled.div``;
 
 const CallToAction = styled.button`
-  margin-top: 3.5em;
-  margin-left: 3em;
+  margin-top: 2.5em;
+  margin-left: 20%;
+  @media screen and (min-width: 375px) {
+    margin-left: 30%;
+  }
+  @media screen and (min-width: 426px) {
+    margin-left: 0;
+  }
+  @media screen and (min-width: 2560px) {
+  }
 `;
 
 const Hero = () => {

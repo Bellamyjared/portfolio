@@ -13,6 +13,12 @@ const AboutContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
   }
+  @media screen and (min-width: 1440px) {
+    justify-content: center;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 const Title = styled.h1`
   margin-bottom: -275px;
@@ -26,6 +32,7 @@ const Title = styled.h1`
     margin-top: 0px;
     width: 100%;
     justify-content: center;
+    font-size: 65px;
   }
 `;
 
@@ -55,6 +62,16 @@ const LeftSection = styled.div`
       opacity: 1;
     }
   }
+  @media screen and (min-width: 1440px) {
+    img {
+      margin-top: 0px;
+      margin-left: 0px;
+      height: auto;
+      max-height: 900px;
+      width: auto;
+      opacity: 1;
+    }
+  }
 `;
 const RightSection = styled.div`
   color: white;
@@ -64,7 +81,11 @@ const RightSection = styled.div`
     padding-top: 8em;
   }
 `;
-const Paragraph = styled.div``;
+const Paragraph = styled.div`
+  @media screen and (min-width: 1440px) {
+    max-width: 900px;
+  }
+`;
 
 const About = () => {
   return (

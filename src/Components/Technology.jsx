@@ -23,24 +23,40 @@ import FrontEnd_image from "../Images/TechnologyImages/FrontEnd_image.svg";
 const BackgroundForTheRest = styled.div`
   background: url(${mySvg}) no-repeat,
     radial-gradient(farthest-side at 0% 0%, #036196, #6497b1) no-repeat;
-  background-size: auto 900px, 100vw auto;
+  background-size: 170vw 800px, 100vw auto;
   background-position: 0px 0px, 0px 700px;
 
   overflow: hidden;
 
-  height: 160em;
+  height: 170em;
 
+  @media screen and (min-width: 425px) {
+    height: 160em;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-size: 170vw 1000px, 100vw auto;
+
+    margin-top: -100px;
+  }
   @media screen and (min-width: 1024px) {
     height: 200em;
   }
 
-  @media screen and (min-width: 600px) {
-    background-size: auto 1000px, 100vw auto;
+  @media screen and (min-width: 1100px) {
+    background-size: 170vw 1200px, 100vw auto;
     margin-top: -100px;
+    height: 210em;
   }
-  @media screen and (min-width: 768px) {
-    background-size: auto 1200px, 100vw auto;
-    margin-top: -100px;
+  @media screen and (min-width: 1440px) {
+    height: 220em;
+  }
+  @media screen and (min-width: 1750px) {
+    height: 228em;
+  }
+  @media screen and (min-width: 2560px) {
+    background-size: 170vw 1400px, 100vw auto;
+    height: 208em;
   }
 `;
 
@@ -54,7 +70,6 @@ const TechnologyContent = styled.div`
   }
 
   @media screen and (min-width: 600px) {
-    padding-top: 15em;
   }
 
   @media screen and (min-width: 1024px) {
@@ -62,6 +77,15 @@ const TechnologyContent = styled.div`
       width: 100%;
       height: auto;
     }
+  }
+  @media screen and (min-width: 1100px) {
+    padding-top: 14em;
+  }
+  @media screen and (min-width: 1750px) {
+    padding-top: 20em;
+  }
+  @media screen and (min-width: 2560px) {
+    padding-top: 12em;
   }
 `;
 
@@ -76,6 +100,9 @@ const BackgroundText = styled.div`
 
   @media screen and (min-width: 1024px) {
     margin-bottom: -415px;
+  }
+  @media screen and (min-width: 2560px) {
+    margin-bottom: -545px;
   }
 `;
 
