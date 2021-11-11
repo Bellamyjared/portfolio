@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createGlobalStyle } from "styled-components";
 
 import NavBar from "./Components/NavBar.jsx";
@@ -7,6 +7,7 @@ import Project from "./Components/Project.jsx";
 
 const GlobalStyle = createGlobalStyle`
   body {
+    
     font-family: 'Poppins', sans-serif;
     background-color: #EBF8FF;
     margin : 0;
@@ -34,17 +35,31 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
+
+
 `;
 function App() {
+  const [ToggleMobileState, setToggleMobileState] = useState("hidden");
+  const [ToggleOverFlow, setToggleOverFlow] = useState("visible");
+
+  const ToggleMobileNav = () =>
+    ToggleMobileState == "hidden"
+      ? setToggleMobileState("visible") + setToggleOverFlow("hidden")
+      : setToggleMobileState("hidden") + setToggleOverFlow("visible");
+  console.log(ToggleMobileState);
+
   return (
-    <>
+    <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
       <GlobalStyle />
-      <NavBar />
+      <NavBar
+        ToggleMobileNav={ToggleMobileNav}
+        ToggleMobileState={ToggleMobileState}
+      />
       <Hero />
       <Project />
 
       {/* everything else was moved to project, because it was a headache trying to get the proper layering effect */}
-    </>
+    </div>
   );
 }
 

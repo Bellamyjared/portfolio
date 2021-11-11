@@ -126,7 +126,7 @@ const RightSection = styled.div`
   margin-top: -50px;
   @media screen and (min-width: 1024px) {
     display: flex;
-    height: 400px;
+    height: auto;
     width: 100%;
     justify-content: center;
     margin-top: 0px;
@@ -141,6 +141,10 @@ const LeftSection = styled.div`
     display: flex;
     width: 100%;
     height: auto;
+    padding-top: 11em;
+  }
+  @media screen and (min-width: 2560px) {
+    padding-top: 8em;
   }
 `;
 const FrontEnd = styled.div`

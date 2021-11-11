@@ -19,7 +19,7 @@ const BackEndIconsContainer = styled.div`
     margin: auto;
     width: 100%;
     height: auto;
-    padding-top: 3em;
+    padding-top: 5em;
     max-width: 1200px;
 
     .BackEndIcon {
@@ -95,11 +95,17 @@ const ExpressIconContainer = styled.div`
     }
     #ExpressJS {
       display: inherit;
-      margin-top: -5.5em;
+      margin-top: -5em;
       padding-left: 8.5em;
       width: 3em;
       height: auto;
       z-index: 0;
+    }
+  }
+  @media screen and (min-width: 2560px) {
+    #ExpressJS {
+      margin-top: -4em;
+      padding-left: 7em;
     }
   }
 `;

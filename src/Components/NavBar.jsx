@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import MobileNavBar from "../Images/MobileNavBar.svg";
@@ -7,6 +7,27 @@ import Email from "../Images/NavImages/EmailLogo.svg";
 import LinkedIn from "../Images/NavImages/LinkedInLogo.svg";
 import Logo from "../Images/Logo.svg";
 
+const MobileNavController = styled.div`
+  .visible {
+    padding: 0em;
+    margin: 0px;
+    color: white;
+    background-color: black;
+    opacity: 0.9;
+    position: fixed;
+    width: 101vw;
+    height: 100vh;
+    text-align: center;
+    padding-top: 15vh;
+  }
+  .hidden {
+    display: none;
+  }
+`;
+const MobileNavLink = styled.div`
+  padding-bottom: 10vh;
+  font-size: 2em;
+`;
 const NavDiv = styled.div`
   padding: 2.5em;
   display: flex;
@@ -22,7 +43,7 @@ const NavDiv = styled.div`
 const NavLogo = styled.div`
   padding-top: 0.3em;
 `;
-const MobileNav = styled.div``;
+const MobileNavIcon = styled.div``;
 const NavLinks = styled.a`
   display: none;
 
@@ -32,40 +53,58 @@ const NavLinks = styled.a`
 `;
 const ImageLinks = styled.div`
   display: none;
-
-  /* @media screen and (min-width: 768px) {
-    display: flex;
-  } */
 `;
 
-const NavBar = () => {
+const NavBar = ({ ToggleMobileNav, ToggleMobileState }) => {
+  const Test = () => console.log("home");
+
+  const MobileNav = () => {
+    return (
+      <div className={ToggleMobileState} onClick={() => ToggleMobileNav()}>
+        <MobileNavLink onClick={() => Test()}>Home</MobileNavLink>
+        <MobileNavLink>Projects</MobileNavLink>
+        <MobileNavLink>Tech</MobileNavLink>
+        <MobileNavLink>About</MobileNavLink>
+        <MobileNavLink>Contant</MobileNavLink>
+      </div>
+    );
+  };
+
   return (
-    <NavDiv>
-      <NavLogo>
-        <img alt="JaredBellamy" src={Logo} />
-      </NavLogo>
-      <MobileNav>
-        <img alt="Mobile Nav" src={MobileNavBar} />
-      </MobileNav>
-      <NavLinks>
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#tech">Tech</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </NavLinks>
-      <ImageLinks>
-        <a href="https://www.github.com" target="_blank">
-          <img alt="Github" src={Github} />
-        </a>
-        <a href="https://www.linkedin.com" target="_blank">
-          <img alt="LinkedIn" src={LinkedIn} />
-        </a>
-        <a href="mailto:Bellamyjared@gmail.com">
-          <img alt="Email" src={Email} />
-        </a>
-      </ImageLinks>
-    </NavDiv>
+    <>
+      <MobileNavController>{MobileNav()}</MobileNavController>
+
+      <NavDiv>
+        <NavLogo>
+          <img alt="JaredBellamy" src={Logo} />
+        </NavLogo>
+        <MobileNavIcon>
+          <img
+            alt="Mobile Nav"
+            src={MobileNavBar}
+            onClick={() => ToggleMobileNav()}
+          />
+        </MobileNavIcon>
+        <NavLinks>
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#tech">Tech</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </NavLinks>
+        <ImageLinks>
+          <a href="https://www.github.com" target="_blank">
+            <img alt="Github" src={Github} />
+          </a>
+          <a href="https://www.linkedin.com" target="_blank">
+            <img alt="LinkedIn" src={LinkedIn} />
+          </a>
+          <a href="mailto:Bellamyjared@gmail.com">
+            <img alt="Email" src={Email} />
+          </a>
+        </ImageLinks>
+      </NavDiv>
+    </>
   );
 };
 
