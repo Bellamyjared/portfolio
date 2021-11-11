@@ -34,12 +34,23 @@ const ProjectContainer = styled.div`
   }
 `;
 
-const Project = () => {
+const ShowProject2and3 = (ToggleMobileState) => {
+  if (ToggleMobileState === "none") {
+    return <div></div>;
+  } else
+    return (
+      <>
+        <Project2 />
+        <Project3 />
+      </>
+    );
+};
+
+const Project = ({ ToggleMobileState }) => {
   return (
     <ProjectContainer>
       <Project1 />
-      <Project2 />
-      <Project3 />
+      {ShowProject2and3(ToggleMobileState)}
       <Technology />
       {/* I moved the rest into Technology for the same reason as before */}
     </ProjectContainer>

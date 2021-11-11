@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import NavBar from "./NavBar";
 import Logo from "../Images/Logo.svg";
 
 const FooterContainer = styled.div`
@@ -31,9 +30,7 @@ const Footer = () => {
       <MobileLogo>
         <img src={Logo} />
       </MobileLogo>
-      <NavBarDisplay>
-        <NavBar />
-      </NavBarDisplay>
+      <NavBarDisplay>Need to add footer nav</NavBarDisplay>
       <Animation>ANIMATION PLACEHOLDER</Animation>
     </FooterContainer>
   );

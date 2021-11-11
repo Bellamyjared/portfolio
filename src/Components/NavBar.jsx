@@ -8,7 +8,7 @@ import LinkedIn from "../Images/NavImages/LinkedInLogo.svg";
 import Logo from "../Images/Logo.svg";
 
 const MobileNavController = styled.div`
-  .visible {
+  .none {
     padding: 0em;
     margin: 0px;
     color: white;
@@ -19,9 +19,6 @@ const MobileNavController = styled.div`
     height: 100vh;
     text-align: center;
     padding-top: 15vh;
-  }
-  .hidden {
-    display: none;
   }
 `;
 const MobileNavLink = styled.div`
@@ -59,15 +56,17 @@ const NavBar = ({ ToggleMobileNav, ToggleMobileState }) => {
   const Test = () => console.log("home");
 
   const MobileNav = () => {
-    return (
-      <div className={ToggleMobileState} onClick={() => ToggleMobileNav()}>
-        <MobileNavLink onClick={() => Test()}>Home</MobileNavLink>
-        <MobileNavLink>Projects</MobileNavLink>
-        <MobileNavLink>Tech</MobileNavLink>
-        <MobileNavLink>About</MobileNavLink>
-        <MobileNavLink>Contant</MobileNavLink>
-      </div>
-    );
+    if (ToggleMobileState === "none") {
+      return (
+        <div className={ToggleMobileState} onClick={() => ToggleMobileNav()}>
+          <MobileNavLink onClick={() => Test()}>Home</MobileNavLink>
+          <MobileNavLink>Projects From Nav</MobileNavLink>
+          <MobileNavLink>Tech</MobileNavLink>
+          <MobileNavLink>About</MobileNavLink>
+          <MobileNavLink>Contant</MobileNavLink>
+        </div>
+      );
+    } else return <div></div>;
   };
 
   return (

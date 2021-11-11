@@ -44,7 +44,7 @@ function App() {
 
   const ToggleMobileNav = () =>
     ToggleMobileState == "hidden"
-      ? setToggleMobileState("visible") + setToggleOverFlow("hidden")
+      ? setToggleMobileState("none") + setToggleOverFlow("hidden")
       : setToggleMobileState("hidden") + setToggleOverFlow("visible");
   console.log(ToggleMobileState);
 
@@ -56,7 +56,7 @@ function App() {
         ToggleMobileState={ToggleMobileState}
       />
       <Hero />
-      <Project />
+      <Project ToggleMobileState={ToggleMobileState} />
 
       {/* everything else was moved to project, because it was a headache trying to get the proper layering effect */}
     </div>
