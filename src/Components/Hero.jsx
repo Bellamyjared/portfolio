@@ -10,8 +10,12 @@ const HeroContainer = styled.div`
     padding: 3em 5em 40vh 3.5em;
     font-size: 25px;
   }
+  @media screen and (min-width: 1440px) {
+    padding: 3em 5em 40vh 5.5em;
+  }
+
   @media screen and (min-width: 2560px) {
-    padding: 3em 5em 40vh 3.5em;
+    padding: 3em 5em 40vh 5.5em;
     font-size: 45px;
   }
 `;

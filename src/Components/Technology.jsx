@@ -44,7 +44,7 @@ const BackgroundForTheRest = styled.div`
   }
 
   @media screen and (min-width: 1100px) {
-    background-size: 170vw 1200px, 100vw auto;
+    background-size: 170vw 1000px, 100vw auto;
     margin-top: -100px;
     height: 210em;
   }
@@ -82,7 +82,7 @@ const TechnologyContent = styled.div`
     padding-top: 14em;
   }
   @media screen and (min-width: 1750px) {
-    padding-top: 20em;
+    padding-top: 15em;
   }
   @media screen and (min-width: 2560px) {
     padding-top: 12em;
@@ -124,6 +124,9 @@ const TechContainer = styled.div`
 
 const RightSection = styled.div`
   margin-top: -50px;
+  img {
+    cursor: pointer;
+  }
   @media screen and (min-width: 1024px) {
     display: flex;
     height: auto;
@@ -141,7 +144,7 @@ const LeftSection = styled.div`
     display: flex;
     width: 100%;
     height: auto;
-    padding-top: 11em;
+    padding-top: 7em;
   }
   @media screen and (min-width: 2560px) {
     padding-top: 8em;
@@ -150,27 +153,30 @@ const LeftSection = styled.div`
 const FrontEnd = styled.div`
   padding-bottom: 1em;
   @media screen and (min-width: 1024px) {
-    padding: 1em 8em 0em 0em;
+    padding: 1em 4em 0em 0em;
   }
 `;
 const BackEnd = styled.div`
   padding-top: 1.5em;
   padding-bottom: 1em;
   @media screen and (min-width: 1024px) {
-    padding: 1em 8em 0em 0em;
+    padding: 1em 4em 0em 4em;
   }
 `;
 const DataBase = styled.div`
   padding-top: 1.5em;
   padding-bottom: 1em;
   @media screen and (min-width: 1024px) {
-    padding: 0em 0em 0em 0em;
+    padding: 0em 0em 0em 4em;
   }
 `;
 
 const Technology = () => {
   const [TechnologyBackgroundTxt, setTechnologyBackgroundTxt] =
     useState(TECHNOLOGY);
+  const [toggleFrontEnd, setToggleFrontEnd] = useState("none");
+  const [toggleBackEnd, setToggleBackEnd] = useState("none");
+  const [toggleDataBase, setToggleDataBase] = useState("none");
 
   const ShowIcons = () => {
     if (TechnologyBackgroundTxt === FRONTEND) return <FrontEndIcons />;
@@ -188,11 +194,26 @@ const Technology = () => {
         ></BackgroundText>
 
         <TechContainer>
-          <LeftSection>{ShowIcons()}</LeftSection>
+          <LeftSection>
+            <div style={{ display: toggleFrontEnd, width: "100%" }}>
+              <FrontEndIcons />
+            </div>
+            <div style={{ display: toggleBackEnd, width: "100%" }}>
+              <BackEndIcons />
+            </div>
+            <div style={{ display: toggleDataBase, width: "100%" }}>
+              <DataBaseIcons />
+            </div>
+          </LeftSection>
           <RightSection>
             <FrontEnd
-              onMouseEnter={() => setTechnologyBackgroundTxt(FRONTEND)}
-              onMouseLeave={() => setTechnologyBackgroundTxt(TECHNOLOGY)}
+              onMouseEnter={() =>
+                setTechnologyBackgroundTxt(FRONTEND) & setToggleFrontEnd("flex")
+              }
+              onMouseLeave={() =>
+                setTechnologyBackgroundTxt(TECHNOLOGY) &
+                setToggleFrontEnd("none")
+              }
             >
               <img
                 className="TechImage"
@@ -201,8 +222,13 @@ const Technology = () => {
               />
             </FrontEnd>
             <BackEnd
-              onMouseEnter={() => setTechnologyBackgroundTxt(BACKEND)}
-              onMouseLeave={() => setTechnologyBackgroundTxt(TECHNOLOGY)}
+              onMouseEnter={() =>
+                setTechnologyBackgroundTxt(BACKEND) & setToggleBackEnd("flex")
+              }
+              onMouseLeave={() =>
+                setTechnologyBackgroundTxt(TECHNOLOGY) &
+                setToggleBackEnd("none")
+              }
             >
               <img
                 className="TechImage"
@@ -211,8 +237,13 @@ const Technology = () => {
               />
             </BackEnd>
             <DataBase
-              onMouseEnter={() => setTechnologyBackgroundTxt(DATABASE)}
-              onMouseLeave={() => setTechnologyBackgroundTxt(TECHNOLOGY)}
+              onMouseEnter={() =>
+                setTechnologyBackgroundTxt(DATABASE) & setToggleDataBase("flex")
+              }
+              onMouseLeave={() =>
+                setTechnologyBackgroundTxt(TECHNOLOGY) &
+                setToggleDataBase("none")
+              }
             >
               <img
                 className="TechImage"

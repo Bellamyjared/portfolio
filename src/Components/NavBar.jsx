@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import NavLinks from "./NavLinks";
 import MobileNavBar from "../Images/MobileNavBar.svg";
 import Github from "../Images/NavImages/GithubLogo.svg";
 import Email from "../Images/NavImages/EmailLogo.svg";
@@ -16,9 +17,12 @@ const MobileNavController = styled.div`
     opacity: 0.9;
     position: fixed;
     width: 101vw;
-    height: 100vh;
+    height: 101vh;
     text-align: center;
     padding-top: 15vh;
+    @media screen and (max-height: 700px) {
+      padding-top: 8vh;
+    }
   }
 `;
 const MobileNavLink = styled.div`
@@ -29,8 +33,16 @@ const NavDiv = styled.div`
   padding: 2.5em;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    justify-content: left;
+  }
   @media screen and (min-width: 1024px) {
     padding: 2.5em 5em 2.5em 5em;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left: 3em;
+    margin-right: 3em;
   }
   @media screen and (min-width: 2560px) {
     padding: 4em 6.5em 2.5em 6.5em;
@@ -39,17 +51,57 @@ const NavDiv = styled.div`
 
 const NavLogo = styled.div`
   padding-top: 0.3em;
+  @media screen and (min-width: 2560px) {
+    img {
+      width: auto;
+      height: 40px;
+    }
+  }
 `;
-const MobileNavIcon = styled.div``;
-const NavLinks = styled.a`
+const MobileNavIcon = styled.div`
+  img {
+    width: auto;
+    height: 30px;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+const NavLinkContainer = styled.a`
   display: none;
 
   @media screen and (min-width: 768px) {
     display: flex;
+    padding-left: 2em;
+    a {
+      text-decoration: none;
+      color: black;
+      margin-right: 1em;
+    }
+  }
+  @media screen and (min-width: 2560px) {
+    a {
+      font-size: 30px;
+    }
   }
 `;
 const ImageLinks = styled.div`
   display: none;
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    margin-left: auto;
+    img {
+      margin-right: 1em;
+    }
+  }
+
+  @media screen and (min-width: 2560px) {
+    img {
+      width: auto;
+      height: 50px;
+    }
+  }
 `;
 
 const NavBar = ({ ToggleMobileNav, ToggleMobileState }) => {
@@ -60,7 +112,7 @@ const NavBar = ({ ToggleMobileNav, ToggleMobileState }) => {
       return (
         <div className={ToggleMobileState} onClick={() => ToggleMobileNav()}>
           <MobileNavLink onClick={() => Test()}>Home</MobileNavLink>
-          <MobileNavLink>Projects From Nav</MobileNavLink>
+          <MobileNavLink>Projects</MobileNavLink>
           <MobileNavLink>Tech</MobileNavLink>
           <MobileNavLink>About</MobileNavLink>
           <MobileNavLink>Contant</MobileNavLink>
@@ -84,13 +136,9 @@ const NavBar = ({ ToggleMobileNav, ToggleMobileState }) => {
             onClick={() => ToggleMobileNav()}
           />
         </MobileNavIcon>
-        <NavLinks>
-          <a href="#home">Home</a>
-          <a href="#projects">Projects</a>
-          <a href="#tech">Tech</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </NavLinks>
+        <NavLinkContainer>
+          <NavLinks />
+        </NavLinkContainer>
         <ImageLinks>
           <a href="https://www.github.com" target="_blank">
             <img alt="Github" src={Github} />

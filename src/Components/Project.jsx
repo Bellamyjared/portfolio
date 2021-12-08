@@ -17,7 +17,7 @@ const ProjectContainer = styled.div`
   height: 175em;
 
   @media screen and (min-width: 1024px) {
-    background-size: 100vw 900px, 150vw auto;
+    background-size: 100vw 950px, 150vw auto;
   }
   @media screen and (min-width: 2560px) {
     background-size: 100vw 1200px, 150vw auto;

@@ -1,22 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 
+import NavLinks from "./NavLinks";
+
 import Logo from "../Images/Logo.svg";
 
 const FooterContainer = styled.div`
   padding-top: 15em;
 `;
-const MobileLogo = styled.div`
+const FooterLinks = styled.div`
   display: flex;
   justify-content: center;
-  @media screen and (min-width: 769px) {
-    display: none;
+  padding-bottom: 2em;
+
+  a {
+    text-decoration: none;
+    color: black;
+    margin-right: 1em;
+    margin-left: 1em;
   }
-`;
-const NavBarDisplay = styled.div`
+
   @media screen and (max-width: 768px) {
     display: none;
   }
+`;
+const MobileLogo = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 const Animation = styled.div`
   display: flex;
@@ -27,10 +37,12 @@ const Animation = styled.div`
 const Footer = () => {
   return (
     <FooterContainer>
+      <FooterLinks>
+        <NavLinks />
+      </FooterLinks>
       <MobileLogo>
         <img src={Logo} />
       </MobileLogo>
-      <NavBarDisplay>Need to add footer nav</NavBarDisplay>
       <Animation>ANIMATION PLACEHOLDER</Animation>
     </FooterContainer>
   );
