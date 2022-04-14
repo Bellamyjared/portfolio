@@ -1,51 +1,17 @@
-import React, { useState } from "react";
-import { createGlobalStyle } from "styled-components";
-
-import NavBar from "./Components/NavBar.jsx";
-import Hero from "./Components/Hero.jsx";
-import Project from "./Components/Project.jsx";
-
-import Box from "./Components/ThreeJSModels/Box.js";
-import { Model } from "./Components/ThreeJSModels/Box.js";
-
+import "./styles.css";
 import { Canvas } from "@react-three/fiber";
-
+import {
+  Environment,
+  OrbitControls,
+  PerspectiveCamera,
+} from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Suspense } from "react";
 import { useFrame } from "@react-three/fiber";
+import React, { useRef, useState } from "react";
+import { useGLTF } from "@react-three/drei";
 import { useSpring, animated } from "@react-spring/three";
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    
-    font-family: 'Poppins', sans-serif;
-    background-color: #EBF8FF;
-    margin : 0;
-
-    @media screen and (min-width: 768px){
-      font-size: 18px;
-    }    
-
-    @media screen and (min-width: 2560px){
-      font-size: 25px;
-    }
-  
-  }
-  button {
-    font-size : 16px;
-    width: 8em;
-    height: 2.4em;
-    color: white;
-    background-color: #031f4b;
-    border-radius: 20px;
-    border : none;
-    @media screen and (min-width: 2560px){
-      font-size: 25px;
-      border-radius: 50px;
-    }
-  }
-`;
 
 function Train_Head(props) {
   const gltf = useLoader(GLTFLoader, "/train_head.gltf");
@@ -55,17 +21,32 @@ function Train_Head(props) {
     </Suspense>
   );
 }
+function Train_Cab(props) {
+  const gltf = useLoader(GLTFLoader, "/train_cab.gltf");
+  return (
+    <Suspense fallback={null}>
+      <primitive object={gltf.scene} />
+    </Suspense>
+  );
+}
+function Train_Cab2(props) {
+  const gltf = useLoader(GLTFLoader, "/train_cab2.gltf");
+  return (
+    <Suspense fallback={null}>
+      <primitive object={gltf.scene} />
+    </Suspense>
+  );
+}
+function Train_Back(props) {
+  const gltf = useLoader(GLTFLoader, "/train_back.gltf");
+  return (
+    <Suspense fallback={null}>
+      <primitive object={gltf.scene} />
+    </Suspense>
+  );
+}
 
-function App() {
-  const [ToggleMobileState, setToggleMobileState] = useState("hidden");
-  const [ToggleOverFlow, setToggleOverFlow] = useState("visible");
-
-  const ToggleMobileNav = () =>
-    ToggleMobileState == "hidden"
-      ? setToggleMobileState("none") + setToggleOverFlow("hidden")
-      : setToggleMobileState("hidden") + setToggleOverFlow("visible");
-  console.log(ToggleMobileState);
-
+export default function Train(props) {
   const [positions, setPositions] = useState(0);
   const [loop, setLoop] = useState(0);
 
@@ -81,7 +62,15 @@ function App() {
         ? [90, 0, 0]
         : [90, 50, 0],
   });
-
+  const { position2 } = useSpring({
+    position2: positions ? [0, 0, 0] : [-6, 0, 0],
+  });
+  const { position3 } = useSpring({
+    position3: positions ? [-6, 0, 0] : [-12, 0, 0],
+  });
+  const { position4 } = useSpring({
+    position4: positions ? [-11, 0, 0] : [-17, 0, 0],
+  });
   function MyRotatingBox() {
     const myMesh = React.useRef();
 
@@ -111,25 +100,26 @@ function App() {
   }
 
   return (
-    <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
-      <GlobalStyle />
-      <NavBar
-        ToggleMobileNav={ToggleMobileNav}
-        ToggleMobileState={ToggleMobileState}
-      />
-      <Hero />
+    <div>
       <Canvas camera={{ position: [-30, 10, 20], fov: 50 }}>
         <Suspense fallback={null}>
           <MyRotatingBox />
+
+          {/* <animated.mesh position={position2}>
+            <Train_Cab />
+          </animated.mesh>
+
+          <animated.mesh position={position3}>
+            <Train_Cab2 />
+          </animated.mesh>
+          <animated.mesh position={position4}>
+            <Train_Back />
+          </animated.mesh> */}
+
           <ambientLight intensity={0.4} />
           <directionalLight color="white" position={[0, 5, 1]} />
         </Suspense>
       </Canvas>
-      <Project ToggleMobileState={ToggleMobileState} />
-      {/* everything else was moved to project, because it was a headache trying to
-      get the proper layering effect */}
     </div>
   );
 }
-
-export default App;

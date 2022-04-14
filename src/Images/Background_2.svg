@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" preserveAspectRatio="none">
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlnsBx="https://boxy-svg.com" preserveAspectRatio="none">
   <defs>
-    <filter id="drop-shadow-filter-0" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="drop-shadow 1 0 0 6 0.47 rgba(0,0,0,0.3)">
+    <filter id="drop-shadow-filter-0" x="-500%" y="-500%" width="1000%" height="1000%" bxPreset="drop-shadow 1 0 0 6 0.47 rgba(0,0,0,0.3)">
       <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
       <feOffset dx="0" dy="0"/>
       <feComponentTransfer result="offsetblur">
