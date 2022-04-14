@@ -5,6 +5,9 @@ import NavBar from "./Components/NavBar.jsx";
 import Hero from "./Components/Hero.jsx";
 import Project from "./Components/Project.jsx";
 
+import Box from "./Components/ThreeJSModels/Box.js"
+import { Canvas, useFrame } from '@react-three/fiber'
+
 const GlobalStyle = createGlobalStyle`
   body {
     
@@ -49,18 +52,27 @@ function App() {
       : setToggleMobileState("hidden") + setToggleOverFlow("visible");
   console.log(ToggleMobileState);
 
-  return (
-    <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
-      <GlobalStyle />
-      <NavBar
-        ToggleMobileNav={ToggleMobileNav}
-        ToggleMobileState={ToggleMobileState}
-      />
-      <Hero />
-      <Project ToggleMobileState={ToggleMobileState} />
 
-      {/* everything else was moved to project, because it was a headache trying to get the proper layering effect */}
-    </div>
+
+  return (
+    // <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
+        <Canvas>
+    <ambientLight />
+    <pointLight position={[10, 10, 10]} />
+    <Box position={[-1.2, 0, 0]} />
+    <Box position={[1.2, 0, 0]} />
+  </Canvas>                               
+      //  <GlobalStyle />
+      // <NavBar
+      //   ToggleMobileNav={ToggleMobileNav}
+      //   ToggleMobileState={ToggleMobileState}
+      // />
+      // <Hero />
+      // <Project ToggleMobileState={ToggleMobileState} /> 
+
+
+      //  everything else was moved to project, because it was a headache trying to get the proper layering effect 
+    // </div>
   );
 }
 
