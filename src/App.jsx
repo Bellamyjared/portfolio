@@ -5,9 +5,6 @@ import NavBar from "./Components/NavBar.jsx";
 import Hero from "./Components/Hero.jsx";
 import Project from "./Components/Project.jsx";
 
-import Box from "./Components/ThreeJSModels/Box.js";
-import { Model } from "./Components/ThreeJSModels/Box.js";
-
 import { Canvas } from "@react-three/fiber";
 
 import { useLoader } from "@react-three/fiber";
