@@ -5,8 +5,8 @@ import { Suspense, useEffect } from "react";
 import React, { useRef, useState, Easing } from "react";
 import NavBar from "./Components/NavBar.jsx";
 import { Html, Text, Stars } from "@react-three/drei";
-import Train from "./Train";
-import Character_Creator from "./Character_Creator";
+import Train from "./Models/Train";
+import Character_Creator from "./Models/Characters/Character_Creator";
 import * as THREE from "three";
 
 const GlobalStyle = createGlobalStyle`
