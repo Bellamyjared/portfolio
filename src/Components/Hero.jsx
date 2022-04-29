@@ -2,26 +2,27 @@ import React from "react";
 import styled from "styled-components";
 
 const HeroContainer = styled.div`
-  padding: 1em 2.5em 40vh 2.5em;
+  width: 30vw;
+  background-color: #ebf8ff;
+
   @media screen and (min-width: 768px) {
-    padding-top: 4em;
   }
   @media screen and (min-width: 1024px) {
-    padding: 3em 5em 40vh 3.5em;
     font-size: 25px;
   }
   @media screen and (min-width: 1440px) {
-    padding: 3em 5em 40vh 5.5em;
+    padding: 0em 0em 0em 0em;
   }
 
   @media screen and (min-width: 2560px) {
-    padding: 3em 5em 40vh 5.5em;
     font-size: 45px;
   }
 `;
 const HeroTitle = styled.h1`
+  width: 100%;
   margin-bottom: 0.3em;
   line-height: 1.3em;
+  background-color: lightgrey;
 `;
 const HeroSubTitle = styled.div``;
 

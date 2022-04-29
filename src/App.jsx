@@ -1,19 +1,19 @@
+import React, { Suspense, useState } from "react";
 import { createGlobalStyle } from "styled-components";
-import { Canvas, useThree } from "@react-three/fiber";
-import { Center } from "@react-three/drei";
-import { Suspense, useEffect } from "react";
-import React, { useRef, useState, Easing } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Center, Html } from "@react-three/drei";
 import NavBar from "./Components/NavBar.jsx";
-import { Html, Text, Stars } from "@react-three/drei";
+import * as THREE from "three";
+
+import Hero from "./Components/Hero";
 import Train from "./Models/Train";
 import Character_Creator from "./Models/Characters/Character_Creator";
-import * as THREE from "three";
 
 const GlobalStyle = createGlobalStyle`
   body {
     
     font-family: 'Poppins', sans-serif;
-    background-color: #EBF8FF;
+    // background-color: #EBF8FF;
     margin : 0;
 
     @media screen and (min-width: 768px){
@@ -55,12 +55,16 @@ export default function App(props) {
   const [hidden, set] = useState();
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
+      <GlobalStyle />
       <Canvas
         shadows
         orthographic
         camera={{ zoom: 50, position: [-150, 100, 201] }}
       >
         <Suspense fallback={null}>
+          {/* CANVAS PROP AND BACKGROPS */}
+          <ambientLight intensity={0.5} />
+          <directionalLight color="white" position={[0, 5, 1]} />
           <mesh
             rotation={[-Math.PI / 2, 0, 0]}
             position={[0, -0.5, 0]}
@@ -79,6 +83,23 @@ export default function App(props) {
             />
           </mesh>
           <gridHelper args={[100, 100]} />
+
+          {/* HTML ELEMENTS */}
+          <Center alignTop>
+            <Html style={{ width: "100vw", zIndex: 2 }}>
+              <NavBar
+                ToggleMobileNav={ToggleMobileNav}
+                ToggleMobileState={ToggleMobileState}
+              />
+            </Html>
+          </Center>
+
+          <Center alignTop>
+            <Html style={{}}>
+              <Hero />
+            </Html>
+          </Center>
+          {/* TRAIN AND CHARACTER ANIMATIONS */}
           <Train
             position={[0, -0.5, 0]}
             scale={0.5}
@@ -88,21 +109,6 @@ export default function App(props) {
             floorPlane={floorPlane}
             spawnCharacter={spawnCharacter}
           />
-
-          {/* <GlobalStyle /> */}
-          <Center alignTop>
-            <Html style={{ width: "100vw" }}>
-              <NavBar
-                ToggleMobileNav={ToggleMobileNav}
-                ToggleMobileState={ToggleMobileState}
-              />
-            </Html>
-          </Center>
-          {/* <Hero /> */}
-
-          <ambientLight intensity={0.5} />
-          <directionalLight color="white" position={[0, 5, 1]} />
-          {/* <OrbitControls></OrbitControls> */}
         </Suspense>
       </Canvas>
     </div>
