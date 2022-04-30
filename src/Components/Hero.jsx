@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const HeroContainer = styled.div`
-  width: 30vw;
-  background-color: #ebf8ff;
+  width: 25vw;
+  justify-content: center;
+  // background-color: #ebf8ff;
 
   @media screen and (min-width: 768px) {
   }
@@ -11,7 +12,7 @@ const HeroContainer = styled.div`
     font-size: 25px;
   }
   @media screen and (min-width: 1440px) {
-    padding: 0em 0em 0em 0em;
+    padding: 0em 0em 0em 5em;
   }
 
   @media screen and (min-width: 2560px) {
@@ -22,7 +23,6 @@ const HeroTitle = styled.h1`
   width: 100%;
   margin-bottom: 0.3em;
   line-height: 1.3em;
-  background-color: lightgrey;
 `;
 const HeroSubTitle = styled.div``;
 
@@ -46,7 +46,13 @@ const Hero = () => {
         Making Technology <br /> Work For You
       </HeroTitle>
       <HeroSubTitle>Full Stack Development</HeroSubTitle>
-      <CallToAction href="project">See More</CallToAction>
+      <CallToAction
+        onClick={() => {
+          console.log("tewst");
+        }}
+      >
+        See More
+      </CallToAction>
     </HeroContainer>
   );
 };
