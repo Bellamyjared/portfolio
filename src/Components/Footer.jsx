@@ -6,7 +6,10 @@ import NavLinks from "./NavLinks";
 import Logo from "../Images/Logo.svg";
 
 const FooterContainer = styled.div`
+  position: absolute;
+  top: 700vh;
   padding-top: 15em;
+  background-color: darkgrey;
 `;
 const FooterLinks = styled.div`
   display: flex;

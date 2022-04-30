@@ -29,24 +29,38 @@ const MobileNavLink = styled.div`
   padding-bottom: 10vh;
   font-size: 2em;
 `;
-const NavDiv = styled.div`
-  padding: 2.5em;
+const NavBorder = styled.div`
+  position: absolute;
+  top: 6vh;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   @media screen and (min-width: 768px) {
-    justify-content: left;
+    // justify-content: left;
   }
   @media screen and (min-width: 1024px) {
-    padding: 2.5em 5em 2.5em 5em;
+    // padding: 2.5em 5em 2.5em 5em;
   }
   @media screen and (min-width: 1440px) {
-    margin-left: 3em;
-    margin-right: 3em;
+    // margin-left: 3em;
+    // margin-right: 3em;
   }
   @media screen and (min-width: 2560px) {
-    padding: 4em 6.5em 2.5em 6.5em;
+    // padding: 4em 6.5em 2.5em 6.5em;
   }
+`;
+
+const NavContainer = styled.div`
+  width: 85%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const LogoAndLinkContainer = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const NavLogo = styled.div`
@@ -90,7 +104,9 @@ const ImageLinks = styled.div`
   display: none;
   @media screen and (min-width: 1024px) {
     display: flex;
-    margin-left: auto;
+    align-items: center;
+
+    // margin-left: auto;
     img {
       margin-right: 1em;
     }
@@ -125,32 +141,36 @@ const NavBar = ({ ToggleMobileNav, ToggleMobileState }) => {
     <>
       <MobileNavController>{MobileNav()}</MobileNavController>
 
-      <NavDiv>
-        <NavLogo>
-          <img alt="JaredBellamy" src={Logo} />
-        </NavLogo>
-        <MobileNavIcon>
-          <img
-            alt="Mobile Nav"
-            src={MobileNavBar}
-            onClick={() => ToggleMobileNav()}
-          />
-        </MobileNavIcon>
-        <NavLinkContainer>
-          <NavLinks />
-        </NavLinkContainer>
-        <ImageLinks>
-          <a href="https://www.github.com" target="_blank">
-            <img alt="Github" src={Github} />
-          </a>
-          <a href="https://www.linkedin.com" target="_blank">
-            <img alt="LinkedIn" src={LinkedIn} />
-          </a>
-          <a href="mailto:Bellamyjared@gmail.com">
-            <img alt="Email" src={Email} />
-          </a>
-        </ImageLinks>
-      </NavDiv>
+      <NavBorder>
+        <NavContainer>
+          <LogoAndLinkContainer>
+            <NavLogo>
+              <img alt="JaredBellamy" src={Logo} />
+            </NavLogo>
+            <MobileNavIcon>
+              <img
+                alt="Mobile Nav"
+                src={MobileNavBar}
+                onClick={() => ToggleMobileNav()}
+              />
+            </MobileNavIcon>
+            <NavLinkContainer>
+              <NavLinks />
+            </NavLinkContainer>
+          </LogoAndLinkContainer>
+          <ImageLinks>
+            <a href="https://www.github.com" target="_blank">
+              <img alt="Github" src={Github} />
+            </a>
+            <a href="https://www.linkedin.com" target="_blank">
+              <img alt="LinkedIn" src={LinkedIn} />
+            </a>
+            <a href="mailto:Bellamyjared@gmail.com">
+              <img alt="Email" src={Email} />
+            </a>
+          </ImageLinks>
+        </NavContainer>
+      </NavBorder>
     </>
   );
 };

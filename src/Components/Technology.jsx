@@ -5,10 +5,6 @@ import FrontEndIcons from "./Technology_Icon_Containers/FrontEndIcons";
 import BackEndIcons from "./Technology_Icon_Containers/BackEndIcons";
 import DataBaseIcons from "./Technology_Icon_Containers/DataBaseIcons";
 
-import About from "./About.jsx";
-import Contact from "./Contact.jsx";
-import Footer from "./Footer.jsx";
-
 import mySvg from "../Images/Background_2.svg";
 
 import TECHNOLOGY from "../Images/TechnologyBackgrounds/TECHNOLOGY.svg";
@@ -23,44 +19,46 @@ import FrontEnd_image from "../Images/TechnologyImages/FrontEnd_image.svg";
 const BackgroundForTheRest = styled.div`
   background: url(${mySvg}) no-repeat,
     radial-gradient(farthest-side at 0% 0%, #036196, #6497b1) no-repeat;
-  background-size: 170vw 800px, 100vw auto;
-  background-position: 0px 0px, 0px 700px;
+  // background-size: 170vw 800px, 100vw auto;
+  // background-position: 0px 0px, 0px 700px;
 
-  overflow: hidden;
+  // overflow: hidden;
 
-  height: 170em;
+  // height: 170em;
 
-  @media screen and (min-width: 425px) {
-    height: 160em;
-  }
+  // @media screen and (min-width: 425px) {
+  //   height: 160em;
+  // }
 
-  @media screen and (min-width: 768px) {
-    background-size: 170vw 1000px, 100vw auto;
+  // @media screen and (min-width: 768px) {
+  //   background-size: 170vw 1000px, 100vw auto;
 
-    margin-top: -100px;
-  }
-  @media screen and (min-width: 1024px) {
-    height: 200em;
-  }
+  //   margin-top: -100px;
+  // }
+  // @media screen and (min-width: 1024px) {
+  //   height: 200em;
+  // }
 
-  @media screen and (min-width: 1100px) {
-    background-size: 170vw 1000px, 100vw auto;
-    margin-top: -100px;
-    height: 210em;
-  }
-  @media screen and (min-width: 1440px) {
-    height: 220em;
-  }
-  @media screen and (min-width: 1750px) {
-    height: 228em;
-  }
-  @media screen and (min-width: 2560px) {
-    background-size: 170vw 1400px, 100vw auto;
-    height: 208em;
-  }
+  // @media screen and (min-width: 1100px) {
+  //   background-size: 170vw 1000px, 100vw auto;
+  //   margin-top: -100px;
+  //   height: 210em;
+  // }
+  // @media screen and (min-width: 1440px) {
+  //   height: 220em;
+  // }
+  // @media screen and (min-width: 1750px) {
+  //   height: 228em;
+  // }
+  // @media screen and (min-width: 2560px) {
+  //   background-size: 170vw 1400px, 100vw auto;
+  //   height: 208em;
+  // }
 `;
 
 const TechnologyContent = styled.div`
+  position: absolute;
+  top: 350vh;
   padding-top: 8em;
   height: 45em;
 
@@ -178,12 +176,6 @@ const Technology = () => {
   const [toggleBackEnd, setToggleBackEnd] = useState("none");
   const [toggleDataBase, setToggleDataBase] = useState("none");
 
-  const ShowIcons = () => {
-    if (TechnologyBackgroundTxt === FRONTEND) return <FrontEndIcons />;
-    else if (TechnologyBackgroundTxt === BACKEND) return <BackEndIcons />;
-    else if (TechnologyBackgroundTxt === DATABASE) return <DataBaseIcons />;
-    else return <div></div>;
-  };
   return (
     <BackgroundForTheRest>
       <TechnologyContent>
@@ -254,10 +246,6 @@ const Technology = () => {
           </RightSection>
         </TechContainer>
       </TechnologyContent>
-
-      <About />
-      <Contact />
-      <Footer />
     </BackgroundForTheRest>
   );
 };

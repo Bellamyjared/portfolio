@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 const ContactContainer = styled.div`
   padding: 15em 2.5em 0em 2.5em;
+  background-color: darkgrey;
   color: white;
+  position: absolute;
+  top: 550vh;
 
   input {
     padding: 0.3em 0.3em 0.3em 0.3em;

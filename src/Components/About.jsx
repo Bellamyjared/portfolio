@@ -4,7 +4,10 @@ import styled from "styled-components";
 import About_Image from "../Images/About_Image.svg";
 
 const AboutContainer = styled.div`
+  position: absolute;
+  top: 430vh;
   padding-top: 2em;
+  background-color: darkgrey;
   @media screen and (min-width: 768px) {
     padding-top: 3em;
   }

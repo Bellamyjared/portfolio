@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const HeroContainer = styled.div`
+  position: absolute;
+  top: 15vh;
   width: 25vw;
-  justify-content: center;
   // background-color: #ebf8ff;
 
   @media screen and (min-width: 768px) {
