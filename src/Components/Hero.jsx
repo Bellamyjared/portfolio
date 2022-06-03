@@ -5,7 +5,7 @@ const HeroContainer = styled.div`
   position: absolute;
   top: 15vh;
   width: 25vw;
-  // background-color: #ebf8ff;
+  background-color: #ebf8ff;
 
   @media screen and (min-width: 768px) {
   }

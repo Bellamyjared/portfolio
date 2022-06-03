@@ -18,9 +18,8 @@ import FrontEnd_image from "../Images/TechnologyImages/FrontEnd_image.svg";
 
 const TechnologyContent = styled.div`
   position: absolute;
-  top: 350vh;
+  top: 400vh;
   width: 100%;
-  padding-top: 8em;
   height: 45em;
 
   .TechImage {
@@ -28,24 +27,24 @@ const TechnologyContent = styled.div`
     height: auto;
   }
 
-  @media screen and (min-width: 600px) {
-  }
+  // @media screen and (min-width: 600px) {
+  // }
 
-  @media screen and (min-width: 1024px) {
-    .TechImage {
-      width: 100%;
-      height: auto;
-    }
-  }
-  @media screen and (min-width: 1100px) {
-    padding-top: 14em;
-  }
-  @media screen and (min-width: 1750px) {
-    padding-top: 15em;
-  }
-  @media screen and (min-width: 2560px) {
-    padding-top: 12em;
-  }
+  // @media screen and (min-width: 1024px) {
+  //   .TechImage {
+  //     width: 100%;
+  //     height: auto;
+  //   }
+  // }
+  // @media screen and (min-width: 1100px) {
+  //   padding-top: 14em;
+  // }
+  // @media screen and (min-width: 1750px) {
+  //   padding-top: 15em;
+  // }
+  // @media screen and (min-width: 2560px) {
+  //   padding-top: 12em;
+  // }
 `;
 
 const BackgroundText = styled.div`

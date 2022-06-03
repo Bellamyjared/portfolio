@@ -7,23 +7,27 @@ import NodeJS_Icon from "../../Images/ProjectImages/NodeJS_Icon.svg";
 import MongoDB_Icon from "../../Images/ProjectImages/MongoDB_Icon.svg";
 
 const Project = styled.div`
-  padding: 0em 2.5em 10em 2.5em;
-  @media screen and (min-width: 1024px) {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: right;
-    padding: 15em 2.5em 10em 2.5em;
-  }
-  @media screen and (min-width: 1440px) {
-    justify-content: center;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media screen and (min-width: 2560px) {
-    padding: 15em 2.5em 10em 2.5em;
-    max-width: 1800px;
-  }
+  display: flex;
+  justify-content: center;
+  padding: 20em 2.5em 10em 2.5em;
+  flex-direction: row-reverse;
+
+  // @media screen and (min-width: 1024px) {
+  //   display: flex;
+  //   flex-direction: row-reverse;
+  //   justify-content: right;
+  //   padding: 15em 2.5em 10em 2.5em;
+  // }
+  // @media screen and (min-width: 1440px) {
+  //   justify-content: center;
+  //   max-width: 1400px;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
+  // @media screen and (min-width: 2560px) {
+  //   padding: 15em 2.5em 10em 2.5em;
+  //   max-width: 1800px;
+  // }
 `;
 
 const LeftSection = styled.div`

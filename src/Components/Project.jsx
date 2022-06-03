@@ -11,6 +11,7 @@ const ProjectContainer = styled.div`
   position: absolute;
   top: 100vh;
   width: 100%;
+
   // background-color: lightgrey;
   // background: url(${mySvg}) no-repeat,
   //   radial-gradient(farthest-side at 60% 30%, #ebf8ff, #6497b1) no-repeat;
