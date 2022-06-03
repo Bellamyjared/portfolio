@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const ContactContainer = styled.div`
-  padding: 15em 2.5em 0em 2.5em;
   background-color: darkgrey;
   color: white;
   position: absolute;
   top: 550vh;
+  width: 100%;
 
   input {
     padding: 0.3em 0.3em 0.3em 0.3em;
@@ -14,17 +14,17 @@ const ContactContainer = styled.div`
     border: none;
     border-radius: 10px;
   }
-  @media screen and (min-width: 1024px) {
-    margin-right: 13%;
-    margin-left: 13%;
-    padding-bottom: 15em;
-  }
-  @media screen and (min-width: 1440px) {
-    justify-content: center;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  // @media screen and (min-width: 1024px) {
+  //   margin-right: 13%;
+  //   margin-left: 13%;
+  //   padding-bottom: 15em;
+  // }
+  // @media screen and (min-width: 1440px) {
+  //   justify-content: center;
+  //   max-width: 1000px;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
 `;
 const ContactTitle = styled.h1`
   display: flex;

@@ -8,8 +8,8 @@ import Logo from "../Images/Logo.svg";
 const FooterContainer = styled.div`
   position: absolute;
   top: 700vh;
-  padding-top: 15em;
   background-color: darkgrey;
+  width: 100%;
 `;
 const FooterLinks = styled.div`
   display: flex;
