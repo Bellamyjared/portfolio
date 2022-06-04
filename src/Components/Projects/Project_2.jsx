@@ -130,6 +130,7 @@ const ProjectLinks = styled.div`
     padding-top: 15em;
 
     justify-content: left;
+
     div {
       display: flex;
       justify-content: left;
