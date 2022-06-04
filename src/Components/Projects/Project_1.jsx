@@ -97,6 +97,10 @@ const LeftSection = styled.div`
 const Title = styled.h1`
   margin-bottom: 5px;
 `;
+const SubTitle = styled.div`
+  font-size: 22px;
+  margin-bottom: 5px;
+`;
 const Paragraph = styled.div``;
 const ProjectLinks = styled.div`
   display: flex;
@@ -112,7 +116,7 @@ const Project_1 = () => {
         <ProjectTech>
           <ReactIcon>
             <img className="ProjectIcon" src={React_icon} alt="React_Icon" />
-            <TechLable>React</TechLable>
+            <TechLable>React Native</TechLable>
           </ReactIcon>
           <NodeJSIcon>
             <img className="ProjectIcon" src={NodeJS_Icon} alt="NodeJS_Icon" />
@@ -129,13 +133,15 @@ const Project_1 = () => {
         </ProjectTech>
       </RightSection>
       <LeftSection>
-        <Title>Name of project</Title>
+        <Title>Grocery List</Title>
+        <SubTitle>Mobile Appication</SubTitle>
         <Paragraph>
-          Lorem ipsum is placeholder text commonly used in the graphic, print,
-          and publishing industries for previewing layouts and visual mockups
+          This is an on going passion project that I've create for my wife. It
+          allows a user to create a grocery list based off custom item widgets.
         </Paragraph>
         <ProjectLinks>
           <button>Live</button>
+          <button>Code</button>
         </ProjectLinks>
       </LeftSection>
     </Project>
