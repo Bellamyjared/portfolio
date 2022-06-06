@@ -1,21 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-import ProjectImage from "../../Images/ProjectImageTemp.png";
-import React_icon from "../../Images/ProjectImages/React_icon.svg";
-import NodeJS_Icon from "../../Images/ProjectImages/NodeJS_Icon.svg";
-import MongoDB_Icon from "../../Images/ProjectImages/MongoDB_Icon.svg";
+import Grocery_App_Banner from "../Images/ProjectImages/Grocery_App_Banner.png";
+import React_icon from "../Images/ProjectImages/React_icon.svg";
+import NodeJS_Icon from "../Images/ProjectImages/NodeJS_Icon.svg";
+import MongoDB_Icon from "../Images/ProjectImages/MongoDB_Icon.svg";
 
 const Project = styled.div`
-  padding: 0em 2.5em 10em 2.5em;
+  // padding: 0em 2.5em 10em 2.5em;
 
   @media screen and (min-width: 768px) {
-    padding: 0em 2.5em 17em 2.5em;
+    // padding: 0em 2.5em 17em 2.5em;
   }
   @media screen and (min-width: 1024px) {
     display: flex;
     justify-content: right;
-    padding: 10em 2.5em 20em 2.5em;
+    // padding: 10em 2.5em 20em 2.5em;
   }
   @media screen and (min-width: 1440px) {
     justify-content: center;
@@ -110,11 +110,15 @@ const ProjectLinks = styled.div`
   padding-top: 2em;
 `;
 
-const Project_1 = () => {
+const Projects = () => {
   return (
     <Project>
       <RightSection>
-        <img className="ProjectImage" src={ProjectImage} alt="Project1Image" />
+        <img
+          className="Grocery_App_Banner"
+          src={Grocery_App_Banner}
+          alt="Grocery_App_Banner"
+        />
         <ProjectTech>
           <ReactIcon>
             <img className="ProjectIcon" src={React_icon} alt="React_Icon" />
@@ -150,4 +154,4 @@ const Project_1 = () => {
   );
 };
 
-export default Project_1;
+export default Projects;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Project1 from "./Projects/Project_1.jsx";
+import Projects from "../Methods/Projects.jsx";
 import Project2 from "./Projects/Project_2.jsx";
 import Project3 from "./Projects/Project_3.jsx";
 
@@ -38,9 +38,9 @@ const ProjectContainer = styled.div`
 const Project = () => {
   return (
     <ProjectContainer>
-      <Project1 />
-      <Project2 />
-      <Project3 />
+      <Projects />
+      <Projects />
+      <Projects />
     </ProjectContainer>
   );
 };
