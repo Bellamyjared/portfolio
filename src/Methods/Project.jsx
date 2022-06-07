@@ -6,7 +6,16 @@ import React_icon from "../Images/ProjectImages/React_icon.svg";
 import NodeJS_Icon from "../Images/ProjectImages/NodeJS_Icon.svg";
 import MongoDB_Icon from "../Images/ProjectImages/MongoDB_Icon.svg";
 
-const Project = styled.div`
+const ProjectContainer = styled.div`
+  .ProjectIcon {
+    width: 2em;
+    text-align: center;
+  }
+
+  .ProjectImage {
+    object-fit: cover;
+  }
+
   // padding: 0em 2.5em 10em 2.5em;
 
   @media screen and (min-width: 768px) {
@@ -54,27 +63,14 @@ const ProjectTech = styled.div`
     width: 80%;
   }
 `;
-const ReactIcon = styled.div`
+const ProjectTechIcon = styled.div`
   display: flex;
   width: 3em;
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 5px;
 `;
-const NodeJSIcon = styled.div`
-  display: flex;
-  width: 3em;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-bottom: 5px;
-`;
-const MongoDBIcon = styled.div`
-  display: flex;
-  width: 3em;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-bottom: 5px;
-`;
+
 const TechLable = styled.div`
   font-weight: bold;
 `;
@@ -110,48 +106,39 @@ const ProjectLinks = styled.div`
   padding-top: 2em;
 `;
 
-const Projects = () => {
+const Project = ({
+  banner,
+  projectTech,
+  title,
+  subTitle,
+  paragraph,
+  buttonLink,
+}) => {
   return (
-    <Project>
+    <ProjectContainer>
       <RightSection>
-        <img
-          className="Grocery_App_Banner"
-          src={Grocery_App_Banner}
-          alt="Grocery_App_Banner"
-        />
+        {/* Banner */}
+        <img src={banner} alt={banner} />
+        {/* Tech Icons under banner */}
         <ProjectTech>
-          <ReactIcon>
-            <img className="ProjectIcon" src={React_icon} alt="React_Icon" />
-            <TechLable>React Native</TechLable>
-          </ReactIcon>
-          <NodeJSIcon>
-            <img className="ProjectIcon" src={NodeJS_Icon} alt="NodeJS_Icon" />
-            <TechLable>NodeJS</TechLable>
-          </NodeJSIcon>
-          <MongoDBIcon>
-            <img
-              className="ProjectIcon"
-              src={MongoDB_Icon}
-              alt="MongoDB_Icon"
-            />
-            <TechLable>MongoDB</TechLable>
-          </MongoDBIcon>
+          {projectTech.map((tech) => (
+            <ProjectTechIcon>
+              <img className="ProjectIcon" src={tech[0]} alt={tech[0]} />
+              <TechLable>{tech[1]}</TechLable>
+            </ProjectTechIcon>
+          ))}
         </ProjectTech>
       </RightSection>
       <LeftSection>
-        <Title>Grocery List</Title>
-        <SubTitle>Mobile Appication</SubTitle>
-        <Paragraph>
-          This is an on going passion project that I've create for my wife. It
-          allows a user to create a grocery list based off custom item widgets.
-        </Paragraph>
+        <Title>{title}</Title>
+        <SubTitle>{subTitle}</SubTitle>
+        <Paragraph>{paragraph}</Paragraph>
         <ProjectLinks>
-          <button>Live</button>
-          <button>Code</button>
+          <button>{buttonLink}</button>
         </ProjectLinks>
       </LeftSection>
-    </Project>
+    </ProjectContainer>
   );
 };
 
-export default Projects;
+export default Project;

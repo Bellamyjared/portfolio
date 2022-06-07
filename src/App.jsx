@@ -6,7 +6,7 @@ import NavBar from "./Components/NavBar.jsx";
 import * as THREE from "three";
 
 import Hero from "./Components/Hero";
-import Project from "./Components/Project";
+import Projects from "./Components/Projects";
 import Technology from "./Components/Technology";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
@@ -78,7 +78,7 @@ export default function App(props) {
               />
 
               <Hero />
-              <Project />
+              <Projects />
               <Technology />
               <About />
               <Contact />
