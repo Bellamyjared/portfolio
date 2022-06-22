@@ -13,6 +13,18 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
 
   useFrame(() => {
     if (document.hasFocus()) {
+      if (!actions.Direction_Controller_Cab_1.isRunning()) {
+        actions.Direction_Controller_Cab_Head.play();
+        actions.Direction_Controller_Cab_1.play();
+        actions.Direction_Controller_Cab_2.play();
+        actions.Direction_Controller_Cab_Back.play();
+        actions.Head_Cab_Door.play();
+        actions.Back_Cab_Door.play();
+        actions.Cab_1_Left_Door.play();
+        actions.Cab_1_Right_Door.play();
+        actions.Cab_2_Left_Door.play();
+        actions.Cab_2_Right_Door.play();
+      }
       if (
         actions.Direction_Controller_Cab_Head.time > 3.8 &&
         actions.Direction_Controller_Cab_Head.time < 8.8
@@ -22,6 +34,21 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
         setSpawnCharacter(false);
       }
     } else {
+      if (
+        actions.Direction_Controller_Cab_Head.time > 0 &&
+        actions.Direction_Controller_Cab_Head.time < 0.2
+      ) {
+        actions.Direction_Controller_Cab_Head.stop();
+        actions.Direction_Controller_Cab_1.stop();
+        actions.Direction_Controller_Cab_2.stop();
+        actions.Direction_Controller_Cab_Back.stop();
+        actions.Head_Cab_Door.stop();
+        actions.Back_Cab_Door.stop();
+        actions.Cab_1_Left_Door.stop();
+        actions.Cab_1_Right_Door.stop();
+        actions.Cab_2_Left_Door.stop();
+        actions.Cab_2_Right_Door.stop();
+      }
       setSpawnCharacter(false);
     }
   });

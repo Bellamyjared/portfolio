@@ -1,7 +1,7 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useRef } from "react";
 import { createGlobalStyle } from "styled-components";
-import { Canvas } from "@react-three/fiber";
-import { ScrollControls, Scroll } from "@react-three/drei";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { ScrollControls, Scroll, Center } from "@react-three/drei";
 import NavBar from "./Components/NavBar.jsx";
 import * as THREE from "three";
 
@@ -20,13 +20,18 @@ export default function App(props) {
   const [ToggleOverFlow, setToggleOverFlow] = useState("visible");
 
   const ToggleMobileNav = () =>
-    ToggleMobileState == "hidden"
+    ToggleMobileState === "hidden"
       ? setToggleMobileState("none") + setToggleOverFlow("hidden")
       : setToggleMobileState("hidden") + setToggleOverFlow("visible");
 
   const floorPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
   const [spawnCharacter, setSpawnCharacter] = useState(false);
-  const [hidden, set] = useState();
+  // const [hidden, set] = useState();
+
+  const test = useRef();
+
+  console.log(test);
+
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
       <GlobalStyle />
@@ -36,9 +41,11 @@ export default function App(props) {
         camera={{ zoom: 50, position: [-150, 100, 201] }}
       >
         <Suspense fallback={null}>
+          <Center ref={floorPlane} alignTop></Center>
           <ScrollControls damping={10} pages={9}>
             <Scroll>
               {/* ~~~~~~~~~~~~~~~~ BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
+
               <mesh
                 rotation={[-Math.PI / 2, 0, 0]}
                 position={[0, -0.5, 0]}
@@ -67,6 +74,7 @@ export default function App(props) {
               <Character_Creator
                 floorPlane={floorPlane}
                 spawnCharacter={spawnCharacter}
+                // test={test}
               />
             </Scroll>
 
@@ -96,6 +104,7 @@ export default function App(props) {
               </h1> */}
             </Scroll>
           </ScrollControls>
+          {console.log(window.innerHeight)}
 
           {/* ~~~~~~~~~~~~~~~~ CANVAS PROP AND BACKGROPS ~~~~~~~~~~~~~~~~  */}
           <ambientLight intensity={0.5} />

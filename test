@@ -1,1 +1,18 @@
-test
+finish list
+
+1. stop train at begining of loop if the screen is not active (same as the characters not spawning)
+2. stop dragging if screen is scrolled down
+3. get new background for website
+   -platform
+   -lights
+   -shadows
+   -character walking path ( or something more in the space)
+   -spot light for featured project
+   -background for the rest of the site
+   -maybe animation for the bottom of the page
+4. scroll when nav buttons are clicked
+   -find out how to do that
+   -also true for other buttons
+5. add details and demo for projects
+6. add scene and scroll for project details
+7. add contact page form go somewhere.

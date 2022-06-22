@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import Grocery_App_Banner from "../Images/ProjectImages/Grocery_App_Banner.png";
-import React_icon from "../Images/ProjectImages/React_icon.svg";
-import NodeJS_Icon from "../Images/ProjectImages/NodeJS_Icon.svg";
-import MongoDB_Icon from "../Images/ProjectImages/MongoDB_Icon.svg";
-
 const ProjectContainer = styled.div`
+  ${(props) =>
+    props.position === "right" ? `flex-direction: row-reverse;` : null}
   .ProjectIcon {
     width: 2em;
     text-align: center;
@@ -16,15 +13,15 @@ const ProjectContainer = styled.div`
     object-fit: cover;
   }
 
-  // padding: 0em 2.5em 10em 2.5em;
+  padding: 0em 2.5em 10em 2.5em;
 
   @media screen and (min-width: 768px) {
-    // padding: 0em 2.5em 17em 2.5em;
+    padding: 0em 2.5em 17em 2.5em;
   }
   @media screen and (min-width: 1024px) {
     display: flex;
     justify-content: right;
-    // padding: 10em 2.5em 20em 2.5em;
+    padding: 0em 2.5em 10em 2.5em;
   }
   @media screen and (min-width: 1440px) {
     justify-content: center;
@@ -37,20 +34,49 @@ const ProjectContainer = styled.div`
   }
 `;
 
-const RightSection = styled.div`
-  @media screen and (min-width: 1024px) {
-    width: 55%;
-    max-width: 600px;
+const BannerSection = styled.div`
+  ${(props) =>
+    props.position === "left"
+      ? `
+          @media screen and (min-width: 1024px) {
+            width: 55%;
+            max-width: 600px;
 
-    img {
-      width: 100%;
-    }
-  }
-  @media screen and (min-width: 2560px) {
-    max-width: 700px;
-  }
+            img {
+              width: 100%;
+            }
+          }
+          @media screen and (min-width: 2560px) {
+            max-width: 700px;
+          }
+        `
+      : props.position === "right"
+      ? `
+      padding-bottom: 2em;
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        max-width: 400px;
+      }
+      @media screen and (min-width: 1024px) {
+        width: 55%;
+        max-width: 600px;
+    
+        img {
+          margin-left: 0px;
+          margin-right: 0px;
+          width: 100%;
+          max-width: none;
+        }
+      }
+      @media screen and (min-width: 2560px) {
+        max-width: 700px;
+      }
+        `
+      : null}
 `;
-
 const ProjectTech = styled.div`
   display: flex;
   justify-content: space-between;
@@ -75,23 +101,46 @@ const TechLable = styled.div`
   font-weight: bold;
 `;
 
-const LeftSection = styled.div`
-  padding-top: 1em;
-  padding-bottom: 2em;
-  @media screen and (min-width: 1024px) {
-    max-width: 600px;
+const InformationSection = styled.div`
+  ${(props) =>
+    props.position === "left"
+      ? `
+          padding-top: 1em;
+          padding-bottom: 2em;
+          @media screen and (min-width: 1024px) {
+            max-width: 600px;
 
-    padding-top: 3em;
-    padding-left: 3em;
-    padding-right: 5em;
+            padding-top: 3em;
+            padding-left: 3em;
+            padding-right: 5em;
 
-    width: 45%;
-  }
-  @media screen and (min-width: 2560px) {
-    max-width: 1000px;
-    padding-right: 3em;
-  }
+            width: 45%;
+          }
+          @media screen and (min-width: 2560px) {
+            max-width: 1000px;
+            padding-right: 3em;
+          }
+        `
+      : props.position === "right"
+      ? `
+      padding-top: 1em;
+      padding-bottom: 2em;
+      @media screen and (min-width: 1024px) {
+        max-width: 600px;
+    
+        padding-top: 3em;
+        padding-left: 3em;
+        padding-right: 0em;
+    
+        width: 50%;
+      }
+      @media screen and (min-width: 2560px) {
+        max-width: 1000px;
+      }
+        `
+      : null}
 `;
+
 const Title = styled.h1`
   margin-bottom: 5px;
 `;
@@ -107,6 +156,7 @@ const ProjectLinks = styled.div`
 `;
 
 const Project = ({
+  bannerPosition,
   banner,
   projectTech,
   title,
@@ -115,8 +165,8 @@ const Project = ({
   buttonLink,
 }) => {
   return (
-    <ProjectContainer>
-      <RightSection>
+    <ProjectContainer position={bannerPosition}>
+      <BannerSection position={bannerPosition}>
         {/* Banner */}
         <img src={banner} alt={banner} />
         {/* Tech Icons under banner */}
@@ -128,15 +178,16 @@ const Project = ({
             </ProjectTechIcon>
           ))}
         </ProjectTech>
-      </RightSection>
-      <LeftSection>
+      </BannerSection>
+
+      <InformationSection position={bannerPosition}>
         <Title>{title}</Title>
         <SubTitle>{subTitle}</SubTitle>
         <Paragraph>{paragraph}</Paragraph>
         <ProjectLinks>
           <button>{buttonLink}</button>
         </ProjectLinks>
-      </LeftSection>
+      </InformationSection>
     </ProjectContainer>
   );
 };

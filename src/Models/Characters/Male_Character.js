@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useMemo, useState } from "react";
 import { useGraph, useFrame, useThree } from "@react-three/fiber";
-import { useGLTF, useAnimations } from "@react-three/drei";
+import { useGLTF, useAnimations, useScroll } from "@react-three/drei";
 import * as THREE from "three";
 import { SkeletonUtils } from "three/examples/jsm/utils/SkeletonUtils";
 
@@ -62,7 +62,7 @@ export default function Male_Character({
       100 * Math.floor(Math.random() * 120)
     );
     return () => clearInterval(directionInterval);
-  }, [spawnCharacter]);
+  }, [spawnCharacter, props.position]);
 
   useEffect(() => {
     CharacterAnimation();
@@ -161,6 +161,7 @@ export default function Male_Character({
   // update character ever in window frame
   useFrame(({ clock }) => {
     // move character across the screen when not being dragged
+
     if (!isDragging) {
       if (previousAnimation === actions.Running) {
         group.current.translateZ(0.017);
