@@ -12,16 +12,17 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
   const { actions } = useAnimations(animations, group);
 
   useFrame(() => {
+    // spawn character if the doors are open
     if (
       actions.Direction_Controller_Cab_Head.time > 3.8 &&
       actions.Direction_Controller_Cab_Head.time < 8.8
     ) {
-      console.log(true);
       setSpawnCharacter(true);
     } else {
       setSpawnCharacter(false);
     }
 
+    // when train is out of focus stop start at beginning of the loop. Resume train if window is back in focus
     if (document.hasFocus()) {
       if (!actions.Direction_Controller_Cab_1.isRunning()) {
         actions.Direction_Controller_Cab_Head.play();
@@ -54,6 +55,7 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
     }
   });
 
+  // start train when page renders
   useEffect(() => {
     actions.Direction_Controller_Cab_Head.play();
     actions.Direction_Controller_Cab_1.play();
@@ -65,19 +67,9 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
     actions.Cab_1_Right_Door.play();
     actions.Cab_2_Left_Door.play();
     actions.Cab_2_Right_Door.play();
-    // if (actions.Direction_Controller_Cab_Head.time > 3.8) {
-    //   actions.Direction_Controller_Cab_Head.paused = true;
-    //   actions.Direction_Controller_Cab_1.paused = true;
-    //   actions.Direction_Controller_Cab_2.paused = true;
-    //   actions.Direction_Controller_Cab_Back.paused = true;
-    //   actions.Head_Cab_Door.paused = true;
-    //   actions.Back_Cab_Door.paused = true;
-    //   actions.Cab_1_Left_Door.paused = true;
-    //   actions.Cab_1_Right_Door.paused = true;
-    //   actions.Cab_2_Left_Door.paused = true;
-    //   actions.Cab_2_Right_Door.paused = true;
-    // }
   }, []);
+
+  // auto generated train mesh
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
