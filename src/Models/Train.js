@@ -12,6 +12,16 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
   const { actions } = useAnimations(animations, group);
 
   useFrame(() => {
+    if (
+      actions.Direction_Controller_Cab_Head.time > 3.8 &&
+      actions.Direction_Controller_Cab_Head.time < 8.8
+    ) {
+      console.log(true);
+      setSpawnCharacter(true);
+    } else {
+      setSpawnCharacter(false);
+    }
+
     if (document.hasFocus()) {
       if (!actions.Direction_Controller_Cab_1.isRunning()) {
         actions.Direction_Controller_Cab_Head.play();
@@ -24,14 +34,6 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
         actions.Cab_1_Right_Door.play();
         actions.Cab_2_Left_Door.play();
         actions.Cab_2_Right_Door.play();
-      }
-      if (
-        actions.Direction_Controller_Cab_Head.time > 3.8 &&
-        actions.Direction_Controller_Cab_Head.time < 8.8
-      ) {
-        setSpawnCharacter(true);
-      } else {
-        setSpawnCharacter(false);
       }
     } else {
       if (
@@ -49,7 +51,6 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
         actions.Cab_2_Left_Door.stop();
         actions.Cab_2_Right_Door.stop();
       }
-      setSpawnCharacter(false);
     }
   });
 
