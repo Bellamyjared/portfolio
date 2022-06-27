@@ -5,7 +5,11 @@ import React, { useState } from "react";
 import Male_Character from "./Male_Character";
 import Female_Character from "./Female_Character";
 
-export default function Character_Creator({ floorPlane, spawnCharacter }) {
+export default function Character_Creator({
+  floorPlane,
+  spawnCharacter,
+  testing,
+}) {
   const DOOR_POSITIONS = [
     [4.6, 0.2, 0],
     [2.62, 0.2, 0],
@@ -36,6 +40,7 @@ export default function Character_Creator({ floorPlane, spawnCharacter }) {
           floorPlane={floorPlane}
           spawnCharacter={spawnCharacter}
           Wave_Count={Wave_Count}
+          testing={testing}
         />,
       ]);
     } else {
@@ -48,6 +53,7 @@ export default function Character_Creator({ floorPlane, spawnCharacter }) {
           floorPlane={floorPlane}
           spawnCharacter={spawnCharacter}
           Wave_Count={Wave_Count}
+          testing={testing}
         />,
       ]);
     }
@@ -62,6 +68,7 @@ function Character_Wave({
   floorPlane,
   spawnCharacter,
   Wave_Count,
+  testing,
 }) {
   const [Character_List, setCharacter_List] = useState([]);
 
@@ -86,6 +93,7 @@ function Character_Wave({
               floorPlane={floorPlane}
               spawnCharacter={spawnCharacter}
               pos={pos}
+              testing={testing}
             />,
           ];
         } else {
@@ -96,6 +104,7 @@ function Character_Wave({
               floorPlane={floorPlane}
               spawnCharacter={spawnCharacter}
               pos={pos}
+              testing={testing}
             />,
           ];
         }
@@ -109,7 +118,7 @@ function Character_Wave({
   return Character_List;
 }
 
-function Character_Creation({ floorPlane, spawnCharacter, pos }) {
+function Character_Creation({ floorPlane, spawnCharacter, pos, testing }) {
   const [deleteCharacter, setDeleteCharacter] = useState(false);
   if (deleteCharacter) {
     return <></>;
@@ -130,6 +139,7 @@ function Character_Creation({ floorPlane, spawnCharacter, pos }) {
           spawnCharacter={spawnCharacter}
           floorPlane={floorPlane}
           position={pos}
+          testing={testing}
         />
       );
     }

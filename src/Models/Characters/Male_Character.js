@@ -39,6 +39,9 @@ export default function Male_Character({
   );
 
   let planeIntersectPoint = new THREE.Vector3();
+  const data = useScroll();
+
+  // console.log(data.visible(0, 1 / 9));
 
   // spawn character and direction controls
   useEffect(() => {
@@ -92,6 +95,12 @@ export default function Male_Character({
         setResetSpringPosition(false);
       }
       // while dragging
+
+      // ~~~~~~~~~ this is for stopping the dragging on characters if the screen is scrolled down, I dont wanna do this just make it so the character finds the correct path when scrolled. for later
+      // const a = data.range(0, 1) * 100;
+      // console.log(a);
+      // if (a < 0.2) {
+      // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       if (active) {
         event.ray.intersectPlane(floorPlane, planeIntersectPoint);
         setCharacterPosition([planeIntersectPoint.x, 0, planeIntersectPoint.z]);
@@ -101,6 +110,9 @@ export default function Male_Character({
       api.start({
         position: characterPosition,
       });
+      // ~~~~~~~~~~~~~~~~~~~~~~~~~
+      // }
+      // ~~~~~~~~~~~~~~~~~~~~~~~~
     },
     { preventScroll: true }
   );
@@ -159,6 +171,7 @@ export default function Male_Character({
   };
 
   // update character ever in window frame
+
   useFrame(({ clock }) => {
     // move character across the screen when not being dragged
 

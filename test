@@ -1,7 +1,5 @@
 finish list
 
-1. stop train at begining of loop if the screen is not active (same as the characters not spawning)
-2. stop dragging if screen is scrolled down
 3. get new background for website
    -platform
    -lights
@@ -16,3 +14,8 @@ finish list
 5. add details and demo for projects
 6. add scene and scroll for project details
 7. add contact page form go somewhere.
+
+add scrolling to characters, do this after posted
+
+train and characters go white when characters spawn for the first time
+may be solved by pre loading a character at edge of screen when user first loads

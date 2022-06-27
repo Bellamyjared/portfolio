@@ -1,7 +1,7 @@
 import React, { Suspense, useState, useRef } from "react";
 import { createGlobalStyle } from "styled-components";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { ScrollControls, Scroll, Center } from "@react-three/drei";
+import { ScrollControls, Scroll, useScroll } from "@react-three/drei";
 import NavBar from "./Components/NavBar.jsx";
 import * as THREE from "three";
 
@@ -27,11 +27,7 @@ export default function App(props) {
   const floorPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
   const [spawnCharacter, setSpawnCharacter] = useState(false);
   // const [hidden, set] = useState();
-
-  const test = useRef();
-
-  console.log(test);
-
+  const [testing, settesting] = useState(false);
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
       <GlobalStyle />
@@ -41,7 +37,6 @@ export default function App(props) {
         camera={{ zoom: 50, position: [-150, 100, 201] }}
       >
         <Suspense fallback={null}>
-          <Center ref={floorPlane} alignTop></Center>
           <ScrollControls damping={10} pages={9}>
             <Scroll>
               {/* ~~~~~~~~~~~~~~~~ BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
@@ -74,7 +69,7 @@ export default function App(props) {
               <Character_Creator
                 floorPlane={floorPlane}
                 spawnCharacter={spawnCharacter}
-                // test={test}
+                testing={testing}
               />
             </Scroll>
 
@@ -83,8 +78,8 @@ export default function App(props) {
               <NavBar
                 ToggleMobileNav={ToggleMobileNav}
                 ToggleMobileState={ToggleMobileState}
+                settesting={settesting}
               />
-
               <Hero />
               <Projects />
               <Technology />
