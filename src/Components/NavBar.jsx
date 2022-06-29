@@ -120,7 +120,12 @@ const ImageLinks = styled.div`
   }
 `;
 
-const NavBar = ({ ToggleMobileNav, ToggleMobileState, settesting }) => {
+const NavBar = ({
+  ToggleMobileNav,
+  ToggleMobileState,
+  settesting,
+  ChromeWheel,
+}) => {
   const Test = () => console.log("home");
 
   const MobileNav = () => {
@@ -155,7 +160,7 @@ const NavBar = ({ ToggleMobileNav, ToggleMobileState, settesting }) => {
               />
             </MobileNavIcon>
             <NavLinkContainer>
-              <NavLinks settesting={settesting} />
+              <NavLinks settesting={settesting} ChromeWheel={ChromeWheel} />
             </NavLinkContainer>
           </LogoAndLinkContainer>
           <ImageLinks>

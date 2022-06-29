@@ -1,16 +1,17 @@
 import React from "react";
 import { useScroll } from "@react-three/drei";
 
-const NavLinks = ({ test }) => {
+const NavLinks = ({ test, ChromeWheel }) => {
   const data = useScroll(test);
   // console.log(data);
 
-  function ChromeWheel() {
-    var evt = document.createEvent("MouseEvents");
-    evt.initEvent("mousewheel", true, true);
-    evt.wheelDelta = 120;
-    document.dispatchEvent(evt);
-  }
+  // function ChromeWheel() {
+  //   var evt = document.createEvent("MouseEvents");
+  //   evt.initEvent("mousewheel", true, true);
+  //   evt.wheelDelta = 120;
+  //   testing.dispatchEvent(evt);
+  //   console.log("test");
+  // }
 
   const moveTest = () => {
     console.log(data);
@@ -19,7 +20,9 @@ const NavLinks = ({ test }) => {
   };
   return (
     <>
-      <button onClick={() => ChromeWheel()}>Home</button>
+      <button id="buttonScroll" onClick={() => ChromeWheel()}>
+        Home
+      </button>
       <a href="#projects">Projects</a>
       <a href="#tech">Tech</a>
       <a href="#about">About</a>

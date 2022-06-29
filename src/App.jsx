@@ -28,6 +28,15 @@ export default function App(props) {
   const [spawnCharacter, setSpawnCharacter] = useState(false);
   // const [hidden, set] = useState();
   const [testing, settesting] = useState(false);
+
+  function ChromeWheel() {
+    var evt = document.createEvent("MouseEvents");
+    evt.initEvent("mousewheel", true, true);
+    evt.wheelDelta = 120;
+    testing.dispatchEvent(evt);
+    console.log("test");
+  }
+
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
       <GlobalStyle />
@@ -37,7 +46,7 @@ export default function App(props) {
         camera={{ zoom: 50, position: [-150, 100, 201] }}
       >
         <Suspense fallback={null}>
-          <ScrollControls damping={10} pages={9}>
+          <ScrollControls damping={10} pages={9} id="testing">
             <Scroll>
               {/* ~~~~~~~~~~~~~~~~ BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
 
@@ -79,6 +88,7 @@ export default function App(props) {
                 ToggleMobileNav={ToggleMobileNav}
                 ToggleMobileState={ToggleMobileState}
                 settesting={settesting}
+                ChromeWheel={ChromeWheel}
               />
               <Hero />
               <Projects />
