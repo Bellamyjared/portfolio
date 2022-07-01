@@ -137,7 +137,7 @@ const Technology = () => {
   const [toggleDataBase, setToggleDataBase] = useState("none");
 
   return (
-    <TechnologyContent>
+    <TechnologyContent id="projects">
       <BackgroundText
         style={{
           backgroundImage: `url(${TechnologyBackgroundTxt})`,
