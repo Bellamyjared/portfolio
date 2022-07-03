@@ -18,6 +18,7 @@ export default function Character_Creator({
     [-1.9, 0.2, 0],
     [-3.8, 0.2, 0],
   ];
+  const MAX_CHARACTER = 40;
   const MAX_CHARACTER_PER_DOOR = 3;
 
   const [Wave_List, setWave_List] = useState([]);
@@ -41,6 +42,7 @@ export default function Character_Creator({
           spawnCharacter={spawnCharacter}
           Wave_Count={Wave_Count}
           testing={testing}
+          MAX_CHARACTER={MAX_CHARACTER}
         />,
       ]);
     } else {
@@ -54,6 +56,7 @@ export default function Character_Creator({
           spawnCharacter={spawnCharacter}
           Wave_Count={Wave_Count}
           testing={testing}
+          MAX_CHARACTER={MAX_CHARACTER}
         />,
       ]);
     }
@@ -69,6 +72,7 @@ function Character_Wave({
   spawnCharacter,
   Wave_Count,
   testing,
+  MAX_CHARACTER,
 }) {
   const [Character_List, setCharacter_List] = useState([]);
 
@@ -94,6 +98,7 @@ function Character_Wave({
               spawnCharacter={spawnCharacter}
               pos={pos}
               testing={testing}
+              MAX_CHARACTER={MAX_CHARACTER}
             />,
           ];
         } else {
@@ -105,6 +110,7 @@ function Character_Wave({
               spawnCharacter={spawnCharacter}
               pos={pos}
               testing={testing}
+              MAX_CHARACTER={MAX_CHARACTER}
             />,
           ];
         }
@@ -118,30 +124,45 @@ function Character_Wave({
   return Character_List;
 }
 
-function Character_Creation({ floorPlane, spawnCharacter, pos, testing }) {
+function Character_Creation({
+  floorPlane,
+  spawnCharacter,
+  pos,
+  testing,
+  MAX_CHARACTER,
+}) {
   const [deleteCharacter, setDeleteCharacter] = useState(false);
+  const [characterCount, setCharacterCount] = useState(0);
+  console.log(characterCount);
   if (deleteCharacter) {
+    setCharacterCount(characterCount - 1);
     return <></>;
   } else {
-    if (Math.floor(Math.random() * (1 + 1))) {
-      return (
-        <Female_Character
-          deleteCharacter={setDeleteCharacter}
-          floorPlane={floorPlane}
-          spawnCharacter={spawnCharacter}
-          position={pos}
-        />
-      );
-    } else {
-      return (
-        <Male_Character
-          deleteCharacter={setDeleteCharacter}
-          spawnCharacter={spawnCharacter}
-          floorPlane={floorPlane}
-          position={pos}
-          testing={testing}
-        />
-      );
+    if (characterCount < MAX_CHARACTER) {
+      if (Math.floor(Math.random() * (1 + 1))) {
+        return (
+          <Female_Character
+            deleteCharacter={setDeleteCharacter}
+            characterCount={characterCount}
+            setCharacterCount={setCharacterCount}
+            floorPlane={floorPlane}
+            spawnCharacter={spawnCharacter}
+            position={pos}
+          />
+        );
+      } else {
+        return (
+          <Male_Character
+            deleteCharacter={setDeleteCharacter}
+            characterCount={characterCount}
+            setCharacterCount={setCharacterCount}
+            spawnCharacter={spawnCharacter}
+            floorPlane={floorPlane}
+            position={pos}
+            testing={testing}
+          />
+        );
+      }
     }
   }
 }
