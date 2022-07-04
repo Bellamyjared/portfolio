@@ -12,8 +12,8 @@ export default function Male_Character({
   deleteCharacter,
   spawnCharacter,
   floorPlane,
-  setCharacterCount,
-  characterCount,
+  // setCharacterCount,
+  // characterCount,
   ...props
 }) {
   const group = useRef();
@@ -48,7 +48,7 @@ export default function Male_Character({
   // spawn character and direction controls
   useEffect(() => {
     if (spawnCharacter) {
-      setCharacterCount(characterCount + 1);
+      // setCharacterCount(characterCount + 1);
       group.current.position.set(
         props.position[0],
         props.position[1],
@@ -208,7 +208,7 @@ export default function Male_Character({
       group.current.position.x > 35 ||
       group.current.position.x < -35
     ) {
-      setCharacterCount(characterCount - 1);
+      // setCharacterCount(characterCount - 1);
       deleteCharacter(true);
     }
   });

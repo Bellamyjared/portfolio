@@ -23,6 +23,7 @@ export default function Character_Creator({
 
   const [Wave_List, setWave_List] = useState([]);
   const [Wave_Count, setWave_Count] = useState(0);
+  const [characterCount, setCharacterCount] = useState(0);
 
   useEffect(() => {
     if (spawnCharacter) {
@@ -43,6 +44,8 @@ export default function Character_Creator({
           Wave_Count={Wave_Count}
           testing={testing}
           MAX_CHARACTER={MAX_CHARACTER}
+          setCharacterCount={setCharacterCount}
+          characterCount={characterCount}
         />,
       ]);
     } else {
@@ -57,6 +60,8 @@ export default function Character_Creator({
           Wave_Count={Wave_Count}
           testing={testing}
           MAX_CHARACTER={MAX_CHARACTER}
+          setCharacterCount={setCharacterCount}
+          characterCount={characterCount}
         />,
       ]);
     }
@@ -73,6 +78,8 @@ function Character_Wave({
   Wave_Count,
   testing,
   MAX_CHARACTER,
+  setCharacterCount,
+  characterCount,
 }) {
   const [Character_List, setCharacter_List] = useState([]);
 
@@ -99,6 +106,8 @@ function Character_Wave({
               pos={pos}
               testing={testing}
               MAX_CHARACTER={MAX_CHARACTER}
+              setCharacterCount={setCharacterCount}
+              characterCount={characterCount}
             />,
           ];
         } else {
@@ -111,6 +120,8 @@ function Character_Wave({
               pos={pos}
               testing={testing}
               MAX_CHARACTER={MAX_CHARACTER}
+              setCharacterCount={setCharacterCount}
+              characterCount={characterCount}
             />,
           ];
         }
@@ -130,39 +141,45 @@ function Character_Creation({
   pos,
   testing,
   MAX_CHARACTER,
+  setCharacterCount,
+  characterCount,
 }) {
   const [deleteCharacter, setDeleteCharacter] = useState(false);
-  const [characterCount, setCharacterCount] = useState(0);
+
+  useEffect(() => {
+    console.log(characterCount);
+    setCharacterCount(characterCount + 1);
+  }, []);
   console.log(characterCount);
   if (deleteCharacter) {
     setCharacterCount(characterCount - 1);
     return <></>;
   } else {
-    if (characterCount < MAX_CHARACTER) {
-      if (Math.floor(Math.random() * (1 + 1))) {
-        return (
-          <Female_Character
-            deleteCharacter={setDeleteCharacter}
-            characterCount={characterCount}
-            setCharacterCount={setCharacterCount}
-            floorPlane={floorPlane}
-            spawnCharacter={spawnCharacter}
-            position={pos}
-          />
-        );
-      } else {
-        return (
-          <Male_Character
-            deleteCharacter={setDeleteCharacter}
-            characterCount={characterCount}
-            setCharacterCount={setCharacterCount}
-            spawnCharacter={spawnCharacter}
-            floorPlane={floorPlane}
-            position={pos}
-            testing={testing}
-          />
-        );
-      }
+    // if (characterCount < MAX_CHARACTER) {
+    if (Math.floor(Math.random() * (1 + 1))) {
+      return (
+        <Female_Character
+          deleteCharacter={setDeleteCharacter}
+          // characterCount={characterCount}
+          // setCharacterCount={setCharacterCount}
+          floorPlane={floorPlane}
+          spawnCharacter={spawnCharacter}
+          position={pos}
+        />
+      );
+    } else {
+      return (
+        <Male_Character
+          deleteCharacter={setDeleteCharacter}
+          // characterCount={characterCount}
+          // setCharacterCount={setCharacterCount}
+          spawnCharacter={spawnCharacter}
+          floorPlane={floorPlane}
+          position={pos}
+          testing={testing}
+        />
+      );
     }
+    // }
   }
 }
