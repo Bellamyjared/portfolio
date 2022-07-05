@@ -19,13 +19,14 @@ export default function Character_Creator({
     [-3.8, 0.2, 0],
   ];
   const MAX_CHARACTER_PER_DOOR = 3;
+  const MAX_CHARACTER_AMOUNT = 40;
 
   const [Wave_List, setWave_List] = useState([]);
   const [Wave_Count, setWave_Count] = useState(0);
-  const [characterCount, setCharacterCount] = useState(0);
+  const characterCount = useRef(0);
 
   useEffect(() => {
-    if (spawnCharacter) {
+    if (spawnCharacter && characterCount.current < MAX_CHARACTER_AMOUNT) {
       Add_Wave();
       setWave_Count(Wave_Count + 1);
     }
@@ -64,6 +65,7 @@ function Character_Wave({
   spawnCharacter,
   Wave_Count,
   testing,
+  characterCount,
 }) {
   const [Character_List, setCharacter_List] = useState([]);
   const [characterDeleted, setcharacterDeleted] = useState(false);
@@ -96,6 +98,7 @@ function Character_Wave({
           setcharacterDeleted={setcharacterDeleted}
           characterDeleted={characterDeleted}
           test={test}
+          characterCount={characterCount}
         />
       );
     };
@@ -115,6 +118,7 @@ function Character_Wave({
       }
     });
 
+    characterCount.current = characterCount.current + CharacterIndex.current;
     setCharacter_List(tempCharacterWave);
   };
   if (deleteWave) {
@@ -130,6 +134,7 @@ function Character_Creation({
   testing,
   setcharacterDeleted,
   characterDeleted,
+  characterCount,
   test,
 }) {
   const [deleteCharacter, setDeleteCharacter] = useState(false);
@@ -139,6 +144,7 @@ function Character_Creation({
       test.current += 1;
       setcharacterDeleted(test.current);
       console.log(test.current);
+      characterCount.current -= 1;
     };
   });
 
@@ -146,7 +152,6 @@ function Character_Creation({
     console.log("DELETE CHARACTER");
     return null;
   } else {
-    // if (characterCount < MAX_CHARACTER) {
     if (Math.floor(Math.random() * (1 + 1))) {
       return (
         <Female_Character
@@ -167,6 +172,5 @@ function Character_Creation({
         />
       );
     }
-    // }
   }
 }
