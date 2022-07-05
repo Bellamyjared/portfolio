@@ -1,6 +1,6 @@
 //  workes but i cant delete character, try turning everything into function instead of components and it may work then/
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import React, { useState } from "react";
 import Male_Character from "./Male_Character";
 import Female_Character from "./Female_Character";
@@ -18,7 +18,6 @@ export default function Character_Creator({
     [-1.9, 0.2, 0],
     [-3.8, 0.2, 0],
   ];
-  const MAX_CHARACTER = 40;
   const MAX_CHARACTER_PER_DOOR = 3;
 
   const [Wave_List, setWave_List] = useState([]);
@@ -43,9 +42,6 @@ export default function Character_Creator({
           spawnCharacter={spawnCharacter}
           Wave_Count={Wave_Count}
           testing={testing}
-          MAX_CHARACTER={MAX_CHARACTER}
-          setCharacterCount={setCharacterCount}
-          characterCount={characterCount}
         />,
       ]);
     } else {
@@ -59,9 +55,6 @@ export default function Character_Creator({
           spawnCharacter={spawnCharacter}
           Wave_Count={Wave_Count}
           testing={testing}
-          MAX_CHARACTER={MAX_CHARACTER}
-          setCharacterCount={setCharacterCount}
-          characterCount={characterCount}
         />,
       ]);
     }
@@ -77,19 +70,37 @@ function Character_Wave({
   spawnCharacter,
   Wave_Count,
   testing,
-  MAX_CHARACTER,
-  setCharacterCount,
-  characterCount,
 }) {
   const [Character_List, setCharacter_List] = useState([]);
+  const [characterDeleted, setcharacterDeleted] = useState(false);
+  const test = useRef(0);
+
+  let tempCharacterWave = [];
+  const CharacterIndex = useRef(0);
+
+  if (characterDeleted === CharacterIndex.current) {
+    console.log("UPDATE CHARACTER LIST");
+  }
 
   useEffect(() => {
     Create_Wave();
   }, []);
 
   const Create_Wave = () => {
-    let tempCharacterWave = [];
-    let CharacterIndex = 0;
+    const character = (pos) => {
+      return (
+        <Character_Creation
+          key={CharacterIndex.current + Wave_Count}
+          floorPlane={floorPlane}
+          spawnCharacter={spawnCharacter}
+          pos={pos}
+          testing={testing}
+          setcharacterDeleted={setcharacterDeleted}
+          characterDeleted={characterDeleted}
+          test={test}
+        />
+      );
+    };
 
     door_positions.forEach((pos) => {
       for (
@@ -98,34 +109,11 @@ function Character_Wave({
         i++
       ) {
         if (tempCharacterWave.length === 0) {
-          tempCharacterWave = [
-            <Character_Creation
-              key={CharacterIndex + Wave_Count}
-              floorPlane={floorPlane}
-              spawnCharacter={spawnCharacter}
-              pos={pos}
-              testing={testing}
-              MAX_CHARACTER={MAX_CHARACTER}
-              setCharacterCount={setCharacterCount}
-              characterCount={characterCount}
-            />,
-          ];
+          tempCharacterWave = [character(pos)];
         } else {
-          tempCharacterWave = [
-            ...tempCharacterWave,
-            <Character_Creation
-              key={CharacterIndex + Wave_Count}
-              floorPlane={floorPlane}
-              spawnCharacter={spawnCharacter}
-              pos={pos}
-              testing={testing}
-              MAX_CHARACTER={MAX_CHARACTER}
-              setCharacterCount={setCharacterCount}
-              characterCount={characterCount}
-            />,
-          ];
+          tempCharacterWave = [...tempCharacterWave, character(pos)];
         }
-        CharacterIndex = CharacterIndex + 1;
+        CharacterIndex.current = CharacterIndex.current + 1;
       }
     });
 
@@ -140,28 +128,29 @@ function Character_Creation({
   spawnCharacter,
   pos,
   testing,
-  MAX_CHARACTER,
-  setCharacterCount,
-  characterCount,
+  setcharacterDeleted,
+  characterDeleted,
+  test,
 }) {
   const [deleteCharacter, setDeleteCharacter] = useState(false);
-
   useEffect(() => {
-    console.log(characterCount);
-    setCharacterCount(characterCount + 1);
-  }, []);
-  console.log(characterCount);
+    return function cleanup() {
+      console.log("clean Up");
+      test.current += 1;
+      setcharacterDeleted(test.current);
+      console.log(test.current);
+    };
+  });
+
   if (deleteCharacter) {
-    setCharacterCount(characterCount - 1);
-    return <></>;
+    console.log("DELETE CHARACTER");
+    return null;
   } else {
     // if (characterCount < MAX_CHARACTER) {
     if (Math.floor(Math.random() * (1 + 1))) {
       return (
         <Female_Character
           deleteCharacter={setDeleteCharacter}
-          // characterCount={characterCount}
-          // setCharacterCount={setCharacterCount}
           floorPlane={floorPlane}
           spawnCharacter={spawnCharacter}
           position={pos}
@@ -171,8 +160,6 @@ function Character_Creation({
       return (
         <Male_Character
           deleteCharacter={setDeleteCharacter}
-          // characterCount={characterCount}
-          // setCharacterCount={setCharacterCount}
           spawnCharacter={spawnCharacter}
           floorPlane={floorPlane}
           position={pos}
