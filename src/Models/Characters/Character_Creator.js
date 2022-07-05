@@ -19,7 +19,7 @@ export default function Character_Creator({
     [-3.8, 0.2, 0],
   ];
   const MAX_CHARACTER_PER_DOOR = 3;
-  const MAX_CHARACTER_AMOUNT = 40;
+  const MAX_CHARACTER_AMOUNT = 25;
 
   const [Wave_List, setWave_List] = useState([]);
   const [Wave_Count, setWave_Count] = useState(0);
@@ -29,6 +29,7 @@ export default function Character_Creator({
     if (spawnCharacter && characterCount.current < MAX_CHARACTER_AMOUNT) {
       Add_Wave();
       setWave_Count(Wave_Count + 1);
+      console.log(characterCount.current);
     }
   }, [spawnCharacter]);
 
