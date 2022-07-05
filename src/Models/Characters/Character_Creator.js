@@ -31,32 +31,26 @@ export default function Character_Creator({
     }
   }, [spawnCharacter]);
 
+  const characterWave = () => {
+    return (
+      <Character_Wave
+        key={Wave_List.length}
+        door_positions={DOOR_POSITIONS}
+        max_character_per_door={MAX_CHARACTER_PER_DOOR}
+        floorPlane={floorPlane}
+        spawnCharacter={spawnCharacter}
+        Wave_Count={Wave_Count}
+        testing={testing}
+        characterCount={characterCount}
+      />
+    );
+  };
+
   const Add_Wave = () => {
     if (Wave_List.length === 0) {
-      setWave_List([
-        <Character_Wave
-          key={Wave_List.length}
-          door_positions={DOOR_POSITIONS}
-          max_character_per_door={MAX_CHARACTER_PER_DOOR}
-          floorPlane={floorPlane}
-          spawnCharacter={spawnCharacter}
-          Wave_Count={Wave_Count}
-          testing={testing}
-        />,
-      ]);
+      setWave_List([characterWave()]);
     } else {
-      setWave_List([
-        ...Wave_List,
-        <Character_Wave
-          key={Wave_List.length}
-          door_positions={DOOR_POSITIONS}
-          max_character_per_door={MAX_CHARACTER_PER_DOOR}
-          floorPlane={floorPlane}
-          spawnCharacter={spawnCharacter}
-          Wave_Count={Wave_Count}
-          testing={testing}
-        />,
-      ]);
+      setWave_List([...Wave_List, characterWave()]);
     }
   };
 
@@ -73,17 +67,21 @@ function Character_Wave({
 }) {
   const [Character_List, setCharacter_List] = useState([]);
   const [characterDeleted, setcharacterDeleted] = useState(false);
+  const [deleteWave, setdeleteWave] = useState(false);
   const test = useRef(0);
-
-  let tempCharacterWave = [];
   const CharacterIndex = useRef(0);
 
-  if (characterDeleted === CharacterIndex.current) {
+  let tempCharacterWave = [];
+
+  if (characterDeleted === CharacterIndex.current && !deleteWave) {
     console.log("UPDATE CHARACTER LIST");
+    setdeleteWave(true);
   }
 
   useEffect(() => {
-    Create_Wave();
+    if (!deleteWave) {
+      Create_Wave();
+    }
   }, []);
 
   const Create_Wave = () => {
@@ -119,10 +117,12 @@ function Character_Wave({
 
     setCharacter_List(tempCharacterWave);
   };
-
-  return Character_List;
+  if (deleteWave) {
+    return null;
+  } else {
+    return Character_List;
+  }
 }
-
 function Character_Creation({
   floorPlane,
   spawnCharacter,
