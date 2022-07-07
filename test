@@ -8,19 +8,8 @@ finish list
    -spot light for featured project
    -background for the rest of the site
    -maybe animation for the bottom of the page
-4. scroll when nav buttons are clicked
-   -find out how to do that
-   -also true for other buttons
-5. add details and demo for projects
-6. add scene and scroll for project details
-7. add contact page form go somewhere.
+4. add details and demo for projects
+5. add scene and scroll for project details
+6. add contact page form go somewhere.
 
 add scrolling to characters, do this after posted
-
-train and characters go white when characters spawn for the first time
-may be solved by pre loading a character at edge of screen when user first loads
-
-if the tab is not selected, but the browser is selected (aka another tab is open instead), the train still moves.
-but characters still dont spawn which is okay. just look into this if you have time later
-
-when user goes to site the options are not there,

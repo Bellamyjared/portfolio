@@ -11,10 +11,10 @@ export default function Character_Creator({
   testing,
 }) {
   const FIRST_WAVE_POSITION = [
-    [-34, 0, 34],
-    [-34, 0, 34],
-    [-34, 0, 34],
-    [-34, 0, 34],
+    [-40, 0, 34],
+    [-40, 0, 34],
+    [-40, 0, 34],
+    [-40, 0, 34],
   ];
   const DOOR_POSITIONS = [
     [4.6, 0.2, 0],
