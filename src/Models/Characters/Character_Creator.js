@@ -10,6 +10,7 @@ export default function Character_Creator({
   spawnCharacter,
   testing,
 }) {
+  const STARTING_POSITION = [[-34, 0, 0]];
   const DOOR_POSITIONS = [
     [4.6, 0.2, 0],
     [2.62, 0.2, 0],
@@ -29,15 +30,18 @@ export default function Character_Creator({
     if (spawnCharacter && characterCount.current < MAX_CHARACTER_AMOUNT) {
       Add_Wave();
       setWave_Count(Wave_Count + 1);
-      console.log(characterCount.current);
+      console.log(Wave_Count);
     }
   }, [spawnCharacter]);
+
+  if (Wave_Count === 0) {
+  }
 
   const characterWave = () => {
     return (
       <Character_Wave
         key={Wave_List.length}
-        door_positions={DOOR_POSITIONS}
+        positions={Wave_Count === 0 ? STARTING_POSITION : DOOR_POSITIONS}
         max_character_per_door={MAX_CHARACTER_PER_DOOR}
         floorPlane={floorPlane}
         spawnCharacter={spawnCharacter}
@@ -60,7 +64,7 @@ export default function Character_Creator({
 }
 
 function Character_Wave({
-  door_positions,
+  positions,
   max_character_per_door,
   floorPlane,
   spawnCharacter,
@@ -100,11 +104,12 @@ function Character_Wave({
           characterDeleted={characterDeleted}
           test={test}
           characterCount={characterCount}
+          Wave_Count={Wave_Count}
         />
       );
     };
 
-    door_positions.forEach((pos) => {
+    positions.forEach((pos) => {
       for (
         let i = 0;
         i < Math.floor(Math.random() * (max_character_per_door + 1));
@@ -137,6 +142,7 @@ function Character_Creation({
   characterDeleted,
   characterCount,
   test,
+  Wave_Count,
 }) {
   const [deleteCharacter, setDeleteCharacter] = useState(false);
   useEffect(() => {
@@ -149,21 +155,9 @@ function Character_Creation({
     };
   });
 
-  if (deleteCharacter) {
-    console.log("DELETE CHARACTER");
-    return null;
-  } else {
-    if (Math.floor(Math.random() * (1 + 1))) {
-      return (
-        <Female_Character
-          deleteCharacter={setDeleteCharacter}
-          floorPlane={floorPlane}
-          spawnCharacter={spawnCharacter}
-          position={pos}
-        />
-      );
-    } else {
-      return (
+  if (Wave_Count === 0) {
+    return (
+      <>
         <Male_Character
           deleteCharacter={setDeleteCharacter}
           spawnCharacter={spawnCharacter}
@@ -171,7 +165,39 @@ function Character_Creation({
           position={pos}
           testing={testing}
         />
-      );
+        <Female_Character
+          deleteCharacter={setDeleteCharacter}
+          floorPlane={floorPlane}
+          spawnCharacter={spawnCharacter}
+          position={pos}
+        />
+      </>
+    );
+  } else {
+    if (deleteCharacter) {
+      console.log("DELETE CHARACTER");
+      return null;
+    } else {
+      if (Math.floor(Math.random() * (1 + 1))) {
+        return (
+          <Female_Character
+            deleteCharacter={setDeleteCharacter}
+            floorPlane={floorPlane}
+            spawnCharacter={spawnCharacter}
+            position={pos}
+          />
+        );
+      } else {
+        return (
+          <Male_Character
+            deleteCharacter={setDeleteCharacter}
+            spawnCharacter={spawnCharacter}
+            floorPlane={floorPlane}
+            position={pos}
+            testing={testing}
+          />
+        );
+      }
     }
   }
 }

@@ -25,7 +25,7 @@ export default function App(props) {
       : setToggleMobileState("hidden") + setToggleOverFlow("visible");
 
   const floorPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
-  const [spawnCharacter, setSpawnCharacter] = useState(false);
+  const [spawnCharacter, setSpawnCharacter] = useState(true);
   // const [hidden, set] = useState();
   const [testing, settesting] = useState(false);
 

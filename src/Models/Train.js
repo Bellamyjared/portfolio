@@ -39,7 +39,7 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
     } else {
       if (
         actions.Direction_Controller_Cab_Head.time > 0 &&
-        actions.Direction_Controller_Cab_Head.time < 0.2
+        actions.Direction_Controller_Cab_Head.time < 0.5
       ) {
         actions.Direction_Controller_Cab_Head.stop();
         actions.Direction_Controller_Cab_1.stop();
@@ -67,7 +67,7 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
     actions.Cab_1_Right_Door.play();
     actions.Cab_2_Left_Door.play();
     actions.Cab_2_Right_Door.play();
-  }, []);
+  });
 
   // auto generated train mesh
   return (
