@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useMemo, useState } from "react";
 import { useGraph, useFrame, useThree } from "@react-three/fiber";
-import { useGLTF, useAnimations } from "@react-three/drei";
+import { useGLTF, useAnimations, useScroll } from "@react-three/drei";
 import * as THREE from "three";
 import { SkeletonUtils } from "three/examples/jsm/utils/SkeletonUtils";
 
@@ -41,6 +41,7 @@ export default function Female_Character({
   );
 
   let planeIntersectPoint = new THREE.Vector3();
+  const data = useScroll();
 
   // spawn character and direction controls
   useEffect(() => {
@@ -95,15 +96,25 @@ export default function Female_Character({
         setResetSpringPosition(false);
       }
       // while dragging
-      if (active) {
-        event.ray.intersectPlane(floorPlane, planeIntersectPoint);
-        setCharacterPosition([planeIntersectPoint.x, 0, planeIntersectPoint.z]);
+      const AmountScrolled = data.range(0, 1) * 100;
+
+      if (AmountScrolled < 0.2) {
+        if (active) {
+          event.ray.intersectPlane(floorPlane, planeIntersectPoint);
+          setCharacterPosition([
+            planeIntersectPoint.x,
+            0,
+            planeIntersectPoint.z,
+          ]);
+        }
+        setIsDragging(active);
+        // start useSpring
+        api.start({
+          position: characterPosition,
+        });
+      } else {
+        setIsDragging(false);
       }
-      setIsDragging(active);
-      // start useSpring
-      api.start({
-        position: characterPosition,
-      });
     },
     { preventScroll: true }
   );
