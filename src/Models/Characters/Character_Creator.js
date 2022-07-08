@@ -190,11 +190,18 @@ function Character_Creation({
     } else {
       if (Math.floor(Math.random() * (1 + 1))) {
         return (
-          <Female_Character
+          // <Female_Character
+          //   deleteCharacter={setDeleteCharacter}
+          //   floorPlane={floorPlane}
+          //   spawnCharacter={spawnCharacter}
+          //   position={pos}
+          // />
+          <Male_Character
             deleteCharacter={setDeleteCharacter}
-            floorPlane={floorPlane}
             spawnCharacter={spawnCharacter}
+            floorPlane={floorPlane}
             position={pos}
+            testing={testing}
           />
         );
       } else {
