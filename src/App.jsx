@@ -1,7 +1,14 @@
 import React, { Suspense, useState, useRef } from "react";
 import { createGlobalStyle } from "styled-components";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { ScrollControls, Scroll, useScroll } from "@react-three/drei";
+import {
+  ScrollControls,
+  Scroll,
+  useScroll,
+  OrbitControls,
+  SpotLight,
+  MeshWobbleMaterial,
+} from "@react-three/drei";
 import NavBar from "./Components/NavBar.jsx";
 import * as THREE from "three";
 
@@ -11,6 +18,7 @@ import Technology from "./Components/Technology";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+import Lamp from "./Models/Lamp";
 import Train from "./Models/Train";
 import Character_Creator from "./Models/Characters/Character_Creator";
 
@@ -42,10 +50,18 @@ export default function App(props) {
         camera={{ zoom: 50, position: [-150, 100, 201] }}
       >
         <Suspense fallback={null}>
+          <OrbitControls />
           <ScrollControls damping={10} pages={9} id="testing">
             <Scroll>
               {/* ~~~~~~~~~~~~~~~~ BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
-
+              {/* <SpotLight
+                distance={1}
+                angle={0.15}
+                attenuation={10}
+                anglePower={10} // Diffuse-cone anglePower (default: 5)
+                position={[5, 5, 5]}
+              /> */}
+              <ambientLight intensity={2.5} />
               <mesh
                 rotation={[-Math.PI / 2, 0, 0]}
                 position={[0, -0.5, 0]}
@@ -76,6 +92,7 @@ export default function App(props) {
                 spawnCharacter={spawnCharacter}
                 testing={testing}
               />
+              <Lamp />
             </Scroll>
 
             {/* ~~~~~~~~~~~~~~~~~~~~~~~ HTML ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
