@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useMemo, useState } from "react";
 import { useGraph, useFrame, useThree } from "@react-three/fiber";
 import { useGLTF, useAnimations, useScroll } from "@react-three/drei";
 import * as THREE from "three";
-import { SkeletonUtils } from "three/examples/jsm/utils/SkeletonUtils";
+import { clone } from "three/examples/jsm/utils/SkeletonUtils";
 
 // NEW
 import { useDrag } from "@use-gesture/react";
@@ -19,8 +19,8 @@ export default function Female_Character({
   const group = useRef();
   const material = useRef();
   const { scene, materials, animations } = useGLTF("/Female_Character.glb");
-  const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
-  const { nodes } = useGraph(clone);
+  const cloned = useMemo(() => clone(scene), [scene]);
+  const { nodes } = useGraph(cloned);
   const { actions } = useAnimations(animations, group);
   const [previousAnimation, setPreviousAnimation] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
