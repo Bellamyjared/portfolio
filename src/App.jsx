@@ -21,6 +21,7 @@ import Footer from "./Components/Footer";
 import Lamp from "./Models/Lamp";
 import Train from "./Models/Train";
 import Character_Creator from "./Models/Characters/Character_Creator";
+import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib";
 
 export default function App(props) {
   // !~ Normal app
@@ -40,6 +41,8 @@ export default function App(props) {
   function ChromeWheel() {}
 
   document.addEventListener("keypress", console.log("test"));
+
+  RectAreaLightUniformsLib.init();
 
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
@@ -61,7 +64,14 @@ export default function App(props) {
                 anglePower={10} // Diffuse-cone anglePower (default: 5)
                 position={[5, 5, 5]}
               /> */}
-              <ambientLight intensity={2.5} />
+              {/* <ambientLight intensity={1.5} /> */}
+              <rectAreaLight
+                intensity={1}
+                position={[10, 10, 10]}
+                width={10}
+                height={1000}
+                onUpdate={(self) => self.lookAt(new THREE.Vector3(0, 0, 0))}
+              />
               <mesh
                 rotation={[-Math.PI / 2, 0, 0]}
                 position={[0, -0.5, 0]}
