@@ -64,14 +64,15 @@ export default function App(props) {
                 anglePower={10} // Diffuse-cone anglePower (default: 5)
                 position={[5, 5, 5]}
               /> */}
-              {/* <ambientLight intensity={1.5} /> */}
-              <rectAreaLight
+
+              {/* <rectAreaLight
+                castShadow
                 intensity={1}
                 position={[10, 10, 10]}
                 width={10}
                 height={1000}
                 onUpdate={(self) => self.lookAt(new THREE.Vector3(0, 0, 0))}
-              />
+              /> */}
               <mesh
                 rotation={[-Math.PI / 2, 0, 0]}
                 position={[0, -0.5, 0]}
@@ -82,27 +83,28 @@ export default function App(props) {
                   args={[30, 30]}
                   receiveShadow
                 />
-                <meshPhongMaterial
+                {/* <meshPhongMaterial
                   attach="material"
                   color="#ccc"
                   side={THREE.DoubleSide}
                   receiveShadow
-                />
+                /> */}
               </mesh>
-              <gridHelper args={[100, 100]} />
 
               {/* ~~~~~~~~~~~~~~~~ TRAIN AND CHARACTER ANIMATIONS ~~~~~~~~~~~~~~~~  */}
               <Train
+                castShadow
                 position={[0, -0.5, 0]}
                 scale={0.5}
                 setSpawnCharacter={setSpawnCharacter}
               />
               <Character_Creator
+                castShadow
                 floorPlane={floorPlane}
                 spawnCharacter={spawnCharacter}
                 testing={testing}
               />
-              <Lamp />
+              <Lamp castShadow scale={0.4} position={[0, 0, 0]} />
             </Scroll>
 
             {/* ~~~~~~~~~~~~~~~~~~~~~~~ HTML ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
