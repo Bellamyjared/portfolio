@@ -47,11 +47,7 @@ export default function App(props) {
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
       <GlobalStyle />
-      <Canvas
-        shadows
-        orthographic
-        camera={{ zoom: 50, position: [-150, 100, 201] }}
-      >
+      <Canvas shadows camera={{ zoom: 50, position: [-150, 100, 201] }}>
         <Suspense fallback={null}>
           <OrbitControls />
           <ScrollControls damping={10} pages={9} id="testing">
@@ -73,7 +69,11 @@ export default function App(props) {
                 height={1000}
                 onUpdate={(self) => self.lookAt(new THREE.Vector3(0, 0, 0))}
               /> */}
-              <mesh
+
+              {/* <ambientLight intensity={0.5} /> */}
+              <spotLight color="white" position={[0, 5, 1]} castShadow />
+              {/* floor */}
+              {/* <mesh
                 rotation={[-Math.PI / 2, 0, 0]}
                 position={[0, -0.5, 0]}
                 receiveShadow
@@ -83,28 +83,37 @@ export default function App(props) {
                   args={[30, 30]}
                   receiveShadow
                 />
-                {/* <meshPhongMaterial
+                <meshPhongMaterial
                   attach="material"
                   color="#ccc"
                   side={THREE.DoubleSide}
                   receiveShadow
-                /> */}
+                />
+              </mesh> */}
+
+              {/* ball */}
+              <mesh position={[-3, 1, -3]} castShadow>
+                <sphereGeometry args={[0.5, 32, 32]} />
+                <meshStandardMaterial color="white" />
+              </mesh>
+
+              <mesh rotation={[300, 0, 0]} receiveShadow>
+                <planeGeometry args={[30, 30]} />
+                <meshPhongMaterial color="white" />
               </mesh>
 
               {/* ~~~~~~~~~~~~~~~~ TRAIN AND CHARACTER ANIMATIONS ~~~~~~~~~~~~~~~~  */}
               <Train
-                castShadow
                 position={[0, -0.5, 0]}
                 scale={0.5}
                 setSpawnCharacter={setSpawnCharacter}
               />
               <Character_Creator
-                castShadow
                 floorPlane={floorPlane}
                 spawnCharacter={spawnCharacter}
                 testing={testing}
               />
-              <Lamp castShadow scale={0.4} position={[0, 0, 0]} />
+              <Lamp scale={0.4} position={[0, -0.2, 0]} />
             </Scroll>
 
             {/* ~~~~~~~~~~~~~~~~~~~~~~~ HTML ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
@@ -137,8 +146,6 @@ export default function App(props) {
           {console.log(window.innerHeight)}
 
           {/* ~~~~~~~~~~~~~~~~ CANVAS PROP AND BACKGROPS ~~~~~~~~~~~~~~~~  */}
-          <ambientLight intensity={0.5} />
-          <directionalLight color="white" position={[0, 5, 1]} />
         </Suspense>
       </Canvas>
     </div>
@@ -149,7 +156,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     
     font-family: 'Poppins', sans-serif;
-    // background-color: #EBF8FF;
+    background-color: black;
     margin : 0;
 
     @media screen and (min-width: 768px){
