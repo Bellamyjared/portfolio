@@ -72,7 +72,7 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
   // auto generated train mesh
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Scene">
+      <group>
         <group
           name="Direction_Controller"
           position={[-95.84, 2.38, -0.14]}
@@ -85,15 +85,12 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
             scale={[0.3, 0.52, 0.52]}
           >
             <mesh
-              castShadow
-              name="Mesh"
               geometry={nodes.Mesh.geometry}
-              material={materials["Material.030"]}
+              material={materials["Material.023"]}
             />
             <mesh
-              name="Mesh_1"
               geometry={nodes.Mesh_1.geometry}
-              material={materials["Material.003"]}
+              material={materials["Material.030"]}
             />
           </group>
           <mesh
@@ -102,6 +99,14 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
             material={materials["Material.045"]}
             position={[-0.23, -0.26, 0.03]}
             rotation={[Math.PI, 0, Math.PI]}
+            scale={[0.3, 0.52, 0.52]}
+          />
+          <mesh
+            name="black_Left001"
+            geometry={nodes.black_Left001.geometry}
+            material={materials["Material.048"]}
+            position={[-0.32, -0.11, -0.64]}
+            rotation={[Math.PI / 2, 0, Math.PI]}
             scale={[0.3, 0.52, 0.52]}
           />
           <mesh
@@ -116,16 +121,8 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
             name="black_Right001"
             geometry={nodes.black_Right001.geometry}
             material={materials["Material.049"]}
-            position={[-0.32, -0.11, 0.53]}
+            position={[-0.32, -0.11, 0.64]}
             rotation={[Math.PI / 2, 0, 0]}
-            scale={[0.3, 0.52, 0.52]}
-          />
-          <mesh
-            name="black_Left001"
-            geometry={nodes.black_Left001.geometry}
-            material={materials["Material.048"]}
-            position={[-0.32, -0.11, -0.54]}
-            rotation={[Math.PI / 2, 0, Math.PI]}
             scale={[0.3, 0.52, 0.52]}
           />
         </group>
@@ -140,14 +137,12 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
             scale={[0.3, 0.52, 0.52]}
           >
             <mesh
-              name="Mesh_4"
               geometry={nodes.Mesh_4.geometry}
-              material={materials["Material.070"]}
+              material={materials["Material.069"]}
             />
             <mesh
-              name="Mesh_5"
               geometry={nodes.Mesh_5.geometry}
-              material={materials["Material.004"]}
+              material={materials["Material.070"]}
             />
           </group>
           <mesh
@@ -168,7 +163,7 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
             name="black_left"
             geometry={nodes.black_left.geometry}
             material={materials["Material.073"]}
-            position={[0.32, -0.11, -0.5]}
+            position={[0.32, -0.11, -0.61]}
             rotation={[Math.PI / 2, 0, 3.14]}
             scale={[0.3, 0.52, 0.52]}
           />
@@ -176,7 +171,7 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
             name="black_right"
             geometry={nodes.black_right.geometry}
             material={materials["Material.074"]}
-            position={[0.32, -0.11, 0.54]}
+            position={[0.32, -0.11, 0.66]}
             rotation={[Math.PI / 2, 0, 0]}
             scale={[0.3, 0.52, 0.52]}
           />
@@ -200,6 +195,21 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
             position={[-0.18, -0.23, 0.03]}
             scale={[0.3, 0.52, 0.52]}
           />
+          <group
+            name="black_Right"
+            position={[0.37, -0.11, 0.64]}
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={[0.3, 0.52, 0.52]}
+          >
+            <mesh
+              geometry={nodes.Plane004.geometry}
+              material={materials["Material.062"]}
+            />
+            <points
+              geometry={nodes.Plane004_1.geometry}
+              material={materials["Material.062"]}
+            />
+          </group>
           <mesh
             name="door_Left002"
             geometry={nodes.door_Left002.geometry}
@@ -207,22 +217,21 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
             position={[-0.18, -0.23, 0.02]}
             scale={[0.3, 0.52, 0.52]}
           />
-          <mesh
+          <group
             name="black_Left002"
-            geometry={nodes.black_Left002.geometry}
-            material={materials["Material.063"]}
-            position={[-0.46, -0.11, 0.55]}
+            position={[-0.46, -0.11, 0.64]}
             rotation={[Math.PI / 2, 0, 0]}
             scale={[0.3, 0.52, 0.52]}
-          />
-          <mesh
-            name="black_Right"
-            geometry={nodes.black_Right.geometry}
-            material={materials["Material.062"]}
-            position={[0.37, -0.11, 0.55]}
-            rotation={[Math.PI / 2, 0, 0]}
-            scale={[0.3, 0.52, 0.52]}
-          />
+          >
+            <mesh
+              geometry={nodes.Plane005.geometry}
+              material={materials["Material.063"]}
+            />
+            <points
+              geometry={nodes.Plane005_1.geometry}
+              material={materials["Material.063"]}
+            />
+          </group>
         </group>
         <group
           name="Direction_Controller002"
@@ -250,22 +259,36 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
             position={[-0.16, -0.23, 0.03]}
             scale={[0.3, 0.52, 0.52]}
           />
-          <mesh
-            name="black_RIght"
-            geometry={nodes.black_RIght.geometry}
-            material={materials["Material.068"]}
-            position={[0.39, -0.11, 0.54]}
-            rotation={[Math.PI / 2, 0, 0]}
-            scale={[0.3, 0.52, 0.52]}
-          />
-          <mesh
+          <group
             name="black_Left"
-            geometry={nodes.black_Left.geometry}
-            material={materials["Material.067"]}
-            position={[-0.44, -0.11, 0.54]}
+            position={[-0.44, -0.11, 0.64]}
             rotation={[Math.PI / 2, 0, 0]}
             scale={[0.3, 0.52, 0.52]}
-          />
+          >
+            <mesh
+              geometry={nodes.Plane006.geometry}
+              material={materials["Material.067"]}
+            />
+            <points
+              geometry={nodes.Plane006_1.geometry}
+              material={materials["Material.067"]}
+            />
+          </group>
+          <group
+            name="black_RIght"
+            position={[0.39, -0.11, 0.64]}
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={[0.3, 0.52, 0.52]}
+          >
+            <mesh
+              geometry={nodes.Plane007.geometry}
+              material={materials["Material.068"]}
+            />
+            <points
+              geometry={nodes.Plane007_1.geometry}
+              material={materials["Material.068"]}
+            />
+          </group>
         </group>
       </group>
     </group>

@@ -47,7 +47,7 @@ export default function App(props) {
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
       <GlobalStyle />
-      <Canvas shadows camera={{ zoom: 50, position: [-150, 100, 201] }}>
+      <Canvas shadows camera={{ zoom: 10, position: [-150, 100, 201] }}>
         <Suspense fallback={null}>
           <OrbitControls />
           <ScrollControls damping={10} pages={9} id="testing">
@@ -61,46 +61,36 @@ export default function App(props) {
                 position={[5, 5, 5]}
               /> */}
 
-              {/* <rectAreaLight
+              <ambientLight intensity={0.5} />
+              <directionalLight
+                shadow-camera-top={10}
                 castShadow
+                color="white"
                 intensity={1}
-                position={[10, 10, 10]}
-                width={10}
-                height={1000}
-                onUpdate={(self) => self.lookAt(new THREE.Vector3(0, 0, 0))}
-              /> */}
+                size={2}
+                position={[0, 1, 1]}
+              />
 
-              {/* <ambientLight intensity={0.5} /> */}
-              <spotLight color="white" position={[0, 5, 1]} castShadow />
               {/* floor */}
-              {/* <mesh
+              <mesh
                 rotation={[-Math.PI / 2, 0, 0]}
                 position={[0, -0.5, 0]}
                 receiveShadow
               >
-                <planeBufferGeometry
-                  attach="geometry"
-                  args={[30, 30]}
-                  receiveShadow
-                />
-                <meshPhongMaterial
-                  attach="material"
-                  color="#ccc"
-                  side={THREE.DoubleSide}
-                  receiveShadow
-                />
-              </mesh> */}
+                <planeBufferGeometry attach="geometry" args={[20, 20]} />
+                <meshPhongMaterial color="#ccc" side={THREE.DoubleSide} />
+              </mesh>
 
               {/* ball */}
-              <mesh position={[-3, 1, -3]} castShadow>
-                <sphereGeometry args={[0.5, 32, 32]} />
+              <mesh position={[-3, 5, -3]} castShadow>
+                <sphereGeometry args={[2, 32, 32]} />
                 <meshStandardMaterial color="white" />
               </mesh>
 
-              <mesh rotation={[300, 0, 0]} receiveShadow>
+              {/* <mesh rotation={[300, 0, 0]} receiveShadow>
                 <planeGeometry args={[30, 30]} />
                 <meshPhongMaterial color="white" />
-              </mesh>
+              </mesh> */}
 
               {/* ~~~~~~~~~~~~~~~~ TRAIN AND CHARACTER ANIMATIONS ~~~~~~~~~~~~~~~~  */}
               <Train
@@ -156,7 +146,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     
     font-family: 'Poppins', sans-serif;
-    background-color: black;
+    // background-color: black;
     margin : 0;
 
     @media screen and (min-width: 768px){
