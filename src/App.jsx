@@ -53,8 +53,8 @@ export default function App(props) {
     return (
       <directionalLight
         ref={sLightRef}
-        shadow-camera-top={20}
-        shadow-camera-left={-20}
+        shadow-camera-top={50}
+        shadow-camera-left={-50}
         shadow-camera-right={100}
         shadow-camera-Bottom={-50}
         shadow-mapSize-width={2024}
@@ -62,7 +62,7 @@ export default function App(props) {
         castShadow
         color="white"
         intensity={0.5}
-        position={[1, 2, 1]}
+        position={[0, 1, 1]}
       />
     );
   };
