@@ -8,6 +8,7 @@ import {
   OrbitControls,
   SpotLight,
   MeshWobbleMaterial,
+  useHelper,
 } from "@react-three/drei";
 import NavBar from "./Components/NavBar.jsx";
 import * as THREE from "three";
@@ -44,12 +45,34 @@ export default function App(props) {
 
   RectAreaLightUniformsLib.init();
 
+  const DirectionalLightWithHelper = () => {
+    const sLightRef = useRef();
+    const shadowCameraRef = useRef();
+    useHelper(sLightRef, THREE.DirectionalLightHelper);
+    useHelper(shadowCameraRef, THREE.CameraHelper);
+    return (
+      <directionalLight
+        ref={sLightRef}
+        shadow-camera-top={20}
+        shadow-camera-left={-20}
+        shadow-camera-right={100}
+        shadow-camera-Bottom={-50}
+        shadow-mapSize-width={2024}
+        shadow-mapSize-height={2024}
+        castShadow
+        color="white"
+        intensity={0.5}
+        position={[1, 2, 1]}
+      />
+    );
+  };
+
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
       <GlobalStyle />
       <Canvas shadows camera={{ zoom: 10, position: [-150, 100, 201] }}>
         <Suspense fallback={null}>
-          <OrbitControls />
+          {/* <OrbitControls /> */}
           <ScrollControls damping={10} pages={9} id="testing">
             <Scroll>
               {/* ~~~~~~~~~~~~~~~~ BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
@@ -62,14 +85,8 @@ export default function App(props) {
               /> */}
 
               <ambientLight intensity={0.5} />
-              <directionalLight
-                shadow-camera-top={10}
-                castShadow
-                color="white"
-                intensity={1}
-                size={2}
-                position={[0, 1, 1]}
-              />
+              {/* https://stackoverflow.com/questions/66117340/three-js-improve-shadows-and-visualization */}
+              <DirectionalLightWithHelper />
 
               {/* floor */}
               <mesh
@@ -77,15 +94,15 @@ export default function App(props) {
                 position={[0, -0.5, 0]}
                 receiveShadow
               >
-                <planeBufferGeometry attach="geometry" args={[20, 20]} />
+                <planeBufferGeometry attach="geometry" args={[150, 150]} />
                 <meshPhongMaterial color="#ccc" side={THREE.DoubleSide} />
               </mesh>
 
               {/* ball */}
-              <mesh position={[-3, 5, -3]} castShadow>
-                <sphereGeometry args={[2, 32, 32]} />
+              {/* <mesh position={[-3, 20, 25]} castShadow>
+                <sphereGeometry args={[20, 32, 32]} />
                 <meshStandardMaterial color="white" />
-              </mesh>
+              </mesh> */}
 
               {/* <mesh rotation={[300, 0, 0]} receiveShadow>
                 <planeGeometry args={[30, 30]} />

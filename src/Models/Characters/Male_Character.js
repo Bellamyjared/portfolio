@@ -253,7 +253,7 @@ export default function Male_Character({
           />
         </group>
       </group>
-      <mesh>
+      <mesh castShadow>
         <boxGeometry args={[1.1, 4, 1.1]} />
         <meshStandardMaterial ref={material} opacity={0.0} transparent={true} />
       </mesh>
