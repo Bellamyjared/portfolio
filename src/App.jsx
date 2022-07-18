@@ -46,13 +46,13 @@ export default function App(props) {
   RectAreaLightUniformsLib.init();
 
   const DirectionalLightWithHelper = () => {
-    const sLightRef = useRef();
-    const shadowCameraRef = useRef();
-    useHelper(sLightRef, THREE.DirectionalLightHelper);
-    useHelper(shadowCameraRef, THREE.CameraHelper);
+    // const sLightRef = useRef();
+    // const shadowCameraRef = useRef();
+    // useHelper(sLightRef, THREE.DirectionalLightHelper);
+    // useHelper(shadowCameraRef, THREE.CameraHelper);
     return (
       <directionalLight
-        ref={sLightRef}
+        // ref={sLightRef}
         shadow-camera-top={50}
         shadow-camera-left={-50}
         shadow-camera-right={100}
@@ -137,17 +137,6 @@ export default function App(props) {
               <About />
               <Contact />
               <Footer />
-              {/* I moved the rest into Technology for the same reason as before */}
-              {/* <h1
-                style={{
-                  position: "absolute",
-                  top: `100vh`,
-                  fontSize: "25em",
-                  transform: `translate3d(0,-100%,0)`,
-                }}
-              >
-                all
-              </h1> */}
             </Scroll>
           </ScrollControls>
           {console.log(window.innerHeight)}
