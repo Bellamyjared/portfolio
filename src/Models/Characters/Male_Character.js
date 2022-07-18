@@ -39,9 +39,10 @@ export default function Male_Character({
   const [AnimationRoll, setAnimationRoll] = useState(
     Math.floor(Math.random() * (10 + 1))
   );
+  const [ScrollLock, setScrollLock] = useState(false);
+  const scrollData = useScroll();
 
   let planeIntersectPoint = new THREE.Vector3();
-  const data = useScroll();
 
   // spawn character and direction controls
   useEffect(() => {
@@ -99,7 +100,7 @@ export default function Male_Character({
 
       // ~~~~~~~~~ this is for stopping the dragging on characters if the screen is scrolled down, I dont wanna do this just make it so the character finds the correct path when scrolled. for later
 
-      const AmountScrolled = data.range(0, 1) * 100;
+      const AmountScrolled = scrollData.range(0, 1) * 100;
 
       if (AmountScrolled < 0.2) {
         if (active) {
@@ -178,8 +179,21 @@ export default function Male_Character({
   // update character ever in window frame
 
   useFrame(({ clock }) => {
-    // move character across the screen when not being dragged
+    if (scrollData.range > 0.1 && !ScrollLock) {
+      setScrollLock(true);
+    }
+    if (scrollData.range < 0.1 && ScrollLock) {
+      group.current.position.y = 0.2;
 
+      group.current.position.set(
+        group.current.position.x,
+        group.current.position.y,
+        group.current.position.z
+      );
+      setScrollLock(false);
+    }
+
+    // move character across the screen when not being dragged
     if (!isDragging) {
       if (previousAnimation === actions.Running) {
         group.current.translateZ(0.017);
