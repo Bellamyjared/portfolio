@@ -129,7 +129,6 @@ export default function Male_Character({
       setPreviousAnimation(actions[animation]);
     };
 
-    console.log(actions);
     // Dragging Animations
     if (isDragging) {
       if (previousAnimation != null) {
@@ -179,22 +178,15 @@ export default function Male_Character({
   // update character ever in window frame
 
   useFrame(({ clock }) => {
-    if (scrollData.range > 0.1 && !ScrollLock) {
-      setScrollLock(true);
-    }
-    if (scrollData.range < 0.1 && ScrollLock) {
-      group.current.position.y = 0.2;
-
-      group.current.position.set(
-        group.current.position.x,
-        group.current.position.y,
-        group.current.position.z
-      );
+    if (scrollData.range(0, 1 / 3) > 0.01) {
       setScrollLock(false);
+    }
+    if (scrollData.range(0, 1 / 3) < 0.01) {
+      setScrollLock(true);
     }
 
     // move character across the screen when not being dragged
-    if (!isDragging) {
+    if (!isDragging && !ScrollLock) {
       if (previousAnimation === actions.Running) {
         group.current.translateZ(0.017);
       } else if (previousAnimation === actions.Happy_Walk) {

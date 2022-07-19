@@ -35,7 +35,6 @@ export default function Character_Creator({
     if (spawnCharacter && characterCount.current < MAX_CHARACTER_AMOUNT) {
       Add_Wave();
       setWave_Count(Wave_Count + 1);
-      console.log(Wave_Count);
     }
   }, [spawnCharacter]);
 
@@ -86,7 +85,6 @@ function Character_Wave({
   let tempCharacterWave = [];
 
   if (characterDeleted === CharacterIndex.current && !deleteWave) {
-    console.log("UPDATE CHARACTER LIST");
     setdeleteWave(true);
   }
 
@@ -152,17 +150,14 @@ function Character_Creation({
   const [deleteCharacter, setDeleteCharacter] = useState(false);
   useEffect(() => {
     return function cleanup() {
-      console.log("clean Up");
       test.current += 1;
       setcharacterDeleted(test.current);
-      console.log(test.current);
       characterCount.current -= 1;
     };
   });
 
   if (Wave_Count === 0) {
     if (deleteCharacter) {
-      console.log("DELETE CHARACTER");
       return null;
     } else {
       return (
@@ -185,9 +180,10 @@ function Character_Creation({
     }
   } else {
     if (deleteCharacter) {
-      console.log("DELETE CHARACTER");
+      console.log("delete", characterCount);
       return null;
     } else {
+      console.log(characterCount);
       if (Math.floor(Math.random() * (1 + 1))) {
         return (
           <Female_Character

@@ -89,14 +89,14 @@ export default function App(props) {
               <DirectionalLightWithHelper />
 
               {/* floor */}
-              <mesh
+              {/* <mesh
                 rotation={[-Math.PI / 2, 0, 0]}
                 position={[0, -0.5, 0]}
                 receiveShadow
               >
                 <planeBufferGeometry attach="geometry" args={[150, 150]} />
                 <meshPhongMaterial color="#ccc" side={THREE.DoubleSide} />
-              </mesh>
+              </mesh> */}
 
               {/* ball */}
               {/* <mesh position={[-3, 20, 25]} castShadow>
@@ -139,7 +139,6 @@ export default function App(props) {
               <Footer />
             </Scroll>
           </ScrollControls>
-          {console.log(window.innerHeight)}
 
           {/* ~~~~~~~~~~~~~~~~ CANVAS PROP AND BACKGROPS ~~~~~~~~~~~~~~~~  */}
         </Suspense>

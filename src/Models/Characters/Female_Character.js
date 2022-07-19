@@ -125,9 +125,15 @@ export default function Female_Character({
       setPreviousAnimation(actions[animation]);
     };
 
-    console.log(actions);
+    if (scrollData.range(0, 1 / 3) > 0.1) {
+      setScrollLock(false);
+    }
+    if (scrollData.range(0, 1 / 3) < 0.1) {
+      setScrollLock(true);
+    }
+
     // Dragging Animations
-    if (isDragging) {
+    if (isDragging && !ScrollLock) {
       if (previousAnimation != null) {
         previousAnimation.stop();
       }
@@ -174,16 +180,17 @@ export default function Female_Character({
 
   // update character ever in window frame
   useFrame(({ clock }) => {
-    if (scrollData.range > 0.1 && !ScrollLock) {
+    if (scrollData.range(0, 1 / 3) > 0.01) {
       setScrollLock(true);
     }
-    if (scrollData.range < 0.1 && ScrollLock) {
+    if (scrollData.range(0, 1 / 3) < 0.01) {
       group.current.position.y = 0.2;
       setScrollLock(false);
     }
 
     // move character across the screen when not being dragged
-    if (!isDragging) {
+    // make translateZ 0 if ScrollLock is true
+    if (!isDragging && !ScrollLock) {
       if (previousAnimation === actions.Running) {
         group.current.translateZ(0.017);
       } else if (previousAnimation === actions.Happy_Walk) {
