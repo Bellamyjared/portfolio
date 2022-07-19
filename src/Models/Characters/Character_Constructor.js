@@ -17,7 +17,6 @@ export default function Character_constructor({
   // characterCount,
   ...props
 }) {
-  console.log(characterGender);
   const group = useRef();
   const material = useRef();
   const { scene, materials, animations } = useGLTF(`/${characterGender}.glb`);
@@ -44,6 +43,7 @@ export default function Character_constructor({
   const [ScrollLock, setScrollLock] = useState(false);
   const scrollData = useScroll();
   const AmountScrolled = scrollData.range(0, 1) * 100;
+  const [CharacterSpeed, setCharacterSpeed] = useState(0);
 
   let planeIntersectPoint = new THREE.Vector3();
 
@@ -62,6 +62,13 @@ export default function Character_constructor({
         group.current.position.z,
       ]);
     }
+  }, [spawnCharacter, props.position]);
+
+  useEffect(() => {
+    CharacterAnimation();
+  }, [isDragging]);
+
+  useEffect(() => {
     // set the inital direction the Model is looking
     ChangeDirection();
     // Change where the model is looking at a random interval
@@ -70,20 +77,7 @@ export default function Character_constructor({
       100 * Math.floor(Math.random() * 120)
     );
     return () => clearInterval(directionInterval);
-  }, [spawnCharacter, props.position]);
-
-  useEffect(() => {
-    CharacterAnimation();
-  }, [isDragging]);
-
-  useEffect(() => {
-    setCharacterPosition(group.current.position);
-    group.current.position.set(
-      group.current.position.x,
-      group.current.position.y,
-      group.current.position.z
-    );
-  }, [spawnCharacter]);
+  }, [ScrollLock]);
 
   // On Drag Handler
   const bind = useDrag(
@@ -178,29 +172,39 @@ export default function Character_constructor({
 
   // update character ever in window frame
   useFrame(({ clock }) => {
-    if (AmountScrolled > 0.01) {
-      setScrollLock(false);
-    }
-    if (AmountScrolled < 0.01) {
+    const scrolled = scrollData.range(0, 1 / 3);
+    if (scrolled > 0.01 && !ScrollLock) {
       setScrollLock(true);
+      group.current.translateZ(0);
+    }
+    if (scrolled < 0.01 && ScrollLock) {
+      setScrollLock(false);
+      group.current.translateZ(CharacterSpeed);
     }
 
     // move character across the screen when not being dragged
     if (!isDragging && !ScrollLock) {
       if (previousAnimation === actions.Running) {
         group.current.translateZ(0.017);
+        setCharacterSpeed(0.017);
       } else if (previousAnimation === actions.Happy_Walk) {
         group.current.translateZ(0.006);
+        setCharacterSpeed(0.006);
       } else if (previousAnimation === actions.Gay_Walk) {
         group.current.translateZ(0.0035);
+        setCharacterSpeed(0.0035);
       } else if (previousAnimation === actions.Strut_Walk) {
         group.current.translateZ(0.0035);
+        setCharacterSpeed(0.0035);
       } else if (previousAnimation === actions.Chest_Out_Walk) {
         group.current.translateZ(0.0055);
+        setCharacterSpeed(0.0055);
       } else if (previousAnimation === actions.Drunk_Walk) {
         group.current.translateZ(0.004);
+        setCharacterSpeed(0.004);
       } else {
         group.current.translateZ(0.0055);
+        setCharacterSpeed(0.0055);
       }
       // sets the new position of the creator as they move across screen - needed for spring positioning when drag is initated
       setCharacterPosition([
@@ -223,15 +227,16 @@ export default function Character_constructor({
 
   // change the direction the model is looking at to a random direction
   const ChangeDirection = () => {
-    group.current.lookAt(
-      new THREE.Vector3(
-        Math.floor(Math.random() * (300 - -300 + 1)) + -300,
-        0,
-        900
-      )
-    );
+    if (!ScrollLock) {
+      group.current.lookAt(
+        new THREE.Vector3(
+          Math.floor(Math.random() * (300 - -300 + 1)) + -300,
+          0,
+          900
+        )
+      );
+    }
   };
-
   if (characterGender === "Male_Character") {
     return (
       <animated.group

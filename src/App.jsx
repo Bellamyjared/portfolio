@@ -70,11 +70,7 @@ export default function App(props) {
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
       <GlobalStyle />
-      <Canvas
-        shadows
-        camera={{ zoom: 10, position: [-150, 100, 201] }}
-        onScroll={testingOnScroll}
-      >
+      <Canvas shadows camera={{ zoom: 10, position: [-150, 100, 201] }}>
         <Suspense fallback={null}>
           {/* <OrbitControls /> */}
           <ScrollControls damping={10} pages={9} distance={1}>

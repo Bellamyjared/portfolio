@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import React, { useState } from "react";
+import { useScroll } from "@react-three/drei";
 import Character_Constructor from "./Character_Constructor";
 
 export default function Wave_Constructor({
@@ -28,7 +29,10 @@ export default function Wave_Constructor({
 
   const [Wave_List, setWave_List] = useState([]);
   const [Wave_Count, setWave_Count] = useState(0);
+  const [ScrolledCharacterLock, setScrolledCharacterLock] = useState(false);
   const characterCount = useRef(0);
+  const test = useScroll().range(0, 1 / 3);
+  console.log(test);
 
   useEffect(() => {
     if (spawnCharacter && characterCount.current < MAX_CHARACTER_AMOUNT) {
