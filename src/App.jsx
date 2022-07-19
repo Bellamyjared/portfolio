@@ -67,10 +67,18 @@ export default function App(props) {
     );
   };
 
+  const main = useRef();
+  const div = useRef();
+
   return (
-    <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
+    // <main>
+    <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }} ref={div}>
       <GlobalStyle />
-      <Canvas shadows camera={{ zoom: 10, position: [-150, 100, 201] }}>
+      <Canvas
+        orthographic
+        shadows
+        camera={{ zoom: 10, position: [-150, 100, 201] }}
+      >
         <Suspense fallback={null}>
           {/* <OrbitControls /> */}
           <ScrollControls damping={10} pages={9} distance={1}>
@@ -144,6 +152,7 @@ export default function App(props) {
         </Suspense>
       </Canvas>
     </div>
+    // </main>
   );
 }
 
