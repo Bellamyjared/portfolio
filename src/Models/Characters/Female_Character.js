@@ -41,6 +41,8 @@ export default function Female_Character({
   );
   const [ScrollLock, setScrollLock] = useState(false);
   const scrollData = useScroll();
+  const AmountScrolled = scrollData.range(0, 1) * 100;
+
   let planeIntersectPoint = new THREE.Vector3();
 
   // spawn character and direction controls
@@ -96,7 +98,6 @@ export default function Female_Character({
         setResetSpringPosition(false);
       }
       // while dragging
-      const AmountScrolled = scrollData.range(0, 1) * 100;
 
       if (AmountScrolled < 0.2) {
         if (active) {
@@ -180,10 +181,10 @@ export default function Female_Character({
 
   // update character ever in window frame
   useFrame(({ clock }) => {
-    if (scrollData.range(0, 1 / 3) > 0.01) {
+    if (AmountScrolled > 0.01) {
       setScrollLock(true);
     }
-    if (scrollData.range(0, 1 / 3) < 0.01) {
+    if (AmountScrolled < 0.01) {
       group.current.position.y = 0.2;
       setScrollLock(false);
     }
