@@ -67,18 +67,18 @@ export default function App(props) {
     );
   };
 
-  const testFunction = () => {
-    console.log("TESSSSTTTTTTTTTTTTTTTTTT");
-  };
-
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
       <GlobalStyle />
-      <Canvas shadows camera={{ zoom: 10, position: [-150, 100, 201] }}>
-        <Suspense fallback={null} onScroll={testFunction}>
-          <OrbitControls />
-          <ScrollControls damping={10} pages={9} id="testing">
-            <Scroll onScroll={testFunction}>
+      <Canvas
+        shadows
+        camera={{ zoom: 10, position: [-150, 100, 201] }}
+        onScroll={testingOnScroll}
+      >
+        <Suspense fallback={null}>
+          {/* <OrbitControls /> */}
+          <ScrollControls damping={10} pages={9} distance={1}>
+            <Scroll>
               {/* ~~~~~~~~~~~~~~~~ BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
               {/* <SpotLight
                 distance={1}
@@ -93,14 +93,14 @@ export default function App(props) {
               <DirectionalLightWithHelper />
 
               {/* floor */}
-              {/* <mesh
+              <mesh
                 rotation={[-Math.PI / 2, 0, 0]}
                 position={[0, -0.5, 0]}
                 receiveShadow
               >
                 <planeBufferGeometry attach="geometry" args={[150, 150]} />
                 <meshPhongMaterial color="#ccc" side={THREE.DoubleSide} />
-              </mesh> */}
+              </mesh>
 
               {/* ball */}
               {/* <mesh position={[-3, 20, 25]} castShadow>
