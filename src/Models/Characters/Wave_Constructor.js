@@ -32,7 +32,6 @@ export default function Wave_Constructor({
   const [ScrolledCharacterLock, setScrolledCharacterLock] = useState(false);
   const characterCount = useRef(0);
   const test = useScroll().range(0, 1 / 3);
-  console.log(test);
 
   useEffect(() => {
     if (spawnCharacter && characterCount.current < MAX_CHARACTER_AMOUNT) {

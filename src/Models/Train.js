@@ -13,7 +13,6 @@ export default function Model({ rotateWave, setSpawnCharacter, ...props }) {
   const scrollData = useScroll();
 
   useFrame(() => {
-    console.log(document.hasFocus());
     const scrolled = scrollData.range(0, 1 / 3);
 
     // spawn character if the doors are open
