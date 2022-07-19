@@ -2,10 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import React, { useState } from "react";
-import Male_Character from "./Male_Character";
-import Female_Character from "./Female_Character";
+import Character_Constructor from "./Character_Constructor";
 
-export default function Character_Creator({
+export default function Wave_Constructor({
   floorPlane,
   spawnCharacter,
   testing,
@@ -156,53 +155,39 @@ function Character_Creation({
     };
   });
 
+  const Character = (gender) => {
+    return (
+      <Character_Constructor
+        characterGender={gender}
+        likjbsdfg={characterCount}
+        deleteCharacter={setDeleteCharacter}
+        spawnCharacter={spawnCharacter}
+        floorPlane={floorPlane}
+        position={pos}
+        testing={testing}
+      />
+    );
+  };
+
   if (Wave_Count === 0) {
     if (deleteCharacter) {
       return null;
     } else {
       return (
         <>
-          <Male_Character
-            deleteCharacter={setDeleteCharacter}
-            spawnCharacter={spawnCharacter}
-            floorPlane={floorPlane}
-            position={pos}
-            testing={testing}
-          />
-          <Female_Character
-            deleteCharacter={setDeleteCharacter}
-            floorPlane={floorPlane}
-            spawnCharacter={spawnCharacter}
-            position={pos}
-          />
+          {Character("Male_Character")}
+          {Character("Female_Character")}
         </>
       );
     }
   } else {
     if (deleteCharacter) {
-      console.log("delete", characterCount);
       return null;
     } else {
-      console.log(characterCount);
       if (Math.floor(Math.random() * (1 + 1))) {
-        return (
-          <Female_Character
-            deleteCharacter={setDeleteCharacter}
-            floorPlane={floorPlane}
-            spawnCharacter={spawnCharacter}
-            position={pos}
-          />
-        );
+        return Character("Male_Character");
       } else {
-        return (
-          <Male_Character
-            deleteCharacter={setDeleteCharacter}
-            spawnCharacter={spawnCharacter}
-            floorPlane={floorPlane}
-            position={pos}
-            testing={testing}
-          />
-        );
+        return Character("Female_Character");
       }
     }
   }

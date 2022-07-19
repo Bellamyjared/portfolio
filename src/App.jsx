@@ -21,7 +21,7 @@ import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import Lamp from "./Models/Lamp";
 import Train from "./Models/Train";
-import Character_Creator from "./Models/Characters/Character_Creator";
+import Wave_Constructor from "./Models/Characters/Wave_Constructor";
 import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib";
 
 export default function App(props) {
@@ -76,7 +76,7 @@ export default function App(props) {
       <GlobalStyle />
       <Canvas shadows camera={{ zoom: 10, position: [-150, 100, 201] }}>
         <Suspense fallback={null} onScroll={testFunction}>
-          {/* <OrbitControls /> */}
+          <OrbitControls />
           <ScrollControls damping={10} pages={9} id="testing">
             <Scroll onScroll={testFunction}>
               {/* ~~~~~~~~~~~~~~~~ BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
@@ -119,7 +119,7 @@ export default function App(props) {
                 scale={0.5}
                 setSpawnCharacter={setSpawnCharacter}
               />
-              <Character_Creator
+              <Wave_Constructor
                 floorPlane={floorPlane}
                 spawnCharacter={spawnCharacter}
                 testing={testing}

@@ -8,7 +8,8 @@ import { clone } from "three/examples/jsm/utils/SkeletonUtils";
 import { useDrag } from "@use-gesture/react";
 import { animated, useSpring } from "@react-spring/three";
 
-export default function Male_Character({
+export default function Character_constructor({
+  characterGender,
   deleteCharacter,
   spawnCharacter,
   floorPlane,
@@ -16,9 +17,10 @@ export default function Male_Character({
   // characterCount,
   ...props
 }) {
+  console.log(characterGender);
   const group = useRef();
   const material = useRef();
-  const { scene, materials, animations } = useGLTF("/Male_Character.glb");
+  const { scene, materials, animations } = useGLTF(`/${characterGender}.glb`);
   const cloned = useMemo(() => clone(scene), [scene]);
   const { nodes } = useGraph(cloned);
   const { actions } = useAnimations(animations, group);
@@ -230,39 +232,84 @@ export default function Male_Character({
     );
   };
 
-  return (
-    <animated.group
-      ref={group}
-      {...props}
-      dispose={null}
-      {...spring}
-      {...bind()}
-    >
-      <group>
-        <group
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.02}
-          position={[0, -2, 0]}
-        >
-          <primitive object={nodes.mixamorigHips} />
-          <skinnedMesh
-            geometry={nodes.Alpha_Joints.geometry}
-            material={materials.Alpha_Joints_MAT}
-            skeleton={nodes.Alpha_Joints.skeleton}
-          />
-          <skinnedMesh
-            geometry={nodes.Alpha_Surface.geometry}
-            material={materials.Alpha_Body_MAT}
-            skeleton={nodes.Alpha_Surface.skeleton}
-          />
+  if (characterGender === "Male_Character") {
+    return (
+      <animated.group
+        ref={group}
+        {...props}
+        dispose={null}
+        {...spring}
+        {...bind()}
+      >
+        <group>
+          <group
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={0.02}
+            position={[0, -2, 0]}
+          >
+            <primitive object={nodes.mixamorigHips} />
+            <skinnedMesh
+              geometry={nodes.Alpha_Joints.geometry}
+              material={materials.Alpha_Joints_MAT}
+              skeleton={nodes.Alpha_Joints.skeleton}
+            />
+            <skinnedMesh
+              geometry={nodes.Alpha_Surface.geometry}
+              material={materials.Alpha_Body_MAT}
+              skeleton={nodes.Alpha_Surface.skeleton}
+            />
+          </group>
         </group>
-      </group>
-      <mesh castShadow>
-        <boxGeometry args={[1.1, 4, 1.1]} />
-        <meshStandardMaterial ref={material} opacity={0.0} transparent={true} />
-      </mesh>
-    </animated.group>
-  );
+        <mesh castShadow>
+          <boxGeometry args={[1.1, 4, 1.1]} />
+          <meshStandardMaterial
+            ref={material}
+            opacity={0.0}
+            transparent={true}
+          />
+        </mesh>
+      </animated.group>
+    );
+  }
+  if (characterGender === "Female_Character") {
+    return (
+      <animated.group
+        ref={group}
+        {...props}
+        dispose={null}
+        {...spring}
+        {...bind()}
+      >
+        <group>
+          <group
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={0.02}
+            position={[0, -2, 0]}
+          >
+            <primitive object={nodes.mixamorigHips} />
+            <skinnedMesh
+              geometry={nodes.Beta_Joints.geometry}
+              material={materials.Beta_Joints_MAT}
+              skeleton={nodes.Beta_Joints.skeleton}
+            />
+            <skinnedMesh
+              geometry={nodes.Beta_Surface.geometry}
+              material={materials["asdf1:Beta_HighLimbsGeoSG2"]}
+              skeleton={nodes.Beta_Surface.skeleton}
+            />
+          </group>
+        </group>
+        <mesh castShadow>
+          <boxGeometry args={[1.1, 4, 1.1]} />
+          <meshStandardMaterial
+            ref={material}
+            opacity={0.0}
+            transparent={true}
+          />
+        </mesh>
+      </animated.group>
+    );
+  }
 }
 
 useGLTF.preload("/MALE.gltf");
