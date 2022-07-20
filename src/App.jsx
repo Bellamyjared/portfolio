@@ -116,10 +116,28 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   ::-webkit-scrollbar {
-    display: ${(props) => (props.test ? "flex" : "none")}
-  }
-  ::-webkit-scrollbar-track {
-    background: black
+    
+    display:flex;
   }
   
+  
+  
+
+  @-webkit-keyframes fadeIn {
+    from {
+      background: pink;
+    }
+    to {
+      background: black;
+    }
+   }
+ 
+  
+  ::-webkit-scrollbar-track {
+    -webkit-animation-name:fadeIn;
+    -webkit-animation-duration:2s;
+  }
+
+
+
 `;
