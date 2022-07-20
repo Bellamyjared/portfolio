@@ -221,8 +221,8 @@ export default function Character_constructor({
         setCharacterSpeed(width / widthScale / 85);
       } else {
         // normal Walk
-        group.current.translateZ(width / widthScale / 83);
-        setCharacterSpeed(width / widthScale / 83);
+        group.current.translateZ(width / widthScale / 82);
+        setCharacterSpeed(width / widthScale / 82);
       }
 
       // sets the new position of the creator as they move across screen - needed for spring positioning when drag is initated
