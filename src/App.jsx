@@ -65,7 +65,7 @@ export default function App(props) {
                 ToggleMobileState={ToggleMobileState}
                 scrolled={UserScrolledValue}
               />
-              <Hero />
+              <Hero scrolled={UserScrolledValue} />
               <Projects />
               <Technology />
               <About />

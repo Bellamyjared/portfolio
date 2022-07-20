@@ -7,7 +7,6 @@ import Github from "../Images/NavImages/GithubLogo.svg";
 import Email from "../Images/NavImages/EmailLogo.svg";
 import LinkedIn from "../Images/NavImages/LinkedInLogo.svg";
 import Logo from "../Images/Logo.svg";
-import "./NavBar.css";
 
 const MobileNavController = styled.div`
   .none {

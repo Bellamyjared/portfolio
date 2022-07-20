@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const HeroContainer = styled.div`
   position: absolute;
-  top: 15vh;
+  top: 28vh;
   width: 25vw;
   background-color: #ebf8ff;
 
@@ -40,9 +40,17 @@ const CallToAction = styled.button`
   }
 `;
 
-const Hero = () => {
+const Hero = ({ scrolled }) => {
+  const [FirstScroll, setFirstScroll] = useState(false);
+  useEffect(() => {
+    if (scrolled) {
+      setFirstScroll(true);
+    }
+  }, [scrolled]);
   return (
-    <HeroContainer>
+    <HeroContainer
+      className={FirstScroll ? (scrolled ? "FadeIn" : "FadeOut") : "FirstVisit"}
+    >
       <HeroTitle>
         Making Technology <br /> Work For You
       </HeroTitle>
