@@ -161,10 +161,10 @@ const NavBar = ({ ToggleMobileNav, ToggleMobileState, scrolled }) => {
             </NavLogo>
           </LogoAndLinkContainer>
           <ImageLinks>
-            <a href="https://www.github.com" target="_blank">
+            <a href="https://www.github.com" target="_blank" rel="noreferrer">
               <img alt="Github" src={Github} />
             </a>
-            <a href="https://www.linkedin.com" target="_blank">
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
               <img alt="LinkedIn" src={LinkedIn} />
             </a>
             <a href="mailto:Bellamyjared@gmail.com">
