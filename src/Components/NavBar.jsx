@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import NavLinks from "./NavLinks";
@@ -30,10 +30,10 @@ const MobileNavLink = styled.div`
   font-size: 2em;
 `;
 const NavBorder = styled.div`
-  position: absolute;
-  top: 6vh;
-  width: 100%;
   display: flex;
+  position: absolute;
+  top: 20vh;
+  width: 100%;
   justify-content: center;
 
   @media screen and (min-width: 768px) {
@@ -54,7 +54,7 @@ const NavBorder = styled.div`
 const NavContainer = styled.div`
   width: 85%;
   align-items: center;
-  display: flex;
+  display: ${(props) => (props.scrolled ? "flex" : "none")};
   justify-content: space-between;
 `;
 
@@ -120,19 +120,11 @@ const ImageLinks = styled.div`
   }
 `;
 
-const NavBar = ({
-  ToggleMobileNav,
-  ToggleMobileState,
-  settesting,
-  ChromeWheel,
-}) => {
-  const Test = () => console.log("home");
-
+const NavBar = ({ ToggleMobileNav, ToggleMobileState, scrolled }) => {
   const MobileNav = () => {
     if (ToggleMobileState === "none") {
       return (
         <div className={ToggleMobileState} onClick={() => ToggleMobileNav()}>
-          <MobileNavLink onClick={() => Test()}>Home</MobileNavLink>
           <MobileNavLink>Projects</MobileNavLink>
           <MobileNavLink>Tech</MobileNavLink>
           <MobileNavLink>About</MobileNavLink>
@@ -147,21 +139,11 @@ const NavBar = ({
       <MobileNavController>{MobileNav()}</MobileNavController>
 
       <NavBorder>
-        <NavContainer>
+        <NavContainer scrolled={scrolled}>
           <LogoAndLinkContainer>
             <NavLogo>
               <img alt="JaredBellamy" src={Logo} />
             </NavLogo>
-            <MobileNavIcon>
-              <img
-                alt="Mobile Nav"
-                src={MobileNavBar}
-                onClick={() => ToggleMobileNav()}
-              />
-            </MobileNavIcon>
-            <NavLinkContainer>
-              <NavLinks settesting={settesting} ChromeWheel={ChromeWheel} />
-            </NavLinkContainer>
           </LogoAndLinkContainer>
           <ImageLinks>
             <a href="https://www.github.com" target="_blank">

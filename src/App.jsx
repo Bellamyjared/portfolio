@@ -44,7 +44,7 @@ export default function App(props) {
 
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
-      <GlobalStyle test={UserScrolledValue} />
+      <GlobalStyle scrolled={UserScrolledValue} />
       <Canvas
         orthographic
         shadows
@@ -63,8 +63,7 @@ export default function App(props) {
               <NavBar
                 ToggleMobileNav={ToggleMobileNav}
                 ToggleMobileState={ToggleMobileState}
-                settesting={"settesting"}
-                ChromeWheel={ChromeWheel}
+                scrolled={UserScrolledValue}
               />
               <Hero />
               <Projects />
@@ -90,13 +89,13 @@ const GlobalStyle = createGlobalStyle`
     margin : 0;
     
     @media screen and (min-width: 768px){
-      width: 100%
+      width: 100%;
       font-size: 18px;
       overflow-y: hidden;
     }    
     
     @media screen and (min-width: 2560px){
-      width: 100%
+      width: 100%;
       font-size: 25px;
       overflow-y: hidden;
     }
@@ -116,26 +115,14 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   ::-webkit-scrollbar {
-    
-    display:flex;
+    display:flex
   }
-  
-  
-  
-
-  @-webkit-keyframes fadeIn {
-    from {
-      background: pink;
-    }
-    to {
-      background: black;
-    }
-   }
  
   
   ::-webkit-scrollbar-track {
-    -webkit-animation-name:fadeIn;
-    -webkit-animation-duration:2s;
+background: ${(props) =>
+  props.scrolled ? "rgba(255, 0, 0, 1);" : "rgba(255, 0, 0, 0.0);"}
+
   }
 
 

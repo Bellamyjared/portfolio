@@ -44,16 +44,16 @@ export default function Model({
     // when train is out of focus stop start at beginning of the loop. Resume train if window is back in focus
     if (document.hasFocus() && scrolled < 0.01) {
       if (!actions.Direction_Controller_Cab_1.isRunning()) {
-        actions.Direction_Controller_Cab_Head.play();
-        actions.Direction_Controller_Cab_1.play();
-        actions.Direction_Controller_Cab_2.play();
-        actions.Direction_Controller_Cab_Back.play();
-        actions.Head_Cab_Door.play();
-        actions.Back_Cab_Door.play();
-        actions.Cab_1_Left_Door.play();
-        actions.Cab_1_Right_Door.play();
-        actions.Cab_2_Left_Door.play();
-        actions.Cab_2_Right_Door.play();
+        // actions.Direction_Controller_Cab_Head.play();
+        // actions.Direction_Controller_Cab_1.play();
+        // actions.Direction_Controller_Cab_2.play();
+        // actions.Direction_Controller_Cab_Back.play();
+        // actions.Head_Cab_Door.play();
+        // actions.Back_Cab_Door.play();
+        // actions.Cab_1_Left_Door.play();
+        // actions.Cab_1_Right_Door.play();
+        // actions.Cab_2_Left_Door.play();
+        // actions.Cab_2_Right_Door.play();
       }
     } else {
       if (
@@ -76,16 +76,16 @@ export default function Model({
 
   // start train when page renders
   useEffect(() => {
-    actions.Direction_Controller_Cab_Head.play();
-    actions.Direction_Controller_Cab_1.play();
-    actions.Direction_Controller_Cab_2.play();
-    actions.Direction_Controller_Cab_Back.play();
-    actions.Head_Cab_Door.play();
-    actions.Back_Cab_Door.play();
-    actions.Cab_1_Left_Door.play();
-    actions.Cab_1_Right_Door.play();
-    actions.Cab_2_Left_Door.play();
-    actions.Cab_2_Right_Door.play();
+    // actions.Direction_Controller_Cab_Head.play();
+    // actions.Direction_Controller_Cab_1.play();
+    // actions.Direction_Controller_Cab_2.play();
+    // actions.Direction_Controller_Cab_Back.play();
+    // actions.Head_Cab_Door.play();
+    // actions.Back_Cab_Door.play();
+    // actions.Cab_1_Left_Door.play();
+    // actions.Cab_1_Right_Door.play();
+    // actions.Cab_2_Left_Door.play();
+    // actions.Cab_2_Right_Door.play();
   });
 
   // auto generated train mesh
