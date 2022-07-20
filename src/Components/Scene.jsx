@@ -41,7 +41,16 @@ const Scene = () => {
     );
   };
 
-  // const { width: w, height: h } = useThree((state) => state.viewport);
+  const WindowSize = { large: 30, medium: 15 };
+  const ScaleSize = { large: 95, medium: 48, small: 25 };
+
+  const { width } = useThree((state) => state.viewport);
+  const widthScale =
+    width > WindowSize.large
+      ? ScaleSize.large
+      : width > WindowSize.medium
+      ? ScaleSize.medium
+      : ScaleSize.small;
 
   return (
     <>
@@ -80,16 +89,23 @@ const Scene = () => {
             </mesh> */}
 
       {/* ~~~~~~~~~~~~~~~~ TRAIN AND CHARACTER ANIMATIONS ~~~~~~~~~~~~~~~~  */}
-      <Train
+      {/* <Train
         position={[0, -0.5, 0]}
         scale={0.5}
         setSpawnCharacter={setSpawnCharacter}
+      /> */}
+      <Train
+        position={[0, -0.5, 0]}
+        scale={width / widthScale}
+        setSpawnCharacter={setSpawnCharacter}
       />
       <Wave_Constructor
+        WindowSize={WindowSize}
+        ScaleSize={ScaleSize}
         floorPlane={floorPlane}
         spawnCharacter={spawnCharacter}
       />
-      <Lamp scale={0.4} position={[0, -0.2, 0]} />
+      <Lamp scale={width / widthScale} position={[0, -0.2, 0]} />
     </>
   );
 };

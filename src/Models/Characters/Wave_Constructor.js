@@ -6,9 +6,10 @@ import { useScroll } from "@react-three/drei";
 import Character_Constructor from "./Character_Constructor";
 
 export default function Wave_Constructor({
+  WindowSize,
+  ScaleSize,
   floorPlane,
   spawnCharacter,
-  testing,
 }) {
   const FIRST_WAVE_POSITION = [
     [-40, 0, 34],
@@ -29,9 +30,7 @@ export default function Wave_Constructor({
 
   const [Wave_List, setWave_List] = useState([]);
   const [Wave_Count, setWave_Count] = useState(0);
-  const [ScrolledCharacterLock, setScrolledCharacterLock] = useState(false);
   const characterCount = useRef(0);
-  const test = useScroll().range(0, 1 / 3);
 
   useEffect(() => {
     if (spawnCharacter && characterCount.current < MAX_CHARACTER_AMOUNT) {
@@ -49,10 +48,11 @@ export default function Wave_Constructor({
         key={Wave_List.length}
         positions={Wave_Count === 0 ? FIRST_WAVE_POSITION : DOOR_POSITIONS}
         max_character_per_door={MAX_CHARACTER_PER_DOOR}
+        WindowSize={WindowSize}
+        ScaleSize={ScaleSize}
         floorPlane={floorPlane}
         spawnCharacter={spawnCharacter}
         Wave_Count={Wave_Count}
-        testing={testing}
         characterCount={characterCount}
       />
     );
@@ -72,10 +72,11 @@ export default function Wave_Constructor({
 function Character_Wave({
   positions,
   max_character_per_door,
+  ScaleSize,
+  WindowSize,
   floorPlane,
   spawnCharacter,
   Wave_Count,
-  testing,
   characterCount,
 }) {
   const [Character_List, setCharacter_List] = useState([]);
@@ -101,10 +102,11 @@ function Character_Wave({
       return (
         <Character_Creation
           key={CharacterIndex.current + Wave_Count}
+          WindowSize={WindowSize}
+          ScaleSize={ScaleSize}
           floorPlane={floorPlane}
           spawnCharacter={spawnCharacter}
           pos={pos}
-          testing={testing}
           setcharacterDeleted={setcharacterDeleted}
           characterDeleted={characterDeleted}
           test={test}
@@ -139,10 +141,11 @@ function Character_Wave({
   }
 }
 function Character_Creation({
+  ScaleSize,
+  WindowSize,
   floorPlane,
   spawnCharacter,
   pos,
-  testing,
   setcharacterDeleted,
   characterDeleted,
   characterCount,
@@ -165,9 +168,10 @@ function Character_Creation({
         likjbsdfg={characterCount}
         deleteCharacter={setDeleteCharacter}
         spawnCharacter={spawnCharacter}
+        WindowSize={WindowSize}
+        ScaleSize={ScaleSize}
         floorPlane={floorPlane}
         position={pos}
-        testing={testing}
       />
     );
   };
