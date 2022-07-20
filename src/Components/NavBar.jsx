@@ -7,6 +7,7 @@ import Github from "../Images/NavImages/GithubLogo.svg";
 import Email from "../Images/NavImages/EmailLogo.svg";
 import LinkedIn from "../Images/NavImages/LinkedInLogo.svg";
 import Logo from "../Images/Logo.svg";
+import "./NavBar.css";
 
 const MobileNavController = styled.div`
   .none {
@@ -54,8 +55,10 @@ const NavBorder = styled.div`
 const NavContainer = styled.div`
   width: 85%;
   align-items: center;
-  display: ${(props) => (props.scrolled ? "flex" : "none")};
   justify-content: space-between;
+  display: flex;
+  animation-name: example;
+  animation-duration: 4s;
 `;
 
 const LogoAndLinkContainer = styled.div`
@@ -121,6 +124,13 @@ const ImageLinks = styled.div`
 `;
 
 const NavBar = ({ ToggleMobileNav, ToggleMobileState, scrolled }) => {
+  const [FirstScroll, setFirstScroll] = useState(false);
+  useEffect(() => {
+    if (scrolled) {
+      setFirstScroll(true);
+    }
+  }, [scrolled]);
+
   const MobileNav = () => {
     if (ToggleMobileState === "none") {
       return (
@@ -139,7 +149,12 @@ const NavBar = ({ ToggleMobileNav, ToggleMobileState, scrolled }) => {
       <MobileNavController>{MobileNav()}</MobileNavController>
 
       <NavBorder>
-        <NavContainer scrolled={scrolled}>
+        <NavContainer
+          scrolled={scrolled}
+          className={
+            FirstScroll ? (scrolled ? "FadeIn" : "FadeOut") : "FirstVisit"
+          }
+        >
           <LogoAndLinkContainer>
             <NavLogo>
               <img alt="JaredBellamy" src={Logo} />

@@ -125,6 +125,35 @@ background: ${(props) =>
 
   }
 
+.FirstVisit {
+opacity: 0;
+}
+.FadeIn {
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+.FadeOut {
+  opacity: 0;
+  animation-name: fadeOut;
+  animation-duration: 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 
 
 `;
