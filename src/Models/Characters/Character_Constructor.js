@@ -12,6 +12,8 @@ export default function Character_constructor({
   characterGender,
   deleteCharacter,
   spawnCharacter,
+  WindowSize,
+  ScaleSize,
   floorPlane,
   // setCharacterCount,
   // characterCount,
@@ -44,6 +46,13 @@ export default function Character_constructor({
   const scrollData = useScroll();
   const AmountScrolled = scrollData.range(0, 1) * 100;
   const [CharacterSpeed, setCharacterSpeed] = useState(0);
+  const { width } = useThree((state) => state.viewport);
+  const widthScale =
+    width > WindowSize.large
+      ? ScaleSize.large
+      : width > WindowSize.medium
+      ? ScaleSize.medium
+      : ScaleSize.small;
 
   let planeIntersectPoint = new THREE.Vector3();
 
@@ -142,8 +151,10 @@ export default function Character_constructor({
       }
 
       // Moving Animations
+
       if (AnimationRoll > 0) {
         // <90% chance character will use a walking animation
+
         if (AnimationRoll <= 5) {
           // 50% character will use standard animation for walking animation
           playAnimation("Standard_Walk");
@@ -181,31 +192,39 @@ export default function Character_constructor({
       setScrollLock(false);
       group.current.translateZ(CharacterSpeed);
     }
-
+    // console.log(width / widthScale / 100);
     // move character across the screen when not being dragged
     if (!isDragging && !ScrollLock) {
+      // Running
       if (previousAnimation === actions.Running) {
-        group.current.translateZ(0.017);
-        setCharacterSpeed(0.017);
+        group.current.translateZ(width / widthScale / 22);
+        setCharacterSpeed(width / widthScale / 22);
+        //  Happy Walk
       } else if (previousAnimation === actions.Happy_Walk) {
-        group.current.translateZ(0.006);
-        setCharacterSpeed(0.006);
+        group.current.translateZ(width / widthScale / 80);
+        setCharacterSpeed(width / widthScale / 80);
+        // Gay Walk
       } else if (previousAnimation === actions.Gay_Walk) {
-        group.current.translateZ(0.0035);
-        setCharacterSpeed(0.0035);
+        group.current.translateZ(width / widthScale / 150);
+        setCharacterSpeed(width / widthScale / 150);
+        // Strut Walk
       } else if (previousAnimation === actions.Strut_Walk) {
-        group.current.translateZ(0.0035);
-        setCharacterSpeed(0.0035);
+        group.current.translateZ(width / widthScale / 150);
+        setCharacterSpeed(width / widthScale / 150);
+        // chest out walk
       } else if (previousAnimation === actions.Chest_Out_Walk) {
-        group.current.translateZ(0.0055);
-        setCharacterSpeed(0.0055);
+        group.current.translateZ(width / widthScale / 85);
+        setCharacterSpeed(width / widthScale / 85);
+        // drunk walk
       } else if (previousAnimation === actions.Drunk_Walk) {
-        group.current.translateZ(0.004);
-        setCharacterSpeed(0.004);
+        group.current.translateZ(width / widthScale / 85);
+        setCharacterSpeed(width / widthScale / 85);
       } else {
-        group.current.translateZ(0.0055);
-        setCharacterSpeed(0.0055);
+        // normal Walk
+        group.current.translateZ(width / widthScale / 83);
+        setCharacterSpeed(width / widthScale / 83);
       }
+
       // sets the new position of the creator as they move across screen - needed for spring positioning when drag is initated
       setCharacterPosition([
         group.current.position.x,
@@ -237,6 +256,9 @@ export default function Character_constructor({
       );
     }
   };
+
+  const characterScale = 25;
+
   if (characterGender === "Male_Character") {
     return (
       <animated.group
@@ -249,7 +271,7 @@ export default function Character_constructor({
         <group>
           <group
             rotation={[Math.PI / 2, 0, 0]}
-            scale={0.02}
+            scale={width / widthScale / characterScale}
             position={[0, -2, 0]}
           >
             <primitive object={nodes.mixamorigHips} />
@@ -276,6 +298,7 @@ export default function Character_constructor({
       </animated.group>
     );
   }
+
   if (characterGender === "Female_Character") {
     return (
       <animated.group
@@ -288,7 +311,7 @@ export default function Character_constructor({
         <group>
           <group
             rotation={[Math.PI / 2, 0, 0]}
-            scale={0.02}
+            scale={width / widthScale / characterScale}
             position={[0, -2, 0]}
           >
             <primitive object={nodes.mixamorigHips} />
@@ -317,4 +340,5 @@ export default function Character_constructor({
   }
 }
 
-useGLTF.preload("/MALE.gltf");
+useGLTF.preload("/Male_Character.glb");
+useGLTF.preload("/Female_Character.glb");
