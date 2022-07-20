@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useRef } from "react";
+import React, { Suspense, useState, useRef, useEffect } from "react";
 import { createGlobalStyle } from "styled-components";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
@@ -32,16 +32,19 @@ export default function App(props) {
       : setToggleMobileState("hidden") + setToggleOverFlow("visible");
 
   // const [hidden, set] = useState();
-  const [testing, settesting] = useState(false);
+  const [UserScrolledValue, setUserScrolledValue] = useState(0);
 
   function ChromeWheel() {}
 
   // document.addEventListener("keypress", console.log("test"));
 
+  useEffect(() => {
+    console.log(UserScrolledValue);
+  }, [UserScrolledValue]);
+
   return (
-    // <main>
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
-      <GlobalStyle />
+      <GlobalStyle test={UserScrolledValue} />
       <Canvas
         orthographic
         shadows
@@ -52,7 +55,7 @@ export default function App(props) {
           {/* <OrbitControls /> */}
           <ScrollControls damping={10} pages={9} distance={1}>
             <Scroll>
-              <Scene />
+              <Scene setUserScrolledValue={setUserScrolledValue} />
             </Scroll>
 
             {/* ~~~~~~~~~~~~~~~~~~~~~~~ HTML ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
@@ -60,7 +63,7 @@ export default function App(props) {
               <NavBar
                 ToggleMobileNav={ToggleMobileNav}
                 ToggleMobileState={ToggleMobileState}
-                settesting={settesting}
+                settesting={"settesting"}
                 ChromeWheel={ChromeWheel}
               />
               <Hero />
@@ -76,23 +79,26 @@ export default function App(props) {
         </Suspense>
       </Canvas>
     </div>
-    // </main>
   );
 }
 
 const GlobalStyle = createGlobalStyle`
   body {
-    
+   
     font-family: 'Poppins', sans-serif;
     // background-color: black;
     margin : 0;
-
+    
     @media screen and (min-width: 768px){
+      width: 100%
       font-size: 18px;
+      overflow-y: hidden;
     }    
-
+    
     @media screen and (min-width: 2560px){
+      width: 100%
       font-size: 25px;
+      overflow-y: hidden;
     }
   
   }
@@ -109,4 +115,11 @@ const GlobalStyle = createGlobalStyle`
       border-radius: 50px;
     }
   }
+  ::-webkit-scrollbar {
+    display: ${(props) => (props.test ? "flex" : "none")}
+  }
+  ::-webkit-scrollbar-track {
+    background: black
+  }
+  
 `;

@@ -102,12 +102,11 @@ export default function Character_constructor({
         });
         setResetSpringPosition(false);
       }
-      // while dragging
-
       // ~~~~~~~~~ this is for stopping the dragging on characters if the screen is scrolled down, I dont wanna do this just make it so the character finds the correct path when scrolled. for later
-
       if (AmountScrolled < 0.2) {
+        // while dragging
         if (active) {
+          group.current.translateZ(0);
           event.ray.intersectPlane(floorPlane, planeIntersectPoint);
           setCharacterPosition([
             planeIntersectPoint.x,
@@ -121,7 +120,9 @@ export default function Character_constructor({
           position: characterPosition,
         });
       } else {
+        // stop dragging
         setIsDragging(false);
+        group.current.translateZ(CharacterSpeed);
       }
     },
     { preventScroll: true }
