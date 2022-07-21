@@ -33,16 +33,17 @@ const HeroSubTitle = styled.div`
 `;
 
 const CallToAction = styled.div`
+  display: flex;
+  justify-content: center;
   margin-top: 2.5em;
-  margin-left: 20%;
-  @media screen and (min-width: 375px) {
+  /* @media screen and (min-width: 375px) {
     margin-left: 30%;
   }
   @media screen and (min-width: 426px) {
     margin-left: 0;
   }
   @media screen and (min-width: 2560px) {
-  }
+  } */
 `;
 
 const Hero = ({ HasUserScrolled }) => {
