@@ -76,6 +76,11 @@ const BannerSection = styled.div`
       }
         `
       : null}
+
+  .ProjectBanner {
+    width: 100%;
+    height: auto;
+  }
 `;
 const ProjectTech = styled.div`
   display: flex;
@@ -168,7 +173,7 @@ const Project = ({
     <ProjectContainer position={bannerPosition}>
       <BannerSection position={bannerPosition}>
         {/* Banner */}
-        <img src={banner} alt={banner} />
+        <img className="ProjectBanner" src={banner} alt={banner} />
         {/* Tech Icons under banner */}
         <ProjectTech>
           {projectTech.map((tech) => (

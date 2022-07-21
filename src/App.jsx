@@ -38,10 +38,6 @@ export default function App(props) {
 
   // document.addEventListener("keypress", console.log("test"));
 
-  useEffect(() => {
-    console.log(HasUserScrolled);
-  }, [HasUserScrolled]);
-
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
       <GlobalStyle HasUserScrolled={HasUserScrolled} />

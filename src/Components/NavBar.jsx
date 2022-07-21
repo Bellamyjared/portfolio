@@ -145,7 +145,11 @@ const NavBar = ({ HasUserScrolled }) => {
               : "FirstVisit"
           }
         >
-          <a href="https://www.github.com" target="_blank" rel="noreferrer">
+          <a
+            href={ShowNavLinks ? "https://www.github.com" : null}
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className={ShowNavLinks ? "" : "DisablingNavLinks"}
               alt="Github"
@@ -153,14 +157,18 @@ const NavBar = ({ HasUserScrolled }) => {
             />
           </a>
 
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+          <a
+            href={ShowNavLinks ? "https://www.linkedin.com" : null}
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className={ShowNavLinks ? "" : "DisablingNavLinks"}
               alt="LinkedIn"
               src={LinkedIn}
             />
           </a>
-          <a href="mailto:Bellamyjared@gmail.com">
+          <a href={ShowNavLinks ? "mailto:Bellamyjared@gmail.com" : null}>
             <img
               className={ShowNavLinks ? "" : "DisablingNavLinks"}
               alt="Email"

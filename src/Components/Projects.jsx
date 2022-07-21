@@ -14,7 +14,7 @@ import Html_icon from "../Images/ProjectImages/Html_icon.svg";
 
 const ProjectContainer = styled.div`
   position: absolute;
-  top: 100vh;
+  top: 130vh;
   width: 100%;
 
   // background-color: lightgrey;
@@ -33,8 +33,8 @@ const ProjectContainer = styled.div`
 const Projects = () => {
   return (
     <ProjectContainer>
-      <p id="test">test</p>
       <Project
+        id="project1"
         bannerPosition="left"
         banner={Grocery_App_Banner}
         projectTech={[

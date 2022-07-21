@@ -184,12 +184,12 @@ export default function Character_constructor({
 
   // update character ever in window frame
   useFrame(({ clock }) => {
-    const scrolled = scrollData.range(0, 1 / 3);
-    if (scrolled > 0.01 && !ScrollLock) {
+    const scrolled = scrollData.range(0, 1 / 9);
+    if (scrolled >= 1 && !ScrollLock) {
       setScrollLock(true);
       group.current.translateZ(0);
     }
-    if (scrolled < 0.01 && ScrollLock) {
+    if (scrolled < 1 && ScrollLock) {
       setScrollLock(false);
       group.current.translateZ(CharacterSpeed);
     }
