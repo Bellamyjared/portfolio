@@ -18,7 +18,7 @@ import FrontEnd_image from "../Images/TechnologyImages/FrontEnd_image.svg";
 
 const TechnologyContent = styled.div`
   position: absolute;
-  top: 400vh;
+  top: 320vh;
   width: 100%;
   height: 45em;
 

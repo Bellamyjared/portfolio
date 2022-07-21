@@ -13,7 +13,7 @@ const ProjectContainer = styled.div`
     object-fit: cover;
   }
 
-  padding: 0em 2.5em 10em 2.5em;
+  padding: 0em 2.5em 12em 2.5em;
 
   @media screen and (min-width: 768px) {
     padding: 0em 2.5em 17em 2.5em;
