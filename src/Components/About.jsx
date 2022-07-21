@@ -5,23 +5,23 @@ import About_Image from "../Images/About_Image.svg";
 
 const AboutContainer = styled.div`
   position: absolute;
-  top: 475vh;
+  top: 430vh;
   width: 100%;
   background-color: lightgrey;
-  // @media screen and (min-width: 768px) {
-  //   padding-top: 3em;
-  // }
-  // @media screen and (min-width: 1024px) {
-  //   padding: 20em 4em 0em 4em;
-  //   display: flex;
-  //   flex-wrap: wrap;
-  // }
-  // @media screen and (min-width: 1440px) {
-  //   justify-content: center;
-  //   max-width: 1400px;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  // }
+  @media screen and (min-width: 768px) {
+    padding-top: 3em;
+  }
+  @media screen and (min-width: 1024px) {
+    padding: 20em 4em 0em 4em;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @media screen and (min-width: 1440px) {
+    justify-content: center;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 const Title = styled.h1`
   margin-bottom: -275px;

@@ -83,13 +83,11 @@ const GlobalStyle = createGlobalStyle`
     @media screen and (min-width: 768px){
       width: 100%;
       font-size: 18px;
-      overflow-y: hidden;
     }    
     
     @media screen and (min-width: 2560px){
       width: 100%;
       font-size: 25px;
-      overflow-y: hidden;
     }
   
   }

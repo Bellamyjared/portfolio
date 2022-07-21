@@ -1,31 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
-import NavLinks from "./NavLinks";
+import NavImgLinks from "./NavImgLinks";
 
 import Logo from "../Images/Logo.svg";
 
 const FooterContainer = styled.div`
   position: absolute;
-  top: 700vh;
-  background-color: darkgrey;
+  top: 610vh;
+  background-color: lightgrey;
   width: 100%;
 `;
 const FooterLinks = styled.div`
   display: flex;
   justify-content: center;
-  padding-bottom: 2em;
+  padding-top: 1em;
 
   a {
-    text-decoration: none;
-    color: black;
     margin-right: 1em;
     margin-left: 1em;
   }
 
-  @media screen and (max-width: 768px) {
+  /* @media screen and (max-width: 768px) {
     display: none;
-  }
+  } */
 `;
 const MobileLogo = styled.div`
   display: flex;
@@ -40,13 +38,12 @@ const Animation = styled.div`
 const Footer = () => {
   return (
     <FooterContainer>
-      <FooterLinks>
-        <NavLinks />
-      </FooterLinks>
       <MobileLogo>
         <img src={Logo} />
       </MobileLogo>
-      <Animation>ANIMATION PLACEHOLDER</Animation>
+      <FooterLinks>
+        <NavImgLinks ShowNavLinks={true} />
+      </FooterLinks>
     </FooterContainer>
   );
 };
