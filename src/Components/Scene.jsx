@@ -15,7 +15,7 @@ import Lamp from "../Models/Lamp";
 import Train from "../Models/Train";
 import Wave_Constructor from "../Models/Characters/Wave_Constructor";
 
-const Scene = ({ setUserScrolledValue }) => {
+const Scene = ({ setHasUserScrolled }) => {
   const floorPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
   const [spawnCharacter, setSpawnCharacter] = useState(true);
 
@@ -95,7 +95,7 @@ const Scene = ({ setUserScrolledValue }) => {
         setSpawnCharacter={setSpawnCharacter}
       /> */}
       <Train
-        setUserScrolledValue={setUserScrolledValue}
+        setHasUserScrolled={setHasUserScrolled}
         position={[0, -0.5, 0]}
         scale={width / widthScale}
         setSpawnCharacter={setSpawnCharacter}

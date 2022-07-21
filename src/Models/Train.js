@@ -7,7 +7,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { useGLTF, useAnimations, useScroll } from "@react-three/drei";
 
 export default function Model({
-  setUserScrolledValue,
+  setHasUserScrolled,
   rotateWave,
   setSpawnCharacter,
   ...props
@@ -23,11 +23,11 @@ export default function Model({
 
     // tell body that the user has scrolled
     if (scrolled > 0.01 && !ScrollLock) {
-      setUserScrolledValue(true);
+      setHasUserScrolled(true);
       setScrollLock(true);
     }
     if (scrolled < 0.01 && ScrollLock) {
-      setUserScrolledValue(false);
+      setHasUserScrolled(false);
       setScrollLock(false);
     }
 

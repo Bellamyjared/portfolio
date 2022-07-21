@@ -40,16 +40,18 @@ const CallToAction = styled.button`
   }
 `;
 
-const Hero = ({ scrolled }) => {
+const Hero = ({ HasUserScrolled }) => {
   const [FirstScroll, setFirstScroll] = useState(false);
   useEffect(() => {
-    if (scrolled) {
+    if (HasUserScrolled) {
       setFirstScroll(true);
     }
-  }, [scrolled]);
+  }, [HasUserScrolled]);
   return (
     <HeroContainer
-      className={FirstScroll ? (scrolled ? "FadeIn" : "FadeOut") : "FirstVisit"}
+      className={
+        FirstScroll ? (HasUserScrolled ? "FadeIn" : "FadeOut") : "FirstVisit"
+      }
     >
       <HeroTitle>
         Making Technology <br /> Work For You

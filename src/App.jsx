@@ -32,19 +32,19 @@ export default function App(props) {
       : setToggleMobileState("hidden") + setToggleOverFlow("visible");
 
   // const [hidden, set] = useState();
-  const [UserScrolledValue, setUserScrolledValue] = useState(0);
+  const [HasUserScrolled, setHasUserScrolled] = useState(0);
 
   function ChromeWheel() {}
 
   // document.addEventListener("keypress", console.log("test"));
 
   useEffect(() => {
-    console.log(UserScrolledValue);
-  }, [UserScrolledValue]);
+    console.log(HasUserScrolled);
+  }, [HasUserScrolled]);
 
   return (
     <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
-      <GlobalStyle scrolled={UserScrolledValue} />
+      <GlobalStyle HasUserScrolled={HasUserScrolled} />
       <Canvas
         orthographic
         shadows
@@ -55,17 +55,13 @@ export default function App(props) {
           {/* <OrbitControls /> */}
           <ScrollControls damping={10} pages={9} distance={1}>
             <Scroll>
-              <Scene setUserScrolledValue={setUserScrolledValue} />
+              <Scene setHasUserScrolled={setHasUserScrolled} />
             </Scroll>
 
             {/* ~~~~~~~~~~~~~~~~~~~~~~~ HTML ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
             <Scroll html style={{ width: "100%" }}>
-              <NavBar
-                ToggleMobileNav={ToggleMobileNav}
-                ToggleMobileState={ToggleMobileState}
-                scrolled={UserScrolledValue}
-              />
-              <Hero scrolled={UserScrolledValue} />
+              <NavBar HasUserScrolled={HasUserScrolled} />
+              <Hero HasUserScrolled={HasUserScrolled} />
               <Projects />
               <Technology />
               <About />
@@ -121,13 +117,15 @@ const GlobalStyle = createGlobalStyle`
   
   ::-webkit-scrollbar-track {
 background: ${(props) =>
-  props.scrolled ? "rgba(255, 0, 0, 1);" : "rgba(255, 0, 0, 0.0);"}
+  props.HasUserScrolled ? "rgba(255, 0, 0, 1);" : "rgba(255, 0, 0, 0.0);"}
 
   }
 
 .FirstVisit {
-opacity: 0;
+  width: 0px;
+  opacity: 0;
 }
+
 .FadeIn {
   animation-name: fadeIn;
   animation-duration: 2s;
@@ -137,6 +135,7 @@ opacity: 0;
   animation-name: fadeOut;
   animation-duration: 0.5s;
 }
+
 
 @keyframes fadeIn {
   from {
@@ -154,6 +153,64 @@ opacity: 0;
     opacity: 0;
   }
 }
+
+.NavFadeIn {
+  animation-name: navFadeIn;
+  animation-duration: 0.5s;
+  img {
+    padding-right: 1em;
+  }
+
+}
+.NavFadeOut {
+  opacity: 0;
+  height: 0px;
+  animation-name: navFadeOut;
+  animation-duration: 0.5s;
+}
+
+.DisablingNavLinks {
+  height: 0px;
+  padding-right: 0em;
+  animation-name: disablingNavLinks;
+  animation-duration: 0.6s;
+}
+
+
+@keyframes navFadeIn {
+  from {
+    height: 0px;
+    opacity: 0;
+  }
+  to {
+    height: 3em;
+    opacity: 1;
+  }
+}
+
+@keyframes navFadeOut {
+  from {
+    height: 3em;
+    opacity: 1;
+  }
+  to {
+    height: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes disablingNavLinks {
+  from {
+    height: auto;
+    padding-right: 1em;
+  }
+  to {
+    height: auto;
+    padding-right: 1em;
+  }
+}
+
+
 
 
 `;
