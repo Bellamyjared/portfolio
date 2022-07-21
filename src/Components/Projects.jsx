@@ -14,7 +14,7 @@ import Html_icon from "../Images/ProjectImages/Html_icon.svg";
 
 const ProjectContainer = styled.div`
   position: absolute;
-  top: 130vh;
+  top: 120vh;
   width: 100%;
 
   // background-color: lightgrey;

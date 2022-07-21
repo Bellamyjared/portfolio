@@ -43,13 +43,13 @@ export default function App(props) {
       <GlobalStyle HasUserScrolled={HasUserScrolled} />
       <Canvas
         orthographic
-        shadows
-        gl={{ depth: false }}
+        // shadows
+        // gl={{ depth: false }}
         camera={{ zoom: 40, position: [-150, 100, 201] }}
       >
         <Suspense fallback={null}>
           {/* <OrbitControls /> */}
-          <ScrollControls damping={10} pages={9} distance={1}>
+          <ScrollControls damping={10} pages={7} distance={1}>
             <Scroll>
               <Scene setHasUserScrolled={setHasUserScrolled} />
             </Scroll>

@@ -27,12 +27,12 @@ const Scene = ({ setHasUserScrolled }) => {
     return (
       <directionalLight
         // ref={sLightRef}
-        shadow-camera-top={50}
-        shadow-camera-left={-50}
-        shadow-camera-right={100}
-        shadow-camera-Bottom={-50}
-        shadow-mapSize-width={2024}
-        shadow-mapSize-height={2024}
+        // shadow-camera-top={50}
+        // shadow-camera-left={-50}
+        // shadow-camera-right={100}
+        // shadow-camera-Bottom={-50}
+        // shadow-mapSize-width={2024}
+        // shadow-mapSize-height={2024}
         castShadow
         color="white"
         intensity={0.5}

@@ -5,7 +5,6 @@ import Cssicon from "../../Images/TechnologyImages/Css_icon.svg";
 import htmlicon from "../../Images/TechnologyImages/html_icon.svg";
 import JSicon from "../../Images/TechnologyImages/JS_icon.svg";
 import reacticon from "../../Images/TechnologyImages/react_icon.svg";
-import reduxicon from "../../Images/TechnologyImages/redux_icon.svg";
 
 const FrontEndIconsContainer = styled.div`
   margin-top: -1.5em;
@@ -61,13 +60,6 @@ const ReactIconContainer = styled.div`
     padding-bottom: 2em;
   }
 `;
-const ReduxIconContainer = styled.div`
-  display: flex;
-  width: 3em;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-bottom: 1em;
-`;
 
 const TechLable = styled.div`
   font-weight: bold;
@@ -82,10 +74,6 @@ const FrontEnd = () => {
         <TechLable>React</TechLable>
       </ReactIconContainer>
 
-      <ReduxIconContainer>
-        <img className="FrontEndIcon" src={reduxicon} alt="ReduxImage" />
-        <TechLable>Redux</TechLable>
-      </ReduxIconContainer>
       <JSIconContainer>
         <img className="FrontEndIcon" src={JSicon} alt="JSImage" />
         <TechLable>JavaScript</TechLable>
