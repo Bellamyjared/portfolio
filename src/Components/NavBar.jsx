@@ -30,7 +30,6 @@ const NavBorder = styled.div`
 `;
 
 const NavContainer = styled.div`
-  width: 85%;
   display: flex;
   align-items: center;
   justify-content: center;

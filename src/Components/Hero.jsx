@@ -3,11 +3,9 @@ import styled from "styled-components";
 
 const HeroContainer = styled.div`
   position: absolute;
-  top: 28vh;
-  width: 25vw;
-  background-color: #ebf8ff;
-
-  @media screen and (min-width: 768px) {
+  top: 80vh;
+  width: 100vw;
+  /* @media screen and (min-width: 768px) {
   }
   @media screen and (min-width: 1024px) {
     font-size: 25px;
@@ -18,16 +16,23 @@ const HeroContainer = styled.div`
 
   @media screen and (min-width: 2560px) {
     font-size: 45px;
-  }
+  } */
 `;
 const HeroTitle = styled.h1`
+  display: flex;
+  justify-content: center;
+  text-align: center;
   width: 100%;
   margin-bottom: 0.3em;
   line-height: 1.3em;
 `;
-const HeroSubTitle = styled.div``;
+const HeroSubTitle = styled.div`
+  font-size: 1.1em;
+  display: flex;
+  justify-content: center;
+`;
 
-const CallToAction = styled.button`
+const CallToAction = styled.div`
   margin-top: 2.5em;
   margin-left: 20%;
   @media screen and (min-width: 375px) {
@@ -57,13 +62,7 @@ const Hero = ({ HasUserScrolled }) => {
         Making Technology <br /> Work For You
       </HeroTitle>
       <HeroSubTitle>Full Stack Development</HeroSubTitle>
-      <CallToAction
-        onClick={() => {
-          console.log("tewst");
-        }}
-      >
-        See More
-      </CallToAction>
+      <CallToAction>ARROW</CallToAction>
     </HeroContainer>
   );
 };
