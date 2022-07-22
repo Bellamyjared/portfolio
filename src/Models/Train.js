@@ -159,6 +159,7 @@ export default function Model({
             scale={[0.3, 0.52, 0.52]}
           >
             <mesh
+              castShadow
               name="Mesh_4"
               geometry={nodes.Mesh_4.geometry}
               material={materials["Material.070"]}
@@ -206,6 +207,7 @@ export default function Model({
           scale={[3.37, 1.92, 1.92]}
         >
           <mesh
+            castShadow
             name="Cab"
             geometry={nodes.Cab.geometry}
             material={materials["Material.021"]}
@@ -249,6 +251,7 @@ export default function Model({
           scale={[3.37, 1.92, 1.92]}
         >
           <mesh
+            castShadow
             name="cab"
             geometry={nodes.cab.geometry}
             material={materials["Material.064"]}

@@ -22,33 +22,18 @@ import Footer from "./Components/Footer";
 import Scene from "./Components/Scene.jsx";
 
 export default function App(props) {
-  // !~ Normal app
-  const [ToggleMobileState, setToggleMobileState] = useState("hidden");
-  const [ToggleOverFlow, setToggleOverFlow] = useState("visible");
-
-  const ToggleMobileNav = () =>
-    ToggleMobileState === "hidden"
-      ? setToggleMobileState("none") + setToggleOverFlow("hidden")
-      : setToggleMobileState("hidden") + setToggleOverFlow("visible");
-
-  // const [hidden, set] = useState();
   const [HasUserScrolled, setHasUserScrolled] = useState(0);
 
-  function ChromeWheel() {}
-
-  // document.addEventListener("keypress", console.log("test"));
-
   return (
-    <div style={{ overflow: `${ToggleOverFlow}`, height: "100vh" }}>
+    <div style={{ height: "100vh" }}>
       <GlobalStyle HasUserScrolled={HasUserScrolled} />
       <Canvas
         orthographic
-        // shadows
-        // gl={{ depth: false }}
+        shadows
         camera={{ zoom: 40, position: [-150, 100, 201] }}
       >
         <Suspense fallback={null}>
-          {/* <OrbitControls /> */}
+          <OrbitControls />
           <ScrollControls damping={10} pages={7} distance={1}>
             <Scroll>
               <Scene setHasUserScrolled={setHasUserScrolled} />

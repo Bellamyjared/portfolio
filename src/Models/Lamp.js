@@ -13,8 +13,18 @@ export default function Model({ ...props }) {
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group
+          name="Empty"
+          position={[0.17, 0, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+        />
+        <group
+          name="IrradianceVolume"
+          position={[0.41, 4.02, -11.81]}
+          scale={[4.03, 4.03, 13.69]}
+        />
+        <group
           name="Cylinder001"
-          position={[-0.03, 4.32, -0.1]}
+          position={[0, 4.3, 0]}
           rotation={[0, 0.48, 0]}
           scale={[0.19, 0.19, 0.2]}
         >
@@ -25,7 +35,6 @@ export default function Model({ ...props }) {
             material={materials["Material.001"]}
           />
           <mesh
-            castShadow
             name="Cylinder004_1"
             geometry={nodes.Cylinder004_1.geometry}
             material={materials["Material.007"]}

@@ -282,13 +282,14 @@ export default function Character_constructor({
               skeleton={nodes.Alpha_Joints.skeleton}
             />
             <skinnedMesh
+              castShadow
               geometry={nodes.Alpha_Surface.geometry}
               material={materials.Alpha_Body_MAT}
               skeleton={nodes.Alpha_Surface.skeleton}
             />
           </group>
         </group>
-        <mesh castShadow>
+        <mesh>
           <boxGeometry args={[1.1, 4, 1.1]} />
           <meshStandardMaterial
             ref={material}
@@ -322,13 +323,14 @@ export default function Character_constructor({
               skeleton={nodes.Beta_Joints.skeleton}
             />
             <skinnedMesh
+              castShadow
               geometry={nodes.Beta_Surface.geometry}
               material={materials["asdf1:Beta_HighLimbsGeoSG2"]}
               skeleton={nodes.Beta_Surface.skeleton}
             />
           </group>
         </group>
-        <mesh castShadow>
+        <mesh>
           <boxGeometry args={[1.1, 4, 1.1]} />
           <meshStandardMaterial
             ref={material}

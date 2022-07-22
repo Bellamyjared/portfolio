@@ -19,6 +19,7 @@ const HeroContainer = styled.div`
   } */
 `;
 const HeroTitle = styled.h1`
+  color: white;
   display: flex;
   justify-content: center;
   text-align: center;
