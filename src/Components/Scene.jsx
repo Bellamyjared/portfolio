@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   ScrollControls,
@@ -13,6 +13,7 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 
+import Bench from "../Models/Bench";
 import Lamp from "../Models/Lamp";
 import Train from "../Models/Train";
 import Wave_Constructor from "../Models/Characters/Wave_Constructor";
@@ -81,28 +82,52 @@ const Scene = ({ setHasUserScrolled }) => {
     );
   };
 
+  const light = useMemo(() => new THREE.SpotLight(0xffffff), []);
   const sLightRef = useRef();
-  useHelper(sLightRef, THREE.PointLightHelper);
+  useHelper(sLightRef, THREE.SpotLightHelper);
+
+  useFrame(() => {});
 
   return (
     <>
       {/* ~~~~~~~~~~~~~~~~ BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
       {/* <ambientLight intensity={1} /> */}
-      <spotLight
+      <Lamp scale={width / widthScale} position={[8, -0.25, 5]} />
+      <Bench
+        scale={(width / widthScale) * 1.5}
+        position={[8, -0.25, 7.5]}
+        rotation={[0, -Math.PI / 2, 0]}
+      />
+
+      <primitive
+        // ref={sLightRef}
+        object={light}
         shadow-mapSize-height={800}
         shadow-mapSize-width={800}
         color={"#a8c6e9"}
         intensity={1}
         position={[20, 40, 40]}
-        angle={0.25}
+        angle={0.35}
         penumbra={1}
         castShadow
       />
+
+      <primitive object={light.target} position={[2, 0, 7]} />
+
+      <mesh
+        position={[0, -1.3, 20.5]}
+        rotation={[-Math.PI / 2, 0, 0]}
+        receiveShadow
+      >
+        <boxBufferGeometry args={[80, 40, 2]} />
+        <meshPhongMaterial color="grey" />
+      </mesh>
+
       <spotLight
         color={"#a8c6e9"}
-        intensity={0.3}
+        intensity={0.4}
         position={[1, 15, 1]}
-        angle={1}
+        angle={0.8}
         penumbra={1}
       />
 
@@ -118,14 +143,6 @@ const Scene = ({ setHasUserScrolled }) => {
       {/* <hemisphereLight args={["#fff", "pink", 0.02]} /> */}
 
       {/* Platform RIGHT Side */}
-      <mesh
-        position={[0, -1.3, 20.5]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        receiveShadow
-      >
-        <boxBufferGeometry args={[80, 40, 2]} />
-        <meshPhongMaterial color="grey" />
-      </mesh>
 
       {/* Platform LEFT Side */}
       <mesh
@@ -151,7 +168,6 @@ const Scene = ({ setHasUserScrolled }) => {
         spawnCharacter={spawnCharacter}
       />
       <Lamp scale={width / widthScale} position={[8, -0.25, 10]} />
-      <Lamp scale={width / widthScale} position={[8, -0.25, 5]} />
     </>
   );
 };

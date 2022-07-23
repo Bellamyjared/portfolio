@@ -54,7 +54,7 @@ export default function Character_constructor({
       ? ScaleSize.medium
       : ScaleSize.small;
 
-  let planeIntersectPoint = new THREE.Vector3();
+  const planeIntersectPoint = new THREE.Vector3();
 
   // spawn character and direction controls
   useEffect(() => {
