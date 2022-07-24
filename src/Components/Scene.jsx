@@ -36,44 +36,65 @@ const Scene = ({ setHasUserScrolled }) => {
 
   const light = useMemo(() => new THREE.SpotLight(0xffffff), []);
   const sLightRef = useRef();
-  useHelper(sLightRef, THREE.SpotLightHelper);
+  useHelper(sLightRef, THREE.PointLightHelper);
 
-  const LampAndBench = ({ positions, rotations }) => {
+  const LampAndBench = ({ setPositions, rotations }) => {
+    const lampAndBenchHeight = -0.6;
     return (
       <>
         {/* right lamp */}
         <Lamp
           scale={width / widthScale}
-          position={[positions[0], -0.25, positions[1] + 5]}
+          position={[
+            setPositions[0],
+            (width / widthScale) * lampAndBenchHeight,
+            (width / widthScale) * 29.9,
+          ]}
         />
         {/* left lamp */}
         <Lamp
           scale={width / widthScale}
-          position={[positions[0], -0.25, positions[1]]}
+          position={[
+            setPositions[0],
+            (width / widthScale) * lampAndBenchHeight,
+            (width / widthScale) * 20,
+          ]}
         />
         {/* Lamp Post Light (right lamp)*/}
         <pointLight
           scale={0.1}
           color={"white"}
-          position={[positions[0], 1.7, positions[1] + 5]}
+          position={[
+            setPositions[0],
+            (width / widthScale) * 3.3,
+            (width / widthScale) * 29.9,
+          ]}
           intensity={10}
-          distance={6}
+          distance={(width / widthScale) * 11}
           decay={4}
         />
 
         {/* Lamp Post Light (left lamp)*/}
         <pointLight
-          // ref={sLightRef}
+          ref={sLightRef}
           scale={0.1}
           color={"white"}
-          position={[positions[0], 1.7, positions[1]]}
+          position={[
+            setPositions[0],
+            (width / widthScale) * 3.3,
+            (width / widthScale) * 20,
+          ]}
           intensity={10}
-          distance={6}
+          distance={(width / widthScale) * 11}
           decay={4}
         />
         <Bench
           scale={(width / widthScale) * 1.5}
-          position={[positions[0], -0.25, positions[1] + 2.5]}
+          position={[
+            setPositions[0],
+            (width / widthScale) * lampAndBenchHeight,
+            (width / widthScale) * 24.9,
+          ]}
           rotation={rotations}
         />
       </>
@@ -96,7 +117,7 @@ const Scene = ({ setHasUserScrolled }) => {
         color={"#a8c6e9"}
         intensity={1}
         position={[20, 40, 40]}
-        angle={0.35}
+        angle={(width / widthScale) * 0.69}
         penumbra={1}
         castShadow
       />
@@ -106,14 +127,15 @@ const Scene = ({ setHasUserScrolled }) => {
         color={"#a8c6e9"}
         intensity={0.4}
         position={[1, 15, 1]}
-        angle={0.8}
+        angle={(width / widthScale) * 1.6}
         penumbra={1}
       />
 
       {/* ~~~~~~~~~~~~~~ TERRAIN ~~~~~~~~~~~~~~~~~~~~~~~~~ */}
       {/* Platform RIGHT Side */}
       <mesh
-        position={[0, -1.3, 20.7]}
+        scale={(width / widthScale) * 2}
+        position={[0, (width / widthScale) * -2.7, (width / widthScale) * 41.2]}
         rotation={[-Math.PI / 2, 0, 0]}
         receiveShadow
       >
@@ -123,7 +145,8 @@ const Scene = ({ setHasUserScrolled }) => {
 
       {/* Platform LEFT Side */}
       <mesh
-        position={[0, -0.8, -22]}
+        scale={(width / widthScale) * 2}
+        position={[0, (width / widthScale) * -2.6, (width / widthScale) * -49]}
         rotation={[-Math.PI / 2, 0, 0]}
         receiveShadow
       >
@@ -136,13 +159,13 @@ const Scene = ({ setHasUserScrolled }) => {
       {/* ~~~~~~~~~~~~~~~~ MODELS ~~~~~~~~~~~~~~~~  */}
       <Train
         setHasUserScrolled={setHasUserScrolled}
-        position={[0, -0.5, 0]}
+        position={[0, (width / widthScale) * -1.2, 0]}
         scale={(width / widthScale) * TrainScale}
         setSpawnCharacter={setSpawnCharacter}
       />
       <TrainWarningLines
         scale={width / widthScale}
-        position={[0, -0.29, (width / widthScale) * 6]}
+        position={[0, (width / widthScale) * -0.65, (width / widthScale) * 6]}
         rotation={[0, -Math.PI / 2, 0]}
       />
       <Wave_Constructor
@@ -151,10 +174,8 @@ const Scene = ({ setHasUserScrolled }) => {
         floorPlane={floorPlane}
         spawnCharacter={spawnCharacter}
       />
-      <LampAndBench positions={[8, 10]} rotations={[0, -Math.PI / 2, 0]} />
-      <LampAndBench positions={[-8, 10]} rotations={[0, Math.PI / 2, 0]} />
-      {/* <LampAndBench positions={[8, -15]} rotations={[0, -Math.PI / 2, 0]} />
-      <LampAndBench positions={[-8, -15]} rotations={[0, Math.PI / 2, 0]} /> */}
+      <LampAndBench setPositions={[8, 10]} rotations={[0, -Math.PI / 2, 0]} />
+      <LampAndBench setPositions={[-9, 10]} rotations={[0, Math.PI / 2, 0]} />
     </>
   );
 };

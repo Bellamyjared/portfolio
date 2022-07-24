@@ -19,6 +19,7 @@ const HeroContainer = styled.div`
   } */
 `;
 const HeroTitle = styled.h1`
+  text-shadow: 0px 0px 10px #000000;
   color: white;
   display: flex;
   justify-content: center;
