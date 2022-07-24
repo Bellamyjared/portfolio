@@ -110,7 +110,7 @@ export default function Character_constructor({
           event.ray.intersectPlane(floorPlane, planeIntersectPoint);
           setCharacterPosition([
             planeIntersectPoint.x,
-            0,
+            0.2,
             planeIntersectPoint.z,
           ]);
         }
@@ -258,7 +258,7 @@ export default function Character_constructor({
     }
   };
 
-  const characterScale = 25;
+  const characterScale = 20;
 
   if (characterGender === "Male_Character") {
     return (
@@ -310,20 +310,23 @@ export default function Character_constructor({
         {...spring}
         {...bind()}
       >
-        <group>
+        <group name="Scene">
           <group
+            name="Armature"
             rotation={[Math.PI / 2, 0, 0]}
             scale={width / widthScale / characterScale}
             position={[0, -2, 0]}
           >
             <primitive object={nodes.mixamorigHips} />
             <skinnedMesh
+              name="Beta_Joints"
               geometry={nodes.Beta_Joints.geometry}
               material={materials.Beta_Joints_MAT}
               skeleton={nodes.Beta_Joints.skeleton}
             />
             <skinnedMesh
               castShadow
+              name="Beta_Surface"
               geometry={nodes.Beta_Surface.geometry}
               material={materials["asdf1:Beta_HighLimbsGeoSG2"]}
               skeleton={nodes.Beta_Surface.skeleton}

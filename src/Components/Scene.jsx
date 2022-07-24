@@ -13,6 +13,7 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 
+import TrainWarningLines from "../Models/TrainWarningLines";
 import Bench from "../Models/Bench";
 import Lamp from "../Models/Lamp";
 import Train from "../Models/Train";
@@ -31,76 +32,64 @@ const Scene = ({ setHasUserScrolled }) => {
       : width > WindowSize.medium
       ? ScaleSize.medium
       : ScaleSize.small;
-
-  // const ConcreteTextures = useTexture({
-  //   map: "./concreteTextures/granular_concrete_diff_1k.jpg",
-  //   // displacementMap: "./concreteTextures/granular_concrete_disp_1k.png",
-  //   // aoMap: "./concreteTextures/granular_concrete_arm_1k.jpg",
-  //   // roughnessMap: "./concreteTextures/granular_concrete_arm_1k.jpg",
-  //   // metalnessMap: "./concreteTextures/granular_concrete_arm_1k.jpg",
-  //   // normalMap: "./concreteTextures/granular_concrete_nor_gl_1k.jpg",
-  // });
-
-  // ConcreteTextures.map.wrapS = ConcreteTextures.map.wrapT =
-  //   THREE.RepeatWrapping;
-  // ConcreteTextures.map.repeat.set(2, 2);
-  // ConcreteTextures.displacementMap.wrapS =
-  //   ConcreteTextures.displacementMap.wrapT = THREE.RepeatWrapping;
-  // ConcreteTextures.displacementMap.repeat.set(2, 2);
-  // ConcreteTextures.aoMap.wrapS = ConcreteTextures.aoMap.wrapT =
-  //   THREE.RepeatWrapping;
-  // ConcreteTextures.aoMap.repeat.set(2, 2);
-  // ConcreteTextures.roughnessMap.wrapS = ConcreteTextures.roughnessMap.wrapT =
-  //   THREE.RepeatWrapping;
-  // ConcreteTextures.roughnessMap.repeat.set(2, 2);
-  // ConcreteTextures.metalnessMap.wrapS = ConcreteTextures.metalnessMap.wrapT =
-  //   THREE.RepeatWrapping;
-  // ConcreteTextures.metalnessMap.repeat.set(2, 2);
-  // ConcreteTextures.normalMap.wrapS = ConcreteTextures.normalMap.wrapT =
-  //   THREE.RepeatWrapping;
-  // ConcreteTextures.normalMap.repeat.set(2, 2);
-
-  const DirectionalLightWithHelper = () => {
-    const sLightRef = useRef();
-    const shadowCameraRef = useRef();
-    useHelper(sLightRef, THREE.DirectionalLightHelper);
-    useHelper(shadowCameraRef, THREE.CameraHelper);
-    return (
-      <directionalLight
-        ref={sLightRef}
-        shadow-camera-top={10}
-        shadow-camera-left={-10}
-        shadow-camera-right={30}
-        shadow-camera-bottom={-30}
-        // shadow-mapSize-width={1000}
-        // shadow-mapSize-height={1000}
-        castShadow
-        color="#70a3dd"
-        intensity={1}
-        position={[-5, 10, -2]}
-      />
-    );
-  };
+  const TrainScale = 1.4;
 
   const light = useMemo(() => new THREE.SpotLight(0xffffff), []);
   const sLightRef = useRef();
   useHelper(sLightRef, THREE.SpotLightHelper);
 
-  useFrame(() => {});
+  const LampAndBench = ({ positions, rotations }) => {
+    return (
+      <>
+        {/* right lamp */}
+        <Lamp
+          scale={width / widthScale}
+          position={[positions[0], -0.25, positions[1] + 5]}
+        />
+        {/* left lamp */}
+        <Lamp
+          scale={width / widthScale}
+          position={[positions[0], -0.25, positions[1]]}
+        />
+        {/* Lamp Post Light (right lamp)*/}
+        <pointLight
+          scale={0.1}
+          color={"white"}
+          position={[positions[0], 1.7, positions[1] + 5]}
+          intensity={10}
+          distance={6}
+          decay={4}
+        />
+
+        {/* Lamp Post Light (left lamp)*/}
+        <pointLight
+          // ref={sLightRef}
+          scale={0.1}
+          color={"white"}
+          position={[positions[0], 1.7, positions[1]]}
+          intensity={10}
+          distance={6}
+          decay={4}
+        />
+        <Bench
+          scale={(width / widthScale) * 1.5}
+          position={[positions[0], -0.25, positions[1] + 2.5]}
+          rotation={rotations}
+        />
+      </>
+    );
+  };
 
   return (
     <>
-      {/* ~~~~~~~~~~~~~~~~ BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
+      {/* ~~~~~~~~~~~~~~~~ LIGHTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
       {/* <ambientLight intensity={1} /> */}
-      <Lamp scale={width / widthScale} position={[8, -0.25, 5]} />
-      <Bench
-        scale={(width / widthScale) * 1.5}
-        position={[8, -0.25, 7.5]}
-        rotation={[0, -Math.PI / 2, 0]}
-      />
 
+      {/* SpotLight Targert */}
+      <primitive object={light.target} position={[2, 0, 7]} />
+
+      {/* Main SpotLight */}
       <primitive
-        // ref={sLightRef}
         object={light}
         shadow-mapSize-height={800}
         shadow-mapSize-width={800}
@@ -112,17 +101,7 @@ const Scene = ({ setHasUserScrolled }) => {
         castShadow
       />
 
-      <primitive object={light.target} position={[2, 0, 7]} />
-
-      <mesh
-        position={[0, -1.3, 20.5]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        receiveShadow
-      >
-        <boxBufferGeometry args={[80, 40, 2]} />
-        <meshPhongMaterial color="grey" />
-      </mesh>
-
+      {/* center SpotLight */}
       <spotLight
         color={"#a8c6e9"}
         intensity={0.4}
@@ -131,18 +110,16 @@ const Scene = ({ setHasUserScrolled }) => {
         penumbra={1}
       />
 
-      <pointLight
-        // ref={sLightRef}
-        scale={0.1}
-        color={"white"}
-        position={[8, 1.7, 10]}
-        intensity={10}
-        distance={6}
-        decay={4}
-      />
-      {/* <hemisphereLight args={["#fff", "pink", 0.02]} /> */}
-
+      {/* ~~~~~~~~~~~~~~ TERRAIN ~~~~~~~~~~~~~~~~~~~~~~~~~ */}
       {/* Platform RIGHT Side */}
+      <mesh
+        position={[0, -1.3, 20.7]}
+        rotation={[-Math.PI / 2, 0, 0]}
+        receiveShadow
+      >
+        <boxBufferGeometry args={[80, 40, 2]} />
+        <meshPhongMaterial color="grey" />
+      </mesh>
 
       {/* Platform LEFT Side */}
       <mesh
@@ -154,12 +131,19 @@ const Scene = ({ setHasUserScrolled }) => {
         <meshPhongMaterial color="grey" />
       </mesh>
 
+      {/* Track Warning Lines */}
+
       {/* ~~~~~~~~~~~~~~~~ MODELS ~~~~~~~~~~~~~~~~  */}
       <Train
         setHasUserScrolled={setHasUserScrolled}
         position={[0, -0.5, 0]}
-        scale={width / widthScale}
+        scale={(width / widthScale) * TrainScale}
         setSpawnCharacter={setSpawnCharacter}
+      />
+      <TrainWarningLines
+        scale={width / widthScale}
+        position={[0, -0.29, (width / widthScale) * 6]}
+        rotation={[0, -Math.PI / 2, 0]}
       />
       <Wave_Constructor
         WindowSize={WindowSize}
@@ -167,7 +151,10 @@ const Scene = ({ setHasUserScrolled }) => {
         floorPlane={floorPlane}
         spawnCharacter={spawnCharacter}
       />
-      <Lamp scale={width / widthScale} position={[8, -0.25, 10]} />
+      <LampAndBench positions={[8, 10]} rotations={[0, -Math.PI / 2, 0]} />
+      <LampAndBench positions={[-8, 10]} rotations={[0, Math.PI / 2, 0]} />
+      {/* <LampAndBench positions={[8, -15]} rotations={[0, -Math.PI / 2, 0]} />
+      <LampAndBench positions={[-8, -15]} rotations={[0, Math.PI / 2, 0]} /> */}
     </>
   );
 };
