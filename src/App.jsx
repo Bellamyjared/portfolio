@@ -33,7 +33,7 @@ export default function App(props) {
         camera={{ zoom: 40, position: [-150, 100, 201] }}
       >
         <Suspense fallback={null}>
-          <OrbitControls />
+          {/* <OrbitControls /> */}
           <ScrollControls damping={10} pages={7} distance={1}>
             <Scroll>
               <Scene setHasUserScrolled={setHasUserScrolled} />
@@ -62,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
   body {
    
     font-family: 'Poppins', sans-serif;
-    // background-color: black;
+     background-color: white;
     margin : 0;
     
     @media screen and (min-width: 768px){

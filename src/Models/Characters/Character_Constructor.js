@@ -33,7 +33,7 @@ export default function Character_constructor({
     props.position[1] - 2,
     props.position[2],
   ]);
-  const [spring, api] = useSpring(() => ({
+  const [spring, springAPI] = useSpring(() => ({
     position: characterPosition,
     scale: 0.25,
     config: { friction: 20 },
@@ -48,7 +48,9 @@ export default function Character_constructor({
   const [CharacterSpeed, setCharacterSpeed] = useState(0);
   const { width } = useThree((state) => state.viewport);
   const widthScale =
-    width > WindowSize.large
+    width > WindowSize.xlarge
+      ? ScaleSize.xlarge
+      : width > WindowSize.large
       ? ScaleSize.large
       : width > WindowSize.medium
       ? ScaleSize.medium
@@ -62,8 +64,8 @@ export default function Character_constructor({
       // setCharacterCount(characterCount + 1);
       group.current.position.set(
         props.position[0],
-        props.position[1],
-        props.position[2]
+        (width / widthScale) * 0.32,
+        props.position[2] + 5
       );
       setCharacterPosition([
         group.current.position.x,
@@ -93,7 +95,7 @@ export default function Character_constructor({
     ({ active, event }) => {
       // update position before dragging
       if (resetSpringPosition) {
-        api.set({
+        springAPI.set({
           position: [
             group.current.position.x,
             group.current.position.y,
@@ -116,7 +118,7 @@ export default function Character_constructor({
         }
         setIsDragging(active);
         // start useSpring
-        api.start({
+        springAPI.start({
           position: characterPosition,
         });
       } else {
@@ -184,6 +186,8 @@ export default function Character_constructor({
 
   // update character ever in window frame
   useFrame(({ clock }) => {
+    // console.log(group.current.position.y);
+    group.current.position.y = (width / widthScale) * 0.3;
     const scrolled = scrollData.range(0, 1 / 9);
     if (scrolled >= 1 && !ScrollLock) {
       setScrollLock(true);
@@ -193,7 +197,7 @@ export default function Character_constructor({
       setScrollLock(false);
       group.current.translateZ(CharacterSpeed);
     }
-    // console.log(width / widthScale / 100);
+
     // move character across the screen when not being dragged
     if (!isDragging && !ScrollLock) {
       // Running
@@ -229,7 +233,7 @@ export default function Character_constructor({
       // sets the new position of the creator as they move across screen - needed for spring positioning when drag is initated
       setCharacterPosition([
         group.current.position.x,
-        group.current.position.y,
+        (width / widthScale) * -3.85,
         group.current.position.z,
       ]);
       setResetSpringPosition(true);
@@ -273,7 +277,7 @@ export default function Character_constructor({
           <group
             rotation={[Math.PI / 2, 0, 0]}
             scale={width / widthScale / characterScale}
-            position={[0, -2, 0]}
+            position={[0, (width / widthScale) * -3.85, 0]}
           >
             <primitive object={nodes.mixamorigHips} />
             <skinnedMesh
@@ -315,7 +319,7 @@ export default function Character_constructor({
             name="Armature"
             rotation={[Math.PI / 2, 0, 0]}
             scale={width / widthScale / characterScale}
-            position={[0, -2, 0]}
+            position={[0, (width / widthScale) * -3.85, 0]}
           >
             <primitive object={nodes.mixamorigHips} />
             <skinnedMesh

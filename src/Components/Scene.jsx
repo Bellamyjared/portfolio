@@ -22,12 +22,14 @@ import Wave_Constructor from "../Models/Characters/Wave_Constructor";
 const Scene = ({ setHasUserScrolled }) => {
   const floorPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
   const [spawnCharacter, setSpawnCharacter] = useState(true);
-  const WindowSize = { large: 30, medium: 15 };
-  const ScaleSize = { large: 95, medium: 48, small: 25 };
+  const WindowSize = { xlarge: 45, large: 30, medium: 15 };
+  const ScaleSize = { xlarge: 95, large: 65, medium: 45, small: 25 };
 
   const { width } = useThree((state) => state.viewport);
   const widthScale =
-    width > WindowSize.large
+    width > WindowSize.xlarge
+      ? ScaleSize.xlarge
+      : width > WindowSize.large
       ? ScaleSize.large
       : width > WindowSize.medium
       ? ScaleSize.medium
@@ -38,6 +40,8 @@ const Scene = ({ setHasUserScrolled }) => {
   const sLightRef = useRef();
   useHelper(sLightRef, THREE.PointLightHelper);
 
+  console.log(width);
+
   const LampAndBench = ({ setPositions, rotations }) => {
     const lampAndBenchHeight = -0.6;
     return (
@@ -46,7 +50,7 @@ const Scene = ({ setHasUserScrolled }) => {
         <Lamp
           scale={width / widthScale}
           position={[
-            setPositions[0],
+            (width / widthScale) * setPositions[0],
             (width / widthScale) * lampAndBenchHeight,
             (width / widthScale) * 29.9,
           ]}
@@ -55,7 +59,7 @@ const Scene = ({ setHasUserScrolled }) => {
         <Lamp
           scale={width / widthScale}
           position={[
-            setPositions[0],
+            (width / widthScale) * setPositions[0],
             (width / widthScale) * lampAndBenchHeight,
             (width / widthScale) * 20,
           ]}
@@ -65,7 +69,7 @@ const Scene = ({ setHasUserScrolled }) => {
           scale={0.1}
           color={"white"}
           position={[
-            setPositions[0],
+            (width / widthScale) * setPositions[0],
             (width / widthScale) * 3.3,
             (width / widthScale) * 29.9,
           ]}
@@ -80,7 +84,7 @@ const Scene = ({ setHasUserScrolled }) => {
           scale={0.1}
           color={"white"}
           position={[
-            setPositions[0],
+            (width / widthScale) * setPositions[0],
             (width / widthScale) * 3.3,
             (width / widthScale) * 20,
           ]}
@@ -91,7 +95,7 @@ const Scene = ({ setHasUserScrolled }) => {
         <Bench
           scale={(width / widthScale) * 1.5}
           position={[
-            setPositions[0],
+            (width / widthScale) * setPositions[0],
             (width / widthScale) * lampAndBenchHeight,
             (width / widthScale) * 24.9,
           ]}
@@ -154,6 +158,17 @@ const Scene = ({ setHasUserScrolled }) => {
         <meshPhongMaterial color="grey" />
       </mesh>
 
+      {/* Profile screen */}
+      <mesh
+        scale={(width / widthScale) * 2}
+        position={[0, (width / widthScale) * 0, (width / widthScale) * 0]}
+        rotation={[0, -Math.PI / 5, 0]}
+        receiveShadow
+      >
+        <planeBufferGeometry args={[50, 6, 2]} />
+        <meshStandardMaterial color="white" />
+      </mesh>
+
       {/* Track Warning Lines */}
 
       {/* ~~~~~~~~~~~~~~~~ MODELS ~~~~~~~~~~~~~~~~  */}
@@ -174,8 +189,8 @@ const Scene = ({ setHasUserScrolled }) => {
         floorPlane={floorPlane}
         spawnCharacter={spawnCharacter}
       />
-      <LampAndBench setPositions={[8, 10]} rotations={[0, -Math.PI / 2, 0]} />
-      <LampAndBench setPositions={[-9, 10]} rotations={[0, Math.PI / 2, 0]} />
+      <LampAndBench setPositions={[16, 10]} rotations={[0, -Math.PI / 2, 0]} />
+      <LampAndBench setPositions={[-16, 10]} rotations={[0, Math.PI / 2, 0]} />
     </>
   );
 };
