@@ -26,21 +26,19 @@ export default function Wave_Constructor({
     [-3.8, 0.2, 0],
   ];
   const MAX_CHARACTER_PER_DOOR = 3;
-  const MAX_CHARACTER_AMOUNT = 25;
+  const MAX_CHARACTER_AMOUNT = 5;
 
   const [Wave_List, setWave_List] = useState([]);
   const [Wave_Count, setWave_Count] = useState(0);
   const characterCount = useRef(0);
 
   useEffect(() => {
+    console.log(characterCount.current);
     if (spawnCharacter && characterCount.current < MAX_CHARACTER_AMOUNT) {
       Add_Wave();
       setWave_Count(Wave_Count + 1);
     }
   }, [spawnCharacter]);
-
-  if (Wave_Count === 0) {
-  }
 
   const characterWave = () => {
     return (

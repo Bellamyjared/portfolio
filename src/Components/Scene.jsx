@@ -158,17 +158,6 @@ const Scene = ({ setHasUserScrolled }) => {
         <meshPhongMaterial color="grey" />
       </mesh>
 
-      {/* Profile screen */}
-      <mesh
-        scale={(width / widthScale) * 2}
-        position={[0, (width / widthScale) * 0, (width / widthScale) * 0]}
-        rotation={[0, -Math.PI / 5, 0]}
-        receiveShadow
-      >
-        <planeBufferGeometry args={[50, 6, 2]} />
-        <meshStandardMaterial color="white" />
-      </mesh>
-
       {/* Track Warning Lines */}
 
       {/* ~~~~~~~~~~~~~~~~ MODELS ~~~~~~~~~~~~~~~~  */}

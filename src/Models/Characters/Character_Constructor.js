@@ -185,8 +185,8 @@ export default function Character_constructor({
   };
 
   // update character ever in window frame
-  useFrame(({ clock }) => {
-    // console.log(group.current.position.y);
+  useFrame(({ clock, delta }) => {
+    // console.log(delta);
     group.current.position.y = (width / widthScale) * 0.3;
     const scrolled = scrollData.range(0, 1 / 9);
     if (scrolled >= 1 && !ScrollLock) {

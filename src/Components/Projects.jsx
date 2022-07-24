@@ -13,6 +13,7 @@ import Flask_icon from "../Images/ProjectImages/Flask_icon.svg";
 import Html_icon from "../Images/ProjectImages/Html_icon.svg";
 
 const ProjectContainer = styled.div`
+  /* background-color: white; */
   position: absolute;
   top: 120vh;
   width: 100%;
