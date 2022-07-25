@@ -15,7 +15,7 @@ import * as THREE from "three";
 
 import NavBar from "./Components/NavBar.jsx";
 import Hero from "./Components/Hero";
-import Projects from "./Components/Projects";
+import Projects from "./Components/Projects/Projects";
 import Technology from "./Components/Technology";
 import About from "./Components/About";
 import Contact from "./Components/Contact";

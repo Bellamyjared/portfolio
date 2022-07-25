@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-import Project from "../Methods/Project.jsx";
+import Project from "./Project.jsx";
 
-import Grocery_App_Banner from "../Images/ProjectImages/Grocery_App_Banner.png";
-import React_icon from "../Images/ProjectImages/React_icon.svg";
-import NodeJS_Icon from "../Images/ProjectImages/NodeJS_Icon.svg";
-import MongoDB_Icon from "../Images/ProjectImages/MongoDB_Icon.svg";
-import Miner_Info_Banner from "../Images/ProjectImages/Miner_Info_Banner.png";
-import API_icon from "../Images/ProjectImages/API_icon.svg";
-import Flask_icon from "../Images/ProjectImages/Flask_icon.svg";
-import Html_icon from "../Images/ProjectImages/Html_icon.svg";
+import Grocery_App_Banner from "../../Images/ProjectImages/Grocery_App_Banner.png";
+import React_icon from "../../Images/ProjectImages/React_icon.svg";
+import NodeJS_Icon from "../../Images/ProjectImages/NodeJS_Icon.svg";
+import MongoDB_Icon from "../../Images/ProjectImages/MongoDB_Icon.svg";
+import Miner_Info_Banner from "../../Images/ProjectImages/Miner_Info_Banner.png";
+import API_icon from "../../Images/ProjectImages/API_icon.svg";
+import Flask_icon from "../../Images/ProjectImages/Flask_icon.svg";
+import Html_icon from "../../Images/ProjectImages/Html_icon.svg";
 
 const ProjectContainer = styled.div`
   background-color: white;
