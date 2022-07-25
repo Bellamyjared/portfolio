@@ -27,11 +27,20 @@ export default function Character_constructor({
   const { actions } = useAnimations(animations, group);
   const [previousAnimation, setPreviousAnimation] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
+  const { width } = useThree((state) => state.viewport);
+  const widthScale =
+    width > WindowSize.xlarge
+      ? ScaleSize.xlarge
+      : width > WindowSize.large
+      ? ScaleSize.large
+      : width > WindowSize.medium
+      ? ScaleSize.medium
+      : ScaleSize.small;
   const [resetSpringPosition, setResetSpringPosition] = useState(false);
   const [characterPosition, setCharacterPosition] = useState([
-    props.position[0],
-    props.position[1] - 2,
-    props.position[2],
+    (width / widthScale) * props.position[0],
+    (width / widthScale) * props.position[1],
+    (width / widthScale) * props.position[2],
   ]);
   const [spring, springAPI] = useSpring(() => ({
     position: characterPosition,
@@ -46,15 +55,6 @@ export default function Character_constructor({
   const scrollData = useScroll();
   const AmountScrolled = scrollData.range(0, 1) * 100;
   const [CharacterSpeed, setCharacterSpeed] = useState(0);
-  const { width } = useThree((state) => state.viewport);
-  const widthScale =
-    width > WindowSize.xlarge
-      ? ScaleSize.xlarge
-      : width > WindowSize.large
-      ? ScaleSize.large
-      : width > WindowSize.medium
-      ? ScaleSize.medium
-      : ScaleSize.small;
 
   const planeIntersectPoint = new THREE.Vector3();
 
@@ -63,9 +63,9 @@ export default function Character_constructor({
     if (spawnCharacter) {
       // setCharacterCount(characterCount + 1);
       group.current.position.set(
-        props.position[0],
-        (width / widthScale) * 0.32,
-        props.position[2]
+        characterPosition[0],
+        characterPosition[1],
+        characterPosition[2]
       );
       setCharacterPosition([
         group.current.position.x,
@@ -155,8 +155,7 @@ export default function Character_constructor({
 
       // Moving Animations
 
-      if (false) {
-        // if (AnimationRoll > 0) {
+      if (AnimationRoll > 0) {
         // <90% chance character will use a walking animation
 
         if (AnimationRoll <= 5) {

@@ -17,12 +17,12 @@ export default function Wave_Constructor({
     [-40, 0, 34],
   ];
   const DOOR_POSITIONS = [
-    [4.6, 0.2, 0],
-    [2.62, 0.2, 0],
-    [1.22, 0.2, 0],
-    [-0.5, 0.2, 0],
-    [-1.9, 0.2, 0],
-    [-3.8, 0.2, 0],
+    [12.8, 0.32, 0], // head cart
+    [7.4, 0.32, 0], //Ldoor 1 cab
+    [3.4, 0.32, 0], //Rdoor 1 cab
+    [-1.5, 0.32, 0], //Ldoor 2 cab
+    [-5.5, 0.32, 0], //Rdoor 2 cab
+    [-10.7, 0.32, 0], // end cart
   ];
   const MAX_CHARACTER_PER_DOOR = 3;
   const MAX_CHARACTER_AMOUNT = 1;
