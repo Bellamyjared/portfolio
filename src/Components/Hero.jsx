@@ -27,8 +27,8 @@ const HeroContainer = styled.div`
   }
 
   .DownArrowAnimation {
-    animation: fadeInAnimation 1s 1s,
-      downArrowAnimation 1s 2s infinite alternate;
+    animation: fadeInAnimation 1s 0.5s,
+      downArrowAnimation 1s 1.5s infinite alternate;
   }
   .FadeOutDownArrow {
     animation: fadeOutAnimation 0.2s;
@@ -66,9 +66,10 @@ const HeroSubTitle = styled.div`
 `;
 
 const CallToAction = styled.div`
+  /* background-color: pink; */
   display: flex;
   justify-content: center;
-  margin-top: 2em;
+  height: 10vh;
   opacity: 0;
   img {
     width: 1.5em;

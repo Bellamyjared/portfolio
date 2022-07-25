@@ -78,7 +78,6 @@ const Scene = ({ setHasUserScrolled }) => {
 
         {/* Lamp Post Light (left lamp)*/}
         <pointLight
-          ref={sLightRef}
           scale={0.1}
           color={"white"}
           position={[

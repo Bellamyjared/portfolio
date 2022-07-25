@@ -13,10 +13,11 @@ import Flask_icon from "../Images/ProjectImages/Flask_icon.svg";
 import Html_icon from "../Images/ProjectImages/Html_icon.svg";
 
 const ProjectContainer = styled.div`
-  /* background-color: white; */
+  background-color: white;
   position: absolute;
   top: 120vh;
   width: 100%;
+  height: 200vh;
 
   // background-color: lightgrey;
   //   radial-gradient(farthest-side at 60% 30%, #ebf8ff, #6497b1) no-repeat;
@@ -30,38 +31,55 @@ const ProjectContainer = styled.div`
     // background-position: 0px 0px, 0px 300px;
   }
 `;
+const Header = styled.div`
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 15%,
+    rgba(255, 255, 255, 1) 80%
+  );
+  height: 12%;
+`;
+const HeightContainer = styled.div`
+  height: 88%;
+  display: grid;
+  align-content: space-between;
+`;
 
 const Projects = () => {
   return (
     <ProjectContainer>
-      <Project
-        id="project1"
-        bannerPosition="left"
-        banner={Grocery_App_Banner}
-        projectTech={[
-          [React_icon, "React Native"],
-          [NodeJS_Icon, "NodeJS"],
-          [MongoDB_Icon, "MongoDB"],
-        ]}
-        title="Grocery List"
-        subTitle="Mobile Appication"
-        paragraph="This is an on going passion project that I've create for my wife. It
+      <Header />
+      <HeightContainer>
+        <Project
+          id="project1"
+          bannerPosition="left"
+          banner={Grocery_App_Banner}
+          projectTech={[
+            [React_icon, "React Native"],
+            [NodeJS_Icon, "NodeJS"],
+            [MongoDB_Icon, "MongoDB"],
+          ]}
+          title="Grocery List"
+          subTitle="Mobile Appication"
+          paragraph="This is an on going passion project that I've create for my wife. It
         allows a user to create a grocery list based off custom item widgets."
-        buttonLink="Live"
-      />
-      <Project
-        bannerPosition="right"
-        banner={Miner_Info_Banner}
-        projectTech={[
-          [Html_icon, "Html"],
-          [Flask_icon, "Flask"],
-          [API_icon, "API"],
-        ]}
-        title="Bitcoin Miner Monitor"
-        subTitle="Web Appication"
-        paragraph="Custom made monitor for crypto currency mining machines"
-        buttonLink="Live"
-      />
+          buttonLink="Live"
+        />
+        <Project
+          bannerPosition="right"
+          banner={Miner_Info_Banner}
+          projectTech={[
+            [Html_icon, "Html"],
+            [Flask_icon, "Flask"],
+            [API_icon, "API"],
+          ]}
+          title="Bitcoin Miner Monitor"
+          subTitle="Web Appication"
+          paragraph="Custom made monitor for crypto currency mining machines"
+          buttonLink="Live"
+        />
+      </HeightContainer>
     </ProjectContainer>
   );
 };

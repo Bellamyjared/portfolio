@@ -13,9 +13,10 @@ const ProjectContainer = styled.div`
     object-fit: cover;
   }
 
-  padding: 0em 2.5em 12em 2.5em;
+  padding: 0em 2.5em 0em 2.5em;
+  height: 100%;
 
-  @media screen and (min-width: 768px) {
+  /* @media screen and (min-width: 768px) {
     padding: 0em 2.5em 17em 2.5em;
   }
   @media screen and (min-width: 1024px) {
@@ -31,7 +32,7 @@ const ProjectContainer = styled.div`
   }
   @media screen and (min-width: 2560px) {
     max-width: 1800px;
-  }
+  } */
 `;
 
 const BannerSection = styled.div`
