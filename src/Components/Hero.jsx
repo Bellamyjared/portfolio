@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
+import DownArrow from "../Images/DownArrow.svg";
+
 const HeroContainer = styled.div`
   position: absolute;
   top: 80vh;
   width: 100vw;
+  text-shadow: 0px 0px 10px #000000;
+  color: white;
   /* @media screen and (min-width: 768px) {
   }
   @media screen and (min-width: 1024px) {
@@ -19,8 +23,6 @@ const HeroContainer = styled.div`
   } */
 `;
 const HeroTitle = styled.h1`
-  text-shadow: 0px 0px 10px #000000;
-  color: white;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -37,7 +39,10 @@ const HeroSubTitle = styled.div`
 const CallToAction = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 2.5em;
+  margin-top: 2em;
+  img {
+    width: 1.5em;
+  }
   /* @media screen and (min-width: 375px) {
     margin-left: 30%;
   }
@@ -65,7 +70,9 @@ const Hero = ({ HasUserScrolled }) => {
         Making Technology <br /> Work For You
       </HeroTitle>
       <HeroSubTitle>Full Stack Development</HeroSubTitle>
-      <CallToAction>ARROW</CallToAction>
+      <CallToAction>
+        <img className="invertSVG" alt="▼" src={DownArrow} />
+      </CallToAction>
     </HeroContainer>
   );
 };

@@ -91,14 +91,20 @@ const GlobalStyle = createGlobalStyle`
       border-radius: 50px;
     }
   }
+
+  .invertSVG {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
+      brightness(103%) contrast(103%);
+  }
+
   ::-webkit-scrollbar {
-    display:flex
+    display:none
   }
  
   
   ::-webkit-scrollbar-track {
 background: ${(props) =>
-  props.HasUserScrolled ? "rgba(255, 0, 0, 1);" : "rgba(255, 0, 0, 0.0);"}
+  props.HasUserScrolled ? "rgba(90, 90, 90, 0.8);" : "rgba(255, 0, 0, 0.0);"}
 
   }
 

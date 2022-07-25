@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import NavImgLinks from "./NavImgLinks";
+import NavLinksImg from "./NavLinksImg";
 
 import Logo from "../Images/Logo.svg";
 
@@ -42,7 +42,7 @@ const Footer = () => {
         <img src={Logo} />
       </MobileLogo>
       <FooterLinks>
-        <NavImgLinks ShowNavLinks={true} />
+        <NavLinksImg ShowNavLinks={true} />
       </FooterLinks>
     </FooterContainer>
   );

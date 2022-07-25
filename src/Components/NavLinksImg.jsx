@@ -1,12 +1,13 @@
 import React from "react";
+import styled from "styled-components";
 
 import Github from "../Images/NavImages/GithubLogo.svg";
 import Email from "../Images/NavImages/EmailLogo.svg";
 import LinkedIn from "../Images/NavImages/LinkedInLogo.svg";
 
-const NavImgLinks = ({ ShowNavLinks }) => {
+const NavLinksImg = ({ ShowNavLinks }) => {
   return (
-    <div>
+    <div className="invertSVG">
       <a
         href={ShowNavLinks ? "https://www.github.com" : null}
         target="_blank"
@@ -41,4 +42,4 @@ const NavImgLinks = ({ ShowNavLinks }) => {
   );
 };
 
-export default NavImgLinks;
+export default NavLinksImg;

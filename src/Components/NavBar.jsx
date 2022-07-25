@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import NavImgLinks from "./NavImgLinks";
+import NavLinksImg from "./NavLinksImg";
 import Logo from "../Images/Logo.svg";
 import DownArrow from "../Images/DownArrow.svg";
 
@@ -42,6 +42,7 @@ const Banner = styled.div`
 
 const NavLogo = styled.div`
   padding-top: 0.3em;
+
   @media screen and (min-width: 2560px) {
     img {
       width: auto;
@@ -58,6 +59,7 @@ const UnderBanner = styled.div`
 
 const UnderLine = styled.div`
   align-self: flex-start;
+  /* background-color: #000; */
   background-color: #000000c3;
   height: 1px;
   width: 75%;
@@ -124,11 +126,11 @@ const NavBar = ({ HasUserScrolled }) => {
                 }
               }}
             >
-              <img alt="JaredBellamy" src={Logo} />
+              <img className="invertSVG" alt="JaredBellamy" src={Logo} />
               <UnderBanner>
-                <UnderLine />
+                <UnderLine className="invertSVG" />
                 <BannerDownArrow>
-                  <img alt="Down_Arrow" src={DownArrow} />
+                  <img className="invertSVG" alt="Down_Arrow" src={DownArrow} />
                 </BannerDownArrow>
               </UnderBanner>
             </NavLogo>
@@ -143,7 +145,7 @@ const NavBar = ({ HasUserScrolled }) => {
               : "FirstVisit"
           }
         >
-          <NavImgLinks ShowNavLinks={ShowNavLinks} />
+          <NavLinksImg ShowNavLinks={ShowNavLinks} />
         </ImageLinks>
       </NavBorder>
     </>
