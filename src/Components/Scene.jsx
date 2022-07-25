@@ -137,7 +137,7 @@ const Scene = ({ setHasUserScrolled }) => {
       {/* Platform RIGHT Side */}
       <mesh
         scale={(width / widthScale) * 2}
-        position={[0, (width / widthScale) * -2.7, (width / widthScale) * 41.2]}
+        position={[0, (width / widthScale) * -2.7, (width / widthScale) * 41.5]}
         rotation={[-Math.PI / 2, 0, 0]}
         receiveShadow
       >
@@ -148,11 +148,11 @@ const Scene = ({ setHasUserScrolled }) => {
       {/* Platform LEFT Side */}
       <mesh
         scale={(width / widthScale) * 2}
-        position={[0, (width / widthScale) * -2.6, (width / widthScale) * -49]}
+        position={[0, (width / widthScale) * -5.6, (width / widthScale) * -49]}
         rotation={[-Math.PI / 2, 0, 0]}
         receiveShadow
       >
-        <boxBufferGeometry args={[80, 40, 2]} />
+        <boxBufferGeometry args={[80, 40, 4]} />
         <meshPhongMaterial color="grey" />
       </mesh>
 
