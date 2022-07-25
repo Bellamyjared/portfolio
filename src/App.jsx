@@ -9,6 +9,7 @@ import {
   SpotLight,
   MeshWobbleMaterial,
   useHelper,
+  Preload,
 } from "@react-three/drei";
 import * as THREE from "three";
 
@@ -33,6 +34,7 @@ export default function App(props) {
         camera={{ zoom: 40, position: [-150, 100, 201] }}
       >
         <Suspense fallback={null}>
+          <Preload all />
           {/* <OrbitControls /> */}
           <ScrollControls damping={10} pages={7} distance={1}>
             <Scroll>

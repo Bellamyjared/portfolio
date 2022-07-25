@@ -40,8 +40,6 @@ const Scene = ({ setHasUserScrolled }) => {
   const sLightRef = useRef();
   useHelper(sLightRef, THREE.PointLightHelper);
 
-  console.log(width);
-
   const LampAndBench = ({ setPositions, rotations }) => {
     const lampAndBenchHeight = -0.6;
     return (
