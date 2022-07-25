@@ -4,6 +4,35 @@ import styled from "styled-components";
 import DownArrow from "../Images/DownArrow.svg";
 
 const HeroContainer = styled.div`
+  @keyframes downArrowAnimation {
+    from {
+      transform: translate(0px, 20px);
+      opacity: 1;
+    }
+    to {
+      transform: translate(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+      transform: translate(0px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(0px, 20px);
+    }
+  }
+
+  .DownArrowAnimation {
+    animation: fadeInAnimation 1s 1s,
+      downArrowAnimation 1s 2s infinite alternate;
+  }
+  .FadeOutDownArrow {
+    animation: fadeOutAnimation 0.2s;
+  }
   position: absolute;
   top: 80vh;
   width: 100vw;
@@ -40,6 +69,7 @@ const CallToAction = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2em;
+  opacity: 0;
   img {
     width: 1.5em;
   }
@@ -61,16 +91,27 @@ const Hero = ({ HasUserScrolled }) => {
     }
   }, [HasUserScrolled]);
   return (
-    <HeroContainer
-      className={
-        FirstScroll ? (HasUserScrolled ? "FadeIn" : "FadeOut") : "FirstVisit"
-      }
-    >
-      <HeroTitle>
-        Making Technology <br /> Work For You
-      </HeroTitle>
-      <HeroSubTitle>Full Stack Development</HeroSubTitle>
-      <CallToAction>
+    <HeroContainer>
+      <div
+        className={
+          FirstScroll ? (HasUserScrolled ? "FadeIn" : "FadeOut") : "FirstVisit"
+        }
+      >
+        <HeroTitle>
+          Making Technology <br /> Work For You
+        </HeroTitle>
+        <HeroSubTitle>Full Stack Development</HeroSubTitle>
+      </div>
+      <CallToAction
+        HasUserScrolled={HasUserScrolled}
+        className={
+          FirstScroll
+            ? HasUserScrolled
+              ? "DownArrowAnimation"
+              : "FadeOut"
+            : "FirstVisit"
+        }
+      >
         <img className="invertSVG" alt="▼" src={DownArrow} />
       </CallToAction>
     </HeroContainer>
