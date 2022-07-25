@@ -13,13 +13,9 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 
-import NavBar from "./Components/NavBar.jsx";
-import Hero from "./Components/Hero";
-import Projects from "./Components/Projects/Projects";
-import Technology from "./Components/Technology";
-import About from "./Components/About";
-import Contact from "./Components/Contact";
-import Footer from "./Components/Footer";
+import NavBar from "./Components/NavBar/NavBar.jsx";
+import Hero from "./Components/Hero.jsx";
+import Html from "./Components/Html.jsx";
 import Scene from "./Components/Scene.jsx";
 
 export default function App(props) {
@@ -45,11 +41,7 @@ export default function App(props) {
             <Scroll html style={{ width: "100%" }}>
               <NavBar HasUserScrolled={HasUserScrolled} />
               <Hero HasUserScrolled={HasUserScrolled} />
-              <Projects />
-              <Technology />
-              <About />
-              <Contact />
-              <Footer />
+              <Html HasUserScrolled={HasUserScrolled} />
             </Scroll>
           </ScrollControls>
 

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import NavLinksImg from "./NavLinksImg";
-import Logo from "../Images/Logo.svg";
-import DownArrow from "../Images/DownArrow.svg";
+import Logo from "../../Images/Logo.svg";
+import DownArrow from "../../Images/DownArrow.svg";
 
 const NavBorder = styled.div`
   display: grid;

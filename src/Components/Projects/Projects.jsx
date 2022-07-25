@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Project from "./Project.jsx";
+import Project from "./ConstructorProject.jsx";
 
 import Grocery_App_Banner from "../../Images/ProjectImages/Grocery_App_Banner.png";
 import React_icon from "../../Images/ProjectImages/React_icon.svg";
@@ -41,9 +41,16 @@ const Header = styled.div`
   height: 12%;
 `;
 const HeightContainer = styled.div`
+  /* background-color: blue; */
   height: 88%;
   display: grid;
-  align-content: space-between;
+  align-content: space-evenly;
+`;
+
+const Test = styled.div`
+  background-color: blue;
+  display: grid;
+  height: 10vh;
 `;
 
 const Projects = () => {
@@ -66,6 +73,7 @@ const Projects = () => {
         allows a user to create a grocery list based off custom item widgets."
           buttonLink="Live"
         />
+        <Test />
         <Project
           bannerPosition="right"
           banner={Miner_Info_Banner}

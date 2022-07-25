@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import NavLinksImg from "./NavLinksImg";
+import NavLinksImg from "./NavBar/NavLinksImg";
 
 import Logo from "../Images/Logo.svg";
 

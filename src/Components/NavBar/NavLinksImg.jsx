@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import Github from "../Images/NavImages/GithubLogo.svg";
-import Email from "../Images/NavImages/EmailLogo.svg";
-import LinkedIn from "../Images/NavImages/LinkedInLogo.svg";
+import Github from "../../Images/NavImages/GithubLogo.svg";
+import Email from "../../Images/NavImages/EmailLogo.svg";
+import LinkedIn from "../../Images/NavImages/LinkedInLogo.svg";
 
 const NavLinksImg = ({ ShowNavLinks }) => {
   return (

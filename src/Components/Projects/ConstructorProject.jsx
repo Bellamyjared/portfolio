@@ -15,6 +15,7 @@ const ProjectContainer = styled.div`
 
   padding: 0em 2.5em 0em 2.5em;
   height: 100%;
+  background-color: pink;
 
   /* @media screen and (min-width: 768px) {
     padding: 0em 2.5em 17em 2.5em;
@@ -80,7 +81,6 @@ const BannerSection = styled.div`
 
   .ProjectBanner {
     width: 100%;
-    height: auto;
   }
 `;
 const ProjectTech = styled.div`

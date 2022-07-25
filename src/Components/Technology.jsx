@@ -20,7 +20,7 @@ const TechnologyContent = styled.div`
   position: absolute;
   top: 320vh;
   width: 100%;
-  height: 45em;
+  height: 100vh;
 
   .TechImage {
     width: 100px;
