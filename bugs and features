@@ -1,1 +1,10 @@
-Character delection records dont work, they go into the negatives, this means that character limits is also not working
+- Character delection records dont work, they go into the negatives, this means that character limits is also not working
+- bake bench and lamp shadows
+- add performance scaling to app
+  https://www.google.com/search?q=how+to+get+framerate+r3f&rlz=1C1VDKB_enCA984CA984&sxsrf=ALiCzsacM91atsyZcRcoJZ_viPay6PJF8g%3A1658708256732&ei=IOHdYtObLNGfkPIP2LO62A8&ved=0ahUKEwjTq7bj4ZL5AhXRD0QIHdiZDvsQ4dUDCA4&uact=5&oq=how+to+get+framerate+r3f&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgQIIxAnOgUIABCRAjoLCAAQgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOhQILhCABBCxAxCDARDHARDRAxDUAjoLCC4QgAQQsQMQgwE6BQgAEIAEOgQIABBDOggIABCxAxCDAToICAAQgAQQsQM6CggAEIAEEIcCEBQ6CAgAEIAEEMkDOgYIABAeEBY6CAgAEB4QDxAWOgYIABAeEA06CAgAEB4QDxANOgUIABCGA0oECEEYAEoECEYYAFAAWPcxYKQ0aAFwAXgAgAGrAYgB5xuSAQQwLjI1mAEAoAEBwAEB&sclient=gws-wiz
+
+https://docs.pmnd.rs/react-three-fiber/advanced/scaling-performance#movement-regression
+
+https://github.com/pmndrs/drei/#performance
+
+https://github.com/pmndrs/drei#stats
