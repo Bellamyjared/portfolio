@@ -158,8 +158,7 @@ export default function Character_constructor({
       if (AnimationRoll > 0) {
         // <90% chance character will use a walking animation
 
-        if (true) {
-          // if (AnimationRoll <= 5) {
+        if (AnimationRoll <= 5) {
           // 50% character will use standard animation for walking animation
           playAnimation("Standard_Walk");
         } else {
@@ -187,7 +186,6 @@ export default function Character_constructor({
 
   // update character ever in window frame
   useFrame((state, delta) => {
-    console.log(delta);
     group.current.position.y = (width / widthScale) * 0.3;
     const scrolled = scrollData.range(0, 1 / 9);
     if (scrolled >= 1 && !ScrollLock) {
@@ -203,31 +201,31 @@ export default function Character_constructor({
     if (!isDragging && !ScrollLock) {
       // Running
       if (previousAnimation === actions.Running) {
-        group.current.translateZ((width / widthScale / 22) * (delta * 100));
+        group.current.translateZ((width / widthScale / 11) * (delta * 100));
         setCharacterSpeed((width / widthScale / 22) * (delta * 100));
         //  Happy Walk
       } else if (previousAnimation === actions.Happy_Walk) {
-        group.current.translateZ((width / widthScale / 80) * (delta * 100));
+        group.current.translateZ((width / widthScale / 42) * (delta * 100));
         setCharacterSpeed((width / widthScale / 80) * (delta * 100));
         // Gay Walk
       } else if (previousAnimation === actions.Gay_Walk) {
-        group.current.translateZ((width / widthScale / 150) * (delta * 100));
+        group.current.translateZ((width / widthScale / 70) * (delta * 100));
         setCharacterSpeed((width / widthScale / 150) * (delta * 100));
         // Strut Walk
       } else if (previousAnimation === actions.Strut_Walk) {
-        group.current.translateZ((width / widthScale / 150) * (delta * 100));
+        group.current.translateZ((width / widthScale / 90) * (delta * 100));
         setCharacterSpeed((width / widthScale / 150) * (delta * 100));
         // chest out walk
       } else if (previousAnimation === actions.Chest_Out_Walk) {
-        group.current.translateZ((width / widthScale / 85) * (delta * 100));
+        group.current.translateZ((width / widthScale / 39) * (delta * 100));
         setCharacterSpeed((width / widthScale / 85) * (delta * 100));
         // drunk walk
       } else if (previousAnimation === actions.Drunk_Walk) {
-        group.current.translateZ((width / widthScale / 85) * (delta * 100));
+        group.current.translateZ((width / widthScale / 60) * (delta * 100));
         setCharacterSpeed((width / widthScale / 85) * (delta * 100));
       } else {
         // normal Walk
-        group.current.translateZ((width / widthScale / 52) * (delta * 100));
+        group.current.translateZ((width / widthScale / 42.5) * (delta * 100));
         setCharacterSpeed((width / widthScale / 82) * (delta * 100));
       }
 

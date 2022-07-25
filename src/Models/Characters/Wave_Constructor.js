@@ -12,10 +12,11 @@ export default function Wave_Constructor({
   spawnCharacter,
 }) {
   const FIRST_WAVE_POSITION = [
-    [-40, 0, 34],
-    [-40, 0, 34],
-    [-40, 0, 34],
-    [-40, 0, 34],
+    // [-40, 0, 34],
+    // [-40, 0, 34],
+    // [-40, 0, 34],
+    // [-40, 0, 34],
+    [0, 0.2, 0],
   ];
   const DOOR_POSITIONS = [
     [4.6, 0.2, 0],
