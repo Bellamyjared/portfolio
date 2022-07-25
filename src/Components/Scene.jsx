@@ -106,7 +106,7 @@ const Scene = ({ setHasUserScrolled }) => {
   return (
     <>
       {/* ~~~~~~~~~~~~~~~~ LIGHTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
-      {/* <ambientLight intensity={1} /> */}
+      {/* <ambientLight intensity={0.2} /> */}
 
       {/* SpotLight Targert */}
       <primitive object={light.target} position={[2, 0, 7]} />

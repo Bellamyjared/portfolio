@@ -12,11 +12,9 @@ export default function Wave_Constructor({
   spawnCharacter,
 }) {
   const FIRST_WAVE_POSITION = [
-    // [-40, 0, 34],
-    // [-40, 0, 34],
-    // [-40, 0, 34],
-    // [-40, 0, 34],
-    [0, 0.2, 0],
+    [-40, 0, 34],
+    [-40, 0, 34],
+    [-40, 0, 34],
   ];
   const DOOR_POSITIONS = [
     [4.6, 0.2, 0],
@@ -27,7 +25,7 @@ export default function Wave_Constructor({
     [-3.8, 0.2, 0],
   ];
   const MAX_CHARACTER_PER_DOOR = 3;
-  const MAX_CHARACTER_AMOUNT = 5;
+  const MAX_CHARACTER_AMOUNT = 1;
 
   const [Wave_List, setWave_List] = useState([]);
   const [Wave_Count, setWave_Count] = useState(0);
@@ -130,7 +128,9 @@ function Character_Wave({
       }
     });
 
-    characterCount.current = characterCount.current + CharacterIndex.current;
+    if (Wave_Count.length > 0) {
+      characterCount.current = characterCount.current + CharacterIndex.current;
+    }
     setCharacter_List(tempCharacterWave);
   };
   if (deleteWave) {
@@ -156,7 +156,9 @@ function Character_Creation({
     return function cleanup() {
       test.current += 1;
       setcharacterDeleted(test.current);
-      characterCount.current -= 1;
+      if (Wave_Count.length > 0) {
+        characterCount.current -= 1;
+      }
     };
   });
 

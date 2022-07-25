@@ -65,7 +65,7 @@ export default function Character_constructor({
       group.current.position.set(
         props.position[0],
         (width / widthScale) * 0.32,
-        props.position[2] + 5
+        props.position[2]
       );
       setCharacterPosition([
         group.current.position.x,
@@ -155,7 +155,8 @@ export default function Character_constructor({
 
       // Moving Animations
 
-      if (AnimationRoll > 0) {
+      if (false) {
+        // if (AnimationRoll > 0) {
         // <90% chance character will use a walking animation
 
         if (AnimationRoll <= 5) {
@@ -239,9 +240,9 @@ export default function Character_constructor({
     }
     // delete character if out of bounds
     if (
-      group.current.position.z > 35 ||
-      group.current.position.x > 35 ||
-      group.current.position.x < -35
+      group.current.position.z > (width / widthScale) * 65 ||
+      group.current.position.x > (width / widthScale) * 65 ||
+      group.current.position.x < (width / widthScale) * -65
     ) {
       // setCharacterCount(characterCount - 1);
       deleteCharacter(true);
