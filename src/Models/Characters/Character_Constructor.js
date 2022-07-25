@@ -153,8 +153,7 @@ export default function Character_constructor({
         previousAnimation.stop();
       }
 
-      // Moving Animations
-
+      // ~~~ Moving Animations ~~~
       if (AnimationRoll > 0) {
         // <90% chance character will use a walking animation
 

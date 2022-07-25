@@ -148,7 +148,7 @@ const Scene = ({ setHasUserScrolled }) => {
       {/* Platform LEFT Side */}
       <mesh
         scale={(width / widthScale) * 2}
-        position={[0, (width / widthScale) * -5.6, (width / widthScale) * -49]}
+        position={[0, (width / widthScale) * -4.7, (width / widthScale) * -47]}
         rotation={[-Math.PI / 2, 0, 0]}
         receiveShadow
       >
