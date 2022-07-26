@@ -3,11 +3,20 @@ import styled from "styled-components";
 
 import About_Image from "../Images/About_Image.svg";
 
+const BackgroundTransition = styled.div`
+  background: linear-gradient(
+    8deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 29%,
+    rgba(255, 255, 255, 1) 60%
+  );
+  height: 10em;
+`;
+
 const AboutContainer = styled.div`
-  position: absolute;
-  top: 430vh;
+  padding: 5em 0em 15em 0em;
   width: 100%;
-  background-color: lightgrey;
+
   @media screen and (min-width: 768px) {
     padding-top: 3em;
   }
@@ -24,7 +33,7 @@ const AboutContainer = styled.div`
   }
 `;
 const Title = styled.h1`
-  margin-bottom: -275px;
+  margin-bottom: -250px;
   margin-top: 125px;
   color: white;
 
@@ -51,10 +60,9 @@ const ContentContainer = styled.div`
 const LeftSection = styled.div`
   img {
     margin-top: 150px;
-    margin-left: -165px;
-    height: 275px;
-    width: auto;
-    opacity: 0.29;
+    margin-left: -110px;
+    height: 300px;
+    opacity: 0.2;
   }
   @media screen and (min-width: 1024px) {
     img {
@@ -79,7 +87,7 @@ const LeftSection = styled.div`
 const RightSection = styled.div`
   color: white;
   padding: 0em 2.5em 0em 2.5em;
-  margin-top: -125px;
+  margin-top: -155px;
   @media screen and (min-width: 1024px) {
     padding-top: 8em;
   }
@@ -92,25 +100,28 @@ const Paragraph = styled.div`
 
 const About = () => {
   return (
-    <AboutContainer>
-      <Title>About</Title>
-      <ContentContainer>
-        <LeftSection>
-          <img src={About_Image} />
-        </LeftSection>
-        <RightSection>
-          <Paragraph>
-            Lorem ipsum is placeholder text commonly used in the graphic, print,
-            and publishing industries for previewing layouts and visual
-            mockupsLorem ipsum is placeholder text commonly used in the graphic,
-            print, and publishing industries for previewing layouts and visual
-            mockupsLorem ipsum is placeholder text commonly used in the graphic,
-            print, and publishing industries for previewing layouts and visual
-            mockups
-          </Paragraph>
-        </RightSection>
-      </ContentContainer>
-    </AboutContainer>
+    <>
+      <BackgroundTransition />
+      <AboutContainer>
+        <Title>About</Title>
+        <ContentContainer>
+          <LeftSection>
+            <img src={About_Image} />
+          </LeftSection>
+          <RightSection>
+            <Paragraph>
+              Lorem ipsum is placeholder text commonly used in the graphic,
+              print, and publishing industries for previewing layouts and visual
+              mockupsLorem ipsum is placeholder text commonly used in the
+              graphic, print, and publishing industries for previewing layouts
+              and visual mockupsLorem ipsum is placeholder text commonly used in
+              the graphic, print, and publishing industries for previewing
+              layouts and visual mockups
+            </Paragraph>
+          </RightSection>
+        </ContentContainer>
+      </AboutContainer>
+    </>
   );
 };
 

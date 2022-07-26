@@ -13,9 +13,8 @@ const ProjectContainer = styled.div`
     object-fit: cover;
   }
 
-  padding: 0em 2.5em 0em 2.5em;
-  height: 100%;
-  background-color: pink;
+  padding: 2em 2.5em 8em 2.5em;
+  /* background-color: pink; */
 
   /* @media screen and (min-width: 768px) {
     padding: 0em 2.5em 17em 2.5em;

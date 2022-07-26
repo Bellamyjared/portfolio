@@ -2,10 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const ContactContainer = styled.div`
-  background-color: grey;
+  padding: 5em 0em 5emem 0em;
   color: white;
-  position: absolute;
-  top: 520vh;
   width: 100%;
 
   input {
@@ -125,7 +123,9 @@ const Contact = () => {
         </MessageContainer>
       </ContactInformation>
       <Button>
-        <button>Send</button>
+        <button style={{ backgroundColor: "white", color: "#031f4b" }}>
+          Send
+        </button>
       </Button>
     </ContactContainer>
   );

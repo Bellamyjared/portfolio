@@ -22,7 +22,7 @@ export default function App(props) {
   const [HasUserScrolled, setHasUserScrolled] = useState(0);
 
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "100vh", backgroundColor: "black" }}>
       <GlobalStyle HasUserScrolled={HasUserScrolled} />
       <Canvas
         orthographic

@@ -14,10 +14,7 @@ import Html_icon from "../../Images/ProjectImages/Html_icon.svg";
 
 const ProjectContainer = styled.div`
   background-color: white;
-  position: absolute;
-  top: 120vh;
   width: 100%;
-  height: 200vh;
 
   // background-color: lightgrey;
   //   radial-gradient(farthest-side at 60% 30%, #ebf8ff, #6497b1) no-repeat;
@@ -32,25 +29,17 @@ const ProjectContainer = styled.div`
   }
 `;
 const Header = styled.div`
+  /* background-color: pink; */
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(0, 0, 0, 1) 15%,
     rgba(255, 255, 255, 1) 80%
   );
-  height: 12%;
+  height: 10em;
 `;
 const HeightContainer = styled.div`
   /* background-color: blue; */
-  height: 88%;
-  display: grid;
-  align-content: space-evenly;
-`;
-
-const Test = styled.div`
-  background-color: blue;
-  display: grid;
-  height: 10vh;
 `;
 
 const Projects = () => {
@@ -73,7 +62,6 @@ const Projects = () => {
         allows a user to create a grocery list based off custom item widgets."
           buttonLink="Live"
         />
-        <Test />
         <Project
           bannerPosition="right"
           banner={Miner_Info_Banner}

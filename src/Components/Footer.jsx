@@ -6,9 +6,7 @@ import NavLinksImg from "./NavBar/NavLinksImg";
 import Logo from "../Images/Logo.svg";
 
 const FooterContainer = styled.div`
-  position: absolute;
-  top: 610vh;
-  background-color: lightgrey;
+  padding: 10em 0em 5em 0em;
   width: 100%;
 `;
 const FooterLinks = styled.div`
@@ -38,7 +36,7 @@ const Animation = styled.div`
 const Footer = () => {
   return (
     <FooterContainer>
-      <MobileLogo>
+      <MobileLogo className="invertSVG">
         <img src={Logo} />
       </MobileLogo>
       <FooterLinks>

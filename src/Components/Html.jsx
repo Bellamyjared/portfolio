@@ -8,7 +8,7 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 
 const HTMLContainer = styled.div`
-  top: 80vh;
+  top: 120vh;
   position: absolute;
   width: 100%;
   display: grid;
@@ -16,7 +16,7 @@ const HTMLContainer = styled.div`
   background-color: black;
 `;
 
-export default function Html({ HasUserScrolled }) {
+export default function Html() {
   return (
     <HTMLContainer>
       <Projects />
