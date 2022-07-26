@@ -10,3 +10,5 @@ https://github.com/pmndrs/drei/#performance
 https://github.com/pmndrs/drei#stats
 
 bug ~~~~~ if you have scroll lock on and click on a character if your holding down you can make the character go super fast
+
+technology icons have their lower halfs unable to register mouse over to change title

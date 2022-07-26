@@ -13,30 +13,37 @@ import Flask_icon from "../../Images/ProjectImages/Flask_icon.svg";
 import Html_icon from "../../Images/ProjectImages/Html_icon.svg";
 
 const ProjectContainer = styled.div`
-  background-color: white;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 1%,
+    rgba(255, 255, 255, 1) 3%
+  );
   width: 100%;
+  padding-top: 10vh;
+  @media screen and (min-width: 768px) {
+    padding-top: 20vh;
+  }
 
   @media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 1%,
+      rgba(255, 255, 255, 1) 5%
+    );
+    padding-top: 15em;
   }
   @media screen and (min-width: 2560px) {
   }
 `;
-const Header = styled.div`
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 15%,
-    rgba(255, 255, 255, 1) 80%
-  );
-  height: 10em;
-`;
-const HeightContainer = styled.div``;
 
 const Projects = () => {
   return (
     <ProjectContainer>
-      <Header />
-      <HeightContainer>
+      <div>
         <Project
           id="project1"
           bannerPosition="left"
@@ -65,7 +72,7 @@ const Projects = () => {
           paragraph="Custom made monitor for crypto currency mining machines"
           buttonLink="Live"
         />
-      </HeightContainer>
+      </div>
     </ProjectContainer>
   );
 };

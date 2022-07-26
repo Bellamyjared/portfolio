@@ -20,8 +20,9 @@ const ProjectContainer = styled.div`
   }
   @media screen and (min-width: 1024px) {
     display: flex;
-    justify-content: right;
-    padding: 0em 2.5em 10em 2.5em;
+    justify-content: center;
+    padding-bottom: 15em;
+    width: 95vw;
   }
   @media screen and (min-width: 1440px) {
     justify-content: center;
@@ -43,13 +44,13 @@ const BannerSection = styled.div`
     width: 80%;
     max-width: 600px;
   }
+
   ${(props) =>
     props.position === "left"
       ? `
-
           @media screen and (min-width: 1024px) {
             width: 55%;
-            max-width: 600px;
+            max-width: 500px;
 
             img {
               width: 100%;
@@ -118,9 +119,10 @@ const InformationSection = styled.div`
 
             padding-top: 3em;
             padding-left: 3em;
-            padding-right: 5em;
+            padding-right: 1em;
 
             width: 45%;
+
           }
           @media screen and (min-width: 2560px) {
             max-width: 1000px;
@@ -139,6 +141,7 @@ const InformationSection = styled.div`
         padding-right: 0em;
     
         width: 50%;
+        
       }
       @media screen and (min-width: 2560px) {
         max-width: 1000px;

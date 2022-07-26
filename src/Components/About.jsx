@@ -19,9 +19,10 @@ const AboutContainer = styled.div`
     padding: 15em 0em 28em 0em;
   }
   @media screen and (min-width: 1024px) {
-    padding: 20em 4em 0em 4em;
+    padding: 25em 0em 15em 0em;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   @media screen and (min-width: 1440px) {
     justify-content: center;
@@ -49,9 +50,10 @@ const Title = styled.h1`
 const ContentContainer = styled.div`
   @media screen and (min-width: 1024px) {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding-top: 3em;
     padding-bottom: 8em;
+    width: 90vw;
   }
 `;
 
@@ -68,7 +70,7 @@ const LeftSection = styled.div`
       margin-left: 0px;
       height: 275px;
       width: auto;
-      opacity: 1;
+      opacity: 0.2;
     }
   }
   @media screen and (min-width: 1440px) {

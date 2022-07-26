@@ -40,9 +40,9 @@ const HeroContainer = styled.div`
   color: white;
 
   @media screen and (min-width: 1024px) {
-    top: 40vh;
+    top: 35vh;
     display: flex;
-    max-width: 30em;
+    width: 50vw;
     margin-left: 3em;
     justify-content: left;
     align-content: center;
@@ -66,11 +66,11 @@ const HeroTitle = styled.h1`
 
   @media screen and (min-width: 1024px) {
     text-align: left;
-    font-size: 2.8em;
+    font-size: 5vw;
   }
 `;
 const HeroSubTitle = styled.div`
-  font-size: 1.1em;
+  font-size: 2vw;
   display: flex;
   justify-content: center;
   @media screen and (min-width: 1024px) {

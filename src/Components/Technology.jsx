@@ -20,6 +20,7 @@ const TechnologyContent = styled.div`
   width: 100%;
   background-color: #fff;
   padding: 5em 0em 5em 0em;
+  min-height: 33em;
 
   .TechImage {
     width: 100px;
@@ -113,6 +114,7 @@ const LeftSection = styled.div`
 `;
 const FrontEnd = styled.div`
   padding-bottom: 1em;
+
   @media screen and (min-width: 1024px) {
     padding: 1em 4em 0em 0em;
   }
