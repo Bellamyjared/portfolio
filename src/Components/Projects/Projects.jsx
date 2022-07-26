@@ -7,7 +7,7 @@ import Grocery_App_Banner from "../../Images/ProjectImages/Grocery_App_Banner.pn
 import React_icon from "../../Images/ProjectImages/React_icon.svg";
 import NodeJS_Icon from "../../Images/ProjectImages/NodeJS_Icon.svg";
 import MongoDB_Icon from "../../Images/ProjectImages/MongoDB_Icon.svg";
-import Miner_Info_Banner from "../../Images/ProjectImages/2.png";
+import Miner_Info_Banner from "../../Images/ProjectImages/1.png";
 import API_icon from "../../Images/ProjectImages/API_icon.svg";
 import Flask_icon from "../../Images/ProjectImages/Flask_icon.svg";
 import Html_icon from "../../Images/ProjectImages/Html_icon.svg";
