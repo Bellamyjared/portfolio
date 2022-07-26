@@ -38,18 +38,23 @@ const HeroContainer = styled.div`
   width: 100vw;
   text-shadow: 0px 0px 10px #000000;
   color: white;
-  /* @media screen and (min-width: 768px) {
-  }
+
   @media screen and (min-width: 1024px) {
-    font-size: 25px;
+    top: 40vh;
+    display: flex;
+    max-width: 30em;
+    margin-left: 3em;
+    justify-content: left;
+    align-content: center;
+    img {
+      display: none;
+    }
   }
   @media screen and (min-width: 1440px) {
-    padding: 0em 0em 0em 5em;
   }
 
   @media screen and (min-width: 2560px) {
-    font-size: 45px;
-  } */
+  }
 `;
 const HeroTitle = styled.h1`
   display: flex;
@@ -58,11 +63,19 @@ const HeroTitle = styled.h1`
   width: 100%;
   margin-bottom: 0.3em;
   line-height: 1.3em;
+
+  @media screen and (min-width: 1024px) {
+    text-align: left;
+    font-size: 2.8em;
+  }
 `;
 const HeroSubTitle = styled.div`
   font-size: 1.1em;
   display: flex;
   justify-content: center;
+  @media screen and (min-width: 1024px) {
+    justify-content: left;
+  }
 `;
 
 const CallToAction = styled.div`
