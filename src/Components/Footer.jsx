@@ -18,21 +18,12 @@ const FooterLinks = styled.div`
     margin-right: 1em;
     margin-left: 1em;
   }
-
-  /* @media screen and (max-width: 768px) {
-    display: none;
-  } */
 `;
 const MobileLogo = styled.div`
   display: flex;
   justify-content: center;
 `;
-const Animation = styled.div`
-  display: flex;
-  justify-content: center;
 
-  padding-top: 2em;
-`;
 const Footer = () => {
   return (
     <FooterContainer>

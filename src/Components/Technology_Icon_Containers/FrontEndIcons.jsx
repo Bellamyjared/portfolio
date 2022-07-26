@@ -7,10 +7,10 @@ import JSicon from "../../Images/TechnologyImages/JS_icon.svg";
 import reacticon from "../../Images/TechnologyImages/react_icon.svg";
 
 const FrontEndIconsContainer = styled.div`
-  margin-top: 2em;
+  margin-top: 1em;
   .FrontEndIcon {
     width: 55px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
   }
   @media screen and (min-width: 1024px) {
     display: flex;

@@ -9,7 +9,8 @@ const DataBaseIconsContainer = styled.div`
   padding-left: 0em;
   padding-right: 1em;
   .DataBaseIcon {
-    width: 115px;
+    width: 80%;
+    max-width: 200px;
     padding-bottom: 3em;
   }
 
@@ -36,7 +37,7 @@ const MySQLContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 3em;
-  padding-top: 7em;
+  padding-top: 4em;
   margin-left: -2em;
   img {
     width: 10em;

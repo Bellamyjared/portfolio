@@ -3,22 +3,20 @@ import styled from "styled-components";
 
 import About_Image from "../Images/About_Image.svg";
 
-const BackgroundTransition = styled.div`
-  background: linear-gradient(
-    8deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 29%,
-    rgba(255, 255, 255, 1) 60%
-  );
-  height: 10em;
-`;
+const BackgroundTransition = styled.div``;
 
 const AboutContainer = styled.div`
-  padding: 5em 0em 15em 0em;
+  padding: 15em 0em 20em 0em;
   width: 100%;
+  background: linear-gradient(
+    4deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(255, 255, 255, 1) 90%
+  );
 
   @media screen and (min-width: 768px) {
-    padding-top: 3em;
+    padding: 15em 0em 28em 0em;
   }
   @media screen and (min-width: 1024px) {
     padding: 20em 4em 0em 4em;

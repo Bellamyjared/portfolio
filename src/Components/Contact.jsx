@@ -36,15 +36,15 @@ const ContactInformation = styled.div`
   display: grid;
   justify-items: center;
   width: 100%;
-  /* @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     display: flex;
     justify-content: space-evenly;
-  } */
+  }
 `;
 const RightSection = styled.div`
-  /* @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     width: 100%;
-  } */
+  }
 `;
 const NameLable = styled.div`
   padding-bottom: 0.5em;
@@ -56,15 +56,15 @@ const NameInput = styled.div`
     width: 80vw;
     max-width: 500px;
   }
-  /* @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     padding-right: 50px;
-  } */
+  }
 `;
 
 const LeftSection = styled.div`
-  /* @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
     width: 100%;
-  } */
+  }
 `;
 
 const EmailLable = styled.div`
@@ -94,8 +94,14 @@ const MessageInput = styled.div`
 `;
 
 const Button = styled.div`
+  width: 80%;
+  max-width: 500px;
   display: flex;
   justify-content: right;
+  button {
+    background-color: white;
+    color: #031f4b;
+  }
 `;
 
 const Contact = () => {
@@ -121,12 +127,10 @@ const Contact = () => {
             <input></input>
           </MessageInput>
         </MessageContainer>
+        <Button>
+          <button>Send</button>
+        </Button>
       </ContactInformation>
-      <Button>
-        <button style={{ backgroundColor: "white", color: "#031f4b" }}>
-          Send
-        </button>
-      </Button>
     </ContactContainer>
   );
 };

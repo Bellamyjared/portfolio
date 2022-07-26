@@ -26,9 +26,6 @@ const TechnologyContent = styled.div`
     height: auto;
   }
 
-  @media screen and (min-width: 600px) {
-  }
-
   @media screen and (min-width: 1024px) {
     .TechImage {
       width: 100%;
@@ -68,9 +65,6 @@ const TechContainer = styled.div`
   justify-content: space-between;
   padding: 2em 3em 0em 4em;
 
-  @media screen and (min-width: 600px) {
-    justify-content: space-around;
-  }
   @media screen and (min-width: 1024px) {
     display: flex;
 
@@ -84,6 +78,11 @@ const RightSection = styled.div`
   img {
     cursor: pointer;
   }
+  @media screen and (min-width: 450px) {
+    width: 50%;
+    display: grid;
+    justify-content: center;
+  }
   @media screen and (min-width: 1024px) {
     display: flex;
     height: auto;
@@ -95,8 +94,13 @@ const RightSection = styled.div`
 
 const LeftSection = styled.div`
   font-weight: bold;
-  margin-top: -100px;
+  margin-top: -80px;
 
+  @media screen and (min-width: 450px) {
+    width: 50%;
+    display: grid;
+    justify-content: center;
+  }
   @media screen and (min-width: 1024px) {
     display: flex;
     width: 100%;

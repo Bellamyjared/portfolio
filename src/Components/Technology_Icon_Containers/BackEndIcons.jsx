@@ -9,6 +9,8 @@ import RestAPIicon from "../../Images/TechnologyImages/RestAPI_icon.svg";
 import Pythonicon from "../../Images/TechnologyImages/Python_icon.svg";
 
 const BackEndIconsContainer = styled.div`
+  margin-bottom: -10em;
+
   .BackEndIcon {
     width: 90px;
     padding-bottom: 10px;
@@ -36,7 +38,6 @@ const PythonIconContainer = styled.div`
   width: 3em;
   justify-content: center;
   flex-wrap: wrap;
-  padding-top: 2em;
 
   img {
     width: 5em;

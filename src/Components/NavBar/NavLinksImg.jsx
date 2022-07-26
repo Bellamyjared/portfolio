@@ -7,7 +7,10 @@ import LinkedIn from "../../Images/NavImages/LinkedInLogo.svg";
 
 const NavLinksImg = ({ ShowNavLinks }) => {
   return (
-    <div className="invertSVG">
+    <div
+      style={{ display: "flex", alignItems: "center" }}
+      className="invertSVG"
+    >
       <a
         href={ShowNavLinks ? "https://www.github.com" : null}
         target="_blank"

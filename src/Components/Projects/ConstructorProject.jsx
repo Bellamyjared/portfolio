@@ -16,7 +16,7 @@ const ProjectContainer = styled.div`
   padding: 2em 2.5em 8em 2.5em;
   /* background-color: pink; */
 
-  /* @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding: 0em 2.5em 17em 2.5em;
   }
   @media screen and (min-width: 1024px) {
@@ -32,13 +32,22 @@ const ProjectContainer = styled.div`
   }
   @media screen and (min-width: 2560px) {
     max-width: 1800px;
-  } */
+  }
 `;
 
 const BannerSection = styled.div`
+  padding-bottom: 2em;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    max-width: 600px;
+  }
   ${(props) =>
     props.position === "left"
       ? `
+
           @media screen and (min-width: 1024px) {
             width: 55%;
             max-width: 600px;
@@ -53,14 +62,7 @@ const BannerSection = styled.div`
         `
       : props.position === "right"
       ? `
-      padding-bottom: 2em;
-      img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 80%;
-        max-width: 400px;
-      }
+
       @media screen and (min-width: 1024px) {
         width: 55%;
         max-width: 600px;

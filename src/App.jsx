@@ -32,7 +32,7 @@ export default function App(props) {
         <Suspense fallback={null}>
           <Preload all />
           {/* <OrbitControls /> */}
-          <ScrollControls damping={10} pages={7} distance={1}>
+          <ScrollControls damping={10} pages={8} distance={1}>
             <Scroll>
               <Scene setHasUserScrolled={setHasUserScrolled} />
             </Scroll>
