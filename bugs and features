@@ -12,3 +12,10 @@ https://github.com/pmndrs/drei#stats
 bug ~~~~~ if you have scroll lock on and click on a character if your holding down you can make the character go super fast
 
 technology icons have their lower halfs unable to register mouse over to change title
+
+need to add scroll effect
+need to add descriptions
+need to add github links to projects
+need to add model in about
+
+if the screen is to small then the scroll doesnt go all the way to the bottom, need to add extra hieght

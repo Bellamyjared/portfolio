@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -60 900 200">
+    <defs>
+        <style>@font-face{font-family:"Poppins";src:url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAXIAAsAAAAACCQABAEGAAAAAAAAAAAAAAAAAAAAAAAAAABHUE9TAAABCAAAAB4AAAAeRHRMdU9TLzIAAAEoAAAAUAAAAGBbQ488Y21hcAAAAXgAAABVAAABWgvhCDRnbHlmAAAB0AAAAa8AAAHkuSGRlmhlYWQAAAOAAAAANgAAADYduCU8aGhlYQAAA7gAAAAbAAAAJASAAaZobXR4AAAD1AAAACQAAAAkFdMBZ2xvY2EAAAP4AAAAFAAAABQB6gJkbWF4cAAABAwAAAAgAAAAIAB5AEBuYW1lAAAELAAAAYYAAALTLoSQuXBvc3QAAAW0AAAAFAAAACD/uAA7AAEAAAAKABwAHAABREZMVAAIAAQAAAAA//8AAAAAAAB4nGNgYcph2sPAysDA1MUUwcDA4A2hGeMYjBj9gHwGDgY4YBdAsBk8Q9z8GRYwKDD4sUj9W8SQwpLPVKzAwDAZJMekx3QQSCkwsAAAAK4LYHicY2BgYGaAYBkGRgYQCAHyGMF8FgYLIM3FwMHABIQKDK4M3gx+//8DxRQYHCHs/w//H/y/5/8uqF4oYGRjIAgYCSlgYmZhhZjDzgB0wlADAMGODh4AAAB4nGNgwAGYGASAxCWmfQzsDFwMDKqK7MrCxsLK3EyMn//90tr879i/rWHhYTU1TPv+OjEyMDL++8/AwMxgB9STB9TDxyDOoAA0RUxUhE1ZUVDRCMRgVzc2MjM1UdNmFIJQosZMKl7Vef92MtpkVzqa/SvQ0tXVKlipb6hdU8cYHW8bkc60LynELkjASlVFRe1fqLqqqtZsoKmMDIr/fzOdZzrGIM3AIGTHaGwkJq6sx6isxCYqIga0w9yYD8jRYzRVjFqYVrtJbo+or6F/UpK/oa/oHrlNtWkLoxhPLI5uKdLRy4uJydPTKWqOXpQB9jPI/VuB7udiEAby5RhFRYAmAd0PdbCgMeOWZdHRy/P+/WRkD8vJSQwMZNoXMT8jfUEEMByuZSUm5vzLALkPaA7jG6A53AwMwqLGosqiiqJAU0RfPn3KyPwviHEdk2lfy6xOpn2dELVMy8B2MqgyCyoLGgsKG3MyMl59s3r1q5P/PjBKMTCa/TvFtO/fGUaTfyv+zYKaz7QJqIcTqEeZEaQJ6DamTav/PVq9mlFuNQPjxn/+QB2+jJuB3gAA1Rt8pQAAAQAAAAQBBsN8yPtfDzz1CAMD6AAAAADYpKnIAAAAANsWNskAEP/7AtICxgABAAcAAgAAAAAAAHicY2BkYGCR+reIIYXpFwMEMDKgAk4AV08DKgAB9AAAANQAAALhABACkwA+AvoAIQLXAD4CHQA+ArkAPgLwAD4AAAAGAAwAJgBaAIYAqgDAANoA8gABAAAACQAhAAMAAAAAAAEAAgAeAAYAAABkAAAAAAAAeJx1kLtKA0EUhv/JxRsSLAWbKZMiu0sIEkxlhIAQSAIpLAQhF3dXYmaZmUVS2/gAtja+gJW1na/g6/jvZhIv6A7L+c5//jNnZgAc4B0Cq2/If8UC28xWXEAJF46LOMKl4xL2cee4zHXveIv6g+MK/Y/sEqVdZs94cSxQEUPHBeyIK8dFHIvQcQmH4slxGXvi1fEW9TfHFfo/zlSy1HEYWdkIGoEcRTM5UEkSL4wcaHUzm1h5mtpIaSOrkbWJOfH9MLZROvYm6taP7bVKF1O99F1XzcWOmk/PR91+e7NdprRl0wuC5rj1XcwlJ9QzYT3HTHScWOOZeO4pHfr9bg9nUEiwhEaMEBEsJBoI8l9iRGXGOMhdCT0LmDzXVG5Ym+Qdp0gZI2o6r1fznSw7DE7gc4XszRwpxvDYpXBLNdOuySn3nbJ3Se3nrNqvvMNsTu85z9ZFH+0/Trf2ZLUmpwVcTc5t/ev8cv101DeO3/cxvEP2ZglVw25DnjNmLxCy3ufpep8qwYakAAB4nGNgZgCD/1sZjBgwAScALMsB8w==) format("woff"); font-weight:bold;font-style:normal;}</style>
+        <filter id="A" x="-3.544575608838%" y="-11.538462154066%" width="107.089151217676%" height="129.370630937623%">
+            <!-- <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+            <feOffset dy="3" result="B"/>
+            <feFlood flood-color="#000" flood-opacity=".378676470588"/>
+            <feComposite in2="B" operator="in" result="C"/> -->
+            <feMerge>
+                <feMergeNode in="C"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+                     <linearGradient id="B" x1="50%" y1="125%" x2="50%" y2="-50%">
+
+
+
+            <stop offset="20%" stop-color="#fff"/>
+            <stop offset="200%" stop-color="#031f4ba6"/>
+        </linearGradient>
+    </defs>
+    <g transform="translate(-200.785644303767 19.296925)" filter="url(#A)">
+        <text font-family="Poppins" font-size="150" fill="url(#B)" font-weight="bold">
+            <tspan x="260.263153076172" y="43.633332061768">BACK END</tspan>
+        </text>
+    </g>
+</svg>
