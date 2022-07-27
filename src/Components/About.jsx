@@ -24,12 +24,6 @@ const AboutContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
   }
-  @media screen and (min-width: 1440px) {
-    justify-content: center;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
 `;
 const Title = styled.h1`
   margin-bottom: -250px;

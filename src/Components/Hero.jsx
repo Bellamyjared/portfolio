@@ -39,21 +39,29 @@ const HeroContainer = styled.div`
   text-shadow: 0px 0px 10px #000000;
   color: white;
 
+  @keyframes fadeHeroOut {
+    from {
+      user-select: auto;
+    }
+    to {
+      user-select: none;
+    }
+  }
+  .FadeHeroOut {
+    animation: fadeHeroOut 0.5s;
+    user-select: none;
+  }
+
   @media screen and (min-width: 1024px) {
-    top: 35vh;
+    top: 40vh;
     display: flex;
     width: 50vw;
-    margin-left: 3em;
+    margin-left: 8vw;
     justify-content: left;
     align-content: center;
     img {
       display: none;
     }
-  }
-  @media screen and (min-width: 1440px) {
-  }
-
-  @media screen and (min-width: 2560px) {
   }
 `;
 const HeroTitle = styled.h1`
@@ -69,7 +77,8 @@ const HeroTitle = styled.h1`
     font-size: 5vw;
   }
 `;
-const HeroSubTitle = styled.div`
+const HeroSubTitle = styled.p`
+  margin-top: -0.1em;
   font-size: 2vw;
   display: flex;
   justify-content: center;
@@ -111,10 +120,12 @@ const Hero = ({ HasUserScrolled }) => {
           FirstScroll ? (HasUserScrolled ? "FadeIn" : "FadeOut") : "FirstVisit"
         }
       >
-        <HeroTitle>
+        <HeroTitle className={HasUserScrolled ? "" : "FadeHeroOut"}>
           Making Technology <br /> Work For You
         </HeroTitle>
-        <HeroSubTitle>Full Stack Development</HeroSubTitle>
+        <HeroSubTitle className={HasUserScrolled ? "" : "FadeHeroOut"}>
+          Full Stack Development
+        </HeroSubTitle>
       </div>
       <CallToAction
         HasUserScrolled={HasUserScrolled}

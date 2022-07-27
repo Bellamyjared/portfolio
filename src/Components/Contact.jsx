@@ -18,11 +18,6 @@ const ContactContainer = styled.div`
     justify-content: center;
     padding-bottom: 15em;
   }
-  @media screen and (min-width: 1440px) {
-    display: flex;
-    justify-content: center;
-    max-width: 1000px;
-  }
 `;
 
 const ThisIsATest = styled.div`
@@ -30,7 +25,8 @@ const ThisIsATest = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 80%;
+    width: 65%;
+    max-width: 800px;
   }
 `;
 
@@ -49,20 +45,22 @@ const ContactInformation = styled.div`
 
   @media screen and (min-width: 1024px) {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
   }
 `;
 
 const RightSection = styled.div`
   @media screen and (min-width: 1024px) {
-    padding-right: 2em;
-    width: 30%;
+    width: 80%;
   }
 `;
 const NameLable = styled.div`
   padding-bottom: 0.5em;
   font-size: 18px;
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+  }
 `;
 const NameInput = styled.div`
   padding-bottom: 1.5em;
@@ -70,16 +68,19 @@ const NameInput = styled.div`
     width: 80vw;
     max-width: 500px;
   }
+
   @media screen and (min-width: 1024px) {
+    width: 100%;
     input {
-      width: 100%;
+      width: 80%;
+      max-width: none;
     }
   }
 `;
 
 const LeftSection = styled.div`
   @media screen and (min-width: 1024px) {
-    width: 30%;
+    width: 80%;
   }
 `;
 
@@ -94,9 +95,12 @@ const EmailInput = styled.div`
     max-width: 500px;
   }
   @media screen and (min-width: 1024px) {
+    padding-bottom: 2em;
     input {
       width: 100%;
-      max-width: 500px;
+      max-width: none;
+      padding-right: 0em;
+      padding-left: 0em;
     }
   }
 `;
@@ -115,7 +119,7 @@ const MessageLable = styled.div`
   padding-bottom: 0.5em;
   font-size: 18px;
   @media screen and (min-width: 1024px) {
-    width: 65%;
+    width: 100%;
   }
 `;
 const MessageInput = styled.div`
@@ -128,10 +132,10 @@ const MessageInput = styled.div`
   @media screen and (min-width: 1024px) {
     display: flex;
 
-    width: 65%;
+    width: 100%;
     input {
       max-width: none;
-      padding-bottom: 10em;
+      padding-bottom: 15em;
     }
   }
 `;
@@ -145,7 +149,7 @@ const Button = styled.div`
     font-size: 1em;
   }
   @media screen and (min-width: 1024px) {
-    width: 60%;
+    width: 100%;
   }
 `;
 

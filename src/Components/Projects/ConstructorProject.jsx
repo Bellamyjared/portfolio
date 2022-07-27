@@ -24,15 +24,6 @@ const ProjectContainer = styled.div`
     padding-bottom: 15em;
     width: 95vw;
   }
-  @media screen and (min-width: 1440px) {
-    justify-content: center;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media screen and (min-width: 2560px) {
-    max-width: 1800px;
-  }
 `;
 
 const BannerSection = styled.div`
@@ -65,7 +56,7 @@ const BannerSection = styled.div`
 
       @media screen and (min-width: 1024px) {
         width: 55%;
-        max-width: 600px;
+        max-width: 500px;
     
         img {
           margin-left: 0px;

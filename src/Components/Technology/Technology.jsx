@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import FrontEndIcons from "./Technology_Icon_Containers/FrontEndIcons";
-import BackEndIcons from "./Technology_Icon_Containers/BackEndIcons";
-import DataBaseIcons from "./Technology_Icon_Containers/DataBaseIcons";
+import FrontEndIcons from "./FrontEndIcons";
+import BackEndIcons from "./BackEndIcons";
+import DataBaseIcons from "./DataBaseIcons";
 
-import mySvg from "../Images/Background_2.svg";
+import TECHNOLOGY from "../../Images/TechnologyBackgrounds/TECHNOLOGY.svg";
+import BACKEND from "../../Images/TechnologyBackgrounds/BACKEND.svg";
+import DATABASE from "../../Images/TechnologyBackgrounds/DATABASE.svg";
+import FRONTEND from "../../Images/TechnologyBackgrounds/FRONTEND.svg";
 
-import TECHNOLOGY from "../Images/TechnologyBackgrounds/TECHNOLOGY.svg";
-import BACKEND from "../Images/TechnologyBackgrounds/BACKEND.svg";
-import DATABASE from "../Images/TechnologyBackgrounds/DATABASE.svg";
-import FRONTEND from "../Images/TechnologyBackgrounds/FRONTEND.svg";
-
-import Server_image from "../Images/TechnologyImages/Server_image.svg";
-import DataBase_image from "../Images/TechnologyImages/DataBase_image.svg";
-import FrontEnd_image from "../Images/TechnologyImages/FrontEnd_image.svg";
+import Server_image from "../../Images/TechnologyImages/Server_image.svg";
+import DataBase_image from "../../Images/TechnologyImages/DataBase_image.svg";
+import FrontEnd_image from "../../Images/TechnologyImages/FrontEnd_image.svg";
 
 const TechnologyContent = styled.div`
   width: 100%;
@@ -41,6 +39,7 @@ const TechnologyContent = styled.div`
   }
   @media screen and (min-width: 2560px) {
     padding-top: 12em;
+    min-height: 36em;
   }
 `;
 
@@ -106,7 +105,8 @@ const LeftSection = styled.div`
     display: flex;
     width: 100%;
     height: auto;
-    padding-top: 7em;
+    margin-top: 0px;
+    padding-top: 2em;
   }
   @media screen and (min-width: 2560px) {
     padding-top: 8em;
@@ -151,7 +151,13 @@ const Technology = () => {
 
       <TechContainer>
         <LeftSection>
-          <div style={{ display: toggleFrontEnd, width: "100%" }}>
+          <div
+            style={{
+              display: toggleFrontEnd,
+              width: "100%",
+              height: toggleFrontEnd === "none" ? "0px" : "auto",
+            }}
+          >
             <FrontEndIcons />
           </div>
           <div style={{ display: toggleBackEnd, width: "100%" }}>

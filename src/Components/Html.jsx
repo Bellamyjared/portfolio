@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Projects from "./Projects/Projects";
-import Technology from "./Technology";
+import Technology from "./Technology/Technology";
 import About from "./About";
 import Contact from "./Contact";
 import Footer from "./Footer";

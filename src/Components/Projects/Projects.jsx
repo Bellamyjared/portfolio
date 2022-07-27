@@ -35,6 +35,7 @@ const ProjectContainer = styled.div`
       rgba(255, 255, 255, 1) 5%
     );
     padding-top: 15em;
+    width: 100%;
   }
   @media screen and (min-width: 2560px) {
   }

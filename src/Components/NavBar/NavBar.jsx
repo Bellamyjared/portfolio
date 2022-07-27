@@ -38,9 +38,14 @@ const NavBarBanner = styled.div`
   display: none;
   @media screen and (min-width: 1024px) {
     display: flex;
-    width: 80vw;
-    max-width: 1000px;
+    width: 85vw;
     justify-content: center;
+    height: 2vw;
+    min-height: 1.5em;
+    img {
+      height: 2vw;
+      min-height: 1.5em;
+    }
   }
 `;
 const NavLogo = styled.div`
@@ -54,7 +59,7 @@ const NavImgLinksContainer = styled.div`
   justify-content: right;
   width: 50%;
   img {
-    padding-left: 1em;
+    padding-left: 1.1em;
   }
 `;
 

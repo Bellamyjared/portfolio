@@ -101,7 +101,7 @@ background: ${(props) =>
   }
 
 .FirstVisit {
-  width: 0px;
+  height: 0px;
   opacity: 0;
 }
 
