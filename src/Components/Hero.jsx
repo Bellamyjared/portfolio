@@ -121,7 +121,7 @@ const Hero = ({ HasUserScrolled }) => {
         }
       >
         <HeroTitle className={HasUserScrolled ? "" : "FadeHeroOut"}>
-          FireBaseTest <br /> Work For You
+          Making Technology <br /> Work For You
         </HeroTitle>
         <HeroSubTitle className={HasUserScrolled ? "" : "FadeHeroOut"}>
           Full Stack Development
