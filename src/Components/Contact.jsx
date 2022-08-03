@@ -1,5 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import DataBase from "./firebase";
+
+const Contact = () => {
+  const [Name, setName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Message, setMessage] = useState("");
+
+  const handleSubmit = () => {
+    console.log(Name);
+    DataBase(Name, Email, Message);
+  };
+
+  return (
+    <ContactContainer>
+      <ThisIsATest>
+        <ContactTitle>Get in Touch</ContactTitle>
+        <ContactInformation>
+          <RightSection>
+            <NameLable>Name</NameLable>
+            <NameInput>
+              <input
+                placeholder="Name"
+                value={Name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              ></input>
+            </NameInput>
+          </RightSection>
+          <LeftSection>
+            <EmailLable>Email</EmailLable>
+            <EmailInput>
+              <input
+                placeholder="Email"
+                value={Email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              ></input>
+            </EmailInput>
+          </LeftSection>
+        </ContactInformation>
+        <MessageContainer>
+          <MessageLable>Message</MessageLable>
+          <MessageInput>
+            <input
+              placeholder="Message"
+              value={Message}
+              onChange={(e) => {
+                setMessage(e.target.value);
+              }}
+            ></input>
+          </MessageInput>
+          <Button>
+            <button
+              onClick={() => {
+                handleSubmit();
+              }}
+            >
+              Send
+            </button>
+          </Button>
+        </MessageContainer>
+      </ThisIsATest>
+    </ContactContainer>
+  );
+};
+
+export default Contact;
 
 const ContactContainer = styled.div`
   color: white;
@@ -141,6 +210,9 @@ const MessageInput = styled.div`
 `;
 
 const Button = styled.div`
+  button {
+    cursor: pointer;
+  }
   display: flex;
   justify-content: right;
   button {
@@ -152,38 +224,3 @@ const Button = styled.div`
     width: 100%;
   }
 `;
-
-const Contact = () => {
-  return (
-    <ContactContainer>
-      <ThisIsATest>
-        <ContactTitle>Get in Touch</ContactTitle>
-        <ContactInformation>
-          <RightSection>
-            <NameLable>Name</NameLable>
-            <NameInput>
-              <input></input>
-            </NameInput>
-          </RightSection>
-          <LeftSection>
-            <EmailLable>Email</EmailLable>
-            <EmailInput>
-              <input></input>
-            </EmailInput>
-          </LeftSection>
-        </ContactInformation>
-        <MessageContainer>
-          <MessageLable>Message</MessageLable>
-          <MessageInput>
-            <input></input>
-          </MessageInput>
-          <Button>
-            <button>Send</button>
-          </Button>
-        </MessageContainer>
-      </ThisIsATest>
-    </ContactContainer>
-  );
-};
-
-export default Contact;
