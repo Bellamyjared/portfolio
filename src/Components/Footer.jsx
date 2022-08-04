@@ -31,7 +31,7 @@ const Footer = () => {
         <img src={Logo} />
       </MobileLogo>
       <FooterLinks>
-        <NavLinksImg ShowNavLinks={true} />
+        <NavLinksImg ShowNavLinks={true} EnableHref={true} />
       </FooterLinks>
     </FooterContainer>
   );

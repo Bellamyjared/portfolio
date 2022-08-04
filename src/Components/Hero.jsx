@@ -49,7 +49,6 @@ const HeroContainer = styled.div`
   }
   .FadeHeroOut {
     animation: fadeHeroOut 0.5s;
-    user-select: none;
   }
 
   @media screen and (min-width: 1024px) {

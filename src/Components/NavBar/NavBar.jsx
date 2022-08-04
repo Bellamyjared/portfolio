@@ -156,7 +156,7 @@ const NavBar = ({ HasUserScrolled }) => {
               <img className="invertSVG" alt="JaredBellamy" src={Logo} />
             </NavLogo>
             <NavImgLinksContainer>
-              <NavLinksImg ShowNavLinks={true} />
+              <NavLinksImg ShowNavLinks={true} EnableHref={HasUserScrolled} />
             </NavImgLinksContainer>
           </NavBarBanner>
           <MobileBanner>
@@ -193,7 +193,7 @@ const NavBar = ({ HasUserScrolled }) => {
                 : "FirstVisit"
             }
           >
-            <NavLinksImg ShowNavLinks={ShowNavLinks} />
+            <NavLinksImg ShowNavLinks={ShowNavLinks} EnableHref={true} />
           </MobileImageLinks>
         </DisableMobileContainer>
       </NavBorder>

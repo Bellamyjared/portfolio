@@ -122,16 +122,19 @@ background: ${(props) =>
 .FirstVisit {
   height: 0px;
   opacity: 0;
+  user-select: none;
 }
 
 .FadeIn {
   animation-name: fadeIn;
   animation-duration: 2s;
+  user-select: auto;
 }
 .FadeOut {
   opacity: 0;
   animation-name: fadeOut;
   animation-duration: 0.5s;
+  user-select: none;
 }
 
 
@@ -158,13 +161,14 @@ background: ${(props) =>
   img {
     padding-right: 1em;
   }
-
+  user-select: auto;
 }
 .NavFadeOut {
   opacity: 0;
   height: 0px;
   animation-name: navFadeOut;
   animation-duration: 0.5s;
+  user-select: none;
 }
 
 .DisablingNavLinks {
@@ -172,6 +176,7 @@ background: ${(props) =>
   padding-right: 0em;
   animation-name: disablingNavLinks;
   animation-duration: 0.6s;
+  user-select: none;
 }
 
 
@@ -207,12 +212,5 @@ background: ${(props) =>
     padding-right: 1em;
   }
 }
-
-
-
-
-
-
-
 
 `;

@@ -8,7 +8,7 @@ import { getFirestore, addDoc, collection } from "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const DataBase = async (Name, Email, Message) => {
-  const firebaseApp = initializeApp({
+  initializeApp({
     apiKey: "AIzaSyBVYEHR4ZVM-mFx-lu1W6Tq2sCqneGHba8",
     authDomain: "testing-f3991.firebaseapp.com",
     projectId: "testing-f3991",
@@ -18,20 +18,20 @@ const DataBase = async (Name, Email, Message) => {
     measurementId: "G-3YCGKF9ZQQ",
   });
 
-  // Initialize Firebase
   const db = getFirestore();
 
-  await addDoc(collection(db, "contacts"), {
-    name: Name,
-    email: Email,
-    message: Message,
-  })
-    .then(() => {
-      alert("yup");
-    })
-    .catch((err) => {
-      alert(err.message);
-    });
+  try {
+    console.log(
+      await addDoc(collection(db, "contacts"), {
+        name: Name,
+        email: Email,
+        message: Message,
+      })
+    );
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 export default DataBase;

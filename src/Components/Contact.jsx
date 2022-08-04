@@ -6,16 +6,52 @@ const Contact = () => {
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [Message, setMessage] = useState("");
+  const [Loading, setLoading] = useState(false);
+  const [ContactMessage, setContactMessage] = useState("");
 
-  const handleSubmit = () => {
-    console.log(Name);
-    DataBase(Name, Email, Message);
+  const textCheckThing = () => {
+    setContactMessage("");
+    if (Name != "" && Email != "" && Message != "") {
+      handleSubmit();
+    } else {
+      let errList = [];
+      if (Name === "") {
+        errList = [errList + ` Name`];
+      }
+      if (Email === "") {
+        errList = [errList + " Email"];
+      }
+      if (Message === "") {
+        errList = [errList + " Message"];
+      }
+
+      setContactMessage("Please fill in the following inputs: " + errList);
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (!Loading) {
+      console.log("pressed");
+      setLoading(true);
+      if (await DataBase(Name, Email, Message)) {
+        setLoading(false);
+        setName("");
+        setEmail("");
+        setMessage("");
+        setContactMessage("Thanks for getting into contact!");
+      } else {
+        setLoading(false);
+        setContactMessage(
+          "There was an error with your request, please try again later."
+        );
+      }
+    }
   };
 
   return (
     <ContactContainer>
       <ThisIsATest>
-        <ContactTitle>Get in Touch</ContactTitle>
+        <ContactTitle>Get In Touch</ContactTitle>
         <ContactInformation>
           <RightSection>
             <NameLable>Name</NameLable>
@@ -53,15 +89,18 @@ const Contact = () => {
               }}
             ></input>
           </MessageInput>
-          <Button>
-            <button
-              onClick={() => {
-                handleSubmit();
-              }}
-            >
-              Send
-            </button>
-          </Button>
+          <BottomContainer>
+            <SubmitMessage>{ContactMessage}</SubmitMessage>
+            <Button Loading={Loading}>
+              <button
+                onClick={() => {
+                  textCheckThing();
+                }}
+              >
+                Send
+              </button>
+            </Button>
+          </BottomContainer>
         </MessageContainer>
       </ThisIsATest>
     </ContactContainer>
@@ -121,7 +160,7 @@ const ContactInformation = styled.div`
 
 const RightSection = styled.div`
   @media screen and (min-width: 1024px) {
-    width: 80%;
+    width: 100%;
   }
 `;
 const NameLable = styled.div`
@@ -149,7 +188,8 @@ const NameInput = styled.div`
 
 const LeftSection = styled.div`
   @media screen and (min-width: 1024px) {
-    width: 80%;
+    width: 100%;
+    margin-right: 0.25em;
   }
 `;
 
@@ -169,7 +209,6 @@ const EmailInput = styled.div`
       width: 100%;
       max-width: none;
       padding-right: 0em;
-      padding-left: 0em;
     }
   }
 `;
@@ -200,7 +239,6 @@ const MessageInput = styled.div`
   }
   @media screen and (min-width: 1024px) {
     display: flex;
-
     width: 100%;
     input {
       max-width: none;
@@ -209,18 +247,28 @@ const MessageInput = styled.div`
   }
 `;
 
-const Button = styled.div`
-  button {
-    cursor: pointer;
-  }
+const BottomContainer = styled.div`
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const SubmitMessage = styled.div`
+  text-align: center;
+  width: 100%;
+`;
+
+const Button = styled.div`
+  display: flex;
+  width: 50%;
   justify-content: right;
   button {
-    background-color: white;
+    background-color: ${(props) => (props.Loading ? "lightgreen" : "white")};
     color: #000;
     font-size: 1em;
+    cursor: pointer;
   }
   @media screen and (min-width: 1024px) {
-    width: 100%;
+    width: 30%;
   }
 `;

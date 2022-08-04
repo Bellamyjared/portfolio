@@ -5,14 +5,16 @@ import Github from "../../Images/NavImages/GithubLogo.svg";
 import Email from "../../Images/NavImages/EmailLogo.svg";
 import LinkedIn from "../../Images/NavImages/LinkedInLogo.svg";
 
-const NavLinksImg = ({ ShowNavLinks }) => {
+const NavLinksImg = ({ ShowNavLinks, EnableHref }) => {
   return (
     <div
       style={{ display: "flex", alignItems: "center" }}
       className="invertSVG"
     >
       <a
-        href={ShowNavLinks ? "https://www.github.com" : null}
+        href={
+          ShowNavLinks && EnableHref ? "https://github.com/Bellamyjared" : null
+        }
         target="_blank"
         rel="noreferrer"
       >
@@ -24,7 +26,11 @@ const NavLinksImg = ({ ShowNavLinks }) => {
       </a>
 
       <a
-        href={ShowNavLinks ? "https://www.linkedin.com" : null}
+        href={
+          ShowNavLinks && EnableHref
+            ? "https://www.linkedin.com/in/bellamyjared/"
+            : null
+        }
         target="_blank"
         rel="noreferrer"
       >
@@ -34,7 +40,11 @@ const NavLinksImg = ({ ShowNavLinks }) => {
           src={LinkedIn}
         />
       </a>
-      <a href={ShowNavLinks ? "mailto:Bellamyjared@gmail.com" : null}>
+      <a
+        href={
+          ShowNavLinks && EnableHref ? "mailto:Bellamyjared@gmail.com" : null
+        }
+      >
         <img
           className={ShowNavLinks ? "" : "DisablingNavLinks"}
           alt="Email"
