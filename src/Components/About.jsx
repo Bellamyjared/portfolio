@@ -104,13 +104,14 @@ const About = () => {
           </LeftSection>
           <RightSection>
             <Paragraph>
-              Lorem ipsum is placeholder text commonly used in the graphic,
-              print, and publishing industries for previewing layouts and visual
-              mockupsLorem ipsum is placeholder text commonly used in the
-              graphic, print, and publishing industries for previewing layouts
-              and visual mockupsLorem ipsum is placeholder text commonly used in
-              the graphic, print, and publishing industries for previewing
-              layouts and visual mockups
+              I am a Full Stack Developer with a life long passion for computers
+              and problem solving. This passion originated from many years of
+              tinkering with desktop applicaiton and game modifications. With my
+              years lead potitions in the contruction industry, I was able to
+              blah blah I graduated from South Alberta Institure of Technology
+              with honours in their Object Oriented Software Development. Since
+              graduation I have ventured into lead development positions with
+              start ups allowing my
             </Paragraph>
           </RightSection>
         </ContentContainer>
