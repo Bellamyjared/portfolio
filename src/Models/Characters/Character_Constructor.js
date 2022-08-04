@@ -1,6 +1,11 @@
 import React, { useRef, useEffect, useMemo, useState } from "react";
 import { useGraph, useFrame, useThree } from "@react-three/fiber";
-import { useGLTF, useAnimations, useScroll } from "@react-three/drei";
+import {
+  useGLTF,
+  useAnimations,
+  useScroll,
+  meshBounds,
+} from "@react-three/drei";
 import * as THREE from "three";
 import { clone } from "three/examples/jsm/utils/SkeletonUtils";
 
@@ -288,6 +293,7 @@ export default function Character_constructor({
               geometry={nodes.Alpha_Surface.geometry}
               material={materials.Alpha_Body_MAT}
               skeleton={nodes.Alpha_Surface.skeleton}
+              // raycast={meshBounds}
             />
           </group>
         </group>
@@ -332,6 +338,7 @@ export default function Character_constructor({
               geometry={nodes.Beta_Surface.geometry}
               material={materials["asdf1:Beta_HighLimbsGeoSG2"]}
               skeleton={nodes.Beta_Surface.skeleton}
+              // raycast={meshBounds}
             />
           </group>
         </group>

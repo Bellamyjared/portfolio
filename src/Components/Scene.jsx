@@ -10,6 +10,8 @@ import {
   useHelper,
   useTexture,
   Plane,
+  Instances,
+  AdaptiveDpr,
 } from "@react-three/drei";
 import * as THREE from "three";
 
@@ -104,6 +106,7 @@ const Scene = ({ setHasUserScrolled }) => {
 
   return (
     <>
+      <AdaptiveDpr pixelated />
       {/* ~~~~~~~~~~~~~~~~ LIGHTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
       {/* <ambientLight intensity={0.2} /> */}
 
@@ -169,6 +172,7 @@ const Scene = ({ setHasUserScrolled }) => {
         position={[0, (width / widthScale) * -0.65, (width / widthScale) * 6]}
         rotation={[0, -Math.PI / 2, 0]}
       />
+
       <Wave_Constructor
         WindowSize={WindowSize}
         ScaleSize={ScaleSize}
