@@ -104,14 +104,27 @@ const About = () => {
           </LeftSection>
           <RightSection>
             <Paragraph>
-              I am a Full Stack Developer with a life long passion for computers
+              I am a Full Stack Developer with a lifelong passion for computers
               and problem solving. This passion originated from many years of
-              tinkering with desktop applicaiton and game modifications. With my
-              years lead potitions in the contruction industry, I was able to
-              blah blah I graduated from South Alberta Institure of Technology
-              with honours in their Object Oriented Software Development. Since
-              graduation I have ventured into lead development positions with
-              start ups allowing my
+              tinkering with desktop application and game modifications. After
+              rising to leadership positions in the construction industry, I
+              felt as though my creativity and problem solving skills weren't
+              being challenged enough. So I decided to reignite my passion for
+              programming by attending and graduating with honours from South
+              Alberta Institute of Technology's Object Oriented Software
+              Development program. Since graduation I have ventured into lead
+              development positions with a few startups allowing my skills and
+              understanding of full stack development to multiple. This
+              exponential growth allowed me to penetrate into the crypto market,
+              whereas I pick up commissions to create custom monitory systems
+              and applications to aid in the management of crypto softwares. As
+              my adventure into the crypto market was coming to an end, I
+              decided take some time and deepen my understanding of different
+              technologies. During my journey, inspiration from my wife lead to
+              the creation of a fully fledged mobile grocery app. Looking to the
+              future, I find myself being guided by my desire and passion to
+              learn new technologies, to lead me to new and challenging
+              opportunities.
             </Paragraph>
           </RightSection>
         </ContentContainer>
