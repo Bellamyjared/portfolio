@@ -108,15 +108,39 @@ const GlobalStyle = createGlobalStyle`
       brightness(103%) contrast(103%);
   }
 
-  ::-webkit-scrollbar {
-    display:none
-  }
- 
-  
-  ::-webkit-scrollbar-track {
-background: ${(props) =>
-  props.HasUserScrolled ? "rgba(90, 90, 90, 0.8);" : "rgba(255, 0, 0, 0.0);"}
 
+
+
+  ::-webkit-scrollbar-thumb {
+    height: 56px;
+    border-radius: 8px;
+    border: 4px solid transparent;
+    background-clip: content-box;
+    background-color: ${(props) =>
+      props.HasUserScrolled ? "#5f5f5f;" : "rgba(255, 0, 0, 0.0);"} 
+
+  
+}
+
+
+
+
+
+
+   ::-webkit-scrollbar {
+    display: auto;
+    @media screen and (min-width: 1024px){
+      width: 16px;
+      display:flex
+    }
+  }
+   
+  ::-webkit-scrollbar-track {
+    border-radius:100vw;
+background: ${(props) =>
+  props.HasUserScrolled
+    ? "rgba(255, 255, 255, 0.089);"
+    : "rgba(255, 0, 0, 0.0);"};
   }
 
 .FirstVisit {

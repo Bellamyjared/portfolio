@@ -53,14 +53,11 @@ const HeroContainer = styled.div`
 
   @media screen and (min-width: 1024px) {
     top: 40vh;
-    display: flex;
+    display: grid;
     width: 50vw;
     margin-left: 8vw;
     justify-content: left;
     align-content: center;
-    img {
-      display: none;
-    }
   }
 `;
 const HeroTitle = styled.h1`
@@ -87,7 +84,6 @@ const HeroSubTitle = styled.p`
 `;
 
 const CallToAction = styled.div`
-  /* background-color: pink; */
   display: flex;
   justify-content: center;
   height: 10vh;
@@ -95,14 +91,12 @@ const CallToAction = styled.div`
   img {
     width: 1.5em;
   }
-  /* @media screen and (min-width: 375px) {
-    margin-left: 30%;
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    width: 45%;
+    justify-content: center;
   }
-  @media screen and (min-width: 426px) {
-    margin-left: 0;
-  }
-  @media screen and (min-width: 2560px) {
-  } */
 `;
 
 const Hero = ({ HasUserScrolled }) => {

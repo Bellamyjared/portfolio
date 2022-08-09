@@ -7,6 +7,7 @@ const BackgroundTransition = styled.div``;
 
 const AboutContainer = styled.div`
   padding: 15em 0em 20em 0em;
+  margin-right: -200px;
   width: 100%;
   background: linear-gradient(
     4deg,
@@ -105,26 +106,28 @@ const About = () => {
           <RightSection>
             <Paragraph>
               I am a Full Stack Developer with a lifelong passion for computers
-              and problem solving. This passion originated from many years of
-              tinkering with desktop application and game modifications. After
-              rising to leadership positions in the construction industry, I
-              felt as though my creativity and problem solving skills weren't
+              and problem solving. This passion originated over many years of
+              tinkering with desktop application and game modifications. <br />
+              After rising to leadership positions in the construction industry,
+              I felt as though my creativity and problem solving skills weren't
               being challenged enough. So I decided to reignite my passion for
               programming by attending and graduating with honours from South
               Alberta Institute of Technology's Object Oriented Software
-              Development program. Since graduation I have ventured into lead
-              development positions with a few startups allowing my skills and
-              understanding of full stack development to multiple. This
-              exponential growth allowed me to penetrate into the crypto market,
-              whereas I pick up commissions to create custom monitory systems
-              and applications to aid in the management of crypto softwares. As
-              my adventure into the crypto market was coming to an end, I
+              Development program. <br />
+              Since graduation I have ventured into lead development positions
+              with a few internet startups. These positions allowed my skills
+              and understanding of full stack development to multiple. This
+              exponential growth allowed me to penetrate into the crypto market.
+              There I picked up commissions to create custom monitoring systems
+              and applications to aid in the management of crypto softwares.
+              <br />
+              As my adventure into the crypto market was coming to an end, I
               decided take some time and deepen my understanding of different
-              technologies. During my journey, inspiration from my wife lead to
-              the creation of a fully fledged mobile grocery app. Looking to the
-              future, I find myself being guided by my desire and passion to
-              learn new technologies, to lead me to new and challenging
-              opportunities.
+              technologies. During my journey, inspiration from my wife led to
+              the creation of a fully fledged mobile grocery app. <br />
+              Looking to the future, I find myself being guided by my appetite
+              for and desire to learn new technologies. I fully expect this
+              passion to lead to new and challenging prospects opportunities.
             </Paragraph>
           </RightSection>
         </ContentContainer>

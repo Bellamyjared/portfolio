@@ -56,8 +56,14 @@ const Projects = () => {
           ]}
           title="Grocery List"
           subTitle="Mobile Appication"
-          paragraph="This is an on going passion project that I've create for my wife. It
-        allows a user to create a grocery list based off custom item widgets."
+          // these descriptions need more detail, and creativity that my brain just cant do right now so, please fix at a later date.
+          paragraph="This is an ongoing passion project inspired by my wife. Simply put, it allows a user to create grocery lists and recipes based on custom item widgets. I used the MERN stack to complete this project.
+
+
+          After signing in with google the user will be able to create custom item widgets. These widgets can be easily added, removed, or edited to their grocery list or recipes.
+                   
+          As mentioned before, I used React Native (powered by Expo), NodeJs alongside Express, and MongoDB
+          "
           buttonLink="Live"
         />
         <Project
@@ -68,9 +74,12 @@ const Projects = () => {
             [Flask_icon, "Flask"],
             [API_icon, "API"],
           ]}
-          title="Bitcoin Miner Monitor"
+          title="Crypto Monitoring System"
           subTitle="Web Appication"
-          paragraph="Custom made monitor for crypto currency mining machines"
+          paragraph="Based on commission work, this web application allows a user to monitor their crypto coin miners. Through the use of simple aesthetics the user is quickly informed of the most important information about their mining operation. The front end was created with Python (powered by flask). Information is provided to the front end by a custom API script hosted by a Raspberry Pi. The Pi needs to be on the local network on the crypto miners so it can scrap the information the miners naturally log. 
+
+          The original creation of this monitoring system was to fill a need of a small local client where they wanted a simple, low cost,  and low latency solution to monitoring their hardware. 
+          "
           buttonLink="Live"
         />
       </div>
