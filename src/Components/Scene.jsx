@@ -11,7 +11,6 @@ import {
   useTexture,
   Plane,
   Instances,
-  AdaptiveDpr,
 } from "@react-three/drei";
 import * as THREE from "three";
 
@@ -104,9 +103,10 @@ const Scene = ({ setHasUserScrolled }) => {
     );
   };
 
+  const current = useThree((state) => state.performance.current);
+
   return (
     <>
-      <AdaptiveDpr pixelated />
       {/* ~~~~~~~~~~~~~~~~ LIGHTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
       {/* <ambientLight intensity={0.2} /> */}
 
@@ -116,8 +116,8 @@ const Scene = ({ setHasUserScrolled }) => {
       {/* Main SpotLight */}
       <primitive
         object={light}
-        shadow-mapSize-height={600}
-        shadow-mapSize-width={600}
+        shadow-mapSize-height={800 * current}
+        shadow-mapSize-width={800 * current}
         color={"#a8c6e9"}
         intensity={1}
         position={[20, 40, 40]}

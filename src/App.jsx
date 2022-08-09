@@ -15,7 +15,7 @@ export default function App(props) {
     <div style={{ height: "100vh", backgroundColor: "black" }}>
       <Canvas
         orthographic
-        // shadows
+        shadows
         camera={{ zoom: 40, position: [-150, 100, 201] }}
         performance={{
           min: 0.5,
