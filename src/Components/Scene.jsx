@@ -103,7 +103,7 @@ const Scene = ({ setHasUserScrolled }) => {
     );
   };
 
-  const current = useThree((state) => state.performance.current);
+  // const current = useThree((state) => state.performance.current);
 
   return (
     <>
@@ -116,8 +116,8 @@ const Scene = ({ setHasUserScrolled }) => {
       {/* Main SpotLight */}
       <primitive
         object={light}
-        shadow-mapSize-height={800 * current}
-        shadow-mapSize-width={800 * current}
+        shadow-mapSize-height={600}
+        shadow-mapSize-width={600}
         color={"#a8c6e9"}
         intensity={1}
         position={[20, 40, 40]}
