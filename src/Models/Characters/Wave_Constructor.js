@@ -24,7 +24,7 @@ export default function Wave_Constructor({
     [-5.5, 0.32, 0], //Rdoor 2 cab
     [-10.7, 0.32, 0], // end cart
   ];
-  const MAX_CHARACTER_PER_DOOR = 3;
+  const MAX_CHARACTER_PER_DOOR = 1;
   const MAX_CHARACTER_AMOUNT = 1;
 
   const [Wave_List, setWave_List] = useState([]);
