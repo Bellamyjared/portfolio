@@ -5,7 +5,6 @@ import {
   useAnimations,
   useScroll,
   meshBounds,
-  useBVH,
 } from "@react-three/drei";
 import * as THREE from "three";
 import { clone } from "three/examples/jsm/utils/SkeletonUtils";
@@ -60,7 +59,7 @@ export default function Character_constructor({
   const [ScrollLock, setScrollLock] = useState(false);
   const scrollData = useScroll();
   const AmountScrolled = scrollData.range(0, 1) * 100;
-  const CharacterSpeed = useRef({ current: 0 });
+  const [CharacterSpeed, setCharacterSpeed] = useState(0);
 
   const planeIntersectPoint = new THREE.Vector3();
 
@@ -193,9 +192,11 @@ export default function Character_constructor({
   useFrame((state, delta) => {
     const scrolled = scrollData.range(0, 1 / 9);
     if (scrolled >= 1 && !ScrollLock) {
+      setScrollLock(true);
       group.current.translateZ(0);
     }
     if (scrolled < 1 && ScrollLock) {
+      setScrollLock(false);
       group.current.translateZ(CharacterSpeed);
     }
 
@@ -207,31 +208,31 @@ export default function Character_constructor({
         // Running
         if (previousAnimation === actions.Running) {
           group.current.translateZ((width / widthScale / 11) * (delta * 100));
-          CharacterSpeed.current = (width / widthScale / 22) * (delta * 100);
+          setCharacterSpeed((width / widthScale / 22) * (delta * 100));
           //  Happy Walk
         } else if (previousAnimation === actions.Happy_Walk) {
           group.current.translateZ((width / widthScale / 42) * (delta * 100));
-          CharacterSpeed.current = (width / widthScale / 80) * (delta * 100);
+          setCharacterSpeed((width / widthScale / 80) * (delta * 100));
           // Gay Walk
         } else if (previousAnimation === actions.Gay_Walk) {
           group.current.translateZ((width / widthScale / 70) * (delta * 100));
-          CharacterSpeed.current = (width / widthScale / 150) * (delta * 100);
+          setCharacterSpeed((width / widthScale / 150) * (delta * 100));
           // Strut Walk
         } else if (previousAnimation === actions.Strut_Walk) {
           group.current.translateZ((width / widthScale / 90) * (delta * 100));
-          CharacterSpeed.current = (width / widthScale / 150) * (delta * 100);
+          setCharacterSpeed((width / widthScale / 150) * (delta * 100));
           // chest out walk
         } else if (previousAnimation === actions.Chest_Out_Walk) {
           group.current.translateZ((width / widthScale / 39) * (delta * 100));
-          CharacterSpeed.current = (width / widthScale / 85) * (delta * 100);
+          setCharacterSpeed((width / widthScale / 85) * (delta * 100));
           // drunk walk
         } else if (previousAnimation === actions.Drunk_Walk) {
           group.current.translateZ((width / widthScale / 60) * (delta * 100));
-          CharacterSpeed.current = (width / widthScale / 85) * (delta * 100);
+          setCharacterSpeed((width / widthScale / 85) * (delta * 100));
         } else {
           // normal Walk
           group.current.translateZ((width / widthScale / 42.5) * (delta * 100));
-          CharacterSpeed.current = (width / widthScale / 82) * (delta * 100);
+          setCharacterSpeed((width / widthScale / 82) * (delta * 100));
         }
 
         // sets the new position of the creator as they move across screen - needed for spring positioning when drag is initated
