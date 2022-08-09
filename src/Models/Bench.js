@@ -9,15 +9,17 @@ export default function Model({ ...props }) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/bench.glb");
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
-        <mesh
-          castShadow
-          geometry={nodes.bench_tri.geometry}
-          material={materials.lambert4}
-        />
+    <>
+      <group ref={group} {...props} dispose={null}>
+        <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+          <mesh
+            castShadow
+            geometry={nodes.bench_tri.geometry}
+            material={materials.lambert4}
+          />
+        </group>
       </group>
-    </group>
+    </>
   );
 }
 

@@ -116,8 +116,8 @@ const Scene = ({ setHasUserScrolled }) => {
       {/* Main SpotLight */}
       <primitive
         object={light}
-        shadow-mapSize-height={800}
-        shadow-mapSize-width={800}
+        shadow-mapSize-height={600}
+        shadow-mapSize-width={600}
         color={"#a8c6e9"}
         intensity={1}
         position={[20, 40, 40]}

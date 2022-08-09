@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ScrollControls, Scroll, useScroll, Center } from "@react-three/drei";
 import { createGlobalStyle } from "styled-components";
 import * as THREE from "three";
