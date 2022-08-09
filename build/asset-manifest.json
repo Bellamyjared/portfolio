@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.f4afd6d8.js",
+    "main.js": "/static/js/main.ce4ca96c.js",
     "static/media/Grocery_App_Banner.png": "/static/media/Grocery_App_Banner.73b62eb18390344cfdda.png",
     "static/media/1.png": "/static/media/1.93273e0f5ad97a0bcb9b.png",
     "static/media/MongoDB_icon.svg": "/static/media/MongoDB_icon.2bec6665ecc827958e441bd4da3c0d9a.svg",
@@ -36,10 +36,10 @@
     "static/media/Plus_icon.svg": "/static/media/Plus_icon.271efe753c418a915d8bad75f46e5bb8.svg",
     "static/media/About_Image.svg": "/static/media/About_Image.18525d9e909812697592916e9f56231e.svg",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.f4afd6d8.js.map": "/static/js/main.f4afd6d8.js.map"
+    "main.ce4ca96c.js.map": "/static/js/main.ce4ca96c.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.f4afd6d8.js"
+    "static/js/main.ce4ca96c.js"
   ]
 }

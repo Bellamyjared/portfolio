@@ -143,11 +143,7 @@ const Technology = () => {
 
   return (
     <TechnologyContent id="projects">
-      <BackgroundText
-        style={{
-          backgroundImage: `url(${TechnologyBackgroundTxt})`,
-        }}
-      ></BackgroundText>
+      <BackgroundText>{TechnologyBackgroundTxt}</BackgroundText>
 
       <TechContainer>
         <LeftSection>
@@ -170,10 +166,11 @@ const Technology = () => {
         <RightSection>
           <FrontEnd
             onMouseEnter={() =>
-              setTechnologyBackgroundTxt(FRONTEND) & setToggleFrontEnd("flex")
+              setTechnologyBackgroundTxt("FRONTEND") & setToggleFrontEnd("flex")
             }
             onMouseLeave={() =>
-              setTechnologyBackgroundTxt(TECHNOLOGY) & setToggleFrontEnd("none")
+              setTechnologyBackgroundTxt("TECHNOLOGY") &
+              setToggleFrontEnd("none")
             }
           >
             <img
@@ -184,10 +181,11 @@ const Technology = () => {
           </FrontEnd>
           <BackEnd
             onMouseEnter={() =>
-              setTechnologyBackgroundTxt(BACKEND) & setToggleBackEnd("flex")
+              setTechnologyBackgroundTxt("BACKEND") & setToggleBackEnd("flex")
             }
             onMouseLeave={() =>
-              setTechnologyBackgroundTxt(TECHNOLOGY) & setToggleBackEnd("none")
+              setTechnologyBackgroundTxt("TECHNOLOGY") &
+              setToggleBackEnd("none")
             }
           >
             <img
@@ -198,10 +196,11 @@ const Technology = () => {
           </BackEnd>
           <DataBase
             onMouseEnter={() =>
-              setTechnologyBackgroundTxt(DATABASE) & setToggleDataBase("flex")
+              setTechnologyBackgroundTxt("DATABASE") & setToggleDataBase("flex")
             }
             onMouseLeave={() =>
-              setTechnologyBackgroundTxt(TECHNOLOGY) & setToggleDataBase("none")
+              setTechnologyBackgroundTxt("TECHNOLOGY") &
+              setToggleDataBase("none")
             }
           >
             <img
