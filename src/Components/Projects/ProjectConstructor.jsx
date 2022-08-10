@@ -1,5 +1,103 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Slider from "react-slick";
+import "./Project.css";
+import DownArrow from "../../Images/DownArrow.svg";
+
+const ProjectConstructor = ({
+  bannerPosition,
+  images,
+  projectTech,
+  title,
+  subTitle,
+  paragraph,
+  buttonLink,
+}) => {
+  const NextArrow = ({ className, style, onClick }) => {
+    return (
+      <div
+        className={className}
+        onClick={onClick}
+        style={{ transform: "rotate(270deg)" }}
+      >
+        <img src={DownArrow} alt="DownArrow" />
+      </div>
+    );
+  };
+  const PrevArrow = ({ className, style, onClick }) => {
+    return (
+      <div
+        className={className}
+        onClick={onClick}
+        style={{ transform: "rotate(90deg)", backgroundColor: " #0000000 0%," }}
+      >
+        <img src={DownArrow} alt="DownArrow" />
+      </div>
+    );
+  };
+  const [imageIndex, setImageIndex] = useState(0);
+
+  const carouselSettings = {
+    infinite: true,
+    lazyLoad: true,
+    speed: 300,
+    slidesToShow: 3,
+    centerMode: true,
+    centerPadding: 0,
+    dots: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    beforeChange: (current, next) => setImageIndex(next),
+  };
+
+  return (
+    <ProjectContainer position={bannerPosition}>
+      <BannerSection position={bannerPosition}>
+        {/* Carousel */}
+        <Carousel>
+          <Slider {...carouselSettings}>
+            {images.map((img, i) => {
+              return (
+                <div
+                  className={i === imageIndex ? "slide activeSlide" : "slide"}
+                >
+                  <img src={img} alt={img} />
+                </div>
+              );
+            })}
+          </Slider>
+        </Carousel>
+        {/* <img className="ProjectBanner" src={banner} alt={banner} /> */}
+        {/* Tech Icons under banner */}
+        <ProjectTech>
+          {projectTech.map((tech) => (
+            <ProjectTechIcon>
+              <img className="ProjectIcon" src={tech[0]} alt={tech[0]} />
+              <TechLable>{tech[1]}</TechLable>
+            </ProjectTechIcon>
+          ))}
+        </ProjectTech>
+      </BannerSection>
+
+      <InformationSection position={bannerPosition}>
+        <Title>{title}</Title>
+        <SubTitle>{subTitle}</SubTitle>
+        <Paragraph>
+          {paragraph.map((para) => {
+            {
+              return <p> {para}</p>;
+            }
+          })}
+        </Paragraph>
+        <ProjectLinks>
+          <button>{buttonLink}</button>
+        </ProjectLinks>
+      </InformationSection>
+    </ProjectContainer>
+  );
+};
+
+export default ProjectConstructor;
 
 const ProjectContainer = styled.div`
   ${(props) =>
@@ -75,6 +173,10 @@ const BannerSection = styled.div`
     width: 100%;
   }
 `;
+const Carousel = styled.div`
+  svg {
+  }
+`;
 const ProjectTech = styled.div`
   display: flex;
   justify-content: space-between;
@@ -148,48 +250,13 @@ const SubTitle = styled.div`
   font-size: 22px;
   margin-bottom: 5px;
 `;
-const Paragraph = styled.div``;
+const Paragraph = styled.div`
+  p {
+    text-indent: 0.5em;
+  }
+`;
 const ProjectLinks = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 2em;
 `;
-
-const Project = ({
-  bannerPosition,
-  banner,
-  projectTech,
-  title,
-  subTitle,
-  paragraph,
-  buttonLink,
-}) => {
-  return (
-    <ProjectContainer position={bannerPosition}>
-      <BannerSection position={bannerPosition}>
-        {/* Banner */}
-        <img className="ProjectBanner" src={banner} alt={banner} />
-        {/* Tech Icons under banner */}
-        <ProjectTech>
-          {projectTech.map((tech) => (
-            <ProjectTechIcon>
-              <img className="ProjectIcon" src={tech[0]} alt={tech[0]} />
-              <TechLable>{tech[1]}</TechLable>
-            </ProjectTechIcon>
-          ))}
-        </ProjectTech>
-      </BannerSection>
-
-      <InformationSection position={bannerPosition}>
-        <Title>{title}</Title>
-        <SubTitle>{subTitle}</SubTitle>
-        <Paragraph>{paragraph}</Paragraph>
-        <ProjectLinks>
-          <button>{buttonLink}</button>
-        </ProjectLinks>
-      </InformationSection>
-    </ProjectContainer>
-  );
-};
-
-export default Project;

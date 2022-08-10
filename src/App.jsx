@@ -5,14 +5,25 @@ import {
   OrbitControls,
   AdaptiveDpr,
   AdaptiveEvents,
+  Stats,
 } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 
 import ScrollContainer from "./Components/ScrollContainer";
 
 export default function App(props) {
+  const [test, settest] = useState("PCFShadowMap");
   return (
     <div style={{ height: "100vh", backgroundColor: "black" }}>
+      {/* <button
+        style={{ marginLeft: "100px" }}
+        onClick={() => {
+          console.log("test");
+          settest("PCFShadowMap");
+        }}
+      >
+        test
+      </button> */}
       <Canvas
         orthographic
         shadows
@@ -21,6 +32,7 @@ export default function App(props) {
           min: 0.5,
         }}
       >
+        <Stats />
         <Suspense fallback={null}>
           <Preload all />
           {/* <OrbitControls /> */}
