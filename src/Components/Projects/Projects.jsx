@@ -14,7 +14,9 @@ import GA_RecipeCreate from "../../Images/ProjectImages/grocery_App_Pictures/rec
 
 import MI_Online from "../../Images/ProjectImages/crypto_Monitor_Pictures/online.png";
 import MI_Error from "../../Images/ProjectImages/crypto_Monitor_Pictures/error.png";
+import MI_MultiError from "../../Images/ProjectImages/crypto_Monitor_Pictures/multiError.png";
 import MI_Offline from "../../Images/ProjectImages/crypto_Monitor_Pictures/offline.png";
+
 import React_icon from "../../Images/ProjectImages/icons/React_icon.svg";
 import NodeJS_Icon from "../../Images/ProjectImages/icons/NodeJS_Icon.svg";
 import MongoDB_Icon from "../../Images/ProjectImages/icons/MongoDB_Icon.svg";
@@ -34,7 +36,7 @@ const grocery_app_pictures = [
   GA_Item,
 ];
 
-const miner_info_pictures = [MI_Online, MI_Error, MI_Offline];
+const miner_info_pictures = [MI_Online, MI_Error, MI_MultiError, MI_Offline];
 
 const Projects = () => {
   return (
