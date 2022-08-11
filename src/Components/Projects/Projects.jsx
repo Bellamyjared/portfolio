@@ -55,14 +55,14 @@ const Projects = () => {
           subTitle="Mobile Appication"
           paragraph={[
             `This is an ongoing passion project inspired by my wife. She needed a portable and easy to use grocery application. 
-          So I decided to put my skills to use and custom-built a simple, sleek, and user friendly mobile app.`,
-            `After signing in with google the user will be able to create custom item widgets. These widgets can be easily 
-          added, removed, or edited to their grocery list or recipes. There are future plans to add a Pantry section, which will 
-          dynamically track food and other perishable items.`,
-            `As for the application's core technologies, I decided to use the MERN stack. React Native (powered by Expo) allowed 
-          for rapid UI prototypes to be designed and deployed. NodeJs, alongside Express, was perfect for seamless connection and 
-          operations between the front and back end. MongoDB's effortless scaling and flexibility made it the perfect choice for 
-          the database.`,
+            So I decided to put my skills to use and custom-built a simple, sleek, and user friendly mobile app.`,
+            `After signing in with Google the user will be able to create custom item widgets. These widgets can be easily 
+            added, removed, or edited to their grocery list or recipes. There are future plans to add a Pantry section, 
+            which will dynamically track food and other perishable items.`,
+            `As for the application's core technologies, I decided to use the MERN stack. React Native (powered by Expo) 
+            allowed for rapid UI prototypes to be designed and deployed. NodeJs, alongside Express, was perfect for seamless 
+            connection and operations between the front and back end. MongoDB's effortless scaling and flexibility made it the 
+            perfect choice for the database.`,
           ]}
           buttonLink="Live"
         />
@@ -78,11 +78,13 @@ const Projects = () => {
           subTitle="Web Appication"
           paragraph={[
             `Based on commission work, this web application allows a user to monitor their crypto miners. 
-          Through the use of simple aesthetics, the user is quickly informed of the most important information about their mining operation.`,
-            `The front end was created with Python (powered with flask). Information is provided to the front end by a custom API script hosted 
-          by a Raspberry Pi. The Pi needs to be on the local network on the crypto miners, so it can scrap information the miners naturally log. 
-          The original motive of this application was to fulfill a local business' request for a customizable, affordable , and low latency solution 
-          for monitoring their hardware. `,
+            Through the use of simple aesthetics, the user is quickly informed of the most important information 
+            about their mining operation.`,
+            `The front end was created with Python (powered with Flask). Information is provided to the front end 
+            by a custom API script hosted by a Raspberry Pi. The Pi needs to be on the local network of the crypto 
+            miners, so it can collect information the miners naturally log. The original motive of this application 
+            was to fulfill a local business' request for a customizable, affordable, and low latency solution for 
+            monitoring their hardware.`,
           ]}
           buttonLink="Live"
         />

@@ -91,6 +91,9 @@ const Paragraph = styled.div`
   @media screen and (min-width: 1440px) {
     max-width: 900px;
   }
+  p {
+    text-indent: 0.5em;
+  }
 `;
 
 const About = () => {
@@ -105,29 +108,40 @@ const About = () => {
           </LeftSection>
           <RightSection>
             <Paragraph>
-              I am a Full Stack Developer with a lifelong passion for computers
-              and problem solving. This passion originated over many years of
-              tinkering with desktop application and game modifications. <br />
-              After rising to leadership positions in the construction industry,
-              I felt as though my creativity and problem solving skills weren't
-              being challenged enough. So I decided to reignite my passion for
-              programming by attending and graduating with honours from South
-              Alberta Institute of Technology's Object Oriented Software
-              Development program. <br />
-              Since graduation I have ventured into lead development positions
-              with a few internet startups. These positions allowed my skills
-              and understanding of full stack development to multiple. This
-              exponential growth allowed me to penetrate into the crypto market.
-              There I picked up commissions to create custom monitoring systems
-              and applications to aid in the management of crypto softwares.
-              <br />
-              As my adventure into the crypto market was coming to an end, I
-              decided take some time and deepen my understanding of different
-              technologies. During my journey, inspiration from my wife led to
-              the creation of a fully fledged mobile grocery app. <br />
-              Looking to the future, I find myself being guided by my appetite
-              for and desire to learn new technologies. I fully expect this
-              passion to lead to new and challenging prospects opportunities.
+              <p>
+                I am a Full Stack Developer with a lifelong passion for
+                computers and problem solving. This passion originated over many
+                years of tinkering with desktop application and game
+                modifications.
+              </p>
+              <p>
+                After rising to leadership positions in the construction
+                industry, I felt as though my creativity and problem solving
+                skills weren't being challenged enough. So I decided to reignite
+                my passion for programming by attending and graduating with
+                honours from South Alberta Institute of Technology's Object
+                Oriented Software Development program.
+              </p>
+              <p>
+                Since graduation I have ventured into lead development positions
+                with a few internet startups. These positions allowed my skills
+                and understanding of full stack development to multiple. This
+                exponential growth allowed me to penetrate into the crypto
+                market. There I picked up commissions to create custom
+                monitoring systems and applications to aid in the management of
+                crypto softwares.
+              </p>
+              <p>
+                As my adventure into the crypto market was coming to an end, I
+                decided take some time and deepen my understanding of different
+                technologies. During my journey, inspiration from my wife led to
+                the creation of a fully fledged mobile grocery app.
+              </p>
+              <p>
+                Looking to the future, I find myself being guided by my appetite
+                for and desire to learn new technologies. I fully expect this
+                passion to lead to new and challenging prospects opportunities.
+              </p>
             </Paragraph>
           </RightSection>
         </ContentContainer>

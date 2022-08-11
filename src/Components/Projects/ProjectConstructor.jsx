@@ -70,7 +70,6 @@ const ProjectConstructor = ({
             })}
           </Slider>
         </Carousel>
-        {/* <img className="ProjectBanner" src={banner} alt={banner} /> */}
         {/* Tech Icons under banner */}
         <ProjectTech>
           {projectTech.map((tech) => (

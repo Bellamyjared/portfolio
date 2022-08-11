@@ -14,6 +14,7 @@ const TechnologyContent = styled.div`
   background-color: #fff;
   padding: 5em 0em 5em 0em;
   min-height: 33em;
+  max-height: 33em;
 
   .TechImage {
     width: 100px;
@@ -35,6 +36,7 @@ const TechnologyContent = styled.div`
   @media screen and (min-width: 2560px) {
     padding-top: 12em;
     min-height: 36em;
+    max-height: 36em;
   }
 `;
 
