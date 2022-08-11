@@ -32,7 +32,7 @@ export default function App(props) {
           min: 0.5,
         }}
       >
-        <Stats />
+        {/* <Stats /> */}
         <Suspense fallback={null}>
           <Preload all />
           {/* <OrbitControls /> */}

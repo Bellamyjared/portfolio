@@ -5,11 +5,6 @@ import FrontEndIcons from "./FrontEndIcons";
 import BackEndIcons from "./BackEndIcons";
 import DataBaseIcons from "./DataBaseIcons";
 
-import TECHNOLOGY from "../../Images/TechnologyBackgrounds/TECHNOLOGY.svg";
-import BACKEND from "../../Images/TechnologyBackgrounds/BACKEND.svg";
-import DATABASE from "../../Images/TechnologyBackgrounds/DATABASE.svg";
-import FRONTEND from "../../Images/TechnologyBackgrounds/FRONTEND.svg";
-
 import Server_image from "../../Images/TechnologyImages/Server_image.svg";
 import DataBase_image from "../../Images/TechnologyImages/DataBase_image.svg";
 import FrontEnd_image from "../../Images/TechnologyImages/FrontEnd_image.svg";
@@ -44,37 +39,53 @@ const TechnologyContent = styled.div`
 `;
 
 const BackgroundText = styled.div`
-  background-repeat: no-repeat;
-  background-size: 100vw auto;
-  background-position: center;
-  height: 45em;
-
-  margin-top: -300px;
-  margin-bottom: -275px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: ${(props) =>
+    props.changeFontSize === "TECHNOLOGY" ? "12vw" : "14vw"};
+  font-weight: 800;
+  color: transparent;
+  /* background-color: pink; */
+  background-image: linear-gradient(
+    180deg,
+    rgba(3, 31, 75, 0.7447795823665893) 6%,
+    rgba(3, 31, 75, 0.26914153132250584) 54%,
+    rgba(255, 255, 255, 1) 96%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
 
   @media screen and (min-width: 1024px) {
-    margin-bottom: -415px;
+    font-size: ${(props) =>
+      props.changeFontSize === "TECHNOLOGY" ? "12vw" : "15vw"};
+
+    margin-top: ${(props) =>
+      props.changeFontSize === "TECHNOLOGY" ? "-0.5vw" : "-4vw"};
   }
   @media screen and (min-width: 2560px) {
-    margin-bottom: -545px;
   }
 `;
 
 const TechContainer = styled.div`
+  margin-top: 15vw;
   display: flex;
   justify-content: space-between;
-  padding: 2em 3em 0em 4em;
+  padding: 2em 4em 0em 6em;
 
   @media screen and (min-width: 1024px) {
     display: flex;
-
+    position: relative;
+    z-index: 10;
     flex-wrap: wrap-reverse;
     padding: 0em 0em 0em 0em;
+    margin-top: 10vw;
   }
 `;
 
 const RightSection = styled.div`
-  margin-top: -50px;
+  margin-top: 1.8em;
   img {
     cursor: pointer;
   }
@@ -94,7 +105,6 @@ const RightSection = styled.div`
 
 const LeftSection = styled.div`
   font-weight: bold;
-  margin-top: -80px;
 
   @media screen and (min-width: 450px) {
     width: 50%;
@@ -114,6 +124,21 @@ const LeftSection = styled.div`
 `;
 const FrontEnd = styled.div`
   padding-bottom: 1em;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: 300ms;
+
+  :focus {
+    outline: none !important;
+  }
+  :hover {
+    transform: scale(1.2);
+  }
 
   @media screen and (min-width: 1024px) {
     padding: 1em 4em 0em 0em;
@@ -122,6 +147,21 @@ const FrontEnd = styled.div`
 const BackEnd = styled.div`
   padding-top: 1.5em;
   padding-bottom: 1em;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: 300ms;
+
+  :focus {
+    outline: none !important;
+  }
+  :hover {
+    transform: scale(1.2);
+  }
   @media screen and (min-width: 1024px) {
     padding: 1em 4em 0em 4em;
   }
@@ -129,6 +169,21 @@ const BackEnd = styled.div`
 const DataBase = styled.div`
   padding-top: 1.5em;
   padding-bottom: 1em;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: 300ms;
+
+  :focus {
+    outline: none !important;
+  }
+  :hover {
+    transform: scale(1.2);
+  }
   @media screen and (min-width: 1024px) {
     padding: 0em 0em 0em 4em;
   }
@@ -136,19 +191,16 @@ const DataBase = styled.div`
 
 const Technology = () => {
   const [TechnologyBackgroundTxt, setTechnologyBackgroundTxt] =
-    useState(TECHNOLOGY);
+    useState("TECHNOLOGY");
   const [toggleFrontEnd, setToggleFrontEnd] = useState("none");
   const [toggleBackEnd, setToggleBackEnd] = useState("none");
   const [toggleDataBase, setToggleDataBase] = useState("none");
 
   return (
     <TechnologyContent id="projects">
-      <BackgroundText
-        style={{
-          backgroundImage: `url(${TechnologyBackgroundTxt})`,
-        }}
-      ></BackgroundText>
-
+      <BackgroundText changeFontSize={TechnologyBackgroundTxt}>
+        {TechnologyBackgroundTxt}
+      </BackgroundText>
       <TechContainer>
         <LeftSection>
           <div
@@ -170,10 +222,12 @@ const Technology = () => {
         <RightSection>
           <FrontEnd
             onMouseEnter={() =>
-              setTechnologyBackgroundTxt(FRONTEND) & setToggleFrontEnd("flex")
+              setTechnologyBackgroundTxt("FRONT END") &
+              setToggleFrontEnd("flex")
             }
             onMouseLeave={() =>
-              setTechnologyBackgroundTxt(TECHNOLOGY) & setToggleFrontEnd("none")
+              setTechnologyBackgroundTxt("TECHNOLOGY") &
+              setToggleFrontEnd("none")
             }
           >
             <img
@@ -184,10 +238,11 @@ const Technology = () => {
           </FrontEnd>
           <BackEnd
             onMouseEnter={() =>
-              setTechnologyBackgroundTxt(BACKEND) & setToggleBackEnd("flex")
+              setTechnologyBackgroundTxt("BACK END") & setToggleBackEnd("flex")
             }
             onMouseLeave={() =>
-              setTechnologyBackgroundTxt(TECHNOLOGY) & setToggleBackEnd("none")
+              setTechnologyBackgroundTxt("TECHNOLOGY") &
+              setToggleBackEnd("none")
             }
           >
             <img
@@ -198,10 +253,12 @@ const Technology = () => {
           </BackEnd>
           <DataBase
             onMouseEnter={() =>
-              setTechnologyBackgroundTxt(DATABASE) & setToggleDataBase("flex")
+              setTechnologyBackgroundTxt("DATA BASE") &
+              setToggleDataBase("flex")
             }
             onMouseLeave={() =>
-              setTechnologyBackgroundTxt(TECHNOLOGY) & setToggleDataBase("none")
+              setTechnologyBackgroundTxt("TECHNOLOGY") &
+              setToggleDataBase("none")
             }
           >
             <img

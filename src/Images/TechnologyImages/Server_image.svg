@@ -2,9 +2,9 @@
 <rect width="166" height="40.1032" fill="#031F4B"/>
 <rect y="53.4709" width="166" height="40.1032" fill="#031F4B"/>
 <rect y="107.897" width="166" height="40.1032" fill="#031F4B"/>
-<rect x="26.8021" y="14.3225" width="26.8021" height="11.4581" fill="#DFF2FF"/>
-<rect x="26.8021" y="67.7935" width="26.8021" height="11.4581" fill="#DFF2FF"/>
-<rect x="26.8021" y="122.219" width="26.8021" height="11.4581" fill="#DFF2FF"/>
+<rect x="26.8021" y="14.3225" width="26.8021" height="11.4581" fill="white"/>
+<rect x="26.8021" y="67.7935" width="26.8021" height="11.4581" fill="white"/>
+<rect x="26.8021" y="122.219" width="26.8021" height="11.4581" fill="white"/>
 <line x1="138.672" y1="32.4543" x2="138.672" y2="61.0995" stroke="#031F4B" stroke-width="5"/>
 <line x1="146.021" y1="32.4644" x2="146.021" y2="61.1095" stroke="#031F4B" stroke-width="5"/>
 <line x1="138.24" y1="91.6646" x2="138.24" y2="120.31" stroke="#031F4B" stroke-width="5"/>
