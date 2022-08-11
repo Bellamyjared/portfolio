@@ -60,6 +60,7 @@ const LeftSection = styled.div`
     opacity: 0.2;
   }
   @media screen and (min-width: 1024px) {
+    display: none;
     img {
       margin-top: 0px;
       margin-left: 0px;
