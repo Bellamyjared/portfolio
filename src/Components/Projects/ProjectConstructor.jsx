@@ -13,28 +13,31 @@ const ProjectConstructor = ({
   paragraph,
   buttonLink,
 }) => {
-  const NextArrow = ({ className, style, onClick }) => {
+  const [arrowHover, setArrowHover] = useState("");
+
+  const Arrow = ({ className, style, onClick, direction }) => {
     return (
       <div
         className={className}
         onClick={onClick}
-        style={{ transform: "rotate(270deg)" }}
+        style={{
+          ...style,
+          transform: direction === "next" ? "rotate(270deg)" : "rotate(90deg)",
+        }}
+        onMouseEnter={() => setArrowHover(direction)}
+        onMouseLeave={() => setArrowHover()}
       >
-        <img src={DownArrow} alt="DownArrow" />
+        <img
+          className={`arrow disableArrow ${
+            direction === arrowHover ? "hover" : ""
+          }`}
+          src={DownArrow}
+          alt="DownArrow"
+        />
       </div>
     );
   };
-  const PrevArrow = ({ className, style, onClick }) => {
-    return (
-      <div
-        className={className}
-        onClick={onClick}
-        style={{ transform: "rotate(90deg)", backgroundColor: " #0000000 0%," }}
-      >
-        <img src={DownArrow} alt="DownArrow" />
-      </div>
-    );
-  };
+
   const [imageIndex, setImageIndex] = useState(0);
 
   const carouselSettings = {
@@ -45,8 +48,8 @@ const ProjectConstructor = ({
     centerMode: true,
     centerPadding: 0,
     dots: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <Arrow direction="next" />,
+    prevArrow: <Arrow direction="prev" />,
     beforeChange: (current, next) => setImageIndex(next),
   };
 
@@ -55,7 +58,7 @@ const ProjectConstructor = ({
       <BannerSection position={bannerPosition}>
         {/* Carousel */}
         <Carousel>
-          <Slider {...carouselSettings}>
+          <Slider {...carouselSettings} className="SliderContainer">
             {images.map((img, i) => {
               return (
                 <div
@@ -84,9 +87,7 @@ const ProjectConstructor = ({
         <SubTitle>{subTitle}</SubTitle>
         <Paragraph>
           {paragraph.map((para) => {
-            {
-              return <p> {para}</p>;
-            }
+            return <p> {para}</p>;
           })}
         </Paragraph>
         <ProjectLinks>
@@ -102,70 +103,57 @@ export default ProjectConstructor;
 const ProjectContainer = styled.div`
   ${(props) =>
     props.position === "right" ? `flex-direction: row-reverse;` : null}
+
+  padding: 2em 2.5em 8em 2.5em;
   .ProjectIcon {
     width: 2em;
     text-align: center;
   }
-
   .ProjectImage {
     object-fit: cover;
   }
-
-  padding: 2em 2.5em 8em 2.5em;
-
   @media screen and (min-width: 768px) {
     padding: 0em 2.5em 17em 2.5em;
   }
   @media screen and (min-width: 1024px) {
     display: flex;
     justify-content: center;
-    padding-bottom: 15em;
+    align-items: center;
+    padding-bottom: 18em;
     width: 95vw;
   }
 `;
 
 const BannerSection = styled.div`
   padding-bottom: 2em;
+
   img {
-    display: block;
+    width: 100%;
+    max-width: 160px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
-    max-width: 600px;
+  }
+  @media screen and (min-width: 1024px) {
+    max-width: 40%;
+    img {
+      width: 100%;
+      max-width: 190px;
+    }
+  }
+  @media screen and (min-width: 2560px) {
+    img {
+      max-width: 500px;
+    }
   }
 
   ${(props) =>
     props.position === "left"
       ? `
           @media screen and (min-width: 1024px) {
-            width: 55%;
-            max-width: 500px;
-
-            img {
-              width: 100%;
-            }
+            padding-bottom: 0em;
+            padding-top: 3em;
+            padding-left: 1em;
           }
-          @media screen and (min-width: 2560px) {
-            max-width: 700px;
-          }
-        `
-      : props.position === "right"
-      ? `
-
-      @media screen and (min-width: 1024px) {
-        width: 55%;
-        max-width: 500px;
-    
-        img {
-          margin-left: 0px;
-          margin-right: 0px;
-          width: 100%;
-          max-width: none;
-        }
-      }
-      @media screen and (min-width: 2560px) {
-        max-width: 700px;
-      }
         `
       : null}
 
@@ -173,22 +161,37 @@ const BannerSection = styled.div`
     width: 100%;
   }
 `;
+
 const Carousel = styled.div`
-  svg {
+  margin-right: auto;
+  margin-left: auto;
+  width: 90vw;
+  max-width: 700px;
+  height: 20em;
+  padding-bottom: 3em;
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 800px;
+    height: 20em;
+    padding-bottom: 3em;
   }
 `;
+
 const ProjectTech = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1.5em 1em 0em 1em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
   @media screen and (min-width: 500px) {
     justify-content: space-evenly;
     padding: 1.5em 1em 0em 1em;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
   }
 `;
+
 const ProjectTechIcon = styled.div`
   display: flex;
   width: 3em;
@@ -202,43 +205,37 @@ const TechLable = styled.div`
 `;
 
 const InformationSection = styled.div`
+  padding-top: 1em;
+  padding-bottom: 2em;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: 1024px) {
+    max-width: 700px;
+    padding-top: 3em;
+    width: 45%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  @media screen and (min-width: 2560px) {
+    max-width: 1000px;
+  }
   ${(props) =>
     props.position === "left"
       ? `
-          padding-top: 1em;
-          padding-bottom: 2em;
           @media screen and (min-width: 1024px) {
-            max-width: 600px;
-
-            padding-top: 3em;
-            padding-left: 3em;
-            padding-right: 1em;
-
-            width: 45%;
-
-          }
-          @media screen and (min-width: 2560px) {
-            max-width: 1000px;
-            padding-right: 3em;
+            display:grid;
+            justify-self:center;
+            padding-left: 5em;
+            padding-right: 0em;
           }
         `
       : props.position === "right"
       ? `
-      padding-top: 1em;
-      padding-bottom: 2em;
-      @media screen and (min-width: 1024px) {
-        max-width: 600px;
-    
-        padding-top: 3em;
-        padding-left: 3em;
-        padding-right: 0em;
-    
-        width: 50%;
-        
-      }
-      @media screen and (min-width: 2560px) {
-        max-width: 1000px;
-      }
+          @media screen and (min-width: 1024px) {
+            padding-left: 0em;
+            padding-right: 5em;
+          }
         `
       : null}
 `;

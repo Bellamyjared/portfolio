@@ -53,7 +53,6 @@ const Projects = () => {
           ]}
           title="Grocery List"
           subTitle="Mobile Appication"
-          // these descriptions need more detail, and creativity that my brain just cant do right now so, please fix at a later date.
           paragraph={[
             `This is an ongoing passion project inspired by my wife. She needed a portable and easy to use grocery application. 
           So I decided to put my skills to use and custom-built a simple, sleek, and user friendly mobile app.`,
