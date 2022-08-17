@@ -103,6 +103,23 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .buttonLink{
+    display: grid;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    width: 8em;
+    height: 2.4em;
+    color: white;
+    background-color: #031f4b;
+    border-radius: 20px;
+    border : none;
+    @media screen and (min-width: 2560px){
+      font-size: 25px;
+      border-radius: 50px;
+    }
+  }
+
   .invertSVG {
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
       brightness(103%) contrast(103%);

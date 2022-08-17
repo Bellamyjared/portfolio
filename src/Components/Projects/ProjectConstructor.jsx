@@ -11,6 +11,7 @@ const ProjectConstructor = ({
   title,
   subTitle,
   paragraph,
+  buttonText,
   buttonLink,
 }) => {
   const [arrowHover, setArrowHover] = useState("");
@@ -90,7 +91,16 @@ const ProjectConstructor = ({
           })}
         </Paragraph>
         <ProjectLinks>
-          <button>{buttonLink}</button>
+          {buttonLink.map((link, i) => (
+            <a
+              className="buttonLink"
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {buttonText[i]}
+            </a>
+          ))}
         </ProjectLinks>
       </InformationSection>
     </ProjectContainer>
@@ -253,6 +263,6 @@ const Paragraph = styled.div`
 `;
 const ProjectLinks = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   padding-top: 2em;
 `;

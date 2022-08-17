@@ -64,7 +64,11 @@ const Projects = () => {
             connection and operations between the front and back end. MongoDB's effortless scaling and flexibility made it the 
             perfect choice for the database.`,
           ]}
-          buttonLink="Live"
+          buttonText={["GitHub", "Live"]}
+          buttonLink={[
+            "https://github.com/Bellamyjared/grocery_app",
+            "https://play.google.com/store/apps/details?id=com.jaredbellamy.groceryapp",
+          ]}
         />
         <ProjectConstructor
           bannerPosition="right"
@@ -86,7 +90,8 @@ const Projects = () => {
             was to fulfill a local business' request for a customizable, affordable, and low latency solution for 
             monitoring their hardware.`,
           ]}
-          buttonLink="Live"
+          buttonText={["GitHub"]}
+          buttonLink={["https://github.com/Bellamyjared/CryptoMonitor"]}
         />
       </div>
     </ProjectContainer>
