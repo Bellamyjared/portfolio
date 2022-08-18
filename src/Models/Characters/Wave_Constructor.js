@@ -11,16 +11,12 @@ export default function Wave_Constructor({
   floorPlane,
   spawnCharacter,
 }) {
-  const FIRST_WAVE_POSITION = [
-    [-40, 0, 34],
-    [-40, 0, 34],
-    [-40, 0, 34],
-  ];
+  const FIRST_WAVE_POSITION = [[-40, 0, 34]];
   const DOOR_POSITIONS = [
-    [12.8, 0.32, 0], // head cart
+    // [12.8, 0.32, 0], // head cart
     [7.4, 0.32, 0], //Ldoor 1 cab
     [3.4, 0.32, 0], //Rdoor 1 cab
-    [-1.5, 0.32, 0], //Ldoor 2 cab
+    // [-1.5, 0.32, 0], //Ldoor 2 cab
     [-5.5, 0.32, 0], //Rdoor 2 cab
     [-10.7, 0.32, 0], // end cart
   ];

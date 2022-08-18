@@ -15,13 +15,13 @@ export default function ScrollContainer() {
   const w = 0.7;
   const gap = 0.15;
   const urls = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  const { width } = useThree((state) => state.viewport);
+  const { width, height } = useThree((state) => state.viewport);
   const xW = w + gap;
 
   return (
     <>
       <GlobalStyle HasUserScrolled={HasUserScrolled} />
-      <ScrollControls damping={10} pages={8} distance={1}>
+      <ScrollControls damping={10} pages={9.5} distance={1}>
         {/* <Minimap urls={urls} position={[0, 35, 20]} scale={3} /> */}
         <Scroll>
           <Scene setHasUserScrolled={setHasUserScrolled} />
