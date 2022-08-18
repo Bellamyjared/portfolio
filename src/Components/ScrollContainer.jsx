@@ -21,7 +21,7 @@ export default function ScrollContainer() {
   return (
     <>
       <GlobalStyle HasUserScrolled={HasUserScrolled} />
-      <ScrollControls damping={10} pages={9.5} distance={1}>
+      <ScrollControls damping={10} pages={13} distance={1}>
         {/* <Minimap urls={urls} position={[0, 35, 20]} scale={3} /> */}
         <Scroll>
           <Scene setHasUserScrolled={setHasUserScrolled} />
